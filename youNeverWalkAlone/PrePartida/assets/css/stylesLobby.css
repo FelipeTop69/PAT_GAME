@@ -1,0 +1,42 @@
+.boton-informacion {
+    all: unset; /* Elimina todos los estilos predeterminados */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 55px;
+    height: 55px;
+    border: 3px solid var(--verde-claro);
+    border-radius: 15px;
+    background: linear-gradient(to right, 
+    color-mix(in srgb, var(--verde-opaco) 60%, transparent) 20%,
+    color-mix(in srgb, var(--azul-oscuro) 70%, transparent) 75%
+    );
+    box-shadow: inset 8px 8px 8px 0 color-mix(in srgb, var(--color-negro) 20%, transparent),
+    inset 8px 8px 8px 0 color-mix(in srgb, var(--color-negro) 20%, transparent),
+    inset 0 4px 4px 0 color-mix(in srgb, var(--color-negro) 20%, transparent),
+    inset 20px 5px 100px 0 color-mix(in srgb, var(--color-negro) 20%, transparent);
+    transform: rotate(45deg);
+    cursor: pointer;
+}
+.boton-informacion:hover {
+    background: linear-gradient(to right, 
+    color-mix(in srgb, var(--verde-opaco) 70%, transparent) 20%,
+    color-mix(in srgb, var(--azul-oscuro) 80%, transparent) 75%
+    );
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+.boton-informacion .icono-informacion {
+    transform: rotate(-45deg);
+    width: 45px;
+    height: 45px;
+}
+
+/* Breakpoints */
+@media screen and (max-width: 576px) {
+
+    
+}
+
+@media screen and (max-width: 376px) {
+    
+}

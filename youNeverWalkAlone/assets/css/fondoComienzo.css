@@ -1,0 +1,16 @@
+body{
+    background-image: url("../img/Fondos/FPComienzo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    
+}
+
+@media (max-width: 425px) {
+    body{
+
+        background-image: url("../img/Fondos/FCComienzo.png");
+        
+    }
+}

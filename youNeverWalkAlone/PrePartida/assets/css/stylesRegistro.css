@@ -1,0 +1,249 @@
+.contendor-carta {
+    height: 100%;
+}
+
+input,
+button {
+    border: none;
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.carta {
+    position: relative;
+    width: 500px;
+    padding: 4rem ;
+    border: 5px solid var(--verde-claro);
+    border-radius: 15px;
+    background: linear-gradient(135deg,
+            color-mix(in srgb, var(--azul-oscuro) 40%, transparent),
+            color-mix(in srgb, var(--verde-opaco) 55%, transparent));
+    /*Esto me permite cambiar la opacidad de la variable cuando se utiliza rgb */
+    box-shadow: 0 4px 30px rgb(68, 255, 219, 70%);
+    backdrop-filter: blur(12px);
+}
+
+.imagen-carta {
+    width: 110px
+}
+
+.titulo-carta {
+    text-align: center;
+    font-family: var(--body-font);
+    font-style: var(--font-style-uno);
+    font-weight: var(--font-weight-extraBold);
+    color: var(--color-blanco);
+    margin-bottom: 2rem;
+    text-shadow: 0px 4px 4px color-mix(in srgb, var(--color-negro) 70%, transparent);
+}
+
+.contenido-carta,
+.campo-carta {
+    display: grid;
+}
+
+.contenido-carta {
+    row-gap: 3rem;
+    margin-bottom: 2rem;
+}
+
+.campo-carta {
+    position: relative;
+    width: 100%;
+}
+
+/* Estilos del Input */
+
+.campo-carta input {
+    padding: 10px;
+    border: 2px solid color-mix(in srgb, var(--color-negro) 60%, transparent);
+    background-color: rgb(255, 255, 255, 40%);
+    border-radius: 5px;
+    outline: none;
+    font-family: var(--body-font);
+    font-style: var(--font-style-uno);
+    font-weight: var(--font-weight-Bold);
+    color: var(--color-blanco);
+    transition: 0.8s;
+}
+
+.campo-carta input:hover {
+
+    border: 2px solid var(--color-negro);
+
+}
+
+/* Estilos del label */
+
+.contenido-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.campo-carta label {
+    position: absolute;
+    left: 0;
+    top: 10px;
+    padding-left: 10px;
+    font-size: 1em;
+    font-weight: 600;
+    /* color: color-mix(in srgb, var(--color-negro) 100%, transparent); */
+    ;
+    transition: 0.5s;
+}
+
+
+.campo-carta label .texto-label-campo {
+    margin-right: 6px;
+    font-family: var(--body-font);
+    font-style: var(--font-style-uno);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-negro);
+}
+
+.icono-label{
+    width: 24px;
+    height: 24px;
+    color: color-mix(in srgb, var(--color-negro) 70%, transparent);
+}
+
+
+
+/* Estilos aplicados al label y al input con las pseudoclases */
+.campo-carta input:valid,
+.campo-carta input:focus {
+
+    border: 2px solid var(--color-negro);
+    background-color: color-mix(in srgb, var(--verde-claro) 18%, transparent);
+    border-radius: 12px;
+}
+
+.campo-carta input:valid~label,
+.campo-carta input:focus~label {
+    display: flex;
+    align-items: center;
+    color: black;
+    transform: translateX(10px) translateY(-22px);
+    font-size: 15px;
+    background-color: color-mix(in srgb, var(--azul-oscuro) 90%, transparent);
+    border-radius: 5px;
+    width: auto;
+}
+
+
+
+/* Estilos aplicados al texto y al icono del label despues de ser activado */
+.campo-carta input:valid~label .texto-label-campo,
+.campo-carta input:focus~label .texto-label-campo {
+    margin-right: 4px;
+    color: var(--color-negro);
+    font-weight: bold;
+}
+
+.campo-carta input:valid~label .contenedor-icono,
+.campo-carta input:focus~label .contenedor-icono {
+    /* Transición suave */
+    transition: transform 0.5s linear ;
+    margin-right: 5px;
+}
+
+.campo-carta input:valid~label .icono-label,
+.campo-carta input:focus~label .icono-label {
+    color: var(--color-negro);
+}
+
+/* Estilos del boton de ingreso */
+.boton-carta {
+    width: 146px;
+    height: 80px;
+    /* padding: 1.3rem; */
+    border-radius: 33px;
+    background-color: var(--azul-oscuro-x2);
+    cursor: pointer;
+    box-shadow: 0 0 10px 1px var(--verde-oscuro);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.boton-carta::before {
+    content: "";
+    position: absolute;
+    width: 155px;
+    height: 155px;
+    background-image: conic-gradient(var(--verde-claro) 20deg, transparent 120deg);
+    animation: recorrido 2.5s linear infinite;
+}
+
+@keyframes recorrido {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.boton-carta::after {
+    content: "";
+    position: absolute;
+    width: 139px;
+    height: 73px;
+    background-color: var(--azul-oscuro-x2);
+    border-radius: 33px;
+    box-shadow: inset 16px 14px 20px rgba(5, 15, 8, 0.397);
+}
+
+.texto-boton {
+    font-family: var(--body-font);
+    font-style: var(--font-style-uno);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-blanco);
+    letter-spacing: 1px;
+    z-index: 2;
+    background-color: transparent;
+    text-shadow: 5px 5px 5px var(--color-negro);
+}
+
+/* Animacion para que el label suba */
+/* .input-carta:focus+.label-carta {
+    top: -12px;
+    
+} */
+
+/* Para que el label se mantenga en la parte superior cuando se este escribiendo */
+/* .input-carta:not(:placeholder-shown)+.label-carta {
+    top: -12px;
+} */
+
+/* BREAKPOINTS O MEDIA QUERY */
+@media screen and (max-width: 576px) {
+    .carta {
+        width: 320px;
+        padding: 2.5rem 1.5rem;
+        border-radius: 1rem;
+    }
+
+    .titulo-carta {
+        margin-top: 2rem;
+        font-size: 2.25rem;
+    }
+}
+
+@media screen and (max-width: 376px) {
+    .carta {
+        width: auto;
+        padding: 2.5rem 1.5rem;
+        border-radius: 30px;
+    }
+
+    .titulo-carta {
+        font-size: 2rem;
+    }
+}

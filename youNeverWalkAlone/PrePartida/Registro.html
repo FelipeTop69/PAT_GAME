@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Icono -->
+    <link rel="icon" href="../assets/img/Logos/Logo Principal.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/Logos/Logo Secundario.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/Logos/Logo Secundario.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/Logos/Logo Secundario.png">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../Bootstrap/css/bootstrap.min.css">
+    <!-- Estilos -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/fondoContenido.css">
+    <link rel="stylesheet" href="assets/css/stylesRegistro.css">
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css">
+    <title>PAT GAME</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="contenedor-up border border-2 position-absolute">
+            <button id="boton-volver" type="button" class="boton-volver" onclick="window.location.href='Comienzo.html'">
+                    
+            </button>
+        </div>
+        <div class="contendor-carta border border-2 d-grid justify-content-center align-items-center">
+            <form action="" class="carta" onsubmit="return validarCampos()">
+                <img class="imagen-carta top-0 start-50 translate-middle position-absolute" src="../assets/img/Logos/Logo Secundario.png" alt="">
+                <h1 class="titulo-carta">REGISTRO</h1>
+                <div class="contenido-carta">
+                    <div class="campo-carta">
+                        <input type="number" name="documentoIdentidad" id="txtDocumentoIdentidad" required>
+                        <label for="txtDocumentoIdentidad" >
+                            <div class="contenido-label">
+                                <span class="texto-label-campo">N° identifiación</span>
+                                <div id="contenedorIconoIdentificacion" class="contenedor-icono d-flex justify-content-center align-items-center">
+                                    
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="campo-carta">
+                        <input type="text" name="gamerTag"  id="txtGamerTag" required>
+                        <label for="txtGamerTag" >
+                            <div class="contenido-label">
+                                <span class="texto-label-campo">Gamer Tag</span>
+                                <div id="contenedorIconoControl" class="contenedor-icono d-flex justify-content-center align-items-center">
+                                    
+                                </div>
+                            </div>
+                            
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="boton-carta position-absolute top-100 start-50 translate-middle"><span class="texto-boton">INGRESAR</span></button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../Bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/mainRegistro.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

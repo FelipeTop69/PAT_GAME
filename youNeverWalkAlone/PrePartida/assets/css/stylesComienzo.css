@@ -1,0 +1,49 @@
+.titulo{
+    margin-left: 12px;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+button{
+    background-image: url("../img/Recursos/Boton Inicio.png");
+    background-color: transparent;
+    background-size: cover;
+    border: none;
+    width: 230px;
+    height: 230px;
+    margin-top: 100px;
+    margin-left: 12px;
+    cursor: pointer;
+    animation-name: bounce;
+    animation-duration: 1.8s;
+    animation-iteration-count: infinite;
+}
+
+
+
+@keyframes bounce {
+    0% {transform: translateY(0);}
+    50% {transform: translateY(-30px);}
+    100% {transform: translateY(0);}
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* Para Dispositivos Small */
+@media (max-width: 425px) {
+    
+}
+
+@media (max-width: 376px) {
+    .titulo{
+        width: 100%;
+        margin-left: 2px;
+    }
+    
+    button{
+        margin-left: 12px;
+        width: 190px;
+        height: 190px;
+    }
+}

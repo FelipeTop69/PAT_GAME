@@ -1,0 +1,159 @@
+/* Fuentes Imporadas */
+/* Registro */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+/* Fuentes Instaladas */
+@font-face {
+    font-family: 'Nunito';
+    src: url('../Fonts/Nunito/static/Nunito-BlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Nunito';
+    src: url('../Fonts/Nunito/static/Nunito-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Nunito';
+    src: url('../Fonts/Nunito/static/Nunito-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Nunito';
+    src: url('../Fonts/Nunito/static/Nunito-BoldItalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Nunito';
+    src: url('../Fonts/Nunito/static/Nunito-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Nunito';
+    src: url('../Fonts/Nunito/static/Nunito-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Nunito';
+    src: url('../Fonts/Nunito/static/Nunito-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+
+
+/* VARIABLES CSS */
+:root {
+    /* Colores */
+        /* Principales */
+        --verde-oscuro-x3: rgb(30, 142, 8);
+        --verde-oscuro-x2: rgb(87, 178, 67);
+        --verde-oscuro: rgb(25, 217, 44);
+        --verde-opaco: rgb(145, 195, 134);
+        --verde-claro: rgb(130, 255, 103);
+        --azul-oscuro-x2: rgb(8, 39, 43);
+        --azul-oscuro: rgb(57, 182, 184);
+        --azul-claro: rgb(68, 255, 219);
+        /* Texto */
+    --color-blanco: rgb(255, 255, 255);
+    --color-negro: rgb(0, 0, 0);
+    --verde-borde: rgb(90, 155, 76);
+    --azul-borde-oscuro: rgb(25, 81, 86);
+    --azul-borde-claro: rgb(76, 150, 155);
+        /* Texto Dificultades */
+    --color-dificultad-dificil: rgb(190, 8, 19);
+    --color-dificultad-medio: rgb(184, 171, 57);
+    --verde-dificultad-facil: rgb(60, 184, 57);
+
+
+    /* Fuente */
+    --body-font: "Nunito", sans-serif;
+    --font-style-uno: normal;
+    --font-style-dos: italic;
+    --font-weight-black: 900;
+    --font-weight-extraBold: 800;
+    --font-weight-bold: 700;
+    --font-weight-semiBold: 600;
+    --font-weight-medium: 500;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    padding: 25px 25px 0 25px;
+    height: 100vh;
+}
+
+/* Componentes Generales */
+.contenedor-up {
+    padding: 5px ;
+}
+
+.boton-volver {
+    all: unset; /* Elimina todos los estilos predeterminados */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 55px;
+    height: 55px;
+    border: 3px solid var(--azul-claro);
+    border-radius: 15px;
+    background: linear-gradient(to right, 
+    color-mix(in srgb, var(--azul-oscuro) 60%, transparent) 20%,
+    color-mix(in srgb, var(--verde-opaco) 70%, transparent) 75%
+    );
+    box-shadow: inset 8px 8px 8px 0 color-mix(in srgb, var(--color-negro) 20%, transparent),
+    inset 8px 8px 8px 0 color-mix(in srgb, var(--color-negro) 20%, transparent),
+    inset 0 4px 4px 0 color-mix(in srgb, var(--color-negro) 20%, transparent),
+    inset 20px 5px 100px 0 color-mix(in srgb, var(--color-negro) 20%, transparent);
+    transform: rotate(45deg);
+    cursor: pointer;
+}
+.boton-volver:hover {
+    background: linear-gradient(to right, 
+    color-mix(in srgb, var(--azul-oscuro) 70%, transparent) 20%,
+    color-mix(in srgb, var(--verde-opaco) 80%, transparent) 75%
+    );
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+.boton-volver .icono-volver {
+    transform: rotate(-45deg);
+    width: 45px;
+    height: 45px;
+}
+
+/* Breakpoints */
+@media screen and (max-width: 576px) {
+
+    .boton-volver{
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+    }
+
+    .boton-volver .icono-volver {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+@media screen and (max-width: 376px) {
+    
+}

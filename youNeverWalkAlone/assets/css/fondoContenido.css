@@ -1,0 +1,16 @@
+body{
+    background-image: url("../img/Fondos/FPContenido 3.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    
+}
+
+@media (max-width: 425px) {
+    body{
+
+        background-image: url("../img/Fondos/FCContenido.jpg");
+        
+    }
+}
