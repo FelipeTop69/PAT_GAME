@@ -32,7 +32,10 @@ button{
 /*=============== BREAKPOINTS ===============*/
 /* Para Dispositivos Small */
 @media (max-width: 425px) {
-    
+    .titulo{
+        width: 100%;
+        margin-left: 2px;
+    }
 }
 
 @media (max-width: 376px) {

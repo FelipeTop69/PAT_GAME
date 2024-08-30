@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-
-    // Insertar Iconos
+    // Inyectar Iconos
     const iconoIdentifiacion =
         `
         <svg class="icono-label" xmlns="http://www.w3.org/2000/svg"    
@@ -18,7 +17,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 <path d="M14 16h2" /><path d="M14 12h4" />
         </svg>
         `
-    
 
     const iconoControl =
         `
@@ -42,9 +40,6 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('#contenedorIconoControl').innerHTML = iconoControl;
 
 });
-
-
-
 
 // Validacion de campos
 function camposCompletos() {
