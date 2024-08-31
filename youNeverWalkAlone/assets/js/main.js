@@ -12,5 +12,5 @@ document.addEventListener('DOMContentLoaded', function () {
             20.9567 23.9744H9.02559H8.02559V24.9744V29.3491Z" />
         </svg>
         `
-    document.querySelector('#boton-volver').innerHTML = iconoVolver;
+    document.querySelector('.boton-volver').innerHTML = iconoVolver;
 })
