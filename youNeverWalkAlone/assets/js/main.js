@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // Boton Volver
     // Inyectar Iconos
     const iconoVolver =
         `
@@ -13,4 +14,103 @@ document.addEventListener('DOMContentLoaded', function () {
         </svg>
         `
     document.querySelector('.boton-volver').innerHTML = iconoVolver;
+
+    // Implementacion de la alerta en el boton volver
+    // Configuracion de la alerta
+    const alertConfig = {
+        title: '¡ADVERTENCIA!',
+        // text: ,
+        html: '<span>¿Estas seguro que deseas salir?</span>',
+        icon: 'warning',
+        confirmButtonText: 'Si, Salir',
+        footer: '<span class="span-alerta">No podras volver a la partida</span>',
+        // width: 
+        // padding:
+        // background:
+        // grow:
+        backdrop: true,
+        // timer: 6000,
+        timerProgressBar: true,
+        // toast:
+        // position:
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        allowEnterKey: false,
+        stopKeydownPropagation: true,
+
+        // input:
+        // inputPlaceholder:
+        // inputValue:
+        // inputOptions:
+
+        // Perzonalizar la clase segun mis clases
+        customClass: {
+            container: 'container-alerta',
+            popup: 'popup-alerta',
+            header: 'header-alerta',
+            title: 'title-alerta',
+            closeButton: 'closeButton-alerta',
+            icon: 'icon-alerta',
+            htmlContainer: 'htmlContainer-alerta',
+            actions: 'actions-alerta',
+            confirmButton: 'botones-alerta',
+            cancelButton: 'botones-alerta',
+            loader: 'loader-alerta',
+            footer: 'footer-alerta',
+            timerProgressBar: 'timerProgressBar-alerta',
+        },
+
+        // Animaciones para la clase
+        showClass: {
+            popup: `
+				animate__animated
+				animate__fadeInUpBig
+				animate__faster
+				`
+        },
+
+        hideClass: {
+            popup: `
+				animate__animated
+				animate__fadeOutDownBig
+				`
+        },
+
+
+        showConfirmButton: true,
+        confirmButtonColor: '#d33',
+        // confirmButtonAriaLabel:
+
+        showCancelButton: true,
+        cancelButtonText: 'No, Volver',
+        cancelButtonColor: '#3085d6'
+        // cancelButtonAriaLabel:
+
+        // buttonsStyling:
+        // showCloseButton:
+        // closeButtonAriaLabel:
+
+
+        // imageUrl:
+        // imageWidth:
+        // imageHeight:
+        // imageAlt:
+    };
+
+    // Funcion para mostrar la alerta
+    const llamarAlerta = () => {
+        Swal.fire(alertConfig)
+            .then((result) => {
+                if (result.isConfirmed) {
+                    document.body.style.opacity = 0;
+                    setTimeout(() => {
+                        window.location.href = '../../../youNeverWalkAlone/PrePartida/Comienzo.html';
+                    }, 500);
+                }
+            });
+    };
+
+    // Medotdo para invocar alerta
+    const botonAlerta = document.querySelector('#botonVolver');
+    botonAlerta.addEventListener('click', llamarAlerta);
 })
