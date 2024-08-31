@@ -26,14 +26,35 @@
 
 <body>
 
-    <div class="container">
-        <div class="contenedor-up border border-2 d-flex justify-content-between">
+    <div class="container d-flex flex-column vh-100">
+        <div class="contenedor-up border border-2 d-flex justify-content-between align-items-center">
             <button id="botonVolver" type="button" class="boton-volver">
                 
             </button>
             <button type="button" class="boton-informacion">
                 
             </button>
+        </div>
+        <div class="contenedor-carta border border-2 d-flex flex-grow-1 flex-column align-items-center p-2">
+            <div class="border marco-titulo p-2">
+                <h1 class="m-0">BIENVENIDO</h1>
+            </div>
+            <div class=" border carta d-flex flex-column align-items-center">
+                <div class=" border carta-texto p-2">
+                    <h3 class="m-0">En Espera...</h3>
+                </div>
+                <div id="cartaJugadores" class="border carta-jugadores">
+                    <div class="border jugador">
+                        <div class="avatar-jugador p-1">
+                            <img class="img-fluid" src="assets/img/Recursos/Avatar Limpio.png" alt="avatar">
+                        </div>
+                        <div class="nombre-jugador p-1">
+                            Jugador
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </div>
     </div>
 

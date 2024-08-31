@@ -36,12 +36,90 @@ body{
     height: 45px;
 }
 
+.contenedor-carta{
+    color: white;
+}
+
+.carta{
+    width: 90%;
+    padding: 8px 28px
+}
+
+.carta-jugadores{
+    width: 100%;
+    height: 346px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 22px 30px;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    scrollbar-width: none; /* Firefox: Oculta la barra de desplazamiento */
+    -ms-overflow-style: none; /* Internet Explorer y Edge: Oculta la barra */
+}
+
+/* Para WebKit (Chrome, Safari) */
+.carta-jugadores::-webkit-scrollbar {
+    display: no; /* Oculta la barra de desplazamiento en WebKit */
+}
+
+.jugador{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.avatar-jugador{
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 2px #000000; /*Borde Internos*/
+    width: 80px;
+    height: 80px;
+}
+
+.nombre-jugador{
+    max-width: 100px;
+    white-space: nowrap; /* Evita que el texto se envuelva a la siguiente línea */
+    overflow: hidden; /* Oculta el desbordamiento del texto */
+    text-overflow: ellipsis; /* Añade puntos suspensivos al final del texto */
+    text-align: center;
+}
+
 /* Breakpoints */
 @media screen and (max-width: 576px) {
 
+    .boton-informacion {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+    }
+
+    .boton-informacion .icono-informacion {
+        width: 36px;
+        height: 36px;
+    }
+
+    .carta-texto{
+        margin-bottom: 50px;
+    }
+
+    .carta-jugadores{
+        height: 450px;
+    }
     
 }
 
 @media screen and (max-width: 376px) {
-    
+    .boton-informacion {
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+    }
+
+    .boton-informacion .icono-informacion {
+        width: 26px;
+        height: 26px;
+    }
 }
