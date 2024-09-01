@@ -57,7 +57,7 @@ body {
 }
 
 .marco-titulo-carta {
-    margin: 8px;
+    margin: -20px 8px 20px 8px;
     border-radius: 12px;
     border: 2px solid var(--color-blanco);
     box-shadow: 0px 0px 25px 5px var(--azul-oscuro);
@@ -162,7 +162,7 @@ body {
     }
 
     .marco-titulo-carta{
-        margin-bottom: 40px;
+        margin: 8px 8px 40px 8px;
     }
 
     .carta{
@@ -202,6 +202,10 @@ body {
         height: 40px ;
     }
 
+    .marco-titulo-carta{
+        margin-top: 40px;
+    }
+
     .carta-texto{
         font-size: 20px;
     }
@@ -234,12 +238,16 @@ body {
         height: 30px ;
     }
 
+    .marco-titulo-carta{
+        margin-top: 10px;
+    }
+
     .carta-texto{
         font-size: 20px;
     }
 
     .carta-jugadores{
-        height: 400px;
+        height: 370px;
     }
 }
 
@@ -251,7 +259,7 @@ body {
     }
 
     .carta-jugadores{
-        height: 300px;
+        height: 290px;
     }
 
     .jugador {

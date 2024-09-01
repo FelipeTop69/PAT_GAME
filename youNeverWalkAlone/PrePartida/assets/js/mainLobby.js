@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     <img class="img-fluid" src="assets/img/Recursos/Avatar Limpio.png" alt="avatar">
                 </div>
                 <div class="nombre-jugador">
-                    Jugador ${iteracion}
+                    Jugador ${iteracion + 1}
                 </div>
             </div>`
         }
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
         
     }
     
-    inyectarJugadores(24)
+    inyectarJugadores(25)
 
 })
 
