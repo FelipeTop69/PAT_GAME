@@ -31,7 +31,7 @@
             <button id="botonVolver" type="button" class="boton-volver">
                 
             </button>
-            <button id="botonInformacion" type="button" class="boton-informacion">
+            <button id="botonInformacion" type="button" class="boton-informacion" data-bs-toggle="modal" data-bs-target="#modalInformacion">
                 
             </button>
         </div>
@@ -44,20 +44,38 @@
                     <h3 class="carta-texto m-0">En Espera...</h3>
                 </div>
                 <div id="cartaJugadores" class="carta-jugadores">
-                    <div class="jugador">
-                        <div class="avatar-jugador p-1">
-                            <img class="img-fluid" src="assets/img/Recursos/Avatar Limpio.png" alt="avatar">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalInformacion" data-bs-backdrop="static" tabindex="-1" aria-labelledby="modalInformacionLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div  class="modal-content contenedor-modal">
+                <div class="encabezado-modal modal-header ">
+                    <h3 class="modal-title titulo-modal" id="modalInformacionLabel">¿COMO  JUGAR?</h3>
+                </div>
+                <div class="modal-body">
+                    <video id="contenedorVideo" class="contenedor-video" width="100%" height="auto" controls >
+                        <source src="../assets/img/Fondos/Intro.mp4" type="video/mp4">
+                        Tu navegador no soporta el elemento de video.
+                    </video>
+                </div>
+                <div class="final-modal modal-footer">
+                    <button type="button" class="boton-modal" data-bs-dismiss="modal">
+                        <div class="fondo-boton-modal">
+                            
                         </div>
-                        <div class="nombre-jugador">
-                            Jugador #42
-                        </div>
-                    </div>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 
     <script src="../Bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../Bootstrap/js/bootstrap.js"></script>
     <script src="../assets/Libreria/SweetAlert2/js/sweetalert2.min.js"></script>
     <script src="assets/js/mainLobby.js"></script>
     <script src="../assets/js/main.js"></script>
