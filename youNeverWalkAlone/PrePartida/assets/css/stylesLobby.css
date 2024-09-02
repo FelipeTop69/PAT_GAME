@@ -57,6 +57,10 @@ body {
 }
 
 /* Modal Informacion */
+.modal-backdrop {
+    --bs-backdrop-opacity: 0.8;
+}
+
 .contenedor-modal {
     background: linear-gradient(102deg, color-mix(in srgb, var(--azul-oscuro) 28%, transparent) 21.7%, color-mix(in srgb, var(--verde-opaco) 39%, transparent) 79.94%);
     backdrop-filter: blur(20px);
@@ -258,7 +262,7 @@ body {
     font-weight: var(--font-weight-bold);
 }
 
-/* Breakpoints */
+/*=============== BREAKPOINTS ===============*/
 
 /* Pantalla celular grande*/
 @media screen and (max-width: 576px) {
@@ -319,8 +323,12 @@ body {
         margin-top: 40px;
     }
 
+    .titulo-carta {
+        font-size: 40px;
+    }
+
     .carta-texto {
-        font-size: 20px;
+        font-size: 25px;
     }
 
     .jugador {
@@ -353,6 +361,10 @@ body {
 
     .marco-titulo-carta {
         margin-top: 10px;
+    }
+
+    .titulo-carta {
+        font-size: 20px;
     }
 
     .carta-texto {

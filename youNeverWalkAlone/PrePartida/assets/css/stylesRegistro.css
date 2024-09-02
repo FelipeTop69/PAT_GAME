@@ -222,7 +222,9 @@ a {
     top: -12px;
 } */
 
-/* BREAKPOINTS O MEDIA QUERY */
+/*=============== BREAKPOINTS ===============*/
+
+/* Pantalla celular grande*/
 @media screen and (max-width: 576px) {
     .carta {
         width: 320px;
@@ -236,6 +238,21 @@ a {
     }
 }
 
+/* Pantalla celular mediana */
+@media screen and   (max-width: 476px){
+    .carta {
+        width: 320px;
+        border-radius: 1rem;
+    }
+
+    .titulo-carta {
+        margin-top: 2rem;
+        font-size: 2.25rem;
+    }
+    
+}
+
+/* Pantalla celular pequeña*/
 @media screen and (max-width: 376px) {
     .carta {
         width: auto;
@@ -246,4 +263,38 @@ a {
     .titulo-carta {
         font-size: 2rem;
     }
+    
+}
+
+/* Pantalla celular minion*/
+@media screen and (max-width: 320px) {
+
+    .carta {
+        width: auto;
+        padding: 2.5rem 1.5rem;
+        border-radius: 30px;
+    }
+
+    .imagen-carta {
+        width: 90px
+    }
+
+    .titulo-carta {
+        font-size: 2rem;
+    }
+
+    .boton-carta {
+        width: 130px;
+        height: 64px;
+        /* padding: 1.3rem; */
+        border-radius: 20px;
+        background-color: var(--azul-oscuro-x2);
+        cursor: pointer;
+        box-shadow: 0 0 10px 1px var(--verde-oscuro);
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
 }
