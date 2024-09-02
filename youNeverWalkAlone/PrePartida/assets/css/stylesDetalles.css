@@ -1,0 +1,57 @@
+.container {
+    padding: 25px;
+}
+
+.contenedor-detalles{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem
+    
+}
+
+.marco-titulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* flex-direction: column; */
+    border-radius: 12px;
+    border: 2px solid #FFF;
+    background: rgba(217, 217, 217, 0.00);
+    box-shadow: 0px 0px 25px 5px #39B6B8;
+    color: var(--color-blanco);
+}
+
+.marco-titulo h1{
+    font-size: 25px;
+    margin: 3px;
+    letter-spacing: 8px;
+}
+
+/*=============== BREAKPOINTS ===============*/
+
+/* Pantalla celular grande*/
+@media screen and (max-width: 576px) {}
+
+/* Pantalla celular mediana */
+@media screen and (max-width: 476px) {
+    .marco-titulo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 12px;
+        border: 2px solid #FFF;
+        background: rgba(217, 217, 217, 0.00);
+        box-shadow: 0px 0px 25px 5px #39B6B8;
+        color: var(--color-blanco);
+    }
+}
+
+/* Pantalla celular pequeña*/
+@media screen and (max-width: 376px) {}
+
+/* Pantalla celular minion*/
+@media screen and (max-width: 320px) {}
