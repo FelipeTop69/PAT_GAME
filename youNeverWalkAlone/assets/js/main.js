@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // background:
         // grow:
         backdrop: true,
-        // timer: 6000,
+        timer: 6000,
         timerProgressBar: true,
         // toast:
         // position:
