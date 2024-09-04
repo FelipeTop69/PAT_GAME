@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Dashboard - SB Admin</title>
-        <!-- <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" /> -->
+        <title>Ingreso a Partida</title>
         <link href="css/styles.css" rel="stylesheet" />
         <link rel="styles_pat" href="./assets/css/styles_pat.css">
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -56,7 +55,7 @@
                             </a>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                
+                                Pages
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
@@ -85,10 +84,14 @@
                                     </div>
                                 </nav>
                             </div>
-                            <div class="sb-sidenav-menu-heading">Segimiento Partida</div>
-                            <a class="nav-link" href="segui_partida.html">
+                            <div class="sb-sidenav-menu-heading">Seguimiento Partida</div>
+                            <a class="nav-link" href="charts.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Charts
+                            </a>
+                            <a class="nav-link" href="tables.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Tables
                             </a>
                         </div>
                     </div>
@@ -98,118 +101,64 @@
                     </div>
                 </nav>
             </div>
-            <!--PAGINA DE CONFIGURACION-->
+            <!--Ingreso a la partida con codigo QR y control de ingreso-->
             <div id="layoutSidenav_content">
                 <main>
-                    
-                    <div class="container-fluid px-4 ">
-                        <!-- SELECCION DE CATEGORIA-->
-                        <h1 class="mt-4">CATEGORIA</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">SELECCION</li>
-                        </ol>
-                        <div class="row justify-content-evenly">
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card" style="width: 18rem;">
-                                    <img src="./assets/img/numerico.png" class="card-img-top" alt="...">
-                                    <div class="form-check form-switch">
-                                        <h5 class="card-title mt-4">Numerico</h5> 
-                                        <input class="form-check-input  " type="checkbox" role="switch " id="flexSwitchCheckDefault">
+                    <div class="container-fluid px-4">
+                        <!--Mostrar codigo QR-->
+                        <div class="row min-vh-100">
+                            <!-- Sección izquierda: Título y código QR -->
+                            <div class="col-md-6 d-flex flex-column align-items-center justify-content-center posicion-qr">
+                                <div class="text-center">
+                                    <h1 class="textQR">Escanea y Regístrate</h1>
+                                    <h6 class="textQR color-text">¡Escanea el código QR para ingresar a la partida!</h6>
+                                    <div class="qr d-flex justify-content-center">
+                                        <div class="cartaQr">
+                                            <img src="./assets/img/Qr-temporal-PAT.svg" class="tamanoQr" alt="Código QR">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card" style="width: 18rem;">
-                                    <img src="./assets/img/frutas.png" class="card-img-top" alt="...">
-                                    <div class="form-check form-switch">
-                                        <h5 class="card-title mt-4">Frutas</h5> 
-                                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                                    </div>
+                            <!-- Sección derecha: Tabla de usuarios con título -->
+                            <div class="col-md-6 d-flex flex-column align-items-center justify-content-center">
+                                <div class="table-container">
+                                    <h1 class="table-title" style="text-align: center;">Jugadores Listos</h1>
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Nombre</th>
+                                                <th>Email</th>
+                                                <th>Fecha de Registro</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- Aquí puedes agregar filas dinámicamente con los datos de los usuarios -->
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Juan Pérez</td>
+                                                <td>juan.perez@example.com</td>
+                                                <td>01/09/2024</td>
+                                            </tr>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Juan Pérez</td>
+                                                <td>juan.perez@example.com</td>
+                                                <td>01/09/2024</td>
+                                            </tr>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Juan Pérez</td>
+                                                <td>juan.perez@example.com</td>
+                                                <td>01/09/2024</td>
+                                            </tr>
+                                            
+                                            <!-- Más filas -->
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card" style="width: 18rem;">
-                                    <img src="./assets/img/computo.png" class="card-img-top" alt="...">
-                                    <div class=" form-check form-switch">
-                                        <h5 class="card-title mt-4">Computo</h5> 
-                                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-
-                        <!-- SELECCION DE TIEMPO DE CATEGORIA-->
-                        <!-- TIEMPO PREDETERMINADO-->
-                        <h1 class="mt-4">SELECCION DE TIEMPO</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Tiempo predeterminado</li>
-                        </ol>
-                        <div class="row justify-content-evenly">
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card" style="width: 18rem;">
-                                    <img src="./assets/img/niños.jpg" class="card-img-top" alt="...">
-                                    <div class="form-check form-switch">
-                                        <h5 class="card-title mt-4">Niños</h5> 
-                                        <input class="form-check-input  " type="checkbox" role="switch " id="flexSwitchCheckDefault">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card" style="width: 18rem;">
-                                    <img src="./assets/img/adolecente.avif" class="card-img-top" alt="...">
-                                    <div class="form-check form-switch">
-                                        <h5 class="card-title mt-4">Adolecentes</h5> 
-                                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card" style="width: 18rem;">
-                                    <img src="./assets/img/adultos.avif" class="card-img-top" alt="...">
-                                    <div class=" form-check form-switch">
-                                        <h5 class="card-title mt-4">Adultos</h5> 
-                                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br>
                         <!-- TIEMPO MODIFICABLE-->
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Tiempo Modificable</li>
-                        </ol>
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <i class="fas fa-table me-1"></i>
-                                Tiempo configudo
-                            </div>
-                            <div class="container">
-                                <div class="periodo col-12 row">
-                                    <div class="col-12 row periodo-dividido">
-                                        <div class="celda col 4">
-                                            <div class="elemento">
-                                                <div class="nombre">hola</div>
-                                            </div>
-                                        </div>
-                                        <div class="celda col 4">
-                                            <div class="elemento">
-                                                <div class="nombre">hola</div>
-                                            </div>
-                                        </div>
-                                        
-                                        
-                                        <div class="celda col 4">
-                                            <div class="elemento">
-                                                <div class="nombre">hola</div>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </main>
                 <footer class="py-4 bg-light mt-auto">
