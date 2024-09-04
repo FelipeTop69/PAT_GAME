@@ -30,14 +30,24 @@ button{
 }
 
 /*=============== BREAKPOINTS ===============*/
-/* Para Dispositivos Small */
+
+/* Pantalla celular grande*/
+@media screen and (max-width: 576px) {
+    
+}
+
+/* Pantalla celular mediana */
 @media (max-width: 425px) {
     .titulo{
         width: 100%;
         margin-left: 2px;
     }
+    button{
+        margin-top: 40px;
+    }
 }
 
+/* Pantalla celular pequeña*/
 @media (max-width: 376px) {
     .titulo{
         width: 100%;
@@ -46,7 +56,17 @@ button{
     
     button{
         margin-left: 12px;
-        width: 190px;
-        height: 190px;
+        width: 170px;
+        height: 170px;
     }
+}
+
+/* Pantalla celular minion*/
+@media screen and (max-width: 320px) {
+
+    button{
+        width: 150px;
+        height: 150px;
+    }
+    
 }
