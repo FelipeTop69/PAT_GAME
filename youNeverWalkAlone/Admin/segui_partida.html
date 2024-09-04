@@ -50,10 +50,17 @@
                                 Juego
                             </a>
                             <div class="sb-sidenav-menu-heading">Prepartida</div>
-                            <a class="nav-link " href="condigoQR.html">
-                                <div class="sb-nav-link-icon"><svg  xmlns="http://www.w3.org/2000/svg"  width="18"  height="18"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-qrcode"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" /><path d="M7 17l0 .01" /><path d="M14 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" /><path d="M7 7l0 .01" /><path d="M4 14m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" /><path d="M17 7l0 .01" /><path d="M14 14l3 0" /><path d="M20 14l0 .01" /><path d="M14 14l0 3" /><path d="M14 20l3 0" /><path d="M17 17l3 0" /><path d="M20 17l0 3" /></svg></div>
-                                QR Partida
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Layouts
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="layout-static.html">Static Navigation</a>
+                                    <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
+                                </nav>
+                            </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                 
@@ -98,116 +105,62 @@
                     </div>
                 </nav>
             </div>
-            <!--PAGINA DE CONFIGURACION-->
             <div id="layoutSidenav_content">
                 <main>
-                    
-                    <div class="container-fluid px-4 ">
-                        <!-- SELECCION DE CATEGORIA-->
-                        <h1 class="mt-4">CATEGORIA</h1>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">RANKIG</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">SELECCION</li>
+                            <li class="breadcrumb-item active">JUGADORES</li>
                         </ol>
-                        <div class="row justify-content-evenly">
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card" style="width: 18rem;">
-                                    <img src="./assets/img/numerico.png" class="card-img-top" alt="...">
-                                    <div class="form-check form-switch">
-                                        <h5 class="card-title mt-4">Numerico</h5> 
-                                        <input class="form-check-input  " type="checkbox" role="switch " id="flexSwitchCheckDefault">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card" style="width: 18rem;">
-                                    <img src="./assets/img/frutas.png" class="card-img-top" alt="...">
-                                    <div class="form-check form-switch">
-                                        <h5 class="card-title mt-4">Frutas</h5> 
-                                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card" style="width: 18rem;">
-                                    <img src="./assets/img/computo.png" class="card-img-top" alt="...">
-                                    <div class=" form-check form-switch">
-                                        <h5 class="card-title mt-4">Computo</h5> 
-                                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-
-                        <!-- SELECCION DE TIEMPO DE CATEGORIA-->
-                        <!-- TIEMPO PREDETERMINADO-->
-                        <h1 class="mt-4">SELECCION DE TIEMPO</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Tiempo predeterminado</li>
-                        </ol>
-                        <div class="row justify-content-evenly">
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card" style="width: 18rem;">
-                                    <img src="./assets/img/niños.jpg" class="card-img-top" alt="...">
-                                    <div class="form-check form-switch">
-                                        <h5 class="card-title mt-4">Niños</h5> 
-                                        <input class="form-check-input  " type="checkbox" role="switch " id="flexSwitchCheckDefault">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card" style="width: 18rem;">
-                                    <img src="./assets/img/adolecente.avif" class="card-img-top" alt="...">
-                                    <div class="form-check form-switch">
-                                        <h5 class="card-title mt-4">Adolecentes</h5> 
-                                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card" style="width: 18rem;">
-                                    <img src="./assets/img/adultos.avif" class="card-img-top" alt="...">
-                                    <div class=" form-check form-switch">
-                                        <h5 class="card-title mt-4">Adultos</h5> 
-                                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-                        <!-- TIEMPO MODIFICABLE-->
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Tiempo Modificable</li>
-                        </ol>
+                        
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                Tiempo configudo
+                                PODEO
                             </div>
-                            <div class="container">
-                                <div class="periodo col-12 row">
-                                    <div class="col-12 row periodo-dividido">
-                                        <div class="celda col 4">
-                                            <div class="elemento">
-                                                <div class="nombre">hola</div>
-                                            </div>
-                                        </div>
-                                        <div class="celda col 4">
-                                            <div class="elemento">
-                                                <div class="nombre">hola</div>
-                                            </div>
-                                        </div>
-                                        
-                                        
-                                        <div class="celda col 4">
-                                            <div class="elemento">
-                                                <div class="nombre">hola</div>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple">
+                                    <thead>
+                                        <tr>
+                                            <th>Position</th>
+                                            <th>Name</th>
+                                            <th>Puntos</th>
+                                            <th>Identificacion</th>
+                                            <th>Categoria</th>
+                                           
+                                        </tr>
+                                    </thead>
                                     
-                                </div>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Andres</td>
+                                            <td>50110425</td>
+                                            <td>1111111111</td>
+                                            <td>computo</td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>david</td>
+                                            <td>26110425</td>
+                                            <td>1111111111</td>
+                                            <td>computo</td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>julian</td>
+                                            <td>12110425</td>
+                                            <td>1111111111</td>
+                                            <td>computo</td>
+                                            
+                                        </tr>
+                                        
+                                        
+                                       
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -228,9 +181,6 @@
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="assets/demo/chart-area-demo.js"></script>
-        <script src="assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
         <script src="js/datatables-simple-demo.js"></script>
     </body>
