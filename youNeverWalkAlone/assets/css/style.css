@@ -52,27 +52,34 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Nunito';
+    src: url('../Fonts/Nunito/static/Nunito-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+}
+
 
 
 /* VARIABLES CSS */
 :root {
     /* Colores */
-        /* Principales */
-        --verde-oscuro-x3: rgb(30, 142, 8);
-        --verde-oscuro-x2: rgb(87, 178, 67);
-        --verde-oscuro: rgb(25, 217, 44);
-        --verde-opaco: rgb(145, 195, 134);
-        --verde-claro: rgb(130, 255, 103);
-        --azul-oscuro-x2: rgb(8, 39, 43);
-        --azul-oscuro: rgb(57, 182, 184);
-        --azul-claro: rgb(68, 255, 219);
-        /* Texto */
+    /* Principales */
+    --verde-oscuro-x3: rgb(30, 142, 8);
+    --verde-oscuro-x2: rgb(87, 178, 67);
+    --verde-oscuro: rgb(25, 217, 44);
+    --verde-opaco: rgb(145, 195, 134);
+    --verde-claro: rgb(130, 255, 103);
+    --azul-oscuro-x2: rgb(8, 39, 43);
+    --azul-oscuro: rgb(57, 182, 184);
+    --azul-claro: rgb(68, 255, 219);
+    /* Texto */
     --color-blanco: rgb(255, 255, 255);
     --color-negro: rgb(0, 0, 0);
     --verde-borde: rgb(90, 155, 76);
     --azul-borde-oscuro: rgb(25, 81, 86);
     --azul-borde-claro: rgb(76, 150, 155);
-        /* Texto Dificultades */
+    /* Texto Dificultades */
     --color-dificultad-dificil: rgb(190, 8, 19);
     --color-dificultad-medio: rgb(184, 171, 57);
     --verde-dificultad-facil: rgb(60, 184, 57);
@@ -87,6 +94,7 @@
     --font-weight-bold: 700;
     --font-weight-semiBold: 600;
     --font-weight-medium: 500;
+    --font-weight-regular: 400;
 
 }
 
@@ -103,11 +111,13 @@
 
 /* Componentes Generales */
 .contenedor-up {
-    padding: 5px ;
+    padding: 5px 8px;
 }
 
+/* Boton Volver */
 .boton-volver {
-    all: unset; /* Elimina todos los estilos predeterminados */
+    all: unset;
+    /* Elimina todos los estilos predeterminados */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -115,34 +125,91 @@
     height: 55px;
     border: 3px solid var(--azul-claro);
     border-radius: 15px;
-    background: linear-gradient(to right, 
-    color-mix(in srgb, var(--azul-oscuro) 60%, transparent) 20%,
-    color-mix(in srgb, var(--verde-opaco) 70%, transparent) 75%
-    );
+    background: linear-gradient(to right,
+            color-mix(in srgb, var(--azul-oscuro) 60%, transparent) 20%,
+            color-mix(in srgb, var(--verde-opaco) 70%, transparent) 75%);
     box-shadow: inset 8px 8px 8px 0 color-mix(in srgb, var(--color-negro) 20%, transparent),
-    inset 8px 8px 8px 0 color-mix(in srgb, var(--color-negro) 20%, transparent),
-    inset 0 4px 4px 0 color-mix(in srgb, var(--color-negro) 20%, transparent),
-    inset 20px 5px 100px 0 color-mix(in srgb, var(--color-negro) 20%, transparent);
+        inset 8px 8px 8px 0 color-mix(in srgb, var(--color-negro) 20%, transparent),
+        inset 0 4px 4px 0 color-mix(in srgb, var(--color-negro) 20%, transparent),
+        inset 20px 5px 100px 0 color-mix(in srgb, var(--color-negro) 20%, transparent);
     transform: rotate(45deg);
     cursor: pointer;
 }
+
 .boton-volver:hover {
-    background: linear-gradient(to right, 
-    color-mix(in srgb, var(--azul-oscuro) 70%, transparent) 20%,
-    color-mix(in srgb, var(--verde-opaco) 80%, transparent) 75%
-    );
+    background: linear-gradient(to right,
+            color-mix(in srgb, var(--azul-oscuro) 70%, transparent) 20%,
+            color-mix(in srgb, var(--verde-opaco) 80%, transparent) 75%);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
+
 .boton-volver .icono-volver {
     transform: rotate(-45deg);
     width: 45px;
     height: 45px;
 }
 
-/* Breakpoints */
+/* Alerta del boton volver */
+.span-alerta {
+    font-weight: bold;
+    color: rgb(255, 0, 0);
+}
+
+.body-alerta {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Estilos del cuerpo de la alerta */
+/* .container-alerta {
+    border: 3px solid rgb(211, 0, 0) !important;
+} */
+
+/* .popup-alerta {
+    border: 3px solid rgb(23, 209, 16) !important;
+} */
+
+/* .title-alerta {
+    border: 1px solid rgb(252, 193, 2) !important;
+} */
+
+/* .icon-alerta {
+    border: 1px solid rgb(19, 122, 240) !important;
+} */
+
+/* .htmlContainer-alerta {
+    border: 1px solid rgb(238, 13, 80) !important;
+} */
+
+/* .actions-alerta {
+    border: 1px solid rgb(9, 5, 252) !important;
+} */
+
+.botones-alerta {
+    width: 112px;
+}
+
+/* .footer-alerta {
+    border: 1px solid rgb(255, 26, 244) !important;
+} */
+
+/* .loader-alerta {
+    border: 2px solid rgb(143, 98, 98) !important;
+} */
+
+.timerProgressBar-alerta {
+    height: 10px;
+    border-radius: 50px;
+    background-color: orange;
+}
+
+/*=============== BREAKPOINTS ===============*/
+
+/* Pantalla celular grande*/
 @media screen and (max-width: 576px) {
 
-    .boton-volver{
+    /* Boton Volver */
+    .boton-volver {
         width: 48px;
         height: 48px;
         border-radius: 12px;
@@ -152,8 +219,81 @@
         width: 36px;
         height: 36px;
     }
+
+    /* Alerta */
+    .popup-alerta {
+        width: 70%;
+    }
+
+    .title-alerta {
+        font-size: 1.5rem;
+    }
+
+    .icon-alerta {
+        width: 75px;
+        height: 75px;
+    }
+
+    .htmlContainer-alerta span {
+        font-size: 0.9rem;
+    }
+
+    .botones-alerta {
+        width: 100px;
+        font-size: 0.8rem;
+        font-weight: bold;
+    }
+
+    .footer-alerta span {
+        font-size: 1rem;
+    }
 }
 
+/* Pantalla celular mediana */
+@media screen and   (max-width: 476px){
+    .boton-volver {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        
+    }
+
+    .popup-alerta {
+        width: 80%;
+    }
+}
+
+/* Pantalla celular pequeña*/
 @media screen and (max-width: 376px) {
-    
+    /* Boton Volver */
+    .boton-volver {
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+    }
+
+    .boton-volver .icono-volver {
+        width: 26px;
+        height: 26px;
+    }
+
+    /* Alerta */
+    .htmlContainer-alerta span {
+        font-size: 0.8rem;
+    }
+
+    .botones-alerta {
+        width: 90px;
+        font-size: 0.7rem;
+        font-weight: bold;
+    }
+
+    .footer-alerta span {
+        font-size: 0.8rem;
+    }
+}
+
+/* Pantalla celular minion*/
+@media screen and (max-width: 320px) {
+
 }
