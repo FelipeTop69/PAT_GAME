@@ -1447,6 +1447,44 @@ progress {
     flex: 0 0 auto;
     width: 25%;
   }
+
+  .qr{
+    /* margin-top: 20px; */
+    display: flex;
+    justify-content: center;
+    /* background-color: #3ab3db; */
+    align-content: center;
+  }
+  .margen{
+    margin-top: 40px;
+  }
+
+  .cartaQr{
+    display: inline-block;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #3ab3db;
+    animation: levitar 2s infinite ease-in-out;
+  }
+  @keyframes levitar{
+    0%, 100%{
+      transform: translateY(0);
+    }
+    50%{
+      transform: translateY(-10px);
+    }
+  }
+
+  .table-container{
+    width: 100%;
+    padding: 0%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: flex-start 80% !important;
+  }
+
   .col-xl-4 {
     flex: 0 0 auto;
     width: 33.33333333%;
@@ -4292,6 +4330,14 @@ textarea.form-control-lg {
 .card-img-bottom {
   width: 286px;
   height: 250px;
+}
+
+.tamanoQr{
+  width: 386px;
+  height: 386px;
+  max-width: 100%;
+  align-content: center;
+  height: auto; 
 }
 
 .card-img,
@@ -7628,6 +7674,20 @@ textarea.form-control-lg {
   margin-top: 1.5rem !important;
 }
 
+.textQR{
+  text-align: center !important;
+}
+.color-text{
+  color: #6c757d;
+}
+
+.posicion-qr{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Alinea el contenido al principio del contenedor */
+  height: 100%; /
+}
 .mt-5 {
   margin-top: 3rem !important;
 }
