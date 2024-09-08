@@ -70,19 +70,20 @@
     --verde-oscuro: rgb(25, 217, 44);
     --verde-opaco: rgb(145, 195, 134);
     --verde-claro: rgb(130, 255, 103);
+    --verde:rgba(57, 184, 108);
     --azul-oscuro-x2: rgb(8, 39, 43);
     --azul-oscuro: rgb(57, 182, 184);
     --azul-claro: rgb(68, 255, 219);
     /* Texto */
     --color-blanco: rgb(255, 255, 255);
     --color-negro: rgb(0, 0, 0);
-    --verde-borde: rgb(90, 155, 76);
+    --verde-borde: rgb(87, 158, 69);
     --azul-borde-oscuro: rgb(25, 81, 86);
     --azul-borde-claro: rgb(76, 150, 155);
     /* Texto Dificultades */
+    --color-dificultad-facil: rgb(60, 184, 57);
+    --color-dificultad-media: rgb(184, 171, 57);
     --color-dificultad-dificil: rgb(190, 8, 19);
-    --color-dificultad-medio: rgb(184, 171, 57);
-    --verde-dificultad-facil: rgb(60, 184, 57);
 
 
     /* Fuente */

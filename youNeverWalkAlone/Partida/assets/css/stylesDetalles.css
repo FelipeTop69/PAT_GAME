@@ -20,10 +20,9 @@
     justify-content: center;
     align-items: center;
     border-radius: 12px;
-    border: 2px solid #FFF;
-    background: rgba(217, 217, 217, 0.00);
-    box-shadow:  0px 0px 18px 10px #39B6B8,
-                inset  0px 0px 18px 10px #39B6B8;
+    border: 2px solid var(--color-blanco);
+    box-shadow: 0px 0px 18px 10px var(--azul-oscuro),
+        inset 0px 0px 18px 10px var(--azul-oscuro);
 }
 
 .marco-titulo-detalles h1 {
@@ -31,12 +30,15 @@
     margin: 3px;
     letter-spacing: 7px;
     color: var(--color-blanco);
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 0px 0px #5A9B4C, 0px 4px 4px rgba(0, 0, 0, 0.25);
-    -webkit-text-stroke-width: 0.8px;
-    -webkit-text-stroke-color: #5A9B4C;
+    text-shadow: 0px 4px 4px color-mix(in srgb, var(--color-negro) 25%, transparent), 
+                0px 0px 0px var(--verde-borde), 
+                0px 4px 4px color-mix(in srgb, var(--color-negro) 25%, transparent);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--verde-borde);
     font-family: var(--body-font);
     font-style: var(--font-style-uno);
     font-weight: var(--font-weight-bold);
+    line-height: normal;
 }
 
 /* Cartas General*/
@@ -48,8 +50,14 @@
     align-items: center;
     gap: 20px;
     border-radius: 20px;
-    background: linear-gradient(102deg, rgba(57, 182, 184, 0.28) 21.7%, rgba(145, 195, 134, 0.39) 79.94%);
-    box-shadow: 0px 4px 20px 0px rgba(255, 255, 255, 0.20) inset, 0px 1px 2px 0px rgba(0, 0, 0, 0.80) inset, 0px 20px 40px 0px rgba(0, 0, 0, 0.25) inset, 0px -4px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px -40px 40px 0px rgba(0, 0, 0, 0.20) inset, 0px 4px 12px 0px rgba(255, 255, 255, 0.40) inset;
+    background: linear-gradient(102deg, color-mix(in srgb, var(--azul-oscuro) 28%, transparent) 21.7%, 
+                color-mix(in srgb, var(--verde-opaco) 39%, transparent) 79.94%);
+    box-shadow: 0px 4px 20px 0px rgba(255, 255, 255, 0.20) inset, 
+                0px 1px 2px 0px color-mix(in srgb, var(--color-negro) 80%, transparent) inset,
+                0px 20px 40px 0px color-mix(in srgb, var(--color-negro) 25%, transparent) inset,
+                0px -4px 4px 0px color-mix(in srgb, var(--color-negro) 25%, transparent) inset,
+                0px -40px 40px 0px color-mix(in srgb, var(--color-negro) 20%, transparent) inset,
+                0px 4px 12px 0px rgba(255, 255, 255, 0.40) inset;
     backdrop-filter: blur(20px);
 }
 
@@ -58,17 +66,26 @@
     width: 70%;
     padding: 12px;
     border-radius: 12px;
-    border: 2px solid #FFF;
-    background: rgba(57, 184, 108, 0.50);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 0px 25px 5px rgba(57, 184, 108, 0.50);
+    border: 2px solid var(--color-blanco);
+    background: color-mix(in srgb, var(--verde) 50%, transparent);
+    box-shadow: 0px 4px 4px 0px color-mix(in srgb, var(--color-negro) 25%, transparent), 
+                0px 0px 25px 5px color-mix(in srgb, var(--verde) 50%, transparent);
     backdrop-filter: blur(5px);
 }
 
 .marco-subtitulos h3 {
     font-size: 15px;
     margin: 3px;
-    letter-spacing: 8px;
+    letter-spacing: 6px;
     color: var(--color-blanco);
+    text-shadow: 0px 4px 4px color-mix(in srgb, var(--color-negro) 25%, transparent), 
+                0px 0px 25px var(--verde-borde);
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: var(--azul-borde-claro);
+    line-height: normal;
+    font-family: var(--body-font);
+    font-style: var(--font-style-uno);
+    font-weight: var(--font-weight-bold);
 }
 
 /* Carta Categoria */
@@ -88,14 +105,22 @@
     width: 85px;
     height: 85px;
     border-radius: 20px;
-    border: 3px outset #435BB2;
-    box-shadow: 0px 4px 20px 0px rgba(255, 255, 255, 0.20) inset, 0px -4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    border: 3px inset var(--azul-claro);
+    box-shadow: 0px 4px 20px 0px rgba(255, 255, 255, 0.20) inset, 
+                0px -4px 4px 0px color-mix(in srgb, var(--color-negro) 25%, transparent) inset;
 }
 
 .contenedor-elementos h5 {
     font-size: 15px;
     margin: 3px;
     color: var(--color-blanco);
+    -webkit-text-stroke-width: 1.4px;
+    -webkit-text-stroke-color: color-mix(in srgb, var(--azul-oscuro) 50%, transparent);
+    font-family: var(--body-font);
+    font-style: var(--font-style-dos);
+    font-weight: var(--font-weight-black);
+    line-height: normal;
+    letter-spacing: 1px;
 }
 
 /* Carta Dificultades */
@@ -115,8 +140,9 @@
     width: 70px;
     height: 70px;
     border-radius: 15px;
-    border: 3px outset #435BB2;
-    box-shadow: 0px 4px 20px 0px rgba(255, 255, 255, 0.20) inset, 0px -4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    border: 3px outset var(--verde-oscuro);
+    box-shadow: 0px 4px 20px 0px rgba(255, 255, 255, 0.20) inset, 
+                0px -4px 4px 0px color-mix(in srgb, var(--color-negro) 25%, transparent) inset;
     transform: rotate(45deg);
 }
 
@@ -130,7 +156,28 @@
     margin: 3px;
     color: var(--color-blanco);
     letter-spacing: 1px;
+    -webkit-text-stroke-width: 1.2px;
+    font-family: var(--body-font);
+    font-style: var(--font-style-dos);
+    font-weight: var(--font-weight-black);
+    line-height: normal;
 }
+
+.dificultad-facil {
+    -webkit-text-stroke-color: color-mix(in srgb, var(--color-dificultad-facil) 70%, transparent);
+}
+
+.dificultad-media {
+    -webkit-text-stroke-color: color-mix(in srgb, var(--color-dificultad-media) 70%, transparent);
+
+}
+
+.dificultad-dificil {
+    -webkit-text-stroke-color: color-mix(in srgb, var(--color-dificultad-dificil) 70%, transparent);
+}
+
+
+
 
 
 /*=============== BREAKPOINTS ===============*/
@@ -144,7 +191,7 @@
         gap: 7rem;
     }
 
-    .contenedor-titulo{
+    .contenedor-titulo {
         margin-top: -40px;
     }
 
@@ -154,7 +201,7 @@
     }
 
     .marco-titulo-detalles h1 {
-        font-size: 18px;
+        font-size: 20px;
         margin: 3px;
         letter-spacing: 8px;
         color: var(--color-blanco);
@@ -170,7 +217,9 @@
     }
 
     .marco-subtitulos h3 {
-        font-size: 13px;
+        font-size: 15px;
+        -webkit-text-stroke-width: 0.8px;
+
     }
 
     .contenedor-elementos h5 {
@@ -190,7 +239,7 @@
         gap: 4rem;
     }
 
-    .contenedor-titulo{
+    .contenedor-titulo {
         margin-top: 0;
     }
 
@@ -233,10 +282,9 @@
 @media screen and (max-width: 320px) {
     .contenedor-detalles {
         gap: 2rem;
-        border: 2px solid orange;
     }
 
-    .contenedor-titulo{
+    .contenedor-titulo {
         margin-top: 0;
     }
 
@@ -260,7 +308,7 @@
         width: 260px;
     }
 
-    
+
     .marco-subtitulos h3 {
         font-size: 10px;
     }
