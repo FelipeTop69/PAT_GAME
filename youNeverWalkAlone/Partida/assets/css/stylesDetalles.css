@@ -149,6 +149,7 @@
 .marco-imagen-dificultad img {
     height: auto;
     transform: rotate(-45deg);
+    width: 52px;
 }
 
 .contenedor-elementos-dificultad h5 {
@@ -231,6 +232,10 @@
         height: 65px;
     }
 
+    .marco-imagen-dificultad img {
+        width: 46px;
+    }
+
 }
 
 /* Pantalla celular pequeña*/
@@ -276,6 +281,11 @@
         width: 65px;
         height: 65px;
     }
+
+    .marco-imagen-dificultad img {
+        width: 42px;
+    }
+
 }
 
 /* Pantalla celular minion*/
@@ -325,5 +335,9 @@
     .marco-imagen-dificultad {
         width: 60px;
         height: 60px;
+    }
+
+    .marco-imagen-dificultad img {
+        width: 38px;
     }
 }

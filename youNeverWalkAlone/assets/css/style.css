@@ -77,6 +77,7 @@
     /* Texto */
     --color-blanco: rgb(255, 255, 255);
     --color-negro: rgb(0, 0, 0);
+    --color-rojo: rgb(159, 39, 39);
     --verde-borde: rgb(87, 158, 69);
     --azul-borde-oscuro: rgb(25, 81, 86);
     --azul-borde-claro: rgb(76, 150, 155);
