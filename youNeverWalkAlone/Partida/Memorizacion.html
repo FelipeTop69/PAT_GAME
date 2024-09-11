@@ -17,7 +17,7 @@
     <!-- Estilos -->
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/fondoContenido.css">
-    <link rel="stylesheet" href="assets/css/stylesDificultad.css">
+    <link rel="stylesheet" href="assets/css/stylesMemorizacion.css">
 
     <!-- Iconos -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css">
@@ -26,39 +26,48 @@
 
 <body>
 
-    <div class="container d-flex justify-content-center align-items-center vh-100">
-        <div class="carta-dificultad p-3 animate__animated animate__fadeInUpBig">
-            <div class="titulo-dificultad position-absolute top-0 start-50 translate-middle">
-                <div class="marco-titulo px-2 py-3 ">
-                    <h1>ATENTO</h1>
-                </div>
+    <div class="container d-flex flex-column">
+        <div class="contenedor-up  d-flex justify-content-between align-items-center">
+            <button id="botonVolver" type="button" class="boton-volver"></button>
+
+            <div class="indicador-ronda p-2">
+                <h4>Ronda #1</h4>
             </div>
-            <div class="contenido-dificultad">
-                <div class="contenedor-titulo p-2">
-                    <h4>DIFICULTAD</h4>
-                </div>
-                <div class="contenedor-dificultad p-2">
-                    <div class="marco-imagen-dificultad p-1">
-                        <img class="img-fluid" src="../assets/img/Recursos/Dificultad Facil.png" alt="imagenDificultad">
-                    </div>
-                </div>
-                <div class="contenedor-descripcion p-2">
-                    <div class="contenedor-numero-elementos p-1">
-                        <h4 class="palabra">ELEMENTOS</h4>
-                        <h4 class="numero">4</h4>
-                    </div>
-                    <div class="contenedor-tiempo p-1">
-                        <h4 class="palabra">TIEMPO MEMORIZACION</h4>
-                        <h4 class="numero">8s</h4>
-                    </div>
-                </div>
+
+            <div class="indicador-dificultad" >
+                <img class="img-fluid" src="../assets/img/Recursos/Dificultad Facil.png" alt="dificultad">
             </div>
         </div>
+
+        <div class="contenedor-elementos ">
+            <div class="contenedor-titulo">
+                <div class="marco-titulo p-2">
+                    <h1>MEMORIZA</h1>
+                </div>
+            </div>
+            <div class="contenedor-carta">
+                <div class="cuerpo-carta">
+                    <div class="contenedor-elementos-memorizar">
+                        <div class="elemento">4</div>
+                        <div class="elemento">5</div>
+                        <div class="elemento">8</div>
+                        <div class="elemento">9</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contenedor-barra-progreso">
+                <div class="barra-progreso" data-label="#" data-max="100"></div>
+            </div>
+            
+        </div>
     </div>
+
     <script src="../Bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../Bootstrap/js/bootstrap.js"></script>
     <script src="../assets/Libreria/SweetAlert2/js/sweetalert2.min.js"></script>
-    <script src="assets/js/mainDificultad.js"></script>
+    <script src="assets/js/mainMemorizacion.js"></script>
     <script src="../assets/js/main.js"></script>
 </body>
+
 </html>
