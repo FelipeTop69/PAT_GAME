@@ -1,76 +1,99 @@
-body{
-    background-color: rgb(0, 0, 0);
-    color: white;
-    font-family: arial, sans-serif;
-    text-align: center;
+/* ESTILOS DE PAT GAME */
+/* AUTORES: -Juan David Artunduaga Gomez 
+            -Esteban Palomar Murcia
+            -Ruben Felipe Tovar Aviles*/
+/* FECHA: 11 DE SEPTIEMBRE DE 2024 */
+
+/* CLASE DEL ICONO DE PAT DE LA BARRA DE LA PAGUINA */
+.icono{
+    width: 40px !important; 
+    height: 40px !important;
+    left: 1030px !important;
+    display: flex;
+    justify-content: end; 
 }
-.texto{
-    color: black;
+/* FIN CLASE DEL ICONO DE PAT DE LA BARRA DE LA PAGUINA */
+
+/* CLASE DE LA TABLA DE SEGUIMIENTO DE JUGADORES */
+/* EL TAMAÑO DE LA TABLA */
+.contenedor-tabla{
+    height: 445px;
+    overflow-y: scroll;
+    display: block;
+    scrollbar-width: none;
 }
 
+/*Mantener encabezado estatico sin scroll*/
+.tabla thead{
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.table thead th {
+    position: -webkit-sticky; /* Para navegadores webkit */
+    position: sticky;
+    top: 0;
+    background: #c0c2c3;
+    z-index: 1;
+}
+/* FIN EL TAMAÑO DE LA TABLA */
 
-.container{
-  display: flex;
-  justify-content: center;
-}
-#principal{
-    margin-top: 50px;
-    margin-bottom: 50px;
-    padding: 20px;
-}
-.periodo{
+/* ESTILO DE LA DISTACIA DEL PODIA */
+.fila-puestos{
+    padding: 3px !important;
+    margin: 0 !important;
     display: flex;
-    flex-wrap: nowrap;
-    height: 60px;
-}
-.periodo-dividio{
-    display: flex;
-    flex-wrap: nowrap;
-}
-
-.celda{
-    display: flex;
-    flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-    padding: 0;
+}
+/* FIN ESTILO DE LA DISTACIA DEL PODIA */
+
+
+.campos-puestos{
+    align-content: center;
+}
+
+/* TAMAÑO DE LA MEDALLA DEL GANADOR */
+.medalla{
+    position: relative;
+    background-image: url('../img/Ganador.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    width: 50px;
+    height: 50px;
+}
+
+.medalla h6{
+    position: absolute;
     margin: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 700;
 }
-.elemento{
-    width: 50px;
-    height: 55px;
-    border: 1px solid rgb(0, 0, 0);
+/* FIN TAMAÑO DE LA MEDALLA DEL GANADOR */
+
+/* TAMAÑO DE LAS MEDALLAS DE 2 Y 3 PUESTO */
+.puesto{
+    position: relative;
+    background-image: url('../img/Puestos.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    width: 40px;
+    height: 40px;
+}
+
+.puesto h6{
+    position: absolute;
     margin: 0;
-    display: flex;
-    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 700;
 }
-
-.recuadro{
-    width: 50px;
-    height: 18px;
-}
-
-.nombre{
-    text-align: center;
-    font-size: 9px;
-    margin-top: 1px;
-    width: 50px;
-    height: 20px;
-}
-
-.nombre-clasificasion{
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
-}
-.recuadro-cuadro{
-    width: 190px;
-    height: 20px;
-    margin:  0;
-    padding: 0;
-    display:flex;
-    justify-content: left;
-    align-items: center;
-}
-
-
-
+/* FIN TAMAÑO DE LAS MEDALLAS DE 2 Y 3 PUESTO */
+/* FIN  CLASE DE LA TABLA DE SEGUIMIENTO DE JUGADORES */
 

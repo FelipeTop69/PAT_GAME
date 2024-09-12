@@ -7,8 +7,12 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Ingreso a Partida</title>
+        <!-- incono de la pagina -->
+        <link rel="icon" href="../assets/img/Logos/Logo Principal.ico" type="image/x-icon">
+        <!-- -------------------- -->
         <link href="css/styles.css" rel="stylesheet" />
-        <link rel="styles_pat" href="./assets/css/styles_pat.css">
+        <link rel="stylesheet" href="assets/css/qr.css">
+        <link rel="stylesheet" href="css/styles.css">
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
@@ -17,23 +21,11 @@
             <a class="navbar-brand ps-3" href="index.html">PAT</a>
             <!-- BOTON DE LA BARRA DESPLEGABLE -->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
-            <!-- Navbar Search-->
-            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-                <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
-                </div>
-            </form>
-            <!-- ICONO DE USUARIO-->
+            <!-- Logo de PAT en la barra-->
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Settings</a></li>
-                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                        <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="#!">Logout</a></li>
-                    </ul>
+                <li class="nav-item dropdown ">
+                    <img  class="icono position-relative" src="../assets/img/Logos/Logo Principal.ico" alt="">
+                
                 </li>
             </ul>
         </nav>
@@ -45,53 +37,18 @@
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">CONFIGURACION</div>
                             <a class="nav-link" href="index.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                <div class="sb-nav-link-icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAA1RJREFUSEu1VU1oXFUU/r73ZkqpkbpQWyrNYEprwEWDK0EwbhQU6h8EFB1y75tkYpeCf10Igwt/caMbO753z2ticCFaRLFLRdt1RBRRsaY2glUr4i9mZt4xdzIJ85sM2L7Ne++ee893zne+cy5xmR9eZv8YCsBaew+B5wGMtwL6MlN9LE3TD7YLcCiAyNofAezpcnbWiRz43wAzxtyWkR96R06kGVBkrfo3g2AySZKPtwLpyaBkzAMaBNNQ/YLALgWOthwsO5HrWwDLAArNdfJVADWqjkM1TdL0rXbADoCSMfcqebIrolUFqgBeFJHz3lYuFkdrudzjBMoAdnQ4VL07SdP3NtY2Acrl8u56rfY1gGsVeC4AxpS8g43GkeTEiTP9aLDWTpI8qaqnAJwjcAzAhX9XVw8tLi7+3kxw42AURfdB9R0AS07kpnaHxpi9ARCDvLm1fkaBGRH5uX1fZO2nAA6zLYtNgFKpdKtm2UceVNfqWSgUZiuVStZ0Ti4B2NuVxXkGwUSSJL9OTU2FV46MvL6WhQWQgZx0zp3uyMD/lKydU+C1VvEOOOfOlqxdUOBhAu8yDD0FyBqNlwHcqcBxEXnEGHMwID29UGBWROKeGmxSZe0/AHaOFgr5SqVSj6z9AcC+Wr2+Z2Fh4aemiqJoDKrfKvC9iBSMMTsD0p/7y4mMDFRRS4JNgFw+v6NardYia1cAXBeE4f44jv13U0X1XO4cgBUnsn9ogHaKgjAci+P4u8gYAWk8RUo+6cGp+qwCd0E1cWk6004RVMsuTX091pne+GhKDvAdSwJvhPn8XLVa/dtaew2Bz718u4q8Um80Jubn5y8Wi8Ur8mF4HORDA4s8Y8z9Gfl2P5lGUbQPqusyVc0InGYYzsVxfKEdtGTtkgITChwRkfc7MjDGXBWQX3U0GnCLAk+IyJsDGu1BAi+B/ARZtgzyKd9oIA865/7olWn/UeH3nQL5qHPOBwBjzDjJVwjc3g3c3mQ9AM1eaBt2IH+B6tNrc2gXgItO5OqW0n4DsBvAnyCf8U041LDrR8Ps9PSNjSDwRe4Z15nqoTRNv+l3bmCjDeDaD7LRLtvm+L4UAP7KfAHADevi5mdZlh27ZFfmVhFuZxvqTt7OyVb2/wC+t2UoWWS00QAAAABJRU5ErkJggg=="/></div>
                                 Juego
                             </a>
-                            <div class="sb-sidenav-menu-heading">Prepartida</div>
+                            <div class="sb-sidenav-menu-heading">PREPARTIDA</div>
                             <a class="nav-link " href="condigoQR.html">
                                 <div class="sb-nav-link-icon"><svg  xmlns="http://www.w3.org/2000/svg"  width="18"  height="18"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-qrcode"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" /><path d="M7 17l0 .01" /><path d="M14 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" /><path d="M7 7l0 .01" /><path d="M4 14m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" /><path d="M17 7l0 .01" /><path d="M14 14l3 0" /><path d="M20 14l0 .01" /><path d="M14 14l0 3" /><path d="M14 20l3 0" /><path d="M17 17l3 0" /><path d="M20 17l0 3" /></svg></div>
                                 QR Partida
                             </a>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Pages
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                        Authentication
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="login.html">Login</a>
-                                            <a class="nav-link" href="register.html">Register</a>
-                                            <a class="nav-link" href="password.html">Forgot Password</a>
-                                        </nav>
-                                    </div>
-                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                                        Error
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="401.html">401 Page</a>
-                                            <a class="nav-link" href="404.html">404 Page</a>
-                                            <a class="nav-link" href="500.html">500 Page</a>
-                                        </nav>
-                                    </div>
-                                </nav>
-                            </div>
-                            <div class="sb-sidenav-menu-heading">Seguimiento Partida</div>
-                            <a class="nav-link" href="charts.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Charts
-                            </a>
-                            <a class="nav-link" href="tables.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Tables
+                            <div class="sb-sidenav-menu-heading">SEGUIMIENTO PARTIDA</div>
+                            <a class="nav-link" href="seguir_partida.html">
+                                <div class="sb-nav-link-icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAqxJREFUSEvVlU9oXFUUh7+TvIEiWQiRBNEGhKBuBLtqKQouQkRIs2wQkvjunWcCxuCmxG6U6NISF4YovHTueSYIha4kXRQlguBCXYkKhXYRJgtriQZEpTS+mWNfzKTiTDIToaBndXmcc777O3/uE+6zyX3Oz38X4L0/DyyFEH49rAqHKvBxPIvIDDAAVA0WVPWic25EYE3gm508f2Z1dfX3gyAHApxzbwq81RQoMjcwMLBQrVaDwEuIvB9CKC7R0loCvPdPYHYN+AORiSiKPqvt7AybyIdA3WAwz/PtUhRtAj1RqdSXpukvrQitAXH8MiIpkAbV6Uag934FswkDr6rqnVsDRsRstJJlxblZcKuPzrlEYBmzSsiyZB/gXLjbC4dIEkKoeOc+BYYMzqjqlY4B5XJ50Or160WJxGyc7u51M3sBswwwRJ4EtjDbAHrrZo9nWXajY0Dh6L1/A7O3/xlk8LqqvuO9fw+zWeCroHrqSE3+W81n9pLsjqmYXahkWSg796rB4p7fbwZzqvrBkRQctjyTk5OPRF1dY4icBU4WvgaXVXXsr+M9a5qiOI6PdcO0wWuIPNYEMtsQkXcf6OlZXlxcvOO9n9zrjSByLoSwcCDAOXdc4BOgaGI7+z4qlYbTNL3pnBsXWAVu57Xa8ZWVlZ8bwfsK5ufno81q9WvgBPCDwXSpVPoyTdOfGs5TU1MP5Xl+GrNiR/qBz4Pqc7tD4dxV4PnGEDQBynH8ioksAbfqZk9nWfbjQRKSJHm0Xqt9BzwoZi9WsuyS934Us4/v7sUXQfXZJoB37lvgKUTGQwgftauPb2y7yHoIYShJkv56rVZcaiuo9rUC3AaO1c0ePuz2jcC9fhVv0XZQ7W27B9653fEKqh3/hDqJ6ThZu5K1VfBvE7SL+/8r+BNPTRkobNM5EQAAAABJRU5ErkJggg=="/></i></div>
+                                Jugadores
                             </a>
                         </div>
                     </div>
@@ -104,7 +61,7 @@
             <!--Ingreso a la partida con codigo QR y control de ingreso-->
             <div id="layoutSidenav_content">
                 <main>
-                    <div class="container-fluid px-4">
+                    <div class="container-fluid p-4">
                         <!--Mostrar codigo QR-->
                         <div class="row min-vh-100">
                             <!-- Sección izquierda: Título y código QR -->
@@ -121,60 +78,85 @@
                             </div>
                             <!-- Sección derecha: Tabla de usuarios con título -->
                             <div class="col-md-6 d-flex flex-column align-items-center justify-content-center">
+                                <h1 class="textQR">Jugadores en Lobby</h1>
                                 <div class="table-container">
-                                    <h1 class="table-title" style="text-align: center;">Jugadores Listos</h1>
-                                    <table class="table table-striped">
+                                    <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>#</th>
-                                                <th>Nombre</th>
-                                                <th>Email</th>
-                                                <th>Fecha de Registro</th>
+                                                <th scope="col">N.O</th>
+                                                <th scope="col">Jugador</th>
+                                                <th scope="col">Avatar</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <!-- Aquí puedes agregar filas dinámicamente con los datos de los usuarios -->
                                             <tr>
-                                                <td>1</td>
-                                                <td>Juan Pérez</td>
-                                                <td>juan.perez@example.com</td>
-                                                <td>01/09/2024</td>
+                                                <th>1</th>
+                                                <td>Fabian</td>
+                                                <td><img class="img-fluid avatar" src="../PrePartida/assets/img/Recursos/Avatar Limpio.png" alt="avatar"></td>
                                             </tr>
                                             <tr>
-                                                <td>1</td>
-                                                <td>Juan Pérez</td>
-                                                <td>juan.perez@example.com</td>
-                                                <td>01/09/2024</td>
+                                                <th>2</th>
+                                                <td>Santiago</td>
+                                                <td><img class="img-fluid avatar" src="../PrePartida/assets/img/Recursos/Avatar Limpio.png" alt="avatar"></td>
+                                                
                                             </tr>
                                             <tr>
-                                                <td>1</td>
-                                                <td>Juan Pérez</td>
-                                                <td>juan.perez@example.com</td>
-                                                <td>01/09/2024</td>
+                                                <th>3</th>
+                                                <td>Andres</td>
+                                                <td><img class="img-fluid avatar" src="../PrePartida/assets/img/Recursos/Avatar Limpio.png" alt="avatar"></td>
                                             </tr>
-                                            
-                                            <!-- Más filas -->
+                                            <tr>
+                                                <th>4</th>
+                                                <td>Samuel</td>
+                                                <td><img class="img-fluid avatar" src="../PrePartida/assets/img/Recursos/Avatar Limpio.png" alt="avatar"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>5</th>
+                                                <td>Pablo</td>
+                                                <td><img class="img-fluid avatar" src="../PrePartida/assets/img/Recursos/Avatar Limpio.png" alt="avatar"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>6</th>
+                                                <td>Jose</td>
+                                                <td><img class="img-fluid avatar" src="../PrePartida/assets/img/Recursos/Avatar Limpio.png" alt="avatar"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>7</th>
+                                                <td>Sofia</td>
+                                                <td><img class="img-fluid avatar" src="../PrePartida/assets/img/Recursos/Avatar Limpio.png" alt="avatar"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>8</th>
+                                                <td>Camila</td>
+                                                <td><img class="img-fluid avatar" src="../PrePartida/assets/img/Recursos/Avatar Limpio.png" alt="avatar"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>9</th>
+                                                <td>Camilo</td>
+                                                <td><img class="img-fluid avatar" src="../PrePartida/assets/img/Recursos/Avatar Limpio.png" alt="avatar"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>10</th>
+                                                <td>Luis</td>
+                                                <td><img class="img-fluid avatar" src="../PrePartida/assets/img/Recursos/Avatar Limpio.png" alt="avatar"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>11</th>
+                                                <td>Monica</td>
+                                                <td><img class="img-fluid avatar" src="../PrePartida/assets/img/Recursos/Avatar Limpio.png" alt="avatar"></td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
-                        <!-- TIEMPO MODIFICABLE-->
-                    </div>
-                </main>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2023</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
+                            <div class="col-12 d-flex justify-content-center align-items-center">
+                                <button type="submit" class="boton-carta" onclick="avanzar()">
+                                    <span class="texto-boton">INICIAR PARTIDA</span>
+                                </button>
                             </div>
                         </div>
                     </div>
-                </footer>
-            </div>
-        </div>
+                </main>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
