@@ -9,7 +9,7 @@
     width: 40px !important; 
     height: 40px !important;
     left: 1030px !important;
-     display: flex;
+    display: flex;
     justify-content: end; 
 }
 /* FIN CLASE DEL ICONO DE PAT DE LA BARRA DE LA PAGUINA */
@@ -21,6 +21,21 @@
     overflow-y: scroll;
     display: block;
     scrollbar-width: none;
+}
+
+/*Mantener encabezado estatico sin scroll*/
+.tabla thead{
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.table thead th {
+    position: -webkit-sticky; /* Para navegadores webkit */
+    position: sticky;
+    top: 0;
+    background: #c0c2c3;
+    z-index: 1;
 }
 /* FIN EL TAMAÑO DE LA TABLA */
 

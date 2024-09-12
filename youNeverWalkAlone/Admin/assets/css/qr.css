@@ -49,7 +49,7 @@ body * {
     background-color: #3ab3db;
     display: block;
     overflow-y: auto; /* Scroll vertical */
-    scrollbar-width: none;
+    scrollbar-width: none; /* oculyat barra de scroll*/
     -ms-overflow-style: none;
 }
 
@@ -194,3 +194,10 @@ body * {
     text-shadow: 5px 5px 5px black;
 }
 
+.icono{
+    width: 40px !important; 
+    height: 40px !important;
+    left: 1030px !important;
+    display: flex;
+    justify-content: end; 
+}
