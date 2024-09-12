@@ -8,7 +8,9 @@
         <meta name="author" content="" />
         <title>Ingreso a Partida</title>
         <link href="css/styles.css" rel="stylesheet" />
-        <link rel="styles_pat" href="./assets/css/styles_pat.css">
+        <link rel="stylesheet" href="assets/css/qr.css">
+        <!-- <link rel="stylesheet" href="assets/css/styles_pat.css"> -->
+        <link rel="stylesheet" href="css/styles.css">
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
@@ -104,7 +106,7 @@
             <!--Ingreso a la partida con codigo QR y control de ingreso-->
             <div id="layoutSidenav_content">
                 <main>
-                    <div class="container-fluid px-4">
+                    <div class="container-fluid p-4">
                         <!--Mostrar codigo QR-->
                         <div class="row min-vh-100">
                             <!-- Sección izquierda: Título y código QR -->
@@ -121,60 +123,85 @@
                             </div>
                             <!-- Sección derecha: Tabla de usuarios con título -->
                             <div class="col-md-6 d-flex flex-column align-items-center justify-content-center">
+                                <h1 class="textQR">Jugadores en Lobby</h1>
                                 <div class="table-container">
-                                    <h1 class="table-title" style="text-align: center;">Jugadores Listos</h1>
-                                    <table class="table table-striped">
+                                    <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>#</th>
-                                                <th>Nombre</th>
-                                                <th>Email</th>
-                                                <th>Fecha de Registro</th>
+                                                <th scope="col">N.O</th>
+                                                <th scope="col">Jugador</th>
+                                                <th scope="col">Avatar</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <!-- Aquí puedes agregar filas dinámicamente con los datos de los usuarios -->
                                             <tr>
-                                                <td>1</td>
-                                                <td>Juan Pérez</td>
-                                                <td>juan.perez@example.com</td>
-                                                <td>01/09/2024</td>
+                                                <th>1</th>
+                                                <td>Fabian</td>
+                                                <td><img class="img-fluid avatar" src="../PrePartida/assets/img/Recursos/Avatar Limpio.png" alt="avatar"></td>
                                             </tr>
                                             <tr>
-                                                <td>1</td>
-                                                <td>Juan Pérez</td>
-                                                <td>juan.perez@example.com</td>
-                                                <td>01/09/2024</td>
+                                                <th>2</th>
+                                                <td>Santiago</td>
+                                                <td><img class="img-fluid avatar" src="../PrePartida/assets/img/Recursos/Avatar Limpio.png" alt="avatar"></td>
+                                                
                                             </tr>
                                             <tr>
-                                                <td>1</td>
-                                                <td>Juan Pérez</td>
-                                                <td>juan.perez@example.com</td>
-                                                <td>01/09/2024</td>
+                                                <th>3</th>
+                                                <td>Andres</td>
+                                                <td><img class="img-fluid avatar" src="../PrePartida/assets/img/Recursos/Avatar Limpio.png" alt="avatar"></td>
                                             </tr>
-                                            
-                                            <!-- Más filas -->
+                                            <tr>
+                                                <th>4</th>
+                                                <td>Samuel</td>
+                                                <td><img class="img-fluid avatar" src="../PrePartida/assets/img/Recursos/Avatar Limpio.png" alt="avatar"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>5</th>
+                                                <td>Pablo</td>
+                                                <td><img class="img-fluid avatar" src="../PrePartida/assets/img/Recursos/Avatar Limpio.png" alt="avatar"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>6</th>
+                                                <td>Jose</td>
+                                                <td><img class="img-fluid avatar" src="../PrePartida/assets/img/Recursos/Avatar Limpio.png" alt="avatar"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>7</th>
+                                                <td>Sofia</td>
+                                                <td><img class="img-fluid avatar" src="../PrePartida/assets/img/Recursos/Avatar Limpio.png" alt="avatar"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>8</th>
+                                                <td>Camila</td>
+                                                <td><img class="img-fluid avatar" src="../PrePartida/assets/img/Recursos/Avatar Limpio.png" alt="avatar"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>9</th>
+                                                <td>Camilo</td>
+                                                <td><img class="img-fluid avatar" src="../PrePartida/assets/img/Recursos/Avatar Limpio.png" alt="avatar"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>10</th>
+                                                <td>Luis</td>
+                                                <td><img class="img-fluid avatar" src="../PrePartida/assets/img/Recursos/Avatar Limpio.png" alt="avatar"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>11</th>
+                                                <td>Monica</td>
+                                                <td><img class="img-fluid avatar" src="../PrePartida/assets/img/Recursos/Avatar Limpio.png" alt="avatar"></td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
-                        <!-- TIEMPO MODIFICABLE-->
-                    </div>
-                </main>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2023</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
+                            <div class="col-12 d-flex justify-content-center align-items-center">
+                                <button type="submit" class="boton-carta" onclick="avanzar()">
+                                    <span class="texto-boton">INICIAR PARTIDA</span>
+                                </button>
                             </div>
                         </div>
                     </div>
-                </footer>
-            </div>
-        </div>
+                </main>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
