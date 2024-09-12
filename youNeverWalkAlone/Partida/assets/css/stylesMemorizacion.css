@@ -4,55 +4,6 @@ body {
 }
 
 
-.indicador-dificultad {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 60px;
-    height: 60px;
-    border: 3px solid var(--verde-claro);
-    border-radius: 15px;
-    background: linear-gradient(to right,
-            color-mix(in srgb, var(--verde-opaco) 60%, transparent) 20%,
-            color-mix(in srgb, var(--azul-oscuro) 70%, transparent) 75%);
-    box-shadow: inset 8px 8px 8px 0 color-mix(in srgb, var(--color-negro) 20%, transparent),
-        inset 8px 8px 8px 0 color-mix(in srgb, var(--color-negro) 20%, transparent),
-        inset 0 4px 4px 0 color-mix(in srgb, var(--color-negro) 20%, transparent),
-        inset 20px 5px 100px 0 color-mix(in srgb, var(--color-negro) 20%, transparent);
-    transform: rotate(45deg);
-}
-
-.indicador-dificultad img {
-
-    transform: rotate(-45deg);
-    width: 80%;
-
-}
-
-.indicador-ronda {
-    flex-shrink: 0;
-    border-radius: 12px;
-    border: 2px solid #FFF;
-    background: color-mix(in srgb, var(--azul-oscuro) 40%, transparent);
-    box-shadow: 0px 0px 25px 5px rgba(57, 182, 184, 0.50);
-    backdrop-filter: blur(5px);
-}
-
-.indicador-ronda h4 {
-    flex-shrink: 0;
-    margin: 0;
-    color: #FFF;
-    text-align: center;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 0px 25px #5A9B4C;
-    -webkit-text-stroke-width: 0.6px;
-    -webkit-text-stroke-color: #57B243;
-    font-family: Nunito;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    letter-spacing: 2px;
-}
-
 .contenedor-elementos {
     height: 100%;
     display: flex;
@@ -189,31 +140,10 @@ body {
 
 /* Pantalla celular grande*/
 @media screen and (max-width: 576px) {
-
-    .indicador-dificultad {
-        width: 48px;
-        height: 48px;
-        border-radius: 12px;
-    }
-
-    .indicador-dificultad img {
-        width: 80%;
-    }
-
-
 }
 
 /* Pantalla celular mediana */
 @media screen and (max-width: 476px) {
-    .indicador-dificultad {
-        width: 55px;
-        height: 55px;
-        border-radius: 12px;
-    }
-
-    .indicador-dificultad img {
-        width: 80%;
-    }
 
     .contenedor-elementos {
         height: 90%;
@@ -246,16 +176,6 @@ body {
 
 /* Pantalla celular pequeña*/
 @media screen and (max-width: 376px) {
-    .indicador-dificultad {
-        width: 45px;
-        height: 45px;
-        border-radius: 12px;
-    }
-
-    .indicador-dificultad img {
-        width: 80%;
-    }
-    
     .indicador-ronda h4 {
         font-size: 18px;
     }

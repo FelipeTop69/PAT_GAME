@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 const barraProgreso = document.querySelector('.barra-progreso');
 const maxProgreso = parseFloat(barraProgreso.dataset.max);
-const duracion = 8000; // Duración en milisegundos (5 segundos)
+const duracion = 8000; 
 let tiempoRestante = duracion / 1000; // Tiempo restante en segundos
 
 let progresoActual = 0;

@@ -55,7 +55,7 @@ const contenidoModal =
             </div>
             <div class="final-modal modal-footer">
                 <button type="button" class="boton-modal" data-bs-dismiss="modal">
-                    <div class="fondo-boton-modal"
+                    <div class="fondo-boton-modal">
                     </div>
                 </button>
             </div>

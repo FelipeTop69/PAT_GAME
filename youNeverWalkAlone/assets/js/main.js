@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (result.isConfirmed) {
                     document.body.style.opacity = 0;
                     setTimeout(() => {
-                        window.location.href = '../../../youNeverWalkAlone/PrePartida/Comienzo.html';
+                        window.location.href = '/PrePartida/Comienzo.html';
                     }, 500);
                 }
             });

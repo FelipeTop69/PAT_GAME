@@ -70,13 +70,15 @@
     --verde-oscuro: rgb(25, 217, 44);
     --verde-opaco: rgb(145, 195, 134);
     --verde-claro: rgb(130, 255, 103);
-    --verde:rgba(57, 184, 108);
+    --verde: rgba(57, 184, 108);
     --azul-oscuro-x2: rgb(8, 39, 43);
     --azul-oscuro: rgb(57, 182, 184);
     --azul-claro: rgb(68, 255, 219);
     /* Texto */
     --color-blanco: rgb(255, 255, 255);
     --color-negro: rgb(0, 0, 0);
+    --color-negro-claro: rgb(48 49 47);
+    --color-gold: rgb(255, 215, 0);
     --color-rojo: rgb(159, 39, 39);
     --verde-borde: rgb(87, 158, 69);
     --azul-borde-oscuro: rgb(25, 81, 86);
@@ -115,6 +117,38 @@
 .contenedor-up {
     padding: 5px 8px;
 }
+
+/* Flecha avanzar */
+.next {
+    background-color: #ffffff00;
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border: #00000000 0.2em solid;
+    border-radius: 50%;
+    text-align: right;
+    transition: all 0.6s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1em;
+}
+
+.next:hover {
+    background-color: #3654ff;
+}
+
+.next svg {
+    width: 1.6em;
+    position: absolute;
+    display: flex;
+    transition: all 0.6s ease;
+}
+
+.next:hover svg {
+    transform: translateX(5px);
+}
+
 
 /* Boton Volver */
 .boton-volver {
@@ -205,6 +239,59 @@
     background-color: orange;
 }
 
+/* Indicador Dificultad */
+.indicador-dificultad {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border: 3px solid var(--verde-claro);
+    border-radius: 15px;
+    background: linear-gradient(to right,
+            color-mix(in srgb, var(--verde-opaco) 60%, transparent) 20%,
+            color-mix(in srgb, var(--azul-oscuro) 70%, transparent) 75%);
+    box-shadow: inset 8px 8px 8px 0 color-mix(in srgb, var(--color-negro) 20%, transparent),
+        inset 8px 8px 8px 0 color-mix(in srgb, var(--color-negro) 20%, transparent),
+        inset 0 4px 4px 0 color-mix(in srgb, var(--color-negro) 20%, transparent),
+        inset 20px 5px 100px 0 color-mix(in srgb, var(--color-negro) 20%, transparent);
+    transform: rotate(45deg);
+}
+
+.indicador-dificultad img {
+
+    transform: rotate(-45deg);
+    width: 80%;
+    margin-top: 4px;
+    margin-left: 4px;
+
+}
+
+/* Indicador Ronda */
+.indicador-ronda {
+    flex-shrink: 0;
+    border-radius: 12px;
+    border: 2px solid #FFF;
+    background: color-mix(in srgb, var(--azul-oscuro) 40%, transparent);
+    box-shadow: 0px 0px 25px 5px rgba(57, 182, 184, 0.50);
+    backdrop-filter: blur(5px);
+}
+
+.indicador-ronda h4 {
+    flex-shrink: 0;
+    margin: 0;
+    color: #FFF;
+    text-align: center;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 0px 25px #5A9B4C;
+    -webkit-text-stroke-width: 0.6px;
+    -webkit-text-stroke-color: #57B243;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 2px;
+}
+
 /*=============== BREAKPOINTS ===============*/
 
 /* Pantalla celular grande*/
@@ -249,24 +336,47 @@
     .footer-alerta span {
         font-size: 1rem;
     }
+
+    /* Indicador Dificultad */
+    .indicador-dificultad {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+    }
+
+    .indicador-dificultad img {
+        width: 80%;
+    }
 }
 
 /* Pantalla celular mediana */
-@media screen and   (max-width: 476px){
+@media screen and (max-width: 476px) {
     .boton-volver {
         width: 48px;
         height: 48px;
         border-radius: 12px;
-        
+
     }
 
     .popup-alerta {
+        width: 80%;
+    }
+
+    /* Indicador Dificultad */
+    .indicador-dificultad {
+        width: 55px;
+        height: 55px;
+        border-radius: 12px;
+    }
+
+    .indicador-dificultad img {
         width: 80%;
     }
 }
 
 /* Pantalla celular pequeña*/
 @media screen and (max-width: 376px) {
+
     /* Boton Volver */
     .boton-volver {
         width: 38px;
@@ -293,9 +403,22 @@
     .footer-alerta span {
         font-size: 0.8rem;
     }
+
+    /* Indicador Dificultad */
+    .indicador-dificultad {
+        width: 45px;
+        height: 45px;
+        border-radius: 12px;
+    }
+
+    .indicador-dificultad img {
+        width: 80%;
+        margin-top: 0;
+        margin-right: 4px;
+    }
+
+
 }
 
 /* Pantalla celular minion*/
-@media screen and (max-width: 320px) {
-
-}
+@media screen and (max-width: 320px) {}

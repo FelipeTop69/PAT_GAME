@@ -17,7 +17,7 @@
     <!-- Estilos -->
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/fondoContenido.css">
-    <link rel="stylesheet" href="assets/css/stylesDificultad.css">
+    <link rel="stylesheet" href="assets/css/stylesOrdenValidacion.css">
 
     <!-- Iconos -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css">
@@ -27,47 +27,34 @@
 <body>
 
     <div class="container d-flex justify-content-center align-items-center vh-100">
-        <div class="carta-dificultad p-3 animate__animated animate__fadeInUpBig">
+        <div class="carta-dificultad p-3 ">
             <div class="titulo-dificultad position-absolute top-0 start-50 translate-middle">
                 <div class="marco-titulo px-2 py-3 ">
-                    <h1>ATENTO</h1>
+                    <h1>ORDEN</h1>
                 </div>
             </div>
             <div class="contenido-dificultad">
-                <div class="contenedor-titulo p-2">
-                    <h4>DIFICULTAD</h4>
-                </div>
-                <div class="contenedor-dificultad p-2">
-                    <div class="marco-imagen-dificultad p-1">
-                        <img class="img-fluid" src="../assets/img/Recursos/Dificultad Facil.png" alt="imagenDificultad">
+                <div class="validacion">
+                    <div class="loader-validacion"></div>
+                    <div class="icono animate__animated animate__bounceInUp animate__delay-5s">
+                        <svg class="position-absolute top-50 start-50 translate-middle" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 42 42"><path fill="#e11d48" fill-rule="evenodd" d="m21.002 26.588l10.357 10.604c1.039 1.072 1.715 1.083 2.773 0l2.078-2.128c1.018-1.042 1.087-1.726 0-2.839L25.245 21L36.211 9.775c1.027-1.055 1.047-1.767 0-2.84l-2.078-2.127c-1.078-1.104-1.744-1.053-2.773 0L21.002 15.412L10.645 4.809c-1.029-1.053-1.695-1.104-2.773 0L5.794 6.936c-1.048 1.073-1.029 1.785 0 2.84L16.759 21L5.794 32.225c-1.087 1.113-1.029 1.797 0 2.839l2.077 2.128c1.049 1.083 1.725 1.072 2.773 0z"/></svg>
                     </div>
                 </div>
-                <div class="contenedor-descripcion p-2">
-                    <div class="contenedor-numero-elementos p-1">
-                        <h4 class="palabra">ELEMENTOS</h4>
-                        <h4 class="numero">4</h4>
-                    </div>
-                    <div class="contenedor-tiempo p-1">
-                        <h4 class="palabra">TIEMPO MEMORIZACION</h4>
-                        <h4 class="numero">8s</h4>
-                    </div>
+                
+                <div class="puntuacion-mal animate__animated animate__bounceInUp animate__delay-5s">
+                    <h4>PUNTOS</h4>
+                    <h4>+0</h4>
                 </div>
+                
             </div>
         </div>
-        <a href="Memorizacion.html">
-            <button  class="next position-absolute bottom-0 end-0">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75">
-                    </path>
-                </svg>
-            </button>
-        </a>
     </div>
+
     <script src="../Bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../Bootstrap/js/bootstrap.js"></script>
     <script src="../assets/Libreria/SweetAlert2/js/sweetalert2.min.js"></script>
-    <script src="assets/js/mainDificultad.js"></script>
+    <script src="assets/js/mainOrdenCorrecto.js"></script>
     <script src="../assets/js/main.js"></script>
 </body>
+
 </html>
