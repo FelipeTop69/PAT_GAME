@@ -3,6 +3,7 @@ body {
     transition: opacity 0.5s ease-in-out;
 }
 
+/* Boton Informacion */
 .boton-informacion {
     all: unset;
     /* Elimina todos los estilos predeterminados */
@@ -55,6 +56,7 @@ body {
         transform: rotate(-45deg) translateY(-5px);
     }
 }
+/*Fin Boton Informacion */
 
 /* Modal Informacion */
 .modal-backdrop {
@@ -168,7 +170,9 @@ body {
     justify-content: center;
     border-top: 3px outset color-mix(in srgb, var(--azul-oscuro) 50%, transparent);
 }
+/*Fin Modal Informacion */
 
+/* Carta Jugadores Lobby */
 .marco-titulo-carta {
     margin: -20px 8px 20px 8px;
     border-radius: 12px;
@@ -363,12 +367,13 @@ body {
     font-style: var(--font-style-uno);
     font-weight: var(--font-weight-bold);
 }
+/*Fin Carta Jugadores Lobby */
 
 /*=============== BREAKPOINTS ===============*/
 
 /* Pantalla celular grande*/
 @media screen and (max-width: 576px) {
-
+    /* Boton Informacion */
     .boton-informacion {
         width: 48px;
         height: 48px;
@@ -380,6 +385,7 @@ body {
         height: 36px;
     }
 
+    /* Carta Jugadores Lobby */ 
     .marco-titulo-carta {
         margin: 8px 8px 40px 8px;
     }
@@ -406,10 +412,12 @@ body {
         font-size: 14px;
     }
 
+
 }
 
 /* Pantalla celular mediana */
 @media screen and (max-width: 476px) {
+    /* Boton Informacion */
     .boton-informacion {
         width: 48px;
         height: 48px;
@@ -421,6 +429,7 @@ body {
         height: 40px;
     }
 
+    /* Carta Jugadores Lobby */
     .marco-titulo-carta {
         margin-top: 40px;
     }
@@ -455,6 +464,7 @@ body {
 
 /* Pantalla celular pequeña*/
 @media screen and (max-width: 376px) {
+    /* Boton Informacion */
     .boton-informacion {
         width: 38px;
         height: 38px;
@@ -466,6 +476,7 @@ body {
         height: 30px;
     }
 
+    /* Carta Jugadores Lobby */
     .marco-titulo-carta {
         margin-top: 10px;
     }
@@ -486,6 +497,7 @@ body {
 /* Pantalla celular minion*/
 @media screen and (max-width: 320px) {
 
+    /* Carta Jugadores Lobby */
     .carta-texto {
         font-size: 15px;
     }

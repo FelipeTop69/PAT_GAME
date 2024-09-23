@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Boton Volver
+    // BOTON VOLVER
     // Inyectar Iconos
     const iconoVolver =
         `

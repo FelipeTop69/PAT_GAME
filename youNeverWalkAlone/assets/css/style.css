@@ -113,7 +113,7 @@
     height: 100vh;
 }
 
-/* Componentes Generales */
+/* COMPONENTES GENERALES */
 .contenedor-up {
     padding: 5px 8px;
 }
@@ -148,6 +148,7 @@
 .next:hover svg {
     transform: translateX(5px);
 }
+/* Fin Flecha avanzar */
 
 
 /* Boton Volver */
@@ -184,6 +185,7 @@
     width: 45px;
     height: 45px;
 }
+/* Fin Boton Volver */
 
 /* Alerta del boton volver */
 .span-alerta {
@@ -238,6 +240,7 @@
     border-radius: 50px;
     background-color: orange;
 }
+/* Fin  Alerta del boton volver */
 
 /* Indicador Dificultad */
 .indicador-dificultad {
@@ -266,6 +269,7 @@
     margin-left: 4px;
 
 }
+/* Fin Indicador Dificultad */
 
 /* Indicador Ronda */
 .indicador-ronda {
@@ -351,11 +355,11 @@
 
 /* Pantalla celular mediana */
 @media screen and (max-width: 476px) {
+    /* Boton Volver */
     .boton-volver {
         width: 48px;
         height: 48px;
         border-radius: 12px;
-
     }
 
     .popup-alerta {

@@ -12,4 +12,4 @@ setTimeout(function() {
             loader.style.display = 'none'();
         }, 1000); // Esperar el tiempo de la transición (1s) antes de eliminarlo
     }
-}, 4500);
+}, 6000);

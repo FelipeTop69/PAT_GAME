@@ -3,7 +3,7 @@
 let circularProgress = document.querySelector(".temporizador"),
     progressValue = document.querySelector(".tiempo-restante");
 
-let seconds = 12; // Duración total en segundos
+let seconds = 30; // Duración total en segundos
 let progressEndValue = 360; // Grados totales del círculo
 let framesPerSecond = 60; // Definir cuántos frames por segundo (FPS) quieres. 60 FPS es ideal para fluidez
 let totalFrames = seconds * framesPerSecond; // Calcular cuántos "frames" en total habrá durante el tiempo de animación
