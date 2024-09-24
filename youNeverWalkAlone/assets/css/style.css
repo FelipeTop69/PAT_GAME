@@ -249,7 +249,6 @@
     align-items: center;
     width: 60px;
     height: 60px;
-    border: 3px solid var(--verde-claro);
     border-radius: 15px;
     background: linear-gradient(to right,
             color-mix(in srgb, var(--verde-opaco) 60%, transparent) 20%,
@@ -259,6 +258,18 @@
         inset 0 4px 4px 0 color-mix(in srgb, var(--color-negro) 20%, transparent),
         inset 20px 5px 100px 0 color-mix(in srgb, var(--color-negro) 20%, transparent);
     transform: rotate(45deg);
+}
+
+.indicador-dificultad-facil{
+    border: 3px solid var(--color-dificultad-facil);
+}
+
+.indicador-dificultad-media{
+    border: 3px solid var(--color-dificultad-media);
+}
+
+.indicador-dificultad-dificil{
+    border: 3px solid var(--color-dificultad-dificil);
 }
 
 .indicador-dificultad img {

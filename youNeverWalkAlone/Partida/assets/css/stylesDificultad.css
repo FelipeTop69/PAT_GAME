@@ -56,7 +56,7 @@ body::before {
     text-align: center;
     text-shadow: 0px 4px 4px color-mix(in srgb, var(--color-negro) 25%, transparent), 
                 0px 0px 25px var(--verde-borde);
-    -webkit-text-stroke-width: 2.5px;
+    -webkit-text-stroke-width: 2.2px;
     -webkit-text-stroke-color: var(--color-rojo);
     font-family: var(--body-font);
     font-style: var(--font-style-dos);
@@ -81,16 +81,33 @@ body::before {
     margin: 0;
     color: var(--color-blanco);
     text-align: center;
-    text-shadow: 0px 4px 4px color-mix(in srgb, var(--color-negro) 25%, transparent), 
-                0px 0px 25px var(--verde-borde);
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: var(--verde-borde);
     font-family: var(--body-font);
     font-style: var(--font-style-dos);
     font-weight: var(--font-weight-bold);
     line-height: normal;
     letter-spacing: 2px;
     font-size: 25px;
+}
+
+.texto-facil{
+    text-shadow: 0px 4px 4px color-mix(in srgb, var(--color-negro) 25%, transparent), 
+                0px 0px 25px var(--color-dificultad-facil);
+    -webkit-text-stroke-width: 1.3px;
+    -webkit-text-stroke-color: var(--color-dificultad-facil);
+}
+
+.texto-media{
+    text-shadow: 0px 4px 4px color-mix(in srgb, var(--color-negro) 25%, transparent), 
+                0px 0px 25px var(--color-dificultad-media);
+    -webkit-text-stroke-width: 1.3px;
+    -webkit-text-stroke-color: var(--color-dificultad-media);
+}
+
+.texto-dificil{
+    text-shadow: 0px 4px 4px color-mix(in srgb, var(--color-negro) 25%, transparent), 
+                0px 0px 25px var(--color-dificultad-dificil);
+    -webkit-text-stroke-width: 1.3px;
+    -webkit-text-stroke-color: var(--color-dificultad-dificil);
 }
 
 .contenedor-dificultad {
@@ -104,10 +121,21 @@ body::before {
     width: 150px;
     height: 150px;
     border-radius: 30px;
-    border: 3px outset var(--azul-oscuro);
     box-shadow: 0px 4px 20px 0px rgba(255, 255, 255, 0.20) inset,
         0px -4px 4px 0px color-mix(in srgb, var(--color-negro) 25%, transparent) inset;
     transform: rotate(45deg);
+}
+
+.dificultad-facil{
+    border: 3px outset var(--color-dificultad-facil);
+}
+
+.dificultad-media{
+    border: 3px outset var(--color-dificultad-media);
+}
+
+.dificultad-dificil{
+    border: 3px outset var(--color-dificultad-dificil);
 }
 
 .marco-imagen-dificultad img {
@@ -140,9 +168,6 @@ body::before {
 .palabra {
     color: var(--color-blanco);
     text-align: center;
-    text-shadow: 0px 4px 4px color-mix(in srgb, var(--color-negro) 25%), 0px 0px 25px var(--verde-borde);
-    -webkit-text-stroke-width: 0.8px;
-    -webkit-text-stroke-color: var(--verde-borde);
     font-family: var(--body-font);
     font-style: var(--font-style-uno);
     font-weight: var(--font-weight-black);
