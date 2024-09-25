@@ -96,7 +96,7 @@ body::before {
     -webkit-text-stroke-color: var(--color-dificultad-facil);
 }
 
-.texto-media{
+.texto-medio{
     text-shadow: 0px 4px 4px color-mix(in srgb, var(--color-negro) 25%, transparent), 
                 0px 0px 25px var(--color-dificultad-media);
     -webkit-text-stroke-width: 1.3px;

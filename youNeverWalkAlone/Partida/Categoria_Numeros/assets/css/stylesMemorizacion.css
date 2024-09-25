@@ -81,18 +81,30 @@ body {
     flex-wrap: wrap;
 }
 
+.cont-ele-memo-medio{
+    width: 70%;
+
+}
+
 .elemento {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
     flex-shrink: 0;
     color: var(--color-blanco);
     text-align: center;
     -webkit-text-stroke-width: 2.8px;
     -webkit-text-stroke-color: var(--azul-borde-oscuro);
     font-family: var(--body-font);
-    font-size: 90px;
     font-style: var(--font-style-dos);
     font-weight: var(--font-weight-black);
     line-height: normal;
     letter-spacing: 8px;
+}
+
+.elemento-medio{
+    font-size: 80px;
 }
 
 .contenedor-barra-progreso {
@@ -149,6 +161,11 @@ body {
         height: 90%;
     }
 
+    .cont-ele-memo-medio{
+        width: 80%;
+    
+    }
+
     .contenedor-titulo {
         width: 90%;
     }
@@ -160,10 +177,6 @@ body {
     .contenedor-carta {
         padding: 8px;
         width: 100%;
-    }
-    
-    .elemento {
-        font-size: 80px;
     }
 
     .contenedor-barra-progreso {
@@ -184,12 +197,13 @@ body {
         font-size: 30px;
     }
     .cuerpo-carta {
-    height: 200px;
-}
-
-    .elemento {
-        font-size: 70px;
+    height: 230px;
     }
+
+    .contenedor-elementos-memorizar {
+        gap: 20px;
+    }
+
 }
 
 /* Pantalla celular minion*/
@@ -204,8 +218,4 @@ body {
     .cuerpo-carta {
     height: 180px;
 }
-
-    .elemento {
-        font-size: 50px;
-    }
 }

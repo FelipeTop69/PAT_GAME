@@ -1,105 +1,134 @@
-// Temporizador
-// Circular
-let circularProgress = document.querySelector(".temporizador"),
-    progressValue = document.querySelector(".tiempo-restante");
+// Temporizador Circular
 
-let seconds = 30; // Duración total en segundos
-let progressEndValue = 360; // Grados totales del círculo
-let framesPerSecond = 60; // Definir cuántos frames por segundo (FPS) quieres. 60 FPS es ideal para fluidez
-let totalFrames = seconds * framesPerSecond; // Calcular cuántos "frames" en total habrá durante el tiempo de animación
-let currentFrame = 0; // Frame inicial
+function iniciarTemporizador(pTiempo, pDireccionUrl) {
+    let circularProgress = document.querySelector(".temporizador"),
+        progressValue = document.querySelector(".tiempo-restante");
 
-let speed = 1000 / framesPerSecond; // Intervalo de tiempo entre frames en milisegundos
+    let seconds = pTiempo; // Duración total en segundos
+    let url = pDireccionUrl;
+    let progressEndValue = 360; // Grados totales del círculo
+    let startTime = null; // Variable para almacenar el tiempo de inicio
+    let animationFrame; // Variable para almacenar el requestAnimationFrame
 
-let progress = setInterval(() => {
-    currentFrame++; // Incrementar el número de frame
+    function updateTimer(timestamp) {
+        if (!startTime) startTime = timestamp; // Establecer el tiempo inicial la primera vez que se ejecuta
 
-    let elapsedSeconds = currentFrame / framesPerSecond; // Calcular los segundos transcurridos
-    let remainingSeconds = (seconds - elapsedSeconds).toFixed(0); // Mostrar los segundos restantes con un decimal para mayor precisión
-    progressValue.textContent = `${remainingSeconds}s`; // Actualizar el valor de los segundos mostrados
+        let elapsedTime = (timestamp - startTime) / 1000; // Calcular el tiempo transcurrido en segundos
+        let remainingTime = (seconds - elapsedTime).toFixed(0); // Tiempo restante con redondeo
+        progressValue.textContent = `${remainingTime}s`; // Mostrar segundos restantes
 
-    let degrees = (elapsedSeconds / seconds) * progressEndValue; // Calcular los grados del círculo
+        // Calcular grados del círculo
+        let degrees = (elapsedTime / seconds) * progressEndValue;
 
-    circularProgress.style.background = `conic-gradient(var(--azul-oscuro) ${degrees}deg, color-mix(in srgb, var(--color-negro) 30%, transparent) 0deg)`; // Actualizar el círculo
+        // Cambiar color en función del tiempo restante
+        let color;
+        if (remainingTime > seconds * 0.6) {
+            color = "var(--color-dificultad-facil)"; // Primer color, más de la mitad del tiempo restante
+        } else if (remainingTime > seconds * 0.3) {
+            color = "var(--color-dificultad-media)"; // Segundo color, entre el 20% y el 50% del tiempo restante
+        } else {
+            color = "var(--color-dificultad-dificil)"; // Último color, menos del 20% del tiempo restante
+        }
 
-    if (currentFrame >= totalFrames) {
-        clearInterval(progress); // Detener la animación cuando se alcanza el tiempo total
-        progressValue.textContent = `0s`; // Mostrar 0 cuando termine
-		window.location.href = "/Partida/Ordenar_Incorrecto.html";
+        // Actualizar el color y el progreso del círculo
+        circularProgress.style.background = `conic-gradient(${color} ${degrees}deg, color-mix(in srgb, var(--color-negro) 30%, transparent) 0deg)`;
+
+        if (elapsedTime >= seconds) { // Si el tiempo se ha agotado
+            progressValue.textContent = `0s`; // Mostrar 0 cuando termine
+            cancelAnimationFrame(animationFrame); // Detener la animación
+            // window.location.href = "/Partida/Ordenar_Incorrecto.html"; // Redirigir a la página deseada
+            window.location.href = url; // Redirigir a la página deseada
+        } else {
+            animationFrame = requestAnimationFrame(updateTimer); // Continuar la animación
+        }
     }
-}, speed);
+
+    // Iniciar la animación con requestAnimationFrame
+    animationFrame = requestAnimationFrame(updateTimer);
+}
+
 
 
 
 // DRAG AND DROP
-let arreglo = ["", "", "", ""]
+function initDragAndDrop(config) {
+    // Parámetros del config: 
+    // config.arregloObjetivo: el arreglo objetivo correcto
+    // config.numElementos: número de elementos
+    // config.contenedor: contenedor de las áreas de destino (ID o clase)
+    // config.botonEnviar: ID del botón que redirige
+    // config.urls: objeto con URLs de redirección
 
-function arrastrar(event) {
-    const target = event.target;
-    target.classList.add('mantener');
-    setTimeout(() => target.classList.add('invisible'), 0);
-    event.dataTransfer.setData("text", target.id);
-}
+    let arreglo = Array(config.numElementos).fill("");
 
-function finalizarArrastre(event) {
-    const target = event.target;
-    target.classList.remove('mantener', 'invisible');
-    // Revertir la clase 'caja-activa' de las áreas de destino
-    document.querySelectorAll('.caja').forEach(caja => caja.classList.remove('caja-activa'));
-}
-
-function permitirSoltar(evento) {
-    evento.preventDefault();
-}
-
-let url = '';
-
-function soltarElemento(evento) {
-    const ocultarBoton = document.getElementById('botonOculto');
-    
-    if (arreglo[parseInt(evento.target.id)] == "") {
-		
-		var valorElemento = evento.dataTransfer.getData("text");
-
-		arreglo[parseInt(evento.target.id)] = valorElemento;
-
-		evento.target.appendChild(document.getElementById(valorElemento));
-	}
-
-	if (arreglo[0] != "" && arreglo[1] != "" && arreglo[2] != "" && arreglo[3] != "") {
-		if (arreglo[0] == "numeroDos" && arreglo[1] == "numeroCinco" && arreglo[2] == "numeroTres" && arreglo[3] == "numeroSiete") {
-            ocultarBoton.style.display = 'block';
-            url = '/Partida/Ordenar_Valido.html'
-            
-		} else {
-            ocultarBoton.style.display = 'block';
-            url = '/Partida/Ordenar_Incorrecto.html'
-            
-		}
-	}
-}
-
-function redirigir() {
-    if (url) {
-        window.location.href = url; // Redirige a la URL almacenada
+    function arrastrar(event) {
+        const target = event.target;
+        target.classList.add('mantener');
+        setTimeout(() => target.classList.add('invisible'), 0);
+        event.dataTransfer.setData("text", target.id);
     }
-}
 
-// Agrega el evento de clic al botón que debe redirigir
-document.getElementById('botonEnviar').addEventListener('click', redirigir);
-
-
-function entrarElemento(evento) {
-    evento.preventDefault();
-    // Marcar el área como válida para soltar
-    if (evento.target.classList.contains('caja')) {
-        evento.target.classList.add('caja-activa');
+    function finalizarArrastre(event) {
+        const target = event.target;
+        target.classList.remove('mantener', 'invisible');
+        document.querySelectorAll(`.${config.contenedor}`).forEach(caja => caja.classList.remove('caja-activa'));
     }
-}
 
-function soltarArrastre(evento) {
-    // Quitar la marca de área válida para soltar
-    if (evento.target.classList.contains('caja')) {
-        evento.target.classList.remove('caja-activa');
+    function permitirSoltar(evento) {
+        evento.preventDefault();
     }
+
+    function soltarElemento(evento) {
+        const ocultarBoton = document.getElementById('botonOculto');
+
+        if (arreglo[parseInt(evento.target.id)] == "") {
+            var valorElemento = evento.dataTransfer.getData("text");
+            arreglo[parseInt(evento.target.id)] = valorElemento;
+            evento.target.appendChild(document.getElementById(valorElemento));
+        }
+
+        if (arreglo.every(val => val !== "")) { // Verificar que todos los elementos estén llenos
+            if (JSON.stringify(arreglo) === JSON.stringify(config.arregloObjetivo)) {
+                ocultarBoton.style.display = 'block';
+                url = config.urls.correcto;
+            } else {
+                ocultarBoton.style.display = 'block';
+                url = config.urls.incorrecto;
+            }
+        }
+    }
+
+    function entrarElemento(evento) {
+        evento.preventDefault();
+        if (evento.target.classList.contains(config.contenedor)) {
+            evento.target.classList.add('caja-activa');
+        }
+    }
+
+    function soltarArrastre(evento) {
+        if (evento.target.classList.contains(config.contenedor)) {
+            evento.target.classList.remove('caja-activa');
+        }
+    }
+
+    function redirigir() {
+        if (url) {
+            window.location.href = url;
+        }
+    }
+
+    // Asociar eventos a los elementos de arrastre y áreas de destino
+    document.querySelectorAll('.arrastrable').forEach(item => {
+        item.addEventListener('dragstart', arrastrar);
+        item.addEventListener('dragend', finalizarArrastre);
+    });
+
+    document.querySelectorAll(`.${config.contenedor}`).forEach(area => {
+        area.addEventListener('dragover', permitirSoltar);
+        area.addEventListener('drop', soltarElemento);
+        area.addEventListener('dragenter', entrarElemento);
+        area.addEventListener('dragleave', soltarArrastre);
+    });
+
+    document.getElementById(config.botonEnviar).addEventListener('click', redirigir);
 }
