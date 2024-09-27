@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Icono -->
+    <link rel="icon" href="../assets/img/Logos/Logo Principal.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/Logos/Logo Secundario.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/Logos/Logo Secundario.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/Logos/Logo Secundario.png">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../Bootstrap/css/bootstrap.min.css">
+    <!-- Librerias -->
+    <link rel="stylesheet" href="../assets/Libreria/SweetAlert2/css/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- Estilos -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/fondoContenido.css">
+    <link rel="stylesheet" href="assets/css/stylesPodio.css">
+
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css">
+    <title>PAT GAME</title>
+</head>
+
+<body onload="animacionConfeti()">
+
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="contenedor-podio ">
+            <div class="contenedor-titulo">
+                <div class="marco-titulo ">
+                    <h1>¡FELICIDADES!</h1>
+                </div>
+            </div>
+
+            <div class="contenedor-top-3 ">
+                <div class="jugador primer-lugar">
+                    <div class="avatar-jugador av-ju-primero p-1 position-relative ">
+                        <div class="corona position-absolute "></div>
+                        <div class="corona-dos bounce position-absolute"></div>
+                        <img class="img-fluid" src="" alt="avatar">
+                    </div>
+                    <div class="nombre-jugador no-ju-primero">
+
+                    </div>
+                </div>
+
+                <div class="jugador segundo-lugar">
+                    <div  class="avatar-jugador av-ju-segundo p-1">
+                        <img class="img-fluid" src="" alt="avatar">
+                    </div>
+                    <div class="nombre-jugador no-ju-segundo">
+
+                    </div>
+                </div>
+
+
+                <div class="jugador tercer-lugar">
+                    <div class="avatar-jugador av-ju-tercero p-1">
+                        <img class="img-fluid" src="" alt="avatar">
+                    </div>
+                    <div class="nombre-jugador no-ju-tercero">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="contenedor-tabla-jugadores">
+                <main class="table">
+                    <section class="table_body">
+                        <table class="tabla-jugadores">
+                            <thead class="encabezado-tabla">
+                                <tr>
+                                    <th>Posición</th>
+                                    <th>Jugador</th>
+                                    <th>Puntos</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cuerpoTabla" class="cuerpo-tabla">
+                                
+                            </tbody>
+                        </table>
+                    </section>
+                </main> 
+            </div>
+        </div>
+    </div>
+    <script src="../Bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../Bootstrap/js/bootstrap.js"></script>
+    <script src="../assets/Libreria/SweetAlert2/js/sweetalert2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script src="assets/js/mainJugadores.js"></script>
+    <script src="assets/js/mainPodio.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
