@@ -1,3 +1,9 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     position: relative;
 
@@ -236,8 +242,11 @@ main.table {
     border-radius: 1rem;
     overflow-y: scroll;
     scrollbar-width: none;
-    border: 8px solid color-mix(in srgb, var(--verde-oscuro) 70%, transparent);
     box-shadow: 0 .4rem .8rem color-mix(in srgb, var(--color-negro) 50%, transparent);
+}
+
+.borde-tabla{
+    border: 8px solid color-mix(in srgb, var(--verde-oscuro) 70%, transparent);
 
 }
 
@@ -258,6 +267,7 @@ main.table {
     top: 0;
     background-color: var(--verde-oscuro-x4);
     color: var(--color-blanco);
+    z-index: 1;
 
 }
 
@@ -301,6 +311,18 @@ td {
     letter-spacing: 1px;
 }
 
+.fondo-top-3:nth-child(1){
+    background-color: color-mix(in srgb, var(--primer-lugar) 55%, transparent);
+}
+
+.fondo-top-3:nth-child(2){
+    background-color: color-mix(in srgb, var(--segundo-lugar) 55%, transparent);
+}
+
+.fondo-top-3:nth-child(3){
+    background-color: color-mix(in srgb, var(--tercer-lugar) 55%, transparent);
+}
+
 td h5 {
     display: inline-block;
     margin: 0;
@@ -318,7 +340,6 @@ td img {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    /* vertical-align: middle; */
     float: left;
 }
 
@@ -328,7 +349,6 @@ td img {
 }
 
 .pulse {
-    /* z-index: -1; */
     animation-name: pulse;
     animation-duration: 1s;
     animation-iteration-count: infinite;
@@ -348,8 +368,8 @@ td img {
     }
 }
 
-tbody tr:nth-child(even) {
-    background-color: color-mix(in srgb, var(--azul-oscuro-x2) 40%, transparent) !important;
+tbody tr:nth-child(n+4):nth-child(even) {
+    background-color: color-mix(in srgb, var(--azul-oscuro-x2) 40%, transparent);
 }
 
 tbody tr:nth-child(-n+3) td:nth-child(2) {
@@ -369,12 +389,225 @@ tbody tr:nth-child(-n+3) td:nth-child(2) h5 {
 @media screen and (max-height: 576px) {}
 
 /* Pantalla celular mediana */
-@media screen and (max-width: 476px) {}
+@media screen and (max-width: 476px) {
+    .marco-titulo h1{
+        font-size: 40px;
+        letter-spacing: 5px;
+    }
 
+    .contenedor-top-3 {
+        height: 25%;
+    }
 
+    .segundo-lugar{
+        align-self: center;
+        margin-top: 5rem;
+    }
+
+    .tercer-lugar{
+        align-self: center;
+        margin-top: 5rem;
+    }
+
+    .nomnbre-jugador{
+        width: 100px;
+    }
+
+    .contenedor-tabla-jugadores {
+        width: 100%;
+        height: 60%;
+        padding: 0;
+        display: flex;
+    }
+
+    .borde-tabla{
+        border: 3px solid color-mix(in srgb, var(--verde-oscuro) 70%, transparent);
+
+    }
+
+    tr th {
+        font-size: 18px;
+        letter-spacing: 2px;
+    }
+
+    tbody tr td:nth-child(1), td:nth-child(3){
+        font-size: 16px;
+    }
+
+    td h5 {
+        font-size: 16px;
+        letter-spacing: 0px;
+    }
+    
+    
+    td img {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        float: left;
+    }
+    
+    .medalla-jugador {
+        width: 40px;
+        height: 40px;
+    }
+    
+}
 
 /* Pantalla celular pequeña*/
-@media screen and (max-width: 376px) {}
+@media screen and (max-width: 376px) {
+    .marco-titulo h1{
+        font-size: 30px;
+        letter-spacing: 5px;
+    }
+
+    .contenedor-top-3 {
+        height: 25%;
+    }
+
+    .avatar-jugador {
+        width: 65px;
+        height: 65px;
+    }
+    
+    .avatar-jugador img {
+        width: 55px;
+        height: 55px;
+        margin-bottom: 2px;
+    }
+
+    .segundo-lugar{
+        align-self: center;
+        margin-top: 3rem;
+    }
+
+    .tercer-lugar{
+        align-self: center;
+        margin-top: 3rem;
+    }
+
+    .corona {
+        /* display: none; */
+        width: 40px;
+        height: 22px;        
+        top: -12px;
+        right: -12px;
+    }
+    
+    .corona-dos {
+        width: 40px;
+        height: 17px;
+        top: -20px;
+        left: 50%;
+    }
+    
+    .nombre-jugador {
+        width: 104px;
+        padding: 0 5px 5px 5px;
+        font-size: 15px;
+    }
+
+    tr th {
+        font-size: 16px;
+    }
+
+    tbody tr td:nth-child(1), td:nth-child(3){
+        font-size: 14px;
+    }
+
+    td h5 {
+        font-size: 14px;
+    }
+    
+    
+    td img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        float: left;
+    }
+    
+    .medalla-jugador {
+        width: 35px;
+        height: 35px;
+    }
+}
 
 /* Pantalla celular minion*/
-@media screen and (max-width: 320px) {}
+@media screen and (max-width: 320px) {
+    .marco-titulo h1{
+        font-size: 25px;
+        letter-spacing: 5px;
+    }
+
+    .contenedor-top-3 {
+        height: 25%;
+    }
+
+    .avatar-jugador {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .avatar-jugador img {
+        width: 45px;
+        height: 45px;
+        margin-bottom: 2px;
+    }
+
+    .segundo-lugar{
+        align-self: center;
+        margin-top: 2rem;
+    }
+
+    .tercer-lugar{
+        align-self: center;
+        margin-top: 2rem;
+    }
+
+    .corona {
+        /* display: none; */
+        width: 35px;
+        height: 19px;        
+        top: -10px;
+        right: -10px;
+    }
+    
+    .corona-dos {
+        width: 40px;
+        height: 17px;
+        top: -20px;
+        left: 50%;
+    }
+    
+    .nombre-jugador {
+        width: 100px;
+        padding: 0 5px 5px 5px;
+        font-size: 14px;
+    }
+
+    tr th {
+        font-size: 14px;
+    }
+
+    tbody tr td:nth-child(1), td:nth-child(3){
+        font-size: 12px;
+    }
+
+    td h5 {
+        font-size: 13px;
+    }
+    
+    
+    td img {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        float: left;
+    }
+    
+    .medalla-jugador {
+        width: 30px;
+        height: 30px;
+    }
+}

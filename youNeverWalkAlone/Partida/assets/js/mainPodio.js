@@ -1,6 +1,19 @@
 document.addEventListener('DOMContentLoaded', function () {
+    const contenedotJugadores = document.getElementById('contenedorTabla');
+
+    if(jugadores.length > 3){
+        contenedotJugadores.classList.add('borde-tabla');
+    }else{
+        contenedotJugadores.classList.remove('borde-tabla');
+    }
+
+    
     asignarPosiciones();
     listarJugadores();
+    animacionConfeti();
+    // Detectar cambios en el tamaño de la pantalla
+    window.addEventListener('resize', actualizarTexto);
+    actualizarTexto();
 })
 
 // Animacion de Confeti
@@ -64,16 +77,19 @@ function listarJugadores() {
 
     jugadores.forEach((jugador) => {
         if (jugador.posicion <= 3) {
+            let filasTop3 = document.querySelector(`#cuerpoTabla tr:nth-child(${jugador.posicion})`)
             // Asignar el div correspondiente según la posición
             let divJugador = document.querySelector(`.contenedor-top-3 .jugador:nth-child(${jugador.posicion})`);
 
-            if (divJugador) {
+            if (divJugador && filasTop3) {
                 // Insertar el avatar y el nombre en el div correspondiente
                 const avatar = divJugador.querySelector('.avatar-jugador img');
                 const nombreLugar = divJugador.querySelector('.nombre-jugador');
 
                 avatar.src = jugador.avatar; // Asigna el avatar del jugador
                 nombreLugar.textContent = jugador.nombre; // Asigna el nombre del jugador
+
+                filasTop3.classList.add('fondo-top-3')
             }
         }
     });
@@ -83,7 +99,7 @@ function agregarMedallas(jugador, imagenesExtra, index) {
     return `
         <img src="${jugador.avatar}" alt="avatar">
         <h5>${jugador.nombre}</h5>
-        ${jugador.posicion <= 3 ? `<img class="medalla-jugador" src="${imagenesExtra[index]}" alt="imagen extra">` : ''}
+        ${jugador.posicion <= 3 ? `<img class="medalla-jugador pulse" src="${imagenesExtra[index]}" alt="imagen extra">` : ''}
     `;
 }
 
@@ -95,5 +111,17 @@ function asignarPosiciones() {
         jugador.posicion = indice + 1;
     });
 }
+
+function actualizarTexto() {
+    const columna = document.getElementById('columnaPosicion');
+    const anchoPantalla = window.innerWidth;
+
+    if (anchoPantalla < 600) {
+        columna.textContent = 'N°';
+    }else{
+        columna.textContent = 'Posición';
+    }
+}
+
 
 

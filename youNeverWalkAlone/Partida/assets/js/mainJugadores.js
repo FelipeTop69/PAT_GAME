@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function(){
     // Registro de ejemplo de jugadores
-    registrarJugador(1, 'Jugador 1', 1000);
+    registrarJugador(1, 'Ruben Felipe', 1000);
     registrarJugador(2, 'Jugador 2', 900);
-    registrarJugador(4, 'Jugador 3', 800);
+    registrarJugador(3, 'Jugador 3', 800);
     registrarJugador(4, 'Jugador 4', 700);
     registrarJugador(5, 'Jugador 5', 600);
     registrarJugador(6, 'Jugador 6', 500);
