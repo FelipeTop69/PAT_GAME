@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Icono -->
+    <link rel="icon" href="../../assets/img/Logos/Logo Principal.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/img/Logos/Logo Secundario.png.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/img/Logos/Logo Secundario.png.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/img/Logos/Logo Secundario.png.png">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../../Bootstrap/css/bootstrap.min.css">
+    <!-- Librerias -->
+    <link rel="stylesheet" href="../../assets/Libreria/SweetAlert2/css/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- Estilos -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/fondoContenido.css">
+    <link rel="stylesheet" href="assets/css/stylesOrdenar.css">
+    <link rel="stylesheet" href="assets/css/stylesDificultades.css">
+
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css">
+    <title>PAT GAME</title>
+</head>
+
+<body>
+
+    <div class="container d-flex flex-column">
+        <div class="contenedor-up  d-flex justify-content-between align-items-center">
+            <button id="botonVolver" type="button" class="boton-volver"></button>
+
+            <div class="indicador-ronda p-2">
+                <h4>Ronda #1</h4>
+            </div>
+
+            <div class="indicador-dificultad indicador-dificultad-dificil" >
+                <img class="img-fluid" src="../../assets/img/Recursos/Dificultad Dificil.png" alt="dificultad">
+            </div>
+        </div>
+
+        <div class="contenedor-elementos position-relative">
+            <div class="contenedor-titulo">
+                <div class="marco-titulo p-1">
+                    <h1>ORDENA</h1>
+                </div>
+            </div>
+
+            <div class="contenedor-temporizador pulse ">
+                <div class="temporizador">
+                    <span class="tiempo-restante"></span>
+                </div>
+            </div>
+
+            <div class="contenedor-carta row">
+                <div class="contenedor-cuerpo-carta p-1 col-12 col-lg-6">
+                    <div class="cuerpo-carta-orden cu-ca-or-dificil">
+                        <div class="cuerpo-titulo p-1">
+                            <div class="marco">
+                                <h5>ORDEN</h5>
+                            </div>
+                        </div>
+                        <div class="contenedor-elementos-puestos co-el-pu-dificil">
+                            <div class="caja-elemento ">
+                                <div id="0" class="caja" ondrop="soltarElemento(event)" ondragover="permitirSoltar(event)" ondragenter="entrarElemento(event)" ondragleave="soltarArrastre(event)">
+
+                                </div>
+                            </div>
+                            <div class="caja-elemento ">
+                                <div id="1" class="caja" ondrop="soltarElemento(event)" ondragover="permitirSoltar(event)" ondragenter="entrarElemento(event)" ondragleave="soltarArrastre(event)">
+
+                                </div>
+                            </div>
+                            <div class="caja-elemento ">
+                                <div id="2" class="caja" ondrop="soltarElemento(event)" ondragover="permitirSoltar(event)" ondragenter="entrarElemento(event)" ondragleave="soltarArrastre(event)">
+
+                                </div>
+                            </div>
+                            <div class="caja-elemento ">
+                                <div id="3" class="caja" ondrop="soltarElemento(event)" ondragover="permitirSoltar(event)" ondragenter="entrarElemento(event)" ondragleave="soltarArrastre(event)">
+
+                                </div>
+                            </div>
+                            <div class="caja-elemento ">
+                                <div id="4" class="caja" ondrop="soltarElemento(event)" ondragover="permitirSoltar(event)" ondragenter="entrarElemento(event)" ondragleave="soltarArrastre(event)">
+
+                                </div>
+                            </div>
+                            <div class="caja-elemento ">
+                                <div id="5" class="caja" ondrop="soltarElemento(event)" ondragover="permitirSoltar(event)" ondragenter="entrarElemento(event)" ondragleave="soltarArrastre(event)">
+
+                                </div>
+                            </div>
+                            <div class="caja-elemento ">
+                                <div id="6" class="caja" ondrop="soltarElemento(event)" ondragover="permitirSoltar(event)" ondragenter="entrarElemento(event)" ondragleave="soltarArrastre(event)">
+
+                                </div>
+                            </div>
+                            <div class="caja-elemento ">
+                                <div id="7" class="caja" ondrop="soltarElemento(event)" ondragover="permitirSoltar(event)" ondragenter="entrarElemento(event)" ondragleave="soltarArrastre(event)">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contenedor-cuerpo-carta p-2 col-12 col-lg-6">
+                    <div class="cuerpo-carta-elementos cu-ca-el-dificil">
+                        <div class="cuerpo-titulo p-1">
+                            <div class="marco">
+                                <h5>ELEMENTOS</h5>
+                            </div>
+                        </div>
+                        <div class="contenedor-elementos-arrastrar co-el-ar-dificil ">
+                          <div class="contenedor-elementos-arrastrar co-el-ar-medio ">
+                            <div id="numeroUno" class="elemento arrastrable " draggable="true" ondragstart="arrastrar(event)" ondragend="finalizarArrastre(event)">
+                                <img class="" src="./assets/img/dico duro1.png" alt="">
+                            </div>
+                            <div id="numeroDos" class="elemento arrastrable " draggable="true" ondragstart="arrastrar(event)" ondragend="finalizarArrastre(event)">
+                                <img class="" src="./assets/img/Teclado1.png" alt="">
+                            </div>
+                            <div id="numeroTres" class="elemento arrastrable " draggable="true" ondragstart="arrastrar(event)" ondragend="finalizarArrastre(event)">
+                                <img class="" src="./assets/img/usb1.png" alt="">
+                            </div>
+                            <div id="numeroCuatro" class="elemento arrastrable " draggable="true" ondragstart="arrastrar(event)" ondragend="finalizarArrastre(event)">
+                                <img class="" src="./assets/img/rauter1.png" alt="">
+                            </div>
+                            <div id="numeroCinco" class="elemento arrastrable " draggable="true" ondragstart="arrastrar(event)" ondragend="finalizarArrastre(event)">
+                                <img class="" src="./assets/img/Microfono1.png" alt="">
+                            </div>
+                            <div id="numeroSeis" class="elemento arrastrable " draggable="true" ondragstart="arrastrar(event)" ondragend="finalizarArrastre(event)">
+                                <img class="" src="./assets/img/Monitor1.png" alt="">
+                            </div>
+                            <div id="numeroSiete" class="elemento arrastrable " draggable="true" ondragstart="arrastrar(event)" ondragend="finalizarArrastre(event)">
+                                <img class="" src="./assets/img/diademas1.png" alt="">
+                            </div>
+                            <div id="numeroOcho" class="elemento arrastrable " draggable="true" ondragstart="arrastrar(event)" ondragend="finalizarArrastre(event)">
+                                <img class="" src="./assets/img/Proyector1.png" alt="">
+                            </div>
+                            <div id="numeroNueve" class="elemento arrastrable " draggable="true" ondragstart="arrastrar(event)" ondragend="finalizarArrastre(event)">
+                                <img class="" src="./assets/img/CPU1.png" alt="">
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+                <div id="botonOculto" class="ocultar-boton position-absolute">
+                    <button id="botonEnviar" class="boton-enviar">
+                        <span>ENVIAR</span>
+                    </button>
+                </div>
+        </div>
+    </div>
+
+    <script src="../../Bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../Bootstrap/js/bootstrap.js"></script>
+    <script src="../../assets/Libreria/SweetAlert2/js/sweetalert2.min.js"></script>
+    <script src="assets/js/mainOrdenar.js"></script>
+    <script src="assets/js/Ordenar Dificultad/mainOrdenarDificil.js"></script>
+    <script src="../../assets/js/main.js"></script>
+</body>
+
+</html>
