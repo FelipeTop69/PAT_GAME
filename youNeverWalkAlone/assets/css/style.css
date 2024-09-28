@@ -65,10 +65,11 @@
 :root {
     /* Colores */
     /* Principales */
+    --verde-oscuro-x4: rgb(35, 83, 8);
     --verde-oscuro-x3: rgb(30, 142, 8);
     --verde-oscuro-x2: rgb(87, 178, 67);
     --verde-oscuro: rgb(25, 217, 44);
-    --verde-opaco: rgb(145, 195, 134);
+    --verde-opaco: rgb(140, 209, 124);
     --verde-claro: rgb(130, 255, 103);
     --verde: rgba(57, 184, 108);
     --azul-oscuro-x2: rgb(8, 39, 43);
@@ -87,6 +88,10 @@
     --color-dificultad-facil: rgb(60, 184, 57);
     --color-dificultad-media: rgb(184, 171, 57);
     --color-dificultad-dificil: rgb(190, 8, 19);
+    /* Podio */
+    --primer-lugar: rgb(255, 215, 0);
+    --segundo-lugar: rgb(192, 192, 192);
+    --tercer-lugar: rgb(205, 127, 50);
 
 
     /* Fuente */
