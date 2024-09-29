@@ -1,0 +1,332 @@
+/* ESTILOS DIFICULTA MEMORIZACION */
+
+/* Dificultad Facil */
+.co-el-me-facil {
+    width: 100%;
+
+}
+
+.el-facil {
+    font-size: 90px;
+}
+
+/* Dificultad Medio */
+.co-el-me-medio {
+    width: 80%;
+}
+
+.el-medio {
+    font-size: 80px;
+}
+
+/* Dificultad Dificil */
+.co-el-me-dificil {
+    width: 99%;
+}
+
+.el-dificil {
+    font-size: 80px;
+}
+
+/* ESTILOS DIFICULTA ORDENAR */
+
+/* Dificultad Facil */
+.cu-ca-or-facil {
+    height: 200px;
+    width: 68%;
+    padding: 1rem;
+}
+
+.co-el-pu-facil {
+    padding: 10px;
+}
+
+.cu-ca-el-facil {
+    height: 200px;
+    width: 68%;
+    padding: 1rem;
+
+}
+
+.co-el-ar-facil {
+    width: 80%;
+    height: 100%;
+    padding: 10px;
+}
+
+/* Dificultad Medio */
+.cu-ca-or-medio {
+    width: 68%;
+    height: 230px;
+    padding: 1.5rem 0.5rem;
+}
+
+.co-el-pu-medio {
+    padding: 0;
+    flex-wrap: wrap;
+    width: 70%
+}
+
+.cu-ca-el-medio {
+    height: 240px;
+    width: 68%;
+    padding: 1.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+
+.co-el-ar-medio {
+    width: 70%;
+    height: 100%;
+    padding: 0;
+}
+
+/* Dificultad Dificil */
+.cu-ca-or-dificil {
+    width: 68%;
+    height: 230px;
+    padding: 1.5rem 0.5rem;
+}
+
+.co-el-pu-dificil {
+    padding: 0;
+    flex-wrap: wrap;
+    width: 80%;
+    height: 88%;
+    justify-content: center;
+}
+
+.cu-ca-el-dificil {
+    height: 240px;
+    width: 68%;
+    padding: 1.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+.co-el-ar-dificil {
+    width: 70%;
+    height: 100%;
+    padding: 0;
+}
+
+
+
+/*=============== BREAKPOINTS ===============*/
+
+/* Pantalla celular grande*/
+@media screen and (max-width: 576px) {}
+
+/* Pantalla celular mediana */
+@media screen and (max-width: 476px) {
+    /* ESTILOS DIFICULTA MEMORIZACION */
+
+    .co-ele-memo-facil {
+        width: 80%;
+    }
+
+    .el-facil {
+        font-size: 80px;
+    }
+
+    .co-el-me-medio{
+        gap: 10px;
+        width: 100%;
+    }
+
+    .el-medio{
+        font-size: 80px;
+    }
+
+    .co-el-me-dificil {
+        gap: 10px;
+        width: 100%;
+    }
+
+    .el-dificil {
+        height: 75px;
+        font-size: 75px;
+    }
+
+    /* ESTILOS DIFICULTA ORDENAR */
+
+    /* Dificultad Facil */
+    .cu-ca-or-facil {
+        height: 200px;
+        width: 100%;
+        padding: 0;
+    }
+
+    .cu-ca-el-facil {
+        height: 200px;
+        width: 100%;
+        background: none;
+        backdrop-filter: blur(0);
+        padding: 1rem;
+    
+    }
+
+    /* Dificultad Medio */
+    .cu-ca-or-medio {
+        width: 95%;
+        height: 210px;
+        padding: 1rem 0.2rem;
+    }
+
+    .cu-ca-el-medio {
+        height: 220px;
+        width: 95%;
+        padding: 0;
+    }
+
+    /* Dificultad Dificil */
+    .cu-ca-or-dificil {
+        width: 95%;
+        height: 210px;
+        padding: 1rem 0.2rem;
+    }
+
+    .cu-ca-el-dificil {
+        height: 220px;
+        width: 95%;
+        padding: 0;
+    }
+}
+
+/* Pantalla celular pequeña*/
+@media screen and (max-width: 376px) {
+    /* ESTILOS DIFICULTA MEMORIZACION */
+
+    .co-el-me-facil {
+        gap: 5px;
+        width: 100%;
+    }
+
+    .el-facil {
+        font-size: 70px;
+    }
+
+    .el-medio {
+        height: 70px;
+        font-size: 70px;
+    }
+
+    .co-el-me-dificil {
+        gap: 5px;
+        width: 100%;
+    }
+
+    .el-dificil {
+        height: 70px;
+        font-size: 70px;
+    }
+
+    /* ESTILOS DIFICULTA ORDENAR */
+
+    /* Dificultad Facil */
+    .cu-ca-or-facil {
+        height: 170px;
+    }
+
+    .cu-ca-el-facil{
+        height: 170px;
+    }
+
+    .co-el-ar-facil {
+        height: 160px;
+    }
+    
+
+    /* Dificultad Medio */
+    .cu-ca-or-medio {
+        height: 180px;
+        padding: 1rem 0.2rem;
+    }
+
+    .cu-ca-el-medio {
+        height: 210px;
+        padding: 0;
+    }
+    
+    .co-el-ar-medio {
+        height: 180px;
+    }
+
+    /* Dificultad Dificil */
+    .cu-ca-or-dificil {
+        width: 95%;
+        height: 210px;
+        padding: 1rem 0.2rem;
+    }
+    .cu-ca-el-dificil {
+        height: 190px;
+        padding: 0;
+    }
+
+    .co-el-ar-dificil {
+        height: 180px;
+    }
+}
+
+/* Pantalla celular minion*/
+@media screen and (max-width: 320px) {
+    /* ESTILOS DIFICULTA MEMORIZACION */
+
+    .el-facil {
+        font-size: 50px;
+    }
+
+    .el-medio {
+        height: 50px;
+        font-size: 50px;
+    }
+
+    .el-dificil {
+        height: 50px;
+        font-size: 50px;
+    }
+
+    /* ESTILOS DIFICULTA ORDENAR */
+
+    /* Dificultad Facil */
+    .cu-ca-or-facil {
+        height: 150px;
+    }
+
+    .cu-ca-el-facil{
+        height: 110px;
+    }
+
+    .co-el-ar-facil {
+        height: 140px;
+    }
+
+    /* Dificultad Medio */
+    .cu-ca-or-medio {
+        height: 150px;
+        padding: 1rem 0.2rem;
+    }
+
+    .cu-ca-el-medio {
+        height: 150px;
+        padding: 0;
+    }
+    .co-el-ar-medio {
+        height: 140px;
+    }
+
+    /* Dificultad Dificil */
+    .cu-ca-or-dificil{
+        height: 150px;
+        padding: 1rem 0.2rem;
+    }
+
+    .cu-ca-el-dificil {
+        height: 150px;
+        padding: 0;
+    }
+    .co-el-ar-dificil {
+        height: 140px;
+    }
+
+    .co-el-pu-dificil{
+        width: 90%;
+    }
+}
