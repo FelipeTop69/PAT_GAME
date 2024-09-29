@@ -88,6 +88,10 @@
     animation-iteration-count: infinite;
 }
 
+.medida-fruta {
+    pointer-events: none;
+}
+
 @keyframes pulse {
     0% {
         transform: scale(1);
