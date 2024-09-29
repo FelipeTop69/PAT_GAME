@@ -37,6 +37,8 @@ document.addEventListener('DOMContentLoaded', function () {
         `
     document.querySelector('.boton-informacion').innerHTML = iconoPregunta;
     document.querySelector('.fondo-boton-modal').innerHTML = contenidoBotonModal;
+
+    listarJugadores()
 })
 
 // Inyectar contenido del modal
@@ -80,30 +82,56 @@ modal.addEventListener('hidden.bs.modal', function () {
     video.currentTime = 0;
 });
 
-// Inyectar Jugadores en el DOOM
-function inyectarJugadores(pCantidad) {
-    let cantidad = pCantidad;
-    let iteracion;
-    let pantalla = "";
-    let contenedor = document.getElementById('cartaJugadores')
+//Listar jugadores en la tabla
+function listarJugadores() {
+    let contenedor = document.getElementById('cartaJugadores'); 
+    let jugadoresRegistrados = "";
 
-    for (iteracion = 0; iteracion < cantidad; iteracion++) {
-        pantalla +=
-            `<div class="jugador">
-            <div class="avatar-jugador p-1">
-                <img class="img-fluid" src="assets/img/Recursos/Avatar Limpio.png" alt="avatar">
+    jugadores.forEach((jugador) => {
+        jugadoresRegistrados += 
+        `
+            <div class="jugador">
+                <div class="avatar-jugador p-1">
+                    <img class="img-fluid" src="${jugador.avatar}" alt="avatar" alt="avatar">
+                </div>
+                <div class="nombre-jugador">
+                    ${jugador.nombre}
+                </div>
             </div>
-            <div class="nombre-jugador">
-                Jugador ${iteracion + 1}
-            </div>
-        </div>`
-    }
+        `;
+    });
 
-    contenedor.innerHTML = pantalla;
-
+    contenedor.innerHTML = jugadoresRegistrados; 
 }
 
-inyectarJugadores(25)
+
+
+// Inyectar Jugadores en el DOOM
+// function inyectarJugadores(pCantidad) {
+//     let cantidad = pCantidad;
+//     let iteracion;
+//     let pantalla = "";
+//     let contenedor = document.getElementById('cartaJugadores')
+
+//     for (iteracion = 0; iteracion < cantidad; iteracion++) {
+//         pantalla +=
+//             `
+//             <div class="jugador">
+//                 <div class="avatar-jugador p-1">
+//                     <img class="img-fluid" src="assets/img/Recursos/Avatar Limpio.png" alt="avatar">
+//                 </div>
+//                 <div class="nombre-jugador">
+//                     Jugador ${iteracion + 1}
+//                 </div>
+//             </div>
+//             `
+//     }
+
+//     contenedor.innerHTML = pantalla;
+
+// }
+
+// inyectarJugadores(25)
 
 
 
