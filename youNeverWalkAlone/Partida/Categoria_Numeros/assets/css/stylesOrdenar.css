@@ -311,9 +311,6 @@ button:active {
 
 
 
-
-
-
 /*=============== BREAKPOINTS ===============*/
 
 /* Pantalla celular grande*/
@@ -369,7 +366,7 @@ button:active {
         display: none;
     }
 
-    .caja-elemento{
+    .caja-elemento {
         padding: 3px;
     }
 
