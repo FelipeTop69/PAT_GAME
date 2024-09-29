@@ -89,6 +89,8 @@
 }
 
 .medida-fruta {
+    width: 50px;
+    height: auto;
     pointer-events: none;
 }
 
@@ -316,6 +318,8 @@ button:active {
 
 
 
+
+
 /*=============== BREAKPOINTS ===============*/
 
 /* Pantalla celular grande*/
@@ -371,7 +375,7 @@ button:active {
         display: none;
     }
 
-    .caja-elemento {
+    .caja-elemento{
         padding: 3px;
     }
 
@@ -442,10 +446,10 @@ button:active {
         display: none;
     }
 
-    /* .elemento {
+    .elemento {
         width: 52px;
         height: 52px;
-    } */
+    }
 
     .elemento h1 {
         font-size: 30px;
