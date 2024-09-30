@@ -54,7 +54,7 @@ body {
 }
 
 .cuerpo-carta {
-    height: 268px;
+    height: 290px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -146,6 +146,10 @@ body {
     padding: 2px;
 }
 
+.medida-fruta {
+    width: 90px;
+    height: auto;
+}
 
 
 /*=============== BREAKPOINTS ===============*/
@@ -202,6 +206,11 @@ body {
 
     .contenedor-elementos-memorizar {
         gap: 20px;
+    }
+
+    .medida-fruta {
+        width: 65px;
+        height: auto;
     }
 
 }
