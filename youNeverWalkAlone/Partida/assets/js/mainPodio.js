@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const contenedotJugadores = document.getElementById('contenedorTabla');
+    const contenedorJugadores = document.getElementById('contenedorTabla');
 
     if(jugadores.length > 3){
-        contenedotJugadores.classList.add('borde-tabla');
+        contenedorJugadores.classList.add('borde-tabla');
     }else{
-        contenedotJugadores.classList.remove('borde-tabla');
+        contenedorJugadores.classList.remove('borde-tabla');
     }
 
     

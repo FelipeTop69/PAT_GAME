@@ -74,14 +74,13 @@ body {
 
 .contenedor-elementos-memorizar {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    gap: 25px;
     flex-shrink: 0;
     flex-wrap: wrap;
 }
 
-.cont-ele-memo-medio{
+.cont-el-me-medio{
     width: 70%;
 
 }
@@ -103,8 +102,10 @@ body {
     letter-spacing: 8px;
 }
 
-.elemento-medio{
-    font-size: 80px;
+/* Solo para las categorias de frutas y computo */
+.medida-elemento {
+    width: 80px;
+    height: auto;
 }
 
 .contenedor-barra-progreso {
@@ -146,10 +147,7 @@ body {
     padding: 2px;
 }
 
-.medida-fruta {
-    width: 90px;
-    height: auto;
-}
+
 
 
 /*=============== BREAKPOINTS ===============*/
@@ -188,6 +186,11 @@ body {
         height: 5%;
         padding: 0 12px;
     }
+
+    .medida-elemento {
+        width: 75px;
+        height: auto;
+    }
     
 }
 
@@ -204,11 +207,8 @@ body {
     height: 230px;
     }
 
-    .contenedor-elementos-memorizar {
-        gap: 20px;
-    }
 
-    .medida-fruta {
+    .medida-elemento {
         width: 65px;
         height: auto;
     }
@@ -226,5 +226,10 @@ body {
     }
     .cuerpo-carta {
     height: 180px;
-}
+    }
+
+    .medida-elemento {
+        width: 50px;
+        height: auto;
+    }
 }

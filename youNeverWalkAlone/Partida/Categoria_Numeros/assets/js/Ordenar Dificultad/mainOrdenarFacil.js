@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Configuracion Temporizador
     const segundos = 30;
     const url = "/Partida/Ordenar_Incorrecto.html";
-    // iniciarTemporizador(segundos, url)
+    iniciarTemporizador(segundos, url)
 
     // Configuración Ordenamient
     initDragAndDrop({

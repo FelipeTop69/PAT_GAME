@@ -1,3 +1,3 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // iniciarBarraProgreso('#barraProgresoDificil', 12000, '#');
+    iniciarBarraProgreso('#barraProgresoDificil', 12000, 'Ordenar Dificil');
 })

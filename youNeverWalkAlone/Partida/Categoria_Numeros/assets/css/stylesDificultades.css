@@ -2,7 +2,7 @@
 
 /* Dificultad Facil */
 .co-el-me-facil {
-    width: 100%;
+    width: 80%;
 
 }
 
@@ -12,7 +12,7 @@
 
 /* Dificultad Medio */
 .co-el-me-medio {
-    width: 70%;
+    width: 55%;
 }
 
 .el-medio {
@@ -21,7 +21,7 @@
 
 /* Dificultad Dificil */
 .co-el-me-dificil {
-    width: 80%;
+    width: 70%;
 }
 
 .el-dificil {
@@ -118,7 +118,7 @@
 @media screen and (max-width: 476px) {
     /* ESTILOS DIFICULTA MEMORIZACION */
 
-    .co-ele-memo-facil {
+    .co-el-me-facil {
         width: 80%;
     }
 
@@ -127,8 +127,7 @@
     }
 
     .co-el-me-dificil {
-        gap: 10px;
-        width: 80%;
+        width: 75%;
     }
 
     .el-dificil {
@@ -188,6 +187,10 @@
     .el-facil {
         font-size: 70px;
     }
+    
+    .co-el-me-facil{
+        width: 100%;
+    }
 
     .el-medio {
         height: 70px;
@@ -195,7 +198,6 @@
     }
 
     .co-el-me-dificil {
-        gap: 10px;
         width: 90%;
     }
 
@@ -262,6 +264,10 @@
     .el-medio {
         height: 50px;
         font-size: 50px;
+    }
+
+    .co-el-me-dificil{
+        width: 70%;
     }
 
     .el-dificil {

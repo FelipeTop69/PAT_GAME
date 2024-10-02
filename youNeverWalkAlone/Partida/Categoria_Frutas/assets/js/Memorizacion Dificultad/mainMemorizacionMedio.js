@@ -1,3 +1,3 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // iniciarBarraProgreso('#barraProgresoMedio', 10000, 'Memorizacion Dificil.html'); 
+    iniciarBarraProgreso('#barraProgresoMedio', 10000, 'Ordenar Medio.html'); 
 })

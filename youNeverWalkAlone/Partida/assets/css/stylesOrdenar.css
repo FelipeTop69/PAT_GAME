@@ -88,7 +88,7 @@
     animation-iteration-count: infinite;
 }
 
-.medida-fruta {
+.medida-elemento {
     width: 50px;
     height: auto;
     pointer-events: none;
@@ -382,9 +382,6 @@ button:active {
     .elemento h1 {
         font-size: 40px;
     }
-
-
-
 }
 
 /* Pantalla celular pequeña*/
@@ -453,6 +450,12 @@ button:active {
 
     .elemento h1 {
         font-size: 30px;
+    }
+
+    .medida-elemento {
+        width: 40px;
+        height: auto;
+        pointer-events: none;
     }
 }
 
@@ -533,6 +536,12 @@ button:active {
 
     .elemento h1 {
         font-size: 25px;
+    }
+
+    .medida-elemento {
+        width: 28px;
+        height: auto;
+        pointer-events: none;
     }
 
     .boton-enviar {
