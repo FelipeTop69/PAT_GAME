@@ -234,7 +234,7 @@
 }
 
 .elemento:hover {
-    border: 6px outset var(--color-gold);
+    border: 6px outset var(--azul-oscuro);
 }
 
 .elemento h1 {

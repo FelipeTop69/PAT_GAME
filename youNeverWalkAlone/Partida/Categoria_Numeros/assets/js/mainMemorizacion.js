@@ -39,3 +39,29 @@ function iniciarBarraProgreso(selectorBarra, duracion, urlRedireccion) {
   requestAnimationFrame(actualizarProgreso);
 }
 
+// Inyectar elementos
+const idElementos = [];
+
+function inyectarElementosMemorizar(pElementos, pContenedor, clases = []) {
+  const elementosRecibidos = pElementos;
+  const contenedor = pContenedor;
+
+  contenedor.innerHTML = '';
+  idElementos.length = 0;
+
+  for (let iteracion = 0; iteracion < elementosRecibidos.length; iteracion++) {
+      const nuevoElemento = document.createElement('div');
+      const nuevoId = 'elemento' + (iteracion + 1);
+      nuevoElemento.id = nuevoId;
+      nuevoElemento.setAttribute('data-id', nuevoId);
+      
+      // Agregar las clases pasadas como parámetro
+      nuevoElemento.classList.add('elemento', ...clases);
+      
+      nuevoElemento.textContent = elementosRecibidos[iteracion];
+
+      contenedor.appendChild(nuevoElemento);
+
+      idElementos.push(nuevoElemento.id);
+  }
+}
