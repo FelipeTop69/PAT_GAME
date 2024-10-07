@@ -64,7 +64,7 @@
 .co-el-pu-medio {
     padding: 0;
     flex-wrap: wrap;
-    width: 80%
+    width: 70%
 }
 
 .cu-ca-el-medio {
@@ -90,9 +90,8 @@
 .co-el-pu-dificil {
     padding: 0;
     flex-wrap: wrap;
-    width: 95%;
+    width: 85%;
     height: 88%;
-    justify-content: center;
 }
 
 .cu-ca-el-dificil {

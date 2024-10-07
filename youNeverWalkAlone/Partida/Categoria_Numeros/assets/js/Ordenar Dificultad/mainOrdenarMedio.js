@@ -1,18 +1,13 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Configuracion Temporizador
     const segundos = 20;
-    const url = "/Partida/Ordenar_Incorrecto.html";
+    const url = "/Partida/Ordenar_Validacion.html";
     iniciarTemporizador(segundos, url)
-
-    // Configuración Ordenamient
-    initDragAndDrop({
-        arregloObjetivo: ["numeroCuatro", "numeroSiete", "numeroDos", "numeroTres", "numeroSeis", "numeroUno"],
-        numElementos: 6,
-        contenedor: 'caja',
-        botonEnviar: 'botonEnviar',
-        urls: {
-            correcto: '/Partida/Ordenar_Valido.html',
-            incorrecto: '/Partida/Ordenar_Incorrecto.html'
-        }
-    }); 
+    const numeros = [1, 9, 4, 8, 0, 2];  // Números principales
+    const numerosAdicionales = obtenerNumerosAdicionales(numeros, 3);
+    const claseAdicional = ['nada']
+    inyectarElementos(numeros, contenedorDrag, claseAdicional, true);  // Inyectar los números principales
+    inyectarElementos(numerosAdicionales, contenedorDrag);  // Inyectar los números adicionales
+    cambiarOrdenElementos(contenedorDrag);
+    iniciarDragAndDrop(numeros) 
 })
