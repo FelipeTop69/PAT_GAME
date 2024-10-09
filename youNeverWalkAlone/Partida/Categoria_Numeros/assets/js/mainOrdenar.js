@@ -113,6 +113,9 @@ function inyectarElementos(pElementos, pContenedor, clases = [], esPrincipal = f
 }
 
 // DRAG AND DROP
+const cartaElementos = document.getElementById('cartaElementos')
+cartaElementos.classList.add('drag-activo')
+
 const contenedorDrag = document.getElementById('contenedorDrag');
 const contenedorDrop = document.getElementById('contenedorDrop');
 const contenedorBoton = document.getElementById('botonOculto');
@@ -141,7 +144,8 @@ function iniciarDragAndDrop(pNumeros){
             put: false
         },
         sort: false,
-        animation: 150
+        animation: 800,
+        easing: 'cubic-bezier(0.25, 1, 0.5, 1)', //easeOutQuart de https://easings.net/#
     });
     
     Sortable.create(contenedorDrop, {
@@ -154,15 +158,24 @@ function iniciarDragAndDrop(pNumeros){
             }
         },
         swap: true,
-        animation: 150,
+        animation: 800,
+        easing: 'cubic-bezier(0.25, 1, 0.5, 1)', //easeOutQuart de https://easings.net/#
         draggable: ".elemento-ordenar",
         handle: ".elemento-ordenar",
-    
+
+        onStart: function(){
+            cartaElementos.classList.remove('drag-activo');
+        },
+
+        onEnd: function(){
+            cartaElementos.classList.add('drag-activo');
+        },
+        
         // Cuando se reordenen los elementos en contenedorDrop
         onSort: function(evt) {
             const ordenJugador = Array.from(contenedorDrop.querySelectorAll('.elemento-ordenar'))
                 .map(elemento => elemento.getAttribute('data-id'));
-    
+
             if (numeros.length === ordenJugador.length) {
                 contenedorBoton.style.display = "block";
             } else {

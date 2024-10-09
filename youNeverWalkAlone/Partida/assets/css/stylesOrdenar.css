@@ -157,7 +157,12 @@
     line-height: normal;
 }
 
+#cartaElementos.drag-activo {
+    backdrop-filter: blur(20px);
+}
+
 .cuerpo-carta-orden {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -171,18 +176,18 @@
         0px -4px 4px 0px color-mix(in srgb, var(--color-negro) 25%, transparent) inset,
         0px -40px 40px 0px color-mix(in srgb, var(--color-negro) 20%, transparent) inset,
         0px 4px 12px 0px rgba(255, 255, 255, 0.40) inset;
-    backdrop-filter: blur(20px);
 }
 
+
 .cuerpo-carta-elementos {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
     border-radius: 20px;
-    background: linear-gradient(102deg, color-mix(in srgb, var(--azul-oscuro) 5%, transparent) 10%,
-            color-mix(in srgb, var(--verde-opaco) 10%, transparent) 60%);
-    backdrop-filter: blur(10px);
+    background: linear-gradient(102deg, color-mix(in srgb, var(--azul-oscuro) 50%, transparent) 10%,
+                                        color-mix(in srgb, var(--verde-opaco) 50%, transparent) 60%);
 }
 
 .contenedor-elementos-puestos {
@@ -367,7 +372,6 @@ button:active {
         height: 200px;
         width: 100%;
         background: none;
-        backdrop-filter: blur(0);
         padding: 1rem;
     }
 
@@ -435,7 +439,6 @@ button:active {
         height: 170px;
         width: 100%;
         background: none;
-        backdrop-filter: blur(0);
         padding: 0;
     }
 
@@ -519,7 +522,6 @@ button:active {
         height: 110px;
         width: 100%;
         background: none;
-        backdrop-filter: blur(0);
         padding: 0;
     }
 
