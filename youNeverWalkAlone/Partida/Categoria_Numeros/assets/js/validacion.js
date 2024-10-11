@@ -36,11 +36,24 @@ function validarOrden() {
     const puntos = compararArreglos(idElementos, ordenJugador);
     const cantidadPuntosRequeridos = ordenJugador.length * 100;
 
+    // Asignar puntos extra según el intervalo actual
+    let puntosExtra = 0;
+    if (intervaloActual === 'facil') {
+        puntosExtra = 50;  // Puntos extra por hacer clic en el primer intervalo
+    } else if (intervaloActual === 'medio') {
+        puntosExtra = 30;  // Puntos extra por hacer clic en el segundo intervalo
+    } else if (intervaloActual === 'dificil') {
+        puntosExtra = 10;  // Puntos extra por hacer clic en el tercer intervalo
+    }
+
+    // Sumar los puntos extra a los puntos normales
+    const puntosTotales = puntos + puntosExtra;
+
     console.log(`Cantidad de puntos requeridos: ${cantidadPuntosRequeridos}`);
     console.log(`Puntos obtenidos: ${puntos}`);
     console.log(`Orden del jugador: ${ordenJugador}`);
 
-    localStorage.setItem('puntos', puntos); 
+    localStorage.setItem('puntos', puntosTotales); 
     localStorage.setItem('puntosRequeridos', cantidadPuntosRequeridos);
 
     window.location.href = "../Ordenar_Validacion.html";

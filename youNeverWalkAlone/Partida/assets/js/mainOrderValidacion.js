@@ -34,7 +34,7 @@ function asignarValores(pPuntos, pPuntosRequeridos){
     const textoPuntosNumero = document.createElement('h4');
     
 
-    if(puntos == puntosRequeridos){
+    if(puntos >= puntosRequeridos){
         iconoAsignado = iconoBien;
         textoPuntos.className = ('texto-puntos-bien')
         textoPuntosNumero.className = 'texto-bien'

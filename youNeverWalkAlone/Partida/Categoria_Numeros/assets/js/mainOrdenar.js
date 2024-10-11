@@ -1,4 +1,7 @@
 // Temporizador Circular
+
+let intervaloTiempoActual = "bajo"; 
+
 function iniciarTemporizador(pTiempo, pDireccionUrl) {
     let circularProgress = document.querySelector(".temporizador"),
         progressValue = document.querySelector(".tiempo-restante");
@@ -22,11 +25,14 @@ function iniciarTemporizador(pTiempo, pDireccionUrl) {
         // Cambiar color en función del tiempo restante
         let color;
         if (remainingTime > seconds * 0.6) {
-            color = "var(--color-dificultad-facil)"; // Primer color, más de la mitad del tiempo restante
+            color = "var(--color-dificultad-facil)";
+            intervaloActual = 'facil'; // Más del 60% del tiempo restante
         } else if (remainingTime > seconds * 0.3) {
-            color = "var(--color-dificultad-media)"; // Segundo color, entre el 20% y el 50% del tiempo restante
+            color = "var(--color-dificultad-media)";
+            intervaloActual = 'medio'; // Entre el 30% y el 60%
         } else {
-            color = "var(--color-dificultad-dificil)"; // Último color, menos del 20% del tiempo restante
+            color = "var(--color-dificultad-dificil)";
+            intervaloActual = 'dificil'; // Menos del 30% del tiempo restante
         }
 
         // Actualizar el color y el progreso del círculo
@@ -43,6 +49,9 @@ function iniciarTemporizador(pTiempo, pDireccionUrl) {
             if (ordenJugador.length === 0) {
                 localStorage.setItem('puntos', 0);  // Asignar 0 puntos si el jugador no ha hecho nada
                 localStorage.setItem('puntosRequeridos', numeros.length * 100);
+            }else{
+                // Si el tiempo se acaba, no asignar puntos extra
+                localStorage.setItem('puntosExtra', 0);
             }
 
             // Redirigir a la página deseada
@@ -144,7 +153,7 @@ function iniciarDragAndDrop(pNumeros){
             put: false
         },
         sort: false,
-        animation: 800,
+        animation: 500,
         easing: 'cubic-bezier(0.25, 1, 0.5, 1)', //easeOutQuart de https://easings.net/#
     });
     
