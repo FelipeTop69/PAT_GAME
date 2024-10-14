@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- <!DOCTYPE html> -->
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -55,53 +55,14 @@
 
             <div class="contenedor-carta row">
                 <div class="contenedor-cuerpo-carta p-1 col-12 col-lg-6">
-                    <div class="cuerpo-carta-orden cu-ca-or-dificil">
+                    <div id="cartaElementos" class="cuerpo-carta-orden cu-ca-or-dificil">
                         <div class="cuerpo-titulo p-1">
                             <div class="marco">
                                 <h5>ORDEN</h5>
                             </div>
                         </div>
-                        <div class="contenedor-elementos-puestos co-el-pu-dificil">
-                            <div class="caja-elemento ">
-                                <div id="0" class="caja" ondrop="soltarElemento(event)" ondragover="permitirSoltar(event)" ondragenter="entrarElemento(event)" ondragleave="soltarArrastre(event)">
-
-                                </div>
-                            </div>
-                            <div class="caja-elemento ">
-                                <div id="1" class="caja" ondrop="soltarElemento(event)" ondragover="permitirSoltar(event)" ondragenter="entrarElemento(event)" ondragleave="soltarArrastre(event)">
-
-                                </div>
-                            </div>
-                            <div class="caja-elemento ">
-                                <div id="2" class="caja" ondrop="soltarElemento(event)" ondragover="permitirSoltar(event)" ondragenter="entrarElemento(event)" ondragleave="soltarArrastre(event)">
-
-                                </div>
-                            </div>
-                            <div class="caja-elemento ">
-                                <div id="3" class="caja" ondrop="soltarElemento(event)" ondragover="permitirSoltar(event)" ondragenter="entrarElemento(event)" ondragleave="soltarArrastre(event)">
-
-                                </div>
-                            </div>
-                            <div class="caja-elemento ">
-                                <div id="4" class="caja" ondrop="soltarElemento(event)" ondragover="permitirSoltar(event)" ondragenter="entrarElemento(event)" ondragleave="soltarArrastre(event)">
-
-                                </div>
-                            </div>
-                            <div class="caja-elemento ">
-                                <div id="5" class="caja" ondrop="soltarElemento(event)" ondragover="permitirSoltar(event)" ondragenter="entrarElemento(event)" ondragleave="soltarArrastre(event)">
-
-                                </div>
-                            </div>
-                            <div class="caja-elemento ">
-                                <div id="6" class="caja" ondrop="soltarElemento(event)" ondragover="permitirSoltar(event)" ondragenter="entrarElemento(event)" ondragleave="soltarArrastre(event)">
-
-                                </div>
-                            </div>
-                            <div class="caja-elemento ">
-                                <div id="7" class="caja" ondrop="soltarElemento(event)" ondragover="permitirSoltar(event)" ondragenter="entrarElemento(event)" ondragleave="soltarArrastre(event)">
-
-                                </div>
-                            </div>
+                        <div id="contenedorDrop" class="contenedor-elementos-puestos co-el-pu-dificil">
+                            
                         </div>
                     </div>
                 </div>
@@ -112,42 +73,8 @@
                                 <h5>ELEMENTOS</h5>
                             </div>
                         </div>
-                        <div class="contenedor-elementos-arrastrar co-el-ar-dificil ">
-                            <div id="numeroUno" class="elemento arrastrable" draggable="true" ondragstart="arrastrar(event)" ondragend="finalizarArrastre(event)">
-                                <h1>2</h1>
-                            </div>
-
-                            <div id="numeroDos" class="elemento arrastrable" draggable="true" ondragstart="arrastrar(event)" ondragend="finalizarArrastre(event)">
-                                <h1>4</h1>
-                            </div>
-
-                            <div id="numeroTres" class="elemento arrastrable" draggable="true" ondragstart="arrastrar(event)" ondragend="finalizarArrastre(event)">
-                                <h1>8</h1>
-                            </div>
-
-                            <div id="numeroCuatro" class="elemento arrastrable" draggable="true" ondragstart="arrastrar(event)" ondragend="finalizarArrastre(event)">
-                                <h1>1</h1>
-                            </div>
-
-                            <div id="numeroCinco" class="elemento arrastrable" draggable="true" ondragstart="arrastrar(event)" ondragend="finalizarArrastre(event)">
-                                <h1>5</h1>
-                            </div>
-
-                            <div id="numeroSeis" class="elemento arrastrable" draggable="true" ondragstart="arrastrar(event)" ondragend="finalizarArrastre(event)">
-                                <h1>0</h1>
-                            </div>
-
-                            <div id="numeroSiete" class="elemento arrastrable" draggable="true" ondragstart="arrastrar(event)" ondragend="finalizarArrastre(event)">
-                                <h1>9</h1>
-                            </div>
-
-                            <div id="numeroOcho" class="elemento arrastrable" draggable="true" ondragstart="arrastrar(event)" ondragend="finalizarArrastre(event)">
-                                <h1>3</h1>
-                            </div>
-
-                            <div id="numeroNueve" class="elemento arrastrable" draggable="true" ondragstart="arrastrar(event)" ondragend="finalizarArrastre(event)">
-                                <h1>6</h1>
-                            </div>
+                        <div id="contenedorDrag" class="contenedor-elementos-arrastrar co-el-ar-dificil ">
+                            
                         </div>
                     </div>
                 </div>
@@ -164,6 +91,8 @@
     <script src="../../Bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../../Bootstrap/js/bootstrap.js"></script>
     <script src="../../assets/Libreria/SweetAlert2/js/sweetalert2.min.js"></script>
+    <script src="../../assets/Libreria/Sortable/Sortable.min.js"></script>
+    <script src="assets/js/validacion.js"></script>
     <script src="assets/js/mainOrdenar.js"></script>
     <script src="assets/js/Ordenar Dificultad/mainOrdenarDificil.js"></script>
     <script src="../../assets/js/main.js"></script>

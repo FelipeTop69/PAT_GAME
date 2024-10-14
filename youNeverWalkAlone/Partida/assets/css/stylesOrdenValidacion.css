@@ -140,35 +140,33 @@ body::before {
     margin: 0;
     color: #FFF;
     text-align: center;
+    
+    font-family: Nunito;
+    font-size: 30px;
+    font-style: italic;
+    font-weight: 900;
+    line-height: normal;
+    letter-spacing: 1px;
+}
+
+.texto-puntos-bien{
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: rgba(25, 217, 44, 0.50);
-    font-family: Nunito;
-    font-size: 30px;
-    font-style: italic;
-    font-weight: 900;
-    line-height: normal;
-    letter-spacing: 1px;
 }
 
-.puntuacion-mal {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.puntuacion-mal h4 {
-    margin: 0;
-    color: #FFF;
-    text-align: center;
+.texto-puntos-mal{
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: rgba(190, 8, 19, 0.71);
-    font-family: Nunito;
-    font-size: 30px;
-    font-style: italic;
-    font-weight: 900;
-    line-height: normal;
-    letter-spacing: 1px;
+}
+
+.texto-bien{
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: rgba(25, 217, 44, 0.50);
+}
+
+.texto-mal{
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: rgba(190, 8, 19, 0.71);
 }
 
 
