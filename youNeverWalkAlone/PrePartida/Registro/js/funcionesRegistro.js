@@ -31,8 +31,8 @@ formRegistro.addEventListener('submit', (focus) =>{
                 }
             });
         }else{
-            console.log(data.mensaje)
-            window.location.href='Lobby.html'
+            console.log(data)
+            window.location.href='Lobby.php'
             formRegistro.reset();
         }
         

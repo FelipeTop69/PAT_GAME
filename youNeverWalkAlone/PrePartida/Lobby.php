@@ -1,3 +1,23 @@
+<?php 
+
+    session_start();
+
+    // Verificar si la sesión del jugador está activa
+    if (!isset($_SESSION['jugador'])) {
+        header("Location: Registro.html");
+        exit;
+    }
+
+    $jugadorSesion = [
+        'id' => $_SESSION['jugador']['numerodocumento'],
+        'nombre' => $_SESSION['jugador']['nombre']
+    ];
+
+    // session_destroy();
+    
+
+?>
+
 <!-- <!DOCTYPE html> -->
 <html lang="es">
 
@@ -25,10 +45,9 @@
 </head>
 
 <body>
-
     <div class="container d-flex flex-column vh-100">
         <div class="contenedor-up  d-flex justify-content-between align-items-center">
-            <button id="botonVolver" type="button" class="boton-volver">
+            <button id="botonSalir" type="button" class="boton-volver">
 
             </button>
             <button id="botonInformacion" type="button" class="boton-informacion" data-bs-toggle="modal"
@@ -41,6 +60,7 @@
                 <h1 class="titulo-carta m-0">LOBBY</h1>
             </div>
             <div class="carta d-flex flex-column align-items-center">
+                <h5 class="text-bienvenida">Bienvenido <?php echo htmlspecialchars($_SESSION['jugador']['nombre']); ?>!</h1>
                 <div class="carta-texto-top  p-2">
                     <h3 class="carta-texto">En Espera</h3>
                     <div class="wrapper">
@@ -57,15 +77,6 @@
                 </div>
             </div>
         </div>
-        <a href="../Partida/Categoria_Numeros/Detalles.html">
-            <button class="next position-absolute bottom-0 end-0">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75">
-                    </path>
-                </svg>
-            </button>
-        </a>
     </div>
 
     <!-- Modal -->
@@ -73,12 +84,31 @@
 
     </div>
 
+    <!-- Boton Redirigir -->
+    <a href="../Partida/Categoria_Numeros/Detalles.html">
+        <button class="next position-absolute bottom-0 end-0">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75">
+                </path>
+            </svg>
+        </button>
+    </a>
+
+    <!-- Boton Actualizar -->
+    <button id="botonActualizar" class="btn btn-warning position-absolute bottom-0 m-4">Actualizar Points</button>
+
     <script src="../Bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../Bootstrap/js/bootstrap.js"></script>
     <script src="../assets/Libreria/SweetAlert2/js/sweetalert2.min.js"></script>
     <script src="../Partida/assets/js/mainJugadores.js"></script>
+    <script src="Registro/js/funcionesLobby.js"></script>
     <script src="assets/js/mainLobby.js"></script>
     <script src="../assets/js/main.js"></script>
+    <script>
+        // Pasar el array a JSON
+        const jugadorSesion = <?php echo json_encode($jugadorSesion); ?>;
+    </script>
 </body>
 
 </html>
