@@ -112,5 +112,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Medotdo para invocar alerta
     const botonAlerta = document.querySelector('#botonVolver');
-    botonAlerta.addEventListener('click', llamarAlerta);
+    
+    if (botonAlerta) {
+        botonAlerta.addEventListener('click', llamarAlerta);
+    } else {
+        console.log('Botón de alerta no econtrado.');
+    }
 })
