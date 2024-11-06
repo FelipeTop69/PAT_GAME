@@ -21,33 +21,47 @@
 
     <!-- Iconos -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css">
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    <link rel="stylesheet" href="fontawesome-free-6.4.2-web/css/all.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css">
     <title>PAT GAME</title>
 </head>
 
 <body>
 
     <div class="container d-flex justify-content-center align-items-center vh-100">
-        <div class="carta-dificultad p-3 ">
+        <div class="carta-dificultad p-3">
             <div class="titulo-dificultad position-absolute top-0 start-50 translate-middle">
                 <div class="marco-titulo px-2 py-3 ">
-                    <h1>ORDEN</h1>
+                    <h1 class="animate__animated animate__bounce">VALIDANDO ORDEN</h1>
                 </div>
             </div>
-            <div class="contenido-dificultad">
-                <div class="validacion">
-                    <div class="loader-validacion"></div>
-                    <div id="contenedorIconoCalificacion" class="icono animate__animated animate__bounceInUp animate__delay-5s">
-                        
+                <div class="contenido-dificultad">
+                    <div class="validacion">
+                        <div class= "loader-validacion animate__animated animate__bounceInUp animate__delay-.2s" id="miDiv">
+                            <div class="Textovali">Validando...</div>
+
+                        </div>
+
+                        <div id="contenedorIconoCalificacion" class= "icono animate__animated animate__bounceInUp animate__delay-5s">
+                            
+                        </div>
                     </div>
+                    
+                    <div id="contenedorPuntos" class="puntuacion animate__animated animate__bounceInUp animate__delay-5s">
+                        <h4 id="textoPuntos">PUNTOS</h4>
+                    </div>
+                    
+                    <a href="Podio.html">
+                        <button class="btn btn-primary animate__animated animate__bounceInUp animate__delay-.4s" id="miBoton" style="display: none;">IR</button>
+                        <script>
+                            setTimeout(function() {
+                                 document.getElementById("miBoton").style.display = "inline";
+                               }, 6000);
+                             
+                             </script>
+                    </a>
                 </div>
-                
-                <div id="contenedorPuntos" class="puntuacion animate__animated animate__bounceInUp animate__delay-5s">
-                    <h4 id="textoPuntos">PUNTOS</h4>
-                </div>
-                <a href="Podio.html">
-                    <button type="">IR</button>
-                </a>
-            </div>
         </div>
     </div>
 

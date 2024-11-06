@@ -99,6 +99,8 @@ body::before {
 
 }
 
+
+
 .tercer-lugar {
     order: 3;
     align-self: flex-end;

@@ -1,5 +1,3 @@
-// Temporizador Circular
-
 let intervaloTiempoActual = "bajo"; 
 
 function iniciarTemporizador(pTiempo, pDireccionUrl) {
@@ -88,6 +86,7 @@ function obtenerNumerosAdicionales(numeros, cantidad) {
     return seleccionados;
 }
 
+
 // Inyectar elementos
 function inyectarElementos(pElementos, pContenedor, clases = [], esPrincipal = false) {
     const elementosRecibidos = pElementos;
@@ -130,7 +129,7 @@ cartaElementos.classList.add('drag-activo')
 const contenedorDrag = document.getElementById('contenedorDrag');
 const contenedorDrop = document.getElementById('contenedorDrop');
 const contenedorBoton = document.getElementById('botonOculto');
-const botonEnviar = document.getElementById('botonEnviar');
+const enviarBtn = document.getElementById('botonEnviar');
 
 function cambiarOrdenElementos(pContenedor) {
     const contenedor = pContenedor;
@@ -158,6 +157,9 @@ function iniciarDragAndDrop(pNumeros){
         animation: 500,
         easing: 'cubic-bezier(0.25, 1, 0.5, 1)', //easeOutQuart de https://easings.net/#
     });
+    
+    
+   
     
     Sortable.create(contenedorDrop, {
         group: {
@@ -198,7 +200,9 @@ function iniciarDragAndDrop(pNumeros){
         }
         
     });
+
 }
+
 
 // ANTES DE ASGINAR PUNTOS 0 SI SE TERMINA EL TIEMPO
 // function iniciarTemporizador(pTiempo, pDireccionUrl) {

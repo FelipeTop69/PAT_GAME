@@ -20,7 +20,10 @@ function compararArreglos(pOrdenValido, pOrdenJugador) {
             elementoDrop.classList.add('no-coincide');
             elementoDrop.classList.remove('coincide');
         }
+
+        // Tonces Diego 
     }
+    
 
     // Mostrar los resultados en la consola
     // resultados.forEach(resultado => console.log(resultado));
@@ -29,9 +32,12 @@ function compararArreglos(pOrdenValido, pOrdenJugador) {
     return puntos;
 }
 
+
+
 function validarOrden() {
     // Recuperar el estado de ordenJugador desde localStorage (si es necesario)
     let ordenJugador = JSON.parse(localStorage.getItem('ordenJugador')) || [];
+    
     
     const puntos = compararArreglos(idElementos, ordenJugador);
     const cantidadPuntosRequeridos = ordenJugador.length * 100;
@@ -45,6 +51,7 @@ function validarOrden() {
     } else if (intervaloActual === 'dificil') {
         puntosExtra = 10;  // Puntos extra por hacer clic en el tercer intervalo
     }
+   
 
     // Sumar los puntos extra a los puntos normales
     const puntosTotales = puntos + puntosExtra;
@@ -58,6 +65,7 @@ function validarOrden() {
 
     window.location.href = "../Ordenar_Validacion.html";
 }
+
 
 // ANTES DE ASGINAR PUNTOS 0 SI SE TERMINA EL TIEMPO
 // function validarOrden() {

@@ -22,6 +22,7 @@ body::before {
 
 /* Dificultad */
 .carta-dificultad {
+    overflow: hidden;
     position: relative;
     /* height: 70%; */
     display: flex;
@@ -139,6 +140,7 @@ body::before {
 }
 
 .marco-imagen-dificultad img {
+    
     margin-top: 4px;
     margin-left: 4px;
     transform: rotate(-45deg);
