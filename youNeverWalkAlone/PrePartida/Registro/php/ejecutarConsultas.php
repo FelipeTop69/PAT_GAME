@@ -1,9 +1,11 @@
 <?php 
-session_start(); 
-// session_destroy();
 
 require_once '../../../Conexion/conexion.php';
 require_once './controlConsultas.php';
+require_once './jugador.php';
+
+session_start(); 
+// session_destroy();
 
 $tipo_consulta = $_POST['tipo_operacion'] ?? '';
 
@@ -14,19 +16,15 @@ switch($tipo_consulta){
         $numeroDocumento = $_POST['txtNumeroDocumento'];
         $nombre = $_POST['txtNombre'];
 
-        
-
+        $jugador = new Jugador($numeroDocumento, $nombre);
         $consulta = new ConsultasRegistro;
-        $respuesta = $consulta->registrarJugador($numeroDocumento, $nombre);
+        $respuesta = $consulta->registrarJugador($jugador);
 
         if (isset($respuesta['error'])) {
             echo json_encode(['error' => $respuesta['error']]);
         } else {
-            // Iniciar la sesión del jugador si el registro fue exitoso
-            $_SESSION['jugador'] = [
-                'nombre' => $nombre,
-                'numerodocumento' => $numeroDocumento
-            ];
+            // Iniciar la sesion del jugador si el registro se completa
+            $_SESSION['jugador'] = $jugador->toArray(); // Guardar los datos encapsulados en formato JSON para la sesion
             echo json_encode($respuesta);
         }
 
@@ -47,10 +45,14 @@ switch($tipo_consulta){
     case 'actualizar_puntuacion_jugador':
         if (isset($_SESSION['jugador'])) {
             $nuevaPuntuacion = $_POST['nueva_puntuacion'];
-            $numeroDocumento = $_SESSION['jugador']['numerodocumento'];
-            
+
+            $jugador = new Jugador(
+                $_SESSION['jugador']['numerodocumento'],
+                $_SESSION['jugador']['nombre']
+            );
             $consulta = new ConsultasRegistro();
-            $resultado = $consulta->actualizarPuntuacionJugador($numeroDocumento, $nuevaPuntuacion);
+            $resultado = $consulta->actualizarPuntuacionJugador($jugador, $nuevaPuntuacion);
+            
             echo json_encode($resultado);
         } else {
             echo json_encode(['error' => 'Debes iniciar sesión para actualizar la puntuación']);
@@ -59,8 +61,14 @@ switch($tipo_consulta){
 
     case 'obtener_puntos':
         if (isset($_SESSION['jugador'])) {
+
+            $jugador = new Jugador(
+                $_SESSION['jugador']['numerodocumento'],
+                $_SESSION['jugador']['nombre']
+            );
             $consulta = new ConsultasRegistro();
-            $puntos = $consulta->obtenerPuntosJugador($_SESSION['jugador']['numerodocumento']);
+            $puntos = $consulta->obtenerPuntosJugador($jugador);
+
             echo json_encode(['puntos' => $puntos]);
         } else {
             echo json_encode(['error' => 'Sesión no activa.']);
@@ -69,9 +77,14 @@ switch($tipo_consulta){
 
     case 'eliminar_jugador':
         if (isset($_SESSION['jugador'])) {
-            $numeroDocumento = $_SESSION['jugador']['numerodocumento'];
+
+            $jugador = new Jugador(
+                $_SESSION['jugador']['numerodocumento'],
+                $_SESSION['jugador']['nombre']
+            );
             $consulta = new ConsultasRegistro();
-            $resultado = $consulta->eliminarJugador($numeroDocumento);
+            $resultado = $consulta->eliminarJugador($jugador);
+
             echo json_encode($resultado);
         } else {
             echo json_encode(['error' => 'Debes iniciar sesión para realizar esta acción']);

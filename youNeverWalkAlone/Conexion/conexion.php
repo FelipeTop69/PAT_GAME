@@ -25,6 +25,13 @@ class Conexion {
         return $conexion;
     }
 
+    public function ejecutar($sql, $valores = []) {
+        $pdo = $this->conectar();
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute($valores);
+        return $stmt; // Statement 
+    }
+
 }
 
 // Crear una instancia de la clase y probar la conexión
