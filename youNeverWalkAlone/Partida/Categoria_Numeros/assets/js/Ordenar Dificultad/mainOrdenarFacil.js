@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Configuracion Temporizador
     const segundos = 15;
-    const url = "/Partida/Ordenar_Validacion.html";
+    const url = "../Ordenar_Validacion.html";
     iniciarTemporizador(segundos, url)
     const numeros = [4, 5, 8, 9];  // Números principales
     const numerosAdicionales = obtenerNumerosAdicionales(numeros, 4);
