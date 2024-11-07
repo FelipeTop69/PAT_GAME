@@ -61,22 +61,8 @@
                                 <h5>ORDEN</h5>
                             </div>
                         </div>
-                        <div class="contenedor-elementos-puestos co-el-pu-facil">
-                            <div class="caja-elemento">
-                                <div id="0" class="caja" ondrop="soltarElemento(event)" ondragover="permitirSoltar(event)" ondragenter="entrarElemento(event)" ondragleave="soltarArrastre(event)"></div>
-                            </div>
-
-                            <div class="caja-elemento">
-                                <div id="1" class="caja" ondrop="soltarElemento(event)" ondragover="permitirSoltar(event)" ondragenter="entrarElemento(event)" ondragleave="soltarArrastre(event)"></div>
-                            </div>
-
-                            <div class="caja-elemento">
-                                <div id="2" class="caja" ondrop="soltarElemento(event)" ondragover="permitirSoltar(event)" ondragenter="entrarElemento(event)" ondragleave="soltarArrastre(event)"></div>
-                            </div>
-
-                            <div class="caja-elemento">
-                                <div id="3" class="caja" ondrop="soltarElemento(event)" ondragover="permitirSoltar(event)" ondragenter="entrarElemento(event)" ondragleave="soltarArrastre(event)"></div>
-                            </div>
+                        <div id="contenedorDrop" class="contenedor-elementos-puestos co-el-pu-facil">
+                            
                         </div>
                     </div>
                 </div>
@@ -87,38 +73,8 @@
                                 <h5>ELEMENTOS</h5>
                             </div>
                         </div>
-                        <div class="contenedor-elementos-arrastrar co-el-ar-facil">
-                            <div id="numeroUno" class="elemento arrastrable" draggable="true" ondragstart="arrastrar(event)" ondragend="finalizarArrastre(event)">
-                                <img class="medida-elemento" src="assets/img/Recursos/Elementos Memorizar/Disco Duro.png" alt="imagenCategoriaComputo">
-                            </div>
-
-                            <div id="numeroDos" class="elemento arrastrable" draggable="true" ondragstart="arrastrar(event)" ondragend="finalizarArrastre(event)">
-                                <img class="medida-elemento" src="assets/img/Recursos/Elementos Memorizar/Router.png" alt="imagenCategoriaComputo">
-                            </div>
-
-                            <div id="numeroTres" class="elemento arrastrable" draggable="true" ondragstart="arrastrar(event)" ondragend="finalizarArrastre(event)">
-                                <img class="medida-elemento" src="assets/img/Recursos/Elementos Memorizar/Mouse.png" alt="imagenCategoriaComputo">
-                            </div>
-
-                            <div id="numeroCuatro" class="elemento arrastrable" draggable="true" ondragstart="arrastrar(event)" ondragend="finalizarArrastre(event)">
-                                <img class="medida-elemento" src="assets/img/Recursos/Elementos Memorizar/Monitor.png" alt="imagenCategoriaComputo">
-                            </div>
-
-                            <div id="numeroCinco" class="elemento arrastrable" draggable="true" ondragstart="arrastrar(event)" ondragend="finalizarArrastre(event)">
-                                <img class="medida-elemento" src="assets/img/Recursos/Elementos Memorizar/Altavoces.png" alt="imagenCategoriaComputo">
-                            </div>
-
-                            <div id="numeroSeis" class="elemento arrastrable" draggable="true" ondragstart="arrastrar(event)" ondragend="finalizarArrastre(event)">
-                                <img class="medida-elemento" src="assets/img/Recursos/Elementos Memorizar/CPU.png" alt="imagenCategoriaComputo">
-                            </div>
-
-                            <div id="numeroSiete" class="elemento arrastrable" draggable="true" ondragstart="arrastrar(event)" ondragend="finalizarArrastre(event)">
-                                <img class="medida-elemento" src="assets/img/Recursos/Elementos Memorizar/USB.png" alt="imagenCategoriaComputo">
-                            </div>
-
-                            <div id="numeroOcho" class="elemento arrastrable" draggable="true" ondragstart="arrastrar(event)" ondragend="finalizarArrastre(event)">
-                                <img class="medida-elemento" src="assets/img/Recursos/Elementos Memorizar/Diademas.png" alt="imagenCategoriaComputo">
-                            </div>
+                        <div id="contenedorDrag" class="contenedor-elementos-arrastrar co-el-ar-facil">
+                            
                         </div>
                     </div>
                 </div>
@@ -135,6 +91,8 @@
     <script src="../../Bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../../Bootstrap/js/bootstrap.js"></script>
     <script src="../../assets/Libreria/SweetAlert2/js/sweetalert2.min.js"></script>
+    <script src="../../assets/Libreria/Sortable/Sortable.min.js"></script>
+    <script src="assets/js/validacion.js"></script>
     <script src="assets/js/mainOrdenar.js"></script>
     <script src="assets/js/Ordenar Dificultad/mainOrdenarFacil.js"></script>
     <script src="../../assets/js/main.js"></script>

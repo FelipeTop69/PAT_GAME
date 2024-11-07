@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // iniciarBarraProgreso('#barraProgresoDificil', 12000, 'Ordenar Dificil.html');
+    iniciarBarraProgreso('#barraProgresoDificil', 12000, 'Ordenar Dificil.html');
     const contenedorMemorizar = document.getElementById('contenedorMemorizarDificil')
     const imagenes = [
         'assets/img/Recursos/Elementos Memorizar/Piña.png',

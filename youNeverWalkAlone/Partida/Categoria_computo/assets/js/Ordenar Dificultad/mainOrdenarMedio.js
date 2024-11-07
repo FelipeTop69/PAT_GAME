@@ -1,18 +1,20 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Configuracion Temporizador
     const segundos = 20;
-    const url = "/Partida/Ordenar_Incorrecto.html";
+    const url = "../Ordenar_Validacion.html";
     iniciarTemporizador(segundos, url)
 
-    // Configuración Ordenamient
-    initDragAndDrop({
-        arregloObjetivo: ["numeroUno", "numeroDos", "numeroCinco", "numeroSeis", "numeroSiete", "numeroNueve"],
-        numElementos: 6,
-        contenedor: 'caja',
-        botonEnviar: 'botonEnviar',
-        urls: {
-            correcto: '/Partida/Ordenar_Valido.html',
-            incorrecto: '/Partida/Ordenar_Incorrecto.html'
-        }
-    }); 
+    const computo = [
+        'assets/img/Recursos/Elementos Memorizar/Disco Duro.png',
+        'assets/img/Recursos/Elementos Memorizar/Teclado.png',
+        'assets/img/Recursos/Elementos Memorizar/Mouse.png',
+        'assets/img/Recursos/Elementos Memorizar/Impresora.png',
+        'assets/img/Recursos/Elementos Memorizar/Diademas.png',
+        'assets/img/Recursos/Elementos Memorizar/CPU.png',
+    ]  // Computo principales
+    const computoAdicionales = obtenerComputoAdicionales(computo, 3);
+    inyectarElementos(computo, contenedorDrag,  true);  // Inyectar los números principales
+    inyectarElementos(computoAdicionales, contenedorDrag);  // Inyectar los números adicionales
+    cambiarOrdenElementos(contenedorDrag);
+    iniciarDragAndDrop(computo) 
 })
