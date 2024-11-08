@@ -30,33 +30,55 @@ function compararArreglos(pOrdenValido, pOrdenJugador) {
 }
 
 function validarOrden() {
-    // Recuperar el estado de ordenJugador desde localStorage (si es necesario)
     let ordenJugador = JSON.parse(localStorage.getItem('ordenJugador')) || [];
-    
     const puntos = compararArreglos(idElementos, ordenJugador);
     const cantidadPuntosRequeridos = ordenJugador.length * 100;
 
-    // Asignar puntos extra según el intervalo actual
     let puntosExtra = 0;
     if (intervaloActual === 'facil') {
-        puntosExtra = 50;  // Puntos extra por hacer clic en el primer intervalo
+        puntosExtra = 50;
     } else if (intervaloActual === 'medio') {
-        puntosExtra = 30;  // Puntos extra por hacer clic en el segundo intervalo
+        puntosExtra = 30;
     } else if (intervaloActual === 'dificil') {
-        puntosExtra = 10;  // Puntos extra por hacer clic en el tercer intervalo
+        puntosExtra = 10;
     }
 
-    // Sumar los puntos extra a los puntos normales
     const puntosTotales = puntos + puntosExtra;
 
-    console.log(`Cantidad de puntos requeridos: ${cantidadPuntosRequeridos}`);
-    console.log(`Puntos obtenidos: ${puntos}`);
-    console.log(`Orden del jugador: ${ordenJugador}`);
+    // console.log(puntosTotales);
 
-    localStorage.setItem('puntos', puntosTotales); 
+    // Almacenar puntos en localStorage para el podio
+    localStorage.setItem('puntos', puntosTotales);
     localStorage.setItem('puntosRequeridos', cantidadPuntosRequeridos);
 
+    // Enviar puntos al servidor
+    enviarPuntosServidor(puntosTotales);
+
     window.location.href = "../Ordenar_Validacion.html";
+}
+
+
+
+// Función para enviar los puntos al servidor
+function enviarPuntosServidor(puntos) {
+    const url = "Prueba/ejecutarConsultas.php"; // URL de la página donde se guarda los puntos
+    
+    // Crear el objeto FormData con solo los puntos
+    const formData = new FormData();
+    formData.append('tipo_operacion', 'guardar_puntos');
+    formData.append('puntos', puntos);
+
+    fetch(url, {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Puntos Recibidos:', data);
+    })
+    .catch(function(error) {
+        console.log('Error Papi:', error);
+    });
 }
 
 // ANTES DE ASGINAR PUNTOS 0 SI SE TERMINA EL TIEMPO

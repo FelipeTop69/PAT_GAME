@@ -41,6 +41,33 @@ function iniciarBarraProgreso(selectorBarra, duracion, urlRedireccion) {
 
 // Inyectar elementos
 const idElementos = [];
+const elementosNivel = {
+  facil: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+  medio: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+  dificil: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+};
+
+function obtenerElementosAleatorios(nivel, cantidad = 4) {
+  const elementosDisponibles = [...elementosNivel[nivel]];
+  const seleccionados = [];
+
+  for (let i = 0; i < cantidad; i++) {
+      const indiceAleatorio = Math.floor(Math.random() * elementosDisponibles.length);
+      seleccionados.push(elementosDisponibles[indiceAleatorio]);
+      elementosDisponibles.splice(indiceAleatorio, 1);
+  }
+  console.log(seleccionados);
+  return seleccionados;
+}
+
+// Actualizar las rondas en el HTML
+function actualizarRondaHTML() {
+  const rondaActual = localStorage.getItem('rondaActual') || '1';
+  const rondaElemento = document.getElementById('ronda-numero');
+  if (rondaElemento) {
+      rondaElemento.textContent = `Ronda #${rondaActual}`;
+  }
+}
 
 function inyectarElementosMemorizar(pElementos, pContenedor, clases = []) {
   const elementosRecibidos = pElementos;
