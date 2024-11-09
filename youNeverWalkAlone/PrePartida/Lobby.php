@@ -1,4 +1,30 @@
-<?php 
+<?php
+
+    include '../Conexion 3/conexion.php';
+    $conexion = new Conexion();
+    $conectar = $conexion->conectar();
+
+    // Consulta para obtener el primer ID de categoría entre los posibles valores (1, 2, 3)
+    $sql = $conectar->prepare("SELECT idcategoria FROM configuracion WHERE idcategoria IN (1, 2, 3) LIMIT 1");
+    $sql->execute();
+    $resultado = $sql->fetch(PDO::FETCH_ASSOC); // Obtenemos una sola fila
+
+    // Verificamos si se encontró una categoría
+    if ($resultado) {
+        $selectedCategoryId = $resultado['idcategoria'];
+    } else {
+        $selectedCategoryId = null;
+    }
+
+    // Define las URLs para cada categoría
+    $links = [
+        1 => "../Partida/Categoria_Numeros/Detalles.html",
+        2 => "../Partida/Categoria_Frutas/Detalles.html",
+        3 => "../Partida/Categoria_computo/Detalles.html"
+    ];
+
+    // Asigna la URL basada en la categoría seleccionada, o '#' si no existe
+    $selectedLink = $selectedCategoryId ? ($links[$selectedCategoryId] ?? '#') : '#';
 
     session_start();
 
@@ -14,7 +40,7 @@
     ];
 
     // session_destroy();
-    
+
 
 ?>
 
@@ -61,20 +87,20 @@
             </div>
             <div class="carta d-flex flex-column align-items-center">
                 <h5 class="text-bienvenida">Bienvenido <?php echo htmlspecialchars($_SESSION['jugador']['nombre']); ?>!</h1>
-                <div class="carta-texto-top  p-2">
-                    <h3 class="carta-texto">En Espera</h3>
-                    <div class="wrapper">
-                        <div class="circle"></div>
-                        <div class="circle"></div>
-                        <div class="circle"></div>
-                        <div class="shadow"></div>
-                        <div class="shadow"></div>
-                        <div class="shadow"></div>
+                    <div class="carta-texto-top  p-2">
+                        <h3 class="carta-texto">En Espera</h3>
+                        <div class="wrapper">
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="shadow"></div>
+                            <div class="shadow"></div>
+                            <div class="shadow"></div>
+                        </div>
                     </div>
-                </div>
-                <div id="cartaJugadores" class="carta-jugadores">
-                    
-                </div>
+                    <div id="cartaJugadores" class="carta-jugadores">
+
+                    </div>
             </div>
         </div>
     </div>
@@ -85,15 +111,13 @@
     </div>
 
     <!-- Boton Redirigir -->
-    <a href="../Partida/Categoria_Numeros/Detalles.html">
-        <button class="next position-absolute bottom-0 end-0">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75">
-                </path>
-            </svg>
-        </button>
-    </a>
+    <button class="next position-absolute bottom-0 end-0"id="goToPageBtn" data-link="<?php echo $selectedLink; ?>">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75">
+            </path>
+        </svg>
+    </button>
 
     <!-- Boton Actualizar -->
     <button id="botonActualizar" class="btn btn-warning position-absolute bottom-0 m-4">Actualizar Points</button>
@@ -105,6 +129,8 @@
     <script src="Registro/js/funcionesLobby.js"></script>
     <script src="assets/js/mainLobby.js"></script>
     <script src="../assets/js/main.js"></script>
+    <script src="../Admin/assets/js/boton2.js"></script>
+
     <script>
         // Pasar el array a JSON
         const jugadorSesion = <?php echo json_encode($jugadorSesion); ?>;

@@ -1,13 +1,23 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Configuracion Temporizador
+    // Llamamos a la función que actualiza el HTML
+    actualizarRondaHTML();
+    
     const segundos = 20;
-    const url = "../Ordenar_Validacion.html";
-    iniciarTemporizador(segundos, url)
-    const numeros = [1, 9, 4, 8, 0, 2];  // Números principales
-    const numerosAdicionales = obtenerNumerosAdicionales(numeros, 3);
-    const claseAdicional = ['nada']
-    inyectarElementos(numeros, contenedorDrag, claseAdicional, true);  // Inyectar los números principales
-    inyectarElementos(numerosAdicionales, contenedorDrag);  // Inyectar los números adicionales
+    const url = "../../Partida/Ordenar_Validacion.html";
+    iniciarTemporizador(segundos, url);
+
+    // Recupera los números memorizados de localStorage
+    const numerosMemorizados = JSON.parse(localStorage.getItem('numerosMemorizados')) || [];
+    
+    // Genera números adicionales excluyendo los de `numerosMemorizados`
+    const numerosAdicionales = obtenerNumerosAdicionales(numerosMemorizados, 3);
+    const claseAdicional = ['nada'];
+
+    // Inyecta los elementos en el contenedor de ordenamiento
+    inyectarElementos(numerosMemorizados, contenedorDrag, claseAdicional, true); // Números memorizados
+    inyectarElementos(numerosAdicionales, contenedorDrag);                       // Números adicionales
+
+    // Mezcla los elementos para hacer el ordenamiento menos predecible
     cambiarOrdenElementos(contenedorDrag);
-    iniciarDragAndDrop(numeros) 
-})
+    iniciarDragAndDrop(numerosMemorizados);
+});

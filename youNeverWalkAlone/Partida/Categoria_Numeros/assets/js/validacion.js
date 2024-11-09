@@ -29,34 +29,59 @@ function compararArreglos(pOrdenValido, pOrdenJugador) {
     return puntos;
 }
 
-function validarOrden() {
-    // Recuperar el estado de ordenJugador desde localStorage (si es necesario)
+// Función principal para validar el orden y manejar puntos
+async function validarOrden() {
+    // Obtener el orden del jugador desde localStorage o inicializar como un arreglo vacío
     let ordenJugador = JSON.parse(localStorage.getItem('ordenJugador')) || [];
-    
     const puntos = compararArreglos(idElementos, ordenJugador);
     const cantidadPuntosRequeridos = ordenJugador.length * 100;
 
-    // Asignar puntos extra según el intervalo actual
+    // Calcular puntos extra según el nivel de dificultad
     let puntosExtra = 0;
     if (intervaloActual === 'facil') {
-        puntosExtra = 50;  // Puntos extra por hacer clic en el primer intervalo
+        puntosExtra = 50;
     } else if (intervaloActual === 'medio') {
-        puntosExtra = 30;  // Puntos extra por hacer clic en el segundo intervalo
+        puntosExtra = 30;
     } else if (intervaloActual === 'dificil') {
-        puntosExtra = 10;  // Puntos extra por hacer clic en el tercer intervalo
+        puntosExtra = 10;
     }
 
-    // Sumar los puntos extra a los puntos normales
     const puntosTotales = puntos + puntosExtra;
 
-    console.log(`Cantidad de puntos requeridos: ${cantidadPuntosRequeridos}`);
-    console.log(`Puntos obtenidos: ${puntos}`);
-    console.log(`Orden del jugador: ${ordenJugador}`);
+    console.log(puntosTotales);
 
-    localStorage.setItem('puntos', puntosTotales); 
+    // Almacenar puntos en localStorage para el podio
+    localStorage.setItem('puntos', puntosTotales);
     localStorage.setItem('puntosRequeridos', cantidadPuntosRequeridos);
 
+    // Enviar puntos al servidor y esperar la respuesta antes de redirigir
+    await enviarPuntosServidor(puntosTotales);
+
+    // Redirigir a la nueva página solo después de completar la solicitud fetch
     window.location.href = "../Ordenar_Validacion.html";
+}
+
+// Función para enviar los puntos al servidor
+async function enviarPuntosServidor(puntos) {
+    const url = "Prueba/ejecutarConsultas.php"; // URL de la página donde se guardan los puntos
+
+    // Crear el objeto FormData con solo los puntos
+    const formData = new FormData();
+    formData.append('tipo_operacion', 'guardar_puntos');
+    formData.append('puntos', puntos);
+
+    // Hacer la solicitud fetch y redirigir después de completarse
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            body: formData
+        });
+        const data = await response.json();
+        console.log('Puntos Recibidos:', data);
+        return data;
+    } catch (error) {
+        console.log('Error Papi:', error);
+    }
 }
 
 // ANTES DE ASGINAR PUNTOS 0 SI SE TERMINA EL TIEMPO

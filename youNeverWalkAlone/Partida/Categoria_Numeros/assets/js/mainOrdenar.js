@@ -2,7 +2,7 @@
 
 let intervaloTiempoActual = "bajo"; 
 
-function iniciarTemporizador(pTiempo, pDireccionUrl) {
+async function iniciarTemporizador(pTiempo, pDireccionUrl) {
     let circularProgress = document.querySelector(".temporizador"),
         progressValue = document.querySelector(".tiempo-restante");
 
@@ -12,7 +12,7 @@ function iniciarTemporizador(pTiempo, pDireccionUrl) {
     let startTime = null; // Variable para almacenar el tiempo de inicio
     let animationFrame; // Variable para almacenar el requestAnimationFrame
 
-    function updateTimer(timestamp) {
+    async function updateTimer(timestamp) {
         if (!startTime) startTime = timestamp; // Establecer el tiempo inicial la primera vez que se ejecuta
 
         let elapsedTime = (timestamp - startTime) / 1000; // Calcular el tiempo transcurrido en segundos
@@ -49,6 +49,7 @@ function iniciarTemporizador(pTiempo, pDireccionUrl) {
             if (ordenJugador.length === 0) {
                 localStorage.setItem('puntos', 0);  // Asignar 0 puntos si el jugador no ha hecho nada
                 localStorage.setItem('puntosRequeridos', numeros.length * 100);
+                await enviarPuntosServidor(0);
             }else{
                 // Si el tiempo se acaba, no asignar puntos extra
                 localStorage.setItem('puntosExtra', 0);
@@ -56,6 +57,7 @@ function iniciarTemporizador(pTiempo, pDireccionUrl) {
 
             // Redirigir a la página deseada
             window.location.href = url;
+
         } else {
             animationFrame = requestAnimationFrame(updateTimer); // Continuar la animación
         }
@@ -68,23 +70,49 @@ function iniciarTemporizador(pTiempo, pDireccionUrl) {
 
 
 // Inyectar Elementos
-const baseNumerosAdicionales = [1, 2, 3, 4, 5, 6, 7, 8, 9];  // Base de números adicionales
+// Arreglo de los Números bases para cada ronda de nivel de dificlutad
+const elementosNivel = {
+    facil: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    medio: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    dificil: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+};
 const idElementos = [];
 
-// Función para obtener números adicionales
-function obtenerNumerosAdicionales(numeros, cantidad) {
-    // Filtrar los números adicionales
-    const numerosDisponibles = baseNumerosAdicionales.filter(numero => !numeros.includes(numero));
-
-    // Seleccionar aleatoriamente 'cantidad' de números
+// Función para obtener números de manera aleatoria
+function obtenerElementosAleatorios(nivel, cantidad) {
+    const elementosDisponibles = [...elementosNivel[nivel]];
     const seleccionados = [];
+
+    for (let i = 0; i < cantidad; i++) {
+        const indiceAleatorio = Math.floor(Math.random() * elementosDisponibles.length);
+        seleccionados.push(elementosDisponibles[indiceAleatorio]);
+        elementosDisponibles.splice(indiceAleatorio, 1);
+    }
+    console.log(seleccionados);
+    return seleccionados;
+}
+
+// función para obtener números adicionales de manera aleatoria
+function obtenerNumerosAdicionales(numerosMemorizados, cantidad) {
+    const baseNumeros = [1, 2, 3, 4, 5, 6, 7, 8, 9]; // Rango de números
+    const numerosDisponibles = baseNumeros.filter(num => !numerosMemorizados.includes(num)); // Filtra para evitar duplicados
+    const seleccionados = [];
+
     for (let i = 0; i < cantidad && numerosDisponibles.length > 0; i++) {
         const indiceAleatorio = Math.floor(Math.random() * numerosDisponibles.length);
         seleccionados.push(numerosDisponibles[indiceAleatorio]);
         numerosDisponibles.splice(indiceAleatorio, 1);
     }
-
     return seleccionados;
+}
+
+// Actualizar las rondas en el HTML
+function actualizarRondaHTML() {
+    const rondaActual = localStorage.getItem('rondaActual') || '1';
+    const rondaElemento = document.getElementById('ronda-numero');
+    if (rondaElemento) {
+        rondaElemento.textContent = `Ronda #${rondaActual}`;
+    }
 }
 
 // Inyectar elementos

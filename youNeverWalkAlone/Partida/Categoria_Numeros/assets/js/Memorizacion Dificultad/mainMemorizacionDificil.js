@@ -1,7 +1,14 @@
 document.addEventListener('DOMContentLoaded', function () {
-    iniciarBarraProgreso('#barraProgresoDificil', 12000, 'Ordenar Dificil.html');
-    const contenedorMemorizar = document.getElementById('contenedorMemorizarDificil')
-    const numeros = [5, 6, 0, 8, 2, 4, 9, 1];
+    // Llamamos a la función que actualiza el HTML
+    actualizarRondaHTML();
+    
+    iniciarBarraProgreso('#barraProgresoDificil', 8000, 'Ordenar Dificil.html');
+    const contenedorMemorizar = document.getElementById('contenedorMemorizarDificil');
+    // genera elementos aleatoriamente
+    const numeros = obtenerElementosAleatorios('dificil', 8);
     const claseAdicional = ['el-dificil'];
+    // guardar los elementos generados en el localStorage
+    localStorage.setItem('numerosMemorizados', JSON.stringify(numeros));
+    // inyectar los elementos en el contenedor
     inyectarElementosMemorizar(numeros, contenedorMemorizar, claseAdicional);
 })

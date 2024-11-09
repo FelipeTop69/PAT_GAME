@@ -13,7 +13,12 @@ document.addEventListener('DOMContentLoaded', function () {
             20.9567 23.9744H9.02559H8.02559V24.9744V29.3491Z" />
         </svg>
         `
-    document.querySelector('.boton-volver').innerHTML = iconoVolver;
+    const botonVolver = document.querySelector('.boton-volver');
+    if(botonVolver){
+        botonVolver.innerHTML = iconoVolver
+    }else{
+        console.log('Botón volver no econtrado');
+    }
 
     // Implementacion de la alerta en el boton volver
     // Configuracion de la alerta
