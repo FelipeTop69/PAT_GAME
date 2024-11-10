@@ -22,7 +22,7 @@ function avanzarRonda() {
     }
 
     // Si aún quedan rondas, incrementar rondaActual y recargar la página correspondiente
-    if (rondaActual < 2) {
+    if (rondaActual < 1) {
         localStorage.setItem('rondaActual', rondaActual + 1);
 
         // Redirigir a la página de memorización según el nivel actual

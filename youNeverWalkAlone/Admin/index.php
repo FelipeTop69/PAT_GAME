@@ -1,11 +1,10 @@
 <?php
-include '../Conexion 3/conexion.php';
-$conexion = new Conexion();
-$conectar = $conexion ->conectar();
+include '../Conexion/conexion.php';
+$conexion = new Conexion;
 
-$sql = $conectar -> prepare("SELECT idcategoria, nombre  FROM categoria WHERE activo=1");
-$sql->execute(); //espara que se ejecute la base de datos 
-$resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
+$sql = "SELECT idcategoria, nombre  FROM categoria WHERE activo=1";
+$stmt = $conexion->ejecutar($sql); //espara que se ejecute la base de datos 
+$resultado = $stmt->fetchAll();
 
 ?>
 
@@ -56,12 +55,12 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">CONFIGURACIÓN</div>
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="index.php">
                                 <div class="sb-nav-link-icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAA1RJREFUSEu1VU1oXFUU/r73ZkqpkbpQWyrNYEprwEWDK0EwbhQU6h8EFB1y75tkYpeCf10Igwt/caMbO753z2ticCFaRLFLRdt1RBRRsaY2glUr4i9mZt4xdzIJ85sM2L7Ne++ee893zne+cy5xmR9eZv8YCsBaew+B5wGMtwL6MlN9LE3TD7YLcCiAyNofAezpcnbWiRz43wAzxtyWkR96R06kGVBkrfo3g2AySZKPtwLpyaBkzAMaBNNQ/YLALgWOthwsO5HrWwDLAArNdfJVADWqjkM1TdL0rXbADoCSMfcqebIrolUFqgBeFJHz3lYuFkdrudzjBMoAdnQ4VL07SdP3NtY2Acrl8u56rfY1gGsVeC4AxpS8g43GkeTEiTP9aLDWTpI8qaqnAJwjcAzAhX9XVw8tLi7+3kxw42AURfdB9R0AS07kpnaHxpi9ARCDvLm1fkaBGRH5uX1fZO2nAA6zLYtNgFKpdKtm2UceVNfqWSgUZiuVStZ0Ti4B2NuVxXkGwUSSJL9OTU2FV46MvL6WhQWQgZx0zp3uyMD/lKydU+C1VvEOOOfOlqxdUOBhAu8yDD0FyBqNlwHcqcBxEXnEGHMwID29UGBWROKeGmxSZe0/AHaOFgr5SqVSj6z9AcC+Wr2+Z2Fh4aemiqJoDKrfKvC9iBSMMTsD0p/7y4mMDFRRS4JNgFw+v6NardYia1cAXBeE4f44jv13U0X1XO4cgBUnsn9ogHaKgjAci+P4u8gYAWk8RUo+6cGp+qwCd0E1cWk6004RVMsuTX091pne+GhKDvAdSwJvhPn8XLVa/dtaew2Bz718u4q8Um80Jubn5y8Wi8Ur8mF4HORDA4s8Y8z9Gfl2P5lGUbQPqusyVc0InGYYzsVxfKEdtGTtkgITChwRkfc7MjDGXBWQX3U0GnCLAk+IyJsDGu1BAi+B/ARZtgzyKd9oIA865/7olWn/UeH3nQL5qHPOBwBjzDjJVwjc3g3c3mQ9AM1eaBt2IH+B6tNrc2gXgItO5OqW0n4DsBvAnyCf8U041LDrR8Ps9PSNjSDwRe4Z15nqoTRNv+l3bmCjDeDaD7LRLtvm+L4UAP7KfAHADevi5mdZlh27ZFfmVhFuZxvqTt7OyVb2/wC+t2UoWWS00QAAAABJRU5ErkJggg=="/></div>
                                 Juego
                             </a>
                             <div class="sb-sidenav-menu-heading">PREPARTIDA</div>
-                            <a class="nav-link " href="condigoQR.html">
+                            <a class="nav-link " href="condigoQR.php">
                                 <div class="sb-nav-link-icon"><svg  xmlns="http://www.w3.org/2000/svg"  width="18"  height="18"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-qrcode"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" /><path d="M7 17l0 .01" /><path d="M14 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" /><path d="M7 7l0 .01" /><path d="M4 14m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" /><path d="M17 7l0 .01" /><path d="M14 14l3 0" /><path d="M20 14l0 .01" /><path d="M14 14l0 3" /><path d="M14 20l3 0" /><path d="M17 17l3 0" /><path d="M20 17l0 3" /></svg></div>
                                 QR Partida
                             </a>
@@ -98,7 +97,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
                             $link = [
                                 1 => "../Partida/Categoria_Numeros/Detalles.html",  // Asigna la página "numero" al ID 1
                                 2 => "../Partida/Categoria_Frutas/Detalles.html",     // Asigna la página "frutas" al ID 2
-                                3 => "../Partida/Categoria_computo/Detalles.html" // Asigna la página "computo" al ID 3
+                                3 => "../Partida/Categoria_Computo/Detalles.html" // Asigna la página "computo" al ID 3
                             ];
                             foreach($resultado as $row) { 
                                 // Variables dinámicas
@@ -201,7 +200,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
                         </div>
                         
                         <!--BOTON DE COMENZAR PARTIDA -->
-                        <div class="d-grid gap-2 col-4 mx-auto btn btn-outline-success mb-4">
+                        <div class="d-grid gap-2 col-4 mx-auto mb-4">
                               <button id="goToPageBtn" name="register" class="btn btn-outline-success" type="submit">Comenzar Partida</button>
                          </div>
                         <!--FIN BOTON DE COMENZAR PARTIDA -->

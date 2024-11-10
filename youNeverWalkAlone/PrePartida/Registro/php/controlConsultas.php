@@ -37,13 +37,13 @@
 
             $avatarID = $this->obtenerAvatarAleatorio();
 
-            $sqlJugador = Conexion::conectar()->prepare("INSERT INTO registro_jugador (numerodocumento, nombre, avatarid) VALUES (:numerodocumento, :nombre, :avatarid) RETURNING jugadorid");
-            $sqlJugador->execute([':numerodocumento' => $numeroDocumento, ':nombre' => $nombre, ':avatarid' => $avatarID]);
+            $sqlJugador = "INSERT INTO registro_jugador (numerodocumento, nombre, avatarid) VALUES (:numerodocumento, :nombre, :avatarid) RETURNING jugadorid";
+            $stmt = $this->ejecutar($sqlJugador,[':numerodocumento' => $numeroDocumento, ':nombre' => $nombre, ':avatarid' => $avatarID]);
 
-            $jugadorID = $sqlJugador->fetchColumn(); // Obtener el ID del nuevo jugador
+            $jugadorID = $stmt->fetchColumn(); // Obtener el ID del nuevo jugador
 
-            $sqlPartida = Conexion::conectar()->prepare("INSERT INTO jugador_partida (puntuacion, jugadorid) VALUES (0, :jugadorid)");
-            $sqlPartida->execute([':jugadorid' => $jugadorID]);
+            $sqlPartida = "INSERT INTO jugador_partida (puntuacion, jugadorid) VALUES (0, :jugadorid)";
+            $this->ejecutar($sqlPartida, [':jugadorid' => $jugadorID]);
 
             // Retornar todos los registros después de la inserción
             return self::consultarJugadores();

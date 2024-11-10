@@ -54,35 +54,35 @@ async function validarOrden() {
     localStorage.setItem('puntos', puntosTotales);
     localStorage.setItem('puntosRequeridos', cantidadPuntosRequeridos);
 
-    // Enviar puntos al servidor y esperar la respuesta antes de redirigir
-    await enviarPuntosServidor(puntosTotales);
+    await enviarPuntosActualizar(puntosTotales);
 
-    // Redirigir a la nueva página solo después de completar la solicitud fetch
     window.location.href = "../Ordenar_Validacion.html";
 }
 
 // Función para enviar los puntos al servidor
-async function enviarPuntosServidor(puntos) {
-    const url = "Prueba/ejecutarConsultas.php"; // URL de la página donde se guardan los puntos
+function enviarPuntosActualizar(puntos) {
+    const url = "Sistema Puntuacion/php/ejecutarConsultas.php"; // URL de la página donde se guardan los puntos
 
     // Crear el objeto FormData con solo los puntos
     const formData = new FormData();
-    formData.append('tipo_operacion', 'guardar_puntos');
+    formData.append('tipo_operacion', 'actualizar_puntos');
     formData.append('puntos', puntos);
 
     // Hacer la solicitud fetch y redirigir después de completarse
-    try {
-        const response = await fetch(url, {
-            method: 'POST',
-            body: formData
-        });
-        const data = await response.json();
+    return fetch(url, {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
         console.log('Puntos Recibidos:', data);
-        return data;
-    } catch (error) {
+    })
+    .catch(function(error) {
         console.log('Error Papi:', error);
-    }
+    });
 }
+
+
 
 // ANTES DE ASGINAR PUNTOS 0 SI SE TERMINA EL TIEMPO
 // function validarOrden() {

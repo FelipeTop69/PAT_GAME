@@ -1,12 +1,11 @@
 <?php
-include '../Conexion 3/conexion.php';
+include '../Conexion/conexion.php';
 $conexion = new Conexion();
-$conectar = $conexion->conectar();
 
 // Consulta para obtener el primer ID de categoría entre los posibles valores (1, 2, 3)
-$sql = $conectar->prepare("SELECT idcategoria FROM configuracion WHERE idcategoria IN (1, 2, 3) LIMIT 1");
-$sql->execute();
-$resultado = $sql->fetch(PDO::FETCH_ASSOC); // Obtenemos una sola fila
+$sql = "SELECT idcategoria FROM configuracion WHERE idcategoria IN (1, 2, 3) LIMIT 1";
+$stmt = $conexion->ejecutar($sql);
+$resultado = $stmt->fetch(); // Obtenemos una sola fila
 
 // Verificamos si se encontró una categoría
 if ($resultado) {
@@ -19,7 +18,7 @@ if ($resultado) {
 $links = [
     1 => "../Partida/Categoria_Numeros/Detalles.html",
     2 => "../Partida/Categoria_Frutas/Detalles.html",
-    3 => "../Partida/Categoria_computo/Detalles.html"
+    3 => "../Partida/Categoria_Computo/Detalles.html"
 ];
 
 // Asigna la URL basada en la categoría seleccionada, o '#' si no existe
@@ -74,7 +73,7 @@ $selectedLink = $selectedCategoryId ? ($links[$selectedCategoryId] ?? '#') : '#'
                             Juego
                         </a>
                         <div class="sb-sidenav-menu-heading">PREPARTIDA</div>
-                        <a class="nav-link " href="condigoQR.html">
+                        <a class="nav-link " href="condigoQR.php">
                             <div class="sb-nav-link-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-qrcode">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                     <path d="M4 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />

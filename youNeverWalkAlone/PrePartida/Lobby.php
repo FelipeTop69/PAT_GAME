@@ -1,13 +1,12 @@
 <?php
 
-    include '../Conexion 3/conexion.php';
+    include '../Conexion/conexion.php';
     $conexion = new Conexion();
-    $conectar = $conexion->conectar();
 
     // Consulta para obtener el primer ID de categoría entre los posibles valores (1, 2, 3)
-    $sql = $conectar->prepare("SELECT idcategoria FROM configuracion WHERE idcategoria IN (1, 2, 3) LIMIT 1");
-    $sql->execute();
-    $resultado = $sql->fetch(PDO::FETCH_ASSOC); // Obtenemos una sola fila
+    $sql = "SELECT idcategoria FROM configuracion WHERE idcategoria IN (1, 2, 3) LIMIT 1";
+    $stmt = $conexion->ejecutar($sql);
+    $resultado = $stmt->fetch(); // Obtenemos una sola fila
 
     // Verificamos si se encontró una categoría
     if ($resultado) {
@@ -20,7 +19,7 @@
     $links = [
         1 => "../Partida/Categoria_Numeros/Detalles.html",
         2 => "../Partida/Categoria_Frutas/Detalles.html",
-        3 => "../Partida/Categoria_computo/Detalles.html"
+        3 => "../Partida/Categoria_Computo/Detalles.html"
     ];
 
     // Asigna la URL basada en la categoría seleccionada, o '#' si no existe

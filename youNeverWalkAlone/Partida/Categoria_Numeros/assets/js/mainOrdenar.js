@@ -49,7 +49,7 @@ async function iniciarTemporizador(pTiempo, pDireccionUrl) {
             if (ordenJugador.length === 0) {
                 localStorage.setItem('puntos', 0);  // Asignar 0 puntos si el jugador no ha hecho nada
                 localStorage.setItem('puntosRequeridos', numeros.length * 100);
-                await enviarPuntosServidor(0);
+                await enviarPuntosActualizar(0);
             }else{
                 // Si el tiempo se acaba, no asignar puntos extra
                 localStorage.setItem('puntosExtra', 0);

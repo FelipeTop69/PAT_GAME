@@ -1,6 +1,6 @@
 <?php 
 
-require_once '../../../Conexion 2/conexion.php';
+require_once '../../../Conexion/conexion.php';
 require_once './controlConsultas.php';
 require_once './jugador.php';
 

@@ -3,7 +3,7 @@ const botonListar = document.querySelector('button')
 
 botonListar.addEventListener('click', () =>{
 
-    let url = "Prueba/ejecutarConsultas.php";
+    let url = "Sistema Puntuacion/php/ejecutarConsultas.php";
     const formData = new FormData();
     formData.append('tipo_operacion', 'listar');
 
