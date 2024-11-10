@@ -1,3 +1,37 @@
+<?php
+include '../../Conexion/conexion.php';
+$conexion = new Conexion();
+
+// Consulta para obtener el primer ID de categoría entre los posibles valores (1, 2, 3)
+$sql = "SELECT idcategoria FROM configuracion WHERE idcategoria IN (1, 2, 3) LIMIT 1";
+$stmt = $conexion->ejecutar($sql);
+$resultado = $stmt->fetch(); // Obtenemos una sola fila
+
+// Verificamos si se encontró una categoría
+if ($resultado) {
+    $selectedCategoryId = $resultado['idcategoria'];
+    // echo "<p>Categoría seleccionada: $selectedCategoryId</p>"; // Mensaje de depuración
+} else {
+    $selectedCategoryId = null;
+    // echo "<p>No se encontró ninguna categoría en la base de datos.</p>"; // Mensaje de depuración
+}
+
+// Define las URLs para cada categoría
+$links = [
+    1 => "../Categoria_Numeros/Memorizacion.html",
+    2 => "../Categoria_Frutas/Memorizacion.html",
+    3 => "../Categoria_computo/Memorizacion.html"
+];
+
+// Asigna la URL basada en la categoría seleccionada, o '#' si no existe
+$selectedLink = $selectedCategoryId ? ($links[$selectedCategoryId] ?? '#') : '#';
+
+// echo "<p>Enlace seleccionado: $selectedLink</p>"; // Mensaje de depuración
+?>
+
+
+
+
 <!-- <!DOCTYPE html> -->
 <html lang="es">
 
@@ -54,12 +88,10 @@
                 </div>
             </div>
         </div>
-        <a href="../Categoria_Numeros/Memorizacion.html">
-            <button  class="next position-absolute bottom-0 end-0">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75">
-                    </path>
+        <a href="<?php echo htmlspecialchars($selectedLink); ?>">
+            <button class="next position-absolute bottom-0 end-0">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"></path>
                 </svg>
             </button>
         </a>
@@ -68,6 +100,8 @@
     <script src="../../Bootstrap/js/bootstrap.js"></script>
     <script src="../../assets/Libreria/SweetAlert2/js/sweetalert2.min.js"></script>
     <script src="../assets/js/mainDificultad.js"></script>
+    <script src="../../Admin/assets/js/boton2.js"></script>
     <script src="../../assets/js/main.js"></script>
 </body>
+
 </html>

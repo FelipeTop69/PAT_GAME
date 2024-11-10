@@ -29,11 +29,14 @@ function compararArreglos(pOrdenValido, pOrdenJugador) {
     return puntos;
 }
 
-function validarOrden() {
+// Función principal para validar el orden y manejar puntos
+async function validarOrden() {
+    // Obtener el orden del jugador desde localStorage o inicializar como un arreglo vacío
     let ordenJugador = JSON.parse(localStorage.getItem('ordenJugador')) || [];
     const puntos = compararArreglos(idElementos, ordenJugador);
     const cantidadPuntosRequeridos = ordenJugador.length * 100;
 
+    // Calcular puntos extra según el nivel de dificultad
     let puntosExtra = 0;
     if (intervaloActual === 'facil') {
         puntosExtra = 50;
@@ -45,30 +48,28 @@ function validarOrden() {
 
     const puntosTotales = puntos + puntosExtra;
 
-    // console.log(puntosTotales);
+    console.log(puntosTotales);
 
     // Almacenar puntos en localStorage para el podio
     localStorage.setItem('puntos', puntosTotales);
     localStorage.setItem('puntosRequeridos', cantidadPuntosRequeridos);
 
-    // Enviar puntos al servidor
-    enviarPuntosServidor(puntosTotales);
+    await enviarPuntosActualizar(puntosTotales);
 
     window.location.href = "../Ordenar_Validacion.html";
 }
 
-
-
 // Función para enviar los puntos al servidor
-function enviarPuntosServidor(puntos) {
-    const url = "Prueba/ejecutarConsultas.php"; // URL de la página donde se guarda los puntos
-    
+function enviarPuntosActualizar(puntos) {
+    const url = "Sistema Puntuacion/php/ejecutarConsultas.php"; // URL de la página donde se guardan los puntos
+
     // Crear el objeto FormData con solo los puntos
     const formData = new FormData();
-    formData.append('tipo_operacion', 'guardar_puntos');
+    formData.append('tipo_operacion', 'actualizar_puntos');
     formData.append('puntos', puntos);
 
-    fetch(url, {
+    // Hacer la solicitud fetch y redirigir después de completarse
+    return fetch(url, {
         method: 'POST',
         body: formData
     })
@@ -80,6 +81,8 @@ function enviarPuntosServidor(puntos) {
         console.log('Error Papi:', error);
     });
 }
+
+
 
 // ANTES DE ASGINAR PUNTOS 0 SI SE TERMINA EL TIEMPO
 // function validarOrden() {

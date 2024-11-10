@@ -1,5 +1,17 @@
+<?php
+include '../Conexion/conexion.php';
+$conexion = new Conexion;
+
+$sql = "SELECT idcategoria, nombre  FROM categoria WHERE activo=1";
+$stmt = $conexion->ejecutar($sql); //espara que se ejecute la base de datos 
+$resultado = $stmt->fetchAll();
+
+?>
+
+
+
 <!DOCTYPE html>
-<html lang="eS">
+<html lang="es">
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -15,25 +27,25 @@
         <title>PAT GAME</title>
         <!-- FIN ICONO DE PAT DEL TITULO-->
         
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="./css/styles.css" rel="stylesheet" />
         <!--styles de pat-->
-        <link rel="stylesheet" href="./assets/css/styles_pat.css">
+        <link rel="stylesheet" href="../Bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./assets/css/styles- Switch.css">
+        <link rel="stylesheet" href="./assets/css/styles_new.css">
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+
     </head>
     <body class="sb-nav-fixed">
-        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark d-flex">
             <!-- TITULO DE PAT EN LA BARRA SUPERIOR-->
             <a class="navbar-brand ps-3" href="index.html">PAT</a>
             <!-- BOTON DE LA BARRA DESPLEGABLE -->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
 
             <!-- ICONO DE PAT DE LA BARRA -->
-            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-                <li class="nav-item dropdown ">
-                    <img  class="icono position-relative" src="../assets/img/Logos/Logo Principal.ico" alt="">
-                
-                </li>
-            </ul>
+            <div class="contenedor-icono ms-auto ms-md-0 d">
+                <img  class="icono img-fluid" src="../assets/img/Logos/Logo Principal.ico" alt="">
+            </div>
             <!-- FIN ICONO DE PAT DE LA BARRA -->
         </nav>
         <div id="layoutSidenav">
@@ -43,12 +55,12 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">CONFIGURACIÓN</div>
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="index.php">
                                 <div class="sb-nav-link-icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAA1RJREFUSEu1VU1oXFUU/r73ZkqpkbpQWyrNYEprwEWDK0EwbhQU6h8EFB1y75tkYpeCf10Igwt/caMbO753z2ticCFaRLFLRdt1RBRRsaY2glUr4i9mZt4xdzIJ85sM2L7Ne++ee893zne+cy5xmR9eZv8YCsBaew+B5wGMtwL6MlN9LE3TD7YLcCiAyNofAezpcnbWiRz43wAzxtyWkR96R06kGVBkrfo3g2AySZKPtwLpyaBkzAMaBNNQ/YLALgWOthwsO5HrWwDLAArNdfJVADWqjkM1TdL0rXbADoCSMfcqebIrolUFqgBeFJHz3lYuFkdrudzjBMoAdnQ4VL07SdP3NtY2Acrl8u56rfY1gGsVeC4AxpS8g43GkeTEiTP9aLDWTpI8qaqnAJwjcAzAhX9XVw8tLi7+3kxw42AURfdB9R0AS07kpnaHxpi9ARCDvLm1fkaBGRH5uX1fZO2nAA6zLYtNgFKpdKtm2UceVNfqWSgUZiuVStZ0Ti4B2NuVxXkGwUSSJL9OTU2FV46MvL6WhQWQgZx0zp3uyMD/lKydU+C1VvEOOOfOlqxdUOBhAu8yDD0FyBqNlwHcqcBxEXnEGHMwID29UGBWROKeGmxSZe0/AHaOFgr5SqVSj6z9AcC+Wr2+Z2Fh4aemiqJoDKrfKvC9iBSMMTsD0p/7y4mMDFRRS4JNgFw+v6NardYia1cAXBeE4f44jv13U0X1XO4cgBUnsn9ogHaKgjAci+P4u8gYAWk8RUo+6cGp+qwCd0E1cWk6004RVMsuTX091pne+GhKDvAdSwJvhPn8XLVa/dtaew2Bz718u4q8Um80Jubn5y8Wi8Ur8mF4HORDA4s8Y8z9Gfl2P5lGUbQPqusyVc0InGYYzsVxfKEdtGTtkgITChwRkfc7MjDGXBWQX3U0GnCLAk+IyJsDGu1BAi+B/ARZtgzyKd9oIA865/7olWn/UeH3nQL5qHPOBwBjzDjJVwjc3g3c3mQ9AM1eaBt2IH+B6tNrc2gXgItO5OqW0n4DsBvAnyCf8U041LDrR8Ps9PSNjSDwRe4Z15nqoTRNv+l3bmCjDeDaD7LRLtvm+L4UAP7KfAHADevi5mdZlh27ZFfmVhFuZxvqTt7OyVb2/wC+t2UoWWS00QAAAABJRU5ErkJggg=="/></div>
                                 Juego
                             </a>
                             <div class="sb-sidenav-menu-heading">PREPARTIDA</div>
-                            <a class="nav-link " href="condigoQR.html">
+                            <a class="nav-link " href="condigoQR.php">
                                 <div class="sb-nav-link-icon"><svg  xmlns="http://www.w3.org/2000/svg"  width="18"  height="18"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-qrcode"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" /><path d="M7 17l0 .01" /><path d="M14 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" /><path d="M7 7l0 .01" /><path d="M4 14m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" /><path d="M17 7l0 .01" /><path d="M14 14l3 0" /><path d="M20 14l0 .01" /><path d="M14 14l0 3" /><path d="M14 20l3 0" /><path d="M17 17l3 0" /><path d="M20 17l0 3" /></svg></div>
                                 QR Partida
                             </a>
@@ -66,90 +78,60 @@
                 </nav>
             </div>
             <!-- FIN CONFIGURACION DE LA BARRA DESPEGABLE-->
-
+            
             <!--PAGINA DE CONFIGURACION-->
             <div id="layoutSidenav_content">
                 <main>
-                    
+                    <form action="proseso/tiempo/registrarTiempo.php" method="POST">
                     <!-- SELECCION DE CATEGORIA-->
-                    <div class="container-fluid px-4 ">
+                    <div class="container-fluid px-4">
                         <h1 class="mt-4">CATEGORÍA</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">SELECCIÓN</li>
                         </ol>
-                        <div class="row justify-content-evenly">
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card" style="width: 18rem;">
-                                    <img src="./assets/img/numerico.png" class="card-img-top" alt="...">
-                                    <h5 class="card-title  text-center">Numerico</h5> 
-                                    <div class="form-check form-switch mx-auto">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" for="flexRadioDefault1">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card" style="width: 18rem;">
-                                    <img src="./assets/img/frutas.png" class="card-img-top" alt="...">
-                                    <h5 class="card-title  text-center">Frutas</h5> 
-                                    <div class="form-check form-switch mx-auto">
-         <!--bonton suitd-->            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" for="flexRadioDefault2">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card" style="width: 18rem;">
-                                    <img src="./assets/img/computo.png" class="card-img-top" alt="...">
-                                    <h5 class="card-title  text-center">Computo</h5> 
-                                    <div class=" form-check form-switch mx-auto">
-          <!--bonton suitd-->           <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" for="flexRadioDefault3">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-                    <!-- FIN SELECCION DE CATEGORIA-->
+    
+                        <div class="row justify-content-evenly"> 
 
-                    <!-- SELECCION DE TIEMPO DE CATEGORIA-->
-                        <!-- TIEMPO PREDETERMINADO-->
-                        <h1 class="mt-4">SELECCIÓN DE TIEMPO</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">TIEMPO PREDETERMINADO</li>
-                        </ol>
-                        <div class="row justify-content-evenly">
+                            <?php 
+                            // Ejemplo de redirección a diferentes páginas según el ID de la categoría
+                            $link = [
+                                1 => "../Partida/Categoria_Numeros/Detalles.html",  // Asigna la página "numero" al ID 1
+                                2 => "../Partida/Categoria_Frutas/Detalles.html",     // Asigna la página "frutas" al ID 2
+                                3 => "../Partida/Categoria_Computo/Detalles.html" // Asigna la página "computo" al ID 3
+                            ];
+                            foreach($resultado as $row) { 
+                                // Variables dinámicas
+                                $id = $row['idcategoria'];
+                                $pageUrl = isset($link[$id]) ? $link[$id] : 'default.html';
+                                $imagen = "assets/img/" . $id . "/categoria.png"; 
+                            ?>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card" style="width: 18rem;">
-                                    <img src="./assets/img/niños.jpg" class="card-img-top" alt="...">
-                                    <h5 class="card-title  text-center">Niños</h5> 
-                                    <div class="form-check form-switch mx-auto">
-                                        <input class="form-check-input  " type="radio" role="switch" name="flexRadioDefault2" id="flexRadioDefault4" for="flexRadioDefault4">
+                                    <!-- Imagen de la categoría -->
+                                    <img src="<?php echo $imagen; ?>" class="card-img-top" alt="Categoría">
+                
+                                    <!-- Título de la categoría -->
+                                    <div class="card-body">
+                                        <h5 class="card-title text-center"><?php echo $row['nombre']; ?></h5>
+
+                                        <!-- Switch para seleccionar categoría -->
+                                        <label class="switch">
+                                            <input type="checkbox" class="switch-checkbox" name="categoria" value="<?php echo $id; ?>" onclick="setLink('<?php echo $pageUrl; ?>')"> 
+                                            <span class="slider round"></span>
+                                        </label>
+                                        <!-- <input type="hidden" name="categoriaLink" id="categoriaLink"> -->
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card" style="width: 18rem;">
-                                    <img src="./assets/img/adolecente.avif" class="card-img-top" alt="...">
-                                    <h5 class="card-title text-center">Adolescentes</h5> 
-                                    <div class="form-check form-switch mx-auto">
-                                        <input class="form-check-input" type="radio" role="switch"  name="flexRadioDefault2" id="flexRadioDefault5" for="flexRadioDefault5">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card" style="width: 18rem;">
-                                    <img src="./assets/img/adultos.avif" class="card-img-top" alt="...">
-                                    <h5 class="card-title text-center">Adultos</h5> 
-                                    <div class=" form-check form-switch mx-auto ">
-                                        <input class="form-check-input " type="radio" role="switch" name="flexRadioDefault2" id="flexRadioDefault6" for="flexRadioDefault6">
-                                    </div>
-                                </div>
-                            </div>
+                            <?php } ?>
                         </div>
-                        <!-- TIEMPO PREDETERMINADO-->
-                        <br>
+                    </div>
+
+                    <!-- SELECCIÓN DE TIEMPO -->
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">CATEGORÍA</h1>
+                       
                         <!-- TIEMPO MODIFICABLE-->
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">TIEMPO MODIFICABLE</li>
-                        </ol>
                         <div class="card mb-4">
                             <div class="card-header">
                                 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAhpJREFUSEu11UuoT1EUx/HPlTwixcwjlAFFSDFSjOSRhDwGKCVJxEAGrjzCSFJeJQNCiYHkGWUgj5m8InknU0XKI8JetW/9Heec//3fumd0Omft/V17rd/67Tbd/LR18/6aAXpjIWZiAkbiD97hIa7hPH5WJVoHmIUjedO6g77CGtwsC6oC7EiZbs8L3uMsruBR/jYRc7EYw/K3TdhXhJQBOjb/gmW4lMtSlmAPLMJx9MUGHGgMLAIiq4v4ljKenBY/7aQIpuAuAjgNdzrWNQL64wUGYzlOl2weDY6n7OQbsR/PU+PHdzS+MXAtDqe6PsO4irLUAXpldUWC83GhmMlVhHLWZVBZdeoAEb8HW3AMq4uAD+nHUIzCm4raNwNMxW08SL2cVAR8zUoINXxvAqhS4yB8xCcMLAJCltHoAYj3uhJVAWLt57w+3v9RQ3R/dFbAk07KsxgWZbmfhTK2CDiTJLYUm7G3i4Ct2JX6eCr1cUURENo/iZcYg98tQnqm+XmN4ViCc0VANDfKFAErk8mdaBGwPttEDGsM2o+yiZyB612wirCVe9kqpmepVo58O3ZnNYTZXa45SXhPlCMGq1+SaJziUGN8lV1vSwrbmQPfZruOSX+MsISwknnZSYdkWwknPVil37Ik5yTjO5qnu64dceGswq2yoGZXZp+U9QLMzo0bkbMNtYTeb2RT+1WVQTNAi0L6P7zbAX8BMbFmGXS+z2AAAAAASUVORK5CYII="/>
@@ -175,59 +157,57 @@
                                                     </div>
                                             </div>
                                         </div>
-                                        <div class="celda col-4 ">
-                                            <div class="elemento">
-                                                <div class="nombre p-2 text-center">Visualización</div>
-                                                <div class="row g-3 align-items-center">
-                                                   <div class="col-auto mx-auto ">
-                                                      <input type="text" id="inputPassword6" class="form-control w-50 mx-auto" aria-describedby="passwordHelpInline">
-                                                   </div>
-                                                   <div class="col-auto mx-auto">
-                                                      <input type="text" id="inputPassword6" class="form-control w-50 mx-auto" aria-describedby="passwordHelpInline">
-                                                   </div>
-                                                  <div class="col-auto mx-auto mb-2">
-                                                    <input type="text" id="inputPassword6" class="form-control w-50 mx-auto" aria-describedby="passwordHelpInline">
-                                                  </div>
-                                                </div>
-                                            </div>
-                                        </div>
                                         
-                                        
-                                        <div class="celda col-4 ">
-                                            <div class="elemento">
-                                                <div class="nombre p-2 text-center">Respuesta</div>
-                                                <div class="row g-3 align-items-center">
-                                                    <div class="col-auto mx-auto ">
-                                                       <input type="text" id="inputPassword6" class="form-control w-50 mx-auto" aria-describedby="passwordHelpInline">
-                                                    </div>
-                                                    <div class="col-auto mx-auto">
-                                                       <input type="text" id="inputPassword6" class="form-control w-50 mx-auto" aria-describedby="passwordHelpInline">
-                                                    </div>
-                                                   <div class="col-auto mx-auto mb-2">
-                                                     <input type="text" id="inputPassword6" class="form-control w-50 mx-auto" aria-describedby="passwordHelpInline">
-                                                   </div>
+                                         <div class="celda col-4">
+                                             <div class="elemento">
+                                                 <div class="nombre p-2 text-center">Visualización</div>
+                                                 <div class="row g-3 align-items-center">
+                                                     <div class="col-auto mx-auto">
+                                                         <input type="text" name="visualFacil" id="visualFacil" class="form-control w-50 mx-auto" aria-describedby="passwordHelpInline">
+                                                     </div>
+                                                     <div class="col-auto mx-auto">
+                                                         <input type="text" name="visualMedio" id="visualMedio" class="form-control w-50 mx-auto" aria-describedby="passwordHelpInline">
+                                                     </div>
+                                                     <div class="col-auto mx-auto mb-2">
+                                                         <input type="text" name="visualDificil" id="visualDificil" class="form-control w-50 mx-auto" aria-describedby="passwordHelpInline">
+                                                     </div>
                                                  </div>
-                                            </div>
+                                             </div>
+                                         </div>
+                                         
+                                         <div class="celda col-4">
+                                             <div class="elemento">
+                                                 <div class="nombre p-2 text-center">Respuesta</div>
+                                                 <div class="row g-3 align-items-center">
+                                                     <div class="col-auto mx-auto">
+                                                         <input type="text" name="respuestaFacil" id="respuestaFacil" class="form-control w-50 mx-auto" aria-describedby="passwordHelpInline">
+                                                     </div>
+                                                     <div class="col-auto mx-auto">
+                                                         <input type="text" name="respuestaMedio" id="respuestaMedio" class="form-control w-50 mx-auto" aria-describedby="passwordHelpInline">
+                                                     </div>
+                                                     <div class="col-auto mx-auto mb-2">
+                                                         <input type="text" name="respuestaDificil" id="respuestaDificil" class="form-control w-50 mx-auto" aria-describedby="passwordHelpInline">
+                                                     </div>
+                                                 </div>
+                                             </div>
+                                         </div>     
                                         </div>
                                         
                                     </div>
-                                    
                                 </div>
                             </div>
+                            <!-- FIN TIEMPO MODIFICABLE-->
                         </div>
-                        <!-- FIN TIEMPO MODIFICABLE-->
-                    <!-- FIN SELECCION DE TIEMPO DE CATEGORIA-->
                         
-                    </div>
+                        <!--BOTON DE COMENZAR PARTIDA -->
+                        <div class="d-grid gap-2 col-4 mx-auto mb-4">
+                              <button id="goToPageBtn" name="register" class="btn btn-outline-success" type="submit">Comenzar Partida</button>
+                         </div>
+                        <!--FIN BOTON DE COMENZAR PARTIDA -->
+                        
+                    </form>
                 </main>
-
-                <!--BOTON DE COMENZAR PARTIDA -->
-                <div class="d-grid gap-2 col-4 mx-auto btn btn-outline-success mb-4">
-                    <a href="condigoQR.html">
-                        <button class="btn btn-outline-successr" type="button">Comenzar Partida</button>
-                    </a>
-                </div>
-                <!--FIN BOTON DE COMENZAR PARTIDA -->
+                <br>
 
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
@@ -247,5 +227,10 @@
         <script src="assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
         <script src="js/datatables-simple-demo.js"></script>
+        <script src="./Bootstrap/js/bootstrap.js"></script>
+         <!-- <script src="assets/js/switch/categoria.js"></script>  -->
+        <!-- <script src="assets/js/switch1.js"></script> -->
+        <script src="assets/js/link.js"></script>
+        
     </body>
 </html>

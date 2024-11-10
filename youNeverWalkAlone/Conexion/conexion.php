@@ -1,5 +1,5 @@
 <?php
-class conexion {
+class Conexion {
     private $dsn;
     private $server;
     private $usuario;
@@ -9,8 +9,8 @@ class conexion {
     public function __construct() {
         $this->server = 'localhost';
         $this->usuario = 'postgres';
-        $this->baseDatos = 'bd_prueba_pat';
-        $this->password = '1082803037';
+        $this->baseDatos = 'bd_pat';
+        $this->password = 'felipeBit69*';
     }
 
     public function conectar() {
@@ -18,11 +18,18 @@ class conexion {
         try {
             $conexion = new PDO($dsn, $this->usuario, $this->password);
             $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            // echo "Conexión exitosa a la base de datos";
+            // echo "Conexión Exitosa Gente";
         } catch (PDOException $e) {
             echo "Error al conectar a la base de datos: " . $e->getMessage();
         }
         return $conexion;
+    }
+
+    public function ejecutar($sql, $valores = []) {
+        $pdo = $this->conectar();
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute($valores);
+        return $stmt; 
     }
 
 }

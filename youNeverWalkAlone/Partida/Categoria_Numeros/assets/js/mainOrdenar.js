@@ -2,7 +2,7 @@
 
 let intervaloTiempoActual = "bajo"; 
 
-function iniciarTemporizador(pTiempo, pDireccionUrl) {
+async function iniciarTemporizador(pTiempo, pDireccionUrl) {
     let circularProgress = document.querySelector(".temporizador"),
         progressValue = document.querySelector(".tiempo-restante");
 
@@ -12,7 +12,7 @@ function iniciarTemporizador(pTiempo, pDireccionUrl) {
     let startTime = null; // Variable para almacenar el tiempo de inicio
     let animationFrame; // Variable para almacenar el requestAnimationFrame
 
-    function updateTimer(timestamp) {
+    async function updateTimer(timestamp) {
         if (!startTime) startTime = timestamp; // Establecer el tiempo inicial la primera vez que se ejecuta
 
         let elapsedTime = (timestamp - startTime) / 1000; // Calcular el tiempo transcurrido en segundos
@@ -49,7 +49,7 @@ function iniciarTemporizador(pTiempo, pDireccionUrl) {
             if (ordenJugador.length === 0) {
                 localStorage.setItem('puntos', 0);  // Asignar 0 puntos si el jugador no ha hecho nada
                 localStorage.setItem('puntosRequeridos', numeros.length * 100);
-                enviarPuntosServidor(0);
+                await enviarPuntosActualizar(0);
             }else{
                 // Si el tiempo se acaba, no asignar puntos extra
                 localStorage.setItem('puntosExtra', 0);

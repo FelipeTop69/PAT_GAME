@@ -39,3 +39,39 @@ function iniciarBarraProgreso(selectorBarra, duracion, urlRedireccion) {
   requestAnimationFrame(actualizarProgreso);
 }
 
+// Inyectar elementos
+const idElementos = [];
+
+function inyectarElementosMemorizar(pElementos, pContendor) {
+    const elementosRecibidios = pElementos;
+    const contenedor = pContendor;
+
+    // Limpiar el contenedor antes de inyectar nuevos elementos
+    contenedor.innerHTML = '';
+    idElementos.length = 0;
+
+    for (let iteracion = 0; iteracion < elementosRecibidios.length; iteracion++) {
+        // Crea el elemento div
+        const nuevoElemento = document.createElement('div');
+        nuevoElemento.classList.add('elemento'); // Añade la clase
+
+        const nuevoId = 'elemento' + (iteracion + 1); // Agregar el id a la caja que contiene la img
+        nuevoElemento.id = nuevoId;
+        nuevoElemento.setAttribute('data-id', nuevoId);
+
+        // Crea el elemento img
+        const imgElemento = document.createElement('img');
+        imgElemento.classList.add('medida-elemento'); // Añade la clase
+        imgElemento.src = elementosRecibidios[iteracion]; // Añade el src
+        imgElemento.alt = 'imagenCategoriaComputo'; // Añade el alt
+
+        // Añade el img al div
+        nuevoElemento.appendChild(imgElemento);
+
+        // Añade el div al contenedor
+        contenedor.appendChild(nuevoElemento);
+
+        idElementos.push(nuevoElemento.id)
+    }
+}
+
