@@ -100,11 +100,9 @@ $resultado = $stmt->fetchAll();
             <main>
                 <form action="proseso/tiempo/registrarTiempo.php" method="POST">
                     <!-- SELECCION DE CATEGORIA-->
+                    <h1 class="m-2 text-center">Configuración Partida</h1>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">CATEGORÍA</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">SELECCIÓN</li>
-                        </ol>
+                        <h3 class="mt-4">Categoría</h1>
 
                         <div class="row justify-content-evenly">
 
@@ -127,11 +125,11 @@ $resultado = $stmt->fetchAll();
                                         <img src="<?php echo $imagen; ?>" class="card-img-top" alt="Categoría">
 
                                         <!-- Título de la categoría -->
-                                        <div class="card-body">
+                                        <div class="card-body d-flex flex-column justify-content-center align-items-center gap-2">
                                             <h5 class="card-title text-center"><?php echo $row['nombre']; ?></h5>
 
                                             <!-- Switch para seleccionar categoría -->
-                                            <label class="switch">
+                                            <label class="switch text-center">
                                                 <input type="checkbox" class="switch-checkbox" name="categoria" value="<?php echo $id; ?>" onclick="setLink('<?php echo $pageUrl; ?>')">
                                                 <span class="slider round"></span>
                                             </label>
@@ -145,7 +143,7 @@ $resultado = $stmt->fetchAll();
 
                     <!-- SELECCIÓN DE TIEMPO -->
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">CATEGORÍA</h1>
+                        <h3 class="mt-4">Tiempos</h1>
 
                         <!-- TIEMPO MODIFICABLE-->
                         <div class="card mb-4">
@@ -217,21 +215,13 @@ $resultado = $stmt->fetchAll();
 
                     <!--BOTON DE COMENZAR PARTIDA -->
                     <div class="d-grid gap-2 col-4 mx-auto mb-4">
-                        <button id="goToPageBtn" name="register" class="btn btn-outline-success" type="submit">Comenzar Partida</button>
+                        <button id="goToPageBtn" name="register" class="btn btn-outline-success" type="submit">Crear Partida</button>
                     </div>
                     <!--FIN BOTON DE COMENZAR PARTIDA -->
 
                 </form>
             </main>
             <br>
-
-            <footer class="py-4 bg-light mt-auto">
-                <div class="container-fluid px-4">
-                    <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Copyright &copy; Your Website 2023</div>
-                    </div>
-                </div>
-            </footer>
         </div>
         <!--FIN PAGINA DE CONFIGURACION-->
     </div>
@@ -239,11 +229,11 @@ $resultado = $stmt->fetchAll();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-    <script src="assets/demo/chart-area-demo.js"></script>
-    <script src="assets/demo/chart-bar-demo.js"></script>
+    <!-- <script src="assets/demo/chart-area-demo.js"></script> -->
+    <!-- <script src="assets/demo/chart-bar-demo.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
     <script src="js/datatables-simple-demo.js"></script>
-    <script src="./Bootstrap/js/bootstrap.js"></script>
+    <!-- <script src="./Bootstrap/js/bootstrap.js"></script> -->
     <!-- <script src="assets/js/switch/categoria.js"></script>  -->
     <!-- <script src="assets/js/switch1.js"></script> -->
     <script src="assets/js/link.js"></script>

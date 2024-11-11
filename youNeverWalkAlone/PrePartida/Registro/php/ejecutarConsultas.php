@@ -5,7 +5,7 @@ require_once './controlConsultas.php';
 require_once './jugador.php';
 
 session_start(); 
-// session_destroy();
+session_destroy();
 
 $tipo_consulta = $_POST['tipo_operacion'] ?? '';
 

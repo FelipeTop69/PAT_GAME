@@ -38,7 +38,7 @@
         'nombre' => $_SESSION['jugador']['nombre']
     ];
 
-    // session_destroy();
+    session_destroy();
 
 
 ?>

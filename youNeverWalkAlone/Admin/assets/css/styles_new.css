@@ -21,7 +21,7 @@
 /* CLASE DE LA TABLA DE SEGUIMIENTO DE JUGADORES */
 /* EL TAMAÑO DE LA TABLA */
 .contenedor-tabla{
-    height: 445px;
+    height: 320px;
     overflow-y: scroll;
     display: block;
     scrollbar-width: none;

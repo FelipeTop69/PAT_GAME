@@ -138,63 +138,12 @@ $selectedLink = $selectedCategoryId ? ($links[$selectedCategoryId] ?? '#') : '#'
                                             <th scope="col">Avatar</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
+                                    <tbody id="tablaLobby">
+                                        <!-- <tr>
                                             <th>1</th>
                                             <td>Fabian</td>
                                             <td><img class="img-fluid avatar" src="../PrePartida/assets/img/Recursos/Avatar Limpio.png" alt="avatar"></td>
-                                        </tr>
-                                        <tr>
-                                            <th>2</th>
-                                            <td>Santiago</td>
-                                            <td><img class="img-fluid avatar" src="../PrePartida/assets/img/Recursos/Avatar Limpio.png" alt="avatar"></td>
-
-                                        </tr>
-                                        <tr>
-                                            <th>3</th>
-                                            <td>Andres</td>
-                                            <td><img class="img-fluid avatar" src="../PrePartida/assets/img/Recursos/Avatar Limpio.png" alt="avatar"></td>
-                                        </tr>
-                                        <tr>
-                                            <th>4</th>
-                                            <td>Samuel</td>
-                                            <td><img class="img-fluid avatar" src="../PrePartida/assets/img/Recursos/Avatar Limpio.png" alt="avatar"></td>
-                                        </tr>
-                                        <tr>
-                                            <th>5</th>
-                                            <td>Pablo</td>
-                                            <td><img class="img-fluid avatar" src="../PrePartida/assets/img/Recursos/Avatar Limpio.png" alt="avatar"></td>
-                                        </tr>
-                                        <tr>
-                                            <th>6</th>
-                                            <td>Jose</td>
-                                            <td><img class="img-fluid avatar" src="../PrePartida/assets/img/Recursos/Avatar Limpio.png" alt="avatar"></td>
-                                        </tr>
-                                        <tr>
-                                            <th>7</th>
-                                            <td>Sofia</td>
-                                            <td><img class="img-fluid avatar" src="../PrePartida/assets/img/Recursos/Avatar Limpio.png" alt="avatar"></td>
-                                        </tr>
-                                        <tr>
-                                            <th>8</th>
-                                            <td>Camila</td>
-                                            <td><img class="img-fluid avatar" src="../PrePartida/assets/img/Recursos/Avatar Limpio.png" alt="avatar"></td>
-                                        </tr>
-                                        <tr>
-                                            <th>9</th>
-                                            <td>Camilo</td>
-                                            <td><img class="img-fluid avatar" src="../PrePartida/assets/img/Recursos/Avatar Limpio.png" alt="avatar"></td>
-                                        </tr>
-                                        <tr>
-                                            <th>10</th>
-                                            <td>Luis</td>
-                                            <td><img class="img-fluid avatar" src="../PrePartida/assets/img/Recursos/Avatar Limpio.png" alt="avatar"></td>
-                                        </tr>
-                                        <tr>
-                                            <th>11</th>
-                                            <td>Monica</td>
-                                            <td><img class="img-fluid avatar" src="../PrePartida/assets/img/Recursos/Avatar Limpio.png" alt="avatar"></td>
-                                        </tr>
+                                        </tr> -->
                                     </tbody>
                                 </table>
                             </div>
@@ -210,13 +159,14 @@ $selectedLink = $selectedCategoryId ? ($links[$selectedCategoryId] ?? '#') : '#'
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
             <script src="js/scripts.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-            <script src="assets/demo/chart-area-demo.js"></script>
-            <script src="assets/demo/chart-bar-demo.js"></script>
+            <!-- <script src="assets/demo/chart-area-demo.js"></script> -->
+            <!-- <script src="assets/demo/chart-bar-demo.js"></script> -->
             <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
             <script src="js/datatables-simple-demo.js"></script>
             <script src="../Bootstrap/js/bootstrap.bundle.min.js"></script>
             <script src="../Bootstrap/js/bootstrap.js"></script>
             <script src="../Admin/assets/js/boton2.js"></script>
+            <script src="Tabla Jugadores/listarJugadores.js"></script>
 </body>
 
 </html>
