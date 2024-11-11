@@ -36,7 +36,6 @@ async function validarOrden() {
     const puntos = compararArreglos(idElementos, ordenJugador);
     const cantidadPuntosRequeridos = ordenJugador.length * 100;
 
-    // let intervaloActual = ''
 
     // Calcular puntos extra según el nivel de dificultad
     let puntosExtra = 0;

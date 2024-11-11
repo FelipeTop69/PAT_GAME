@@ -35,6 +35,20 @@ switch ($tipo_consulta) {
         }
         break;
 
+    case 'obtener_informacion_jugador':
+        if (isset($_SESSION['jugador'])) {
+            $jugador = new Jugador(
+                $_SESSION['jugador']['numerodocumento'],
+                $_SESSION['jugador']['nombre']
+            );
+            $consulta = new ConsultasPuntuacion();
+            $informacion = $consulta->obtenerInformacionJugador($jugador);
+            echo json_encode($informacion);
+        } else {
+            echo json_encode(['error' => 'Sesión no activa.']);
+        }
+        break;
+
     default:
         break;
 }
