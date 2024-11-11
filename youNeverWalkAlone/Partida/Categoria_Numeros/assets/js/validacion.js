@@ -36,6 +36,8 @@ async function validarOrden() {
     const puntos = compararArreglos(idElementos, ordenJugador);
     const cantidadPuntosRequeridos = ordenJugador.length * 100;
 
+    // let intervaloActual = ''
+
     // Calcular puntos extra según el nivel de dificultad
     let puntosExtra = 0;
     if (intervaloActual === 'facil') {
@@ -48,7 +50,7 @@ async function validarOrden() {
 
     const puntosTotales = puntos + puntosExtra;
 
-    console.log(puntosTotales);
+    // console.log(puntosTotales);
 
     // Almacenar puntos en localStorage para el podio
     localStorage.setItem('puntos', puntosTotales);
@@ -65,8 +67,8 @@ function enviarPuntosActualizar(puntos) {
 
     // Crear el objeto FormData con solo los puntos
     const formData = new FormData();
-    formData.append('tipo_operacion', 'actualizar_puntos');
-    formData.append('puntos', puntos);
+    formData.append('tipo_operacion', 'actualizar_puntuacion_jugador');
+    formData.append('puntos_obtenidos', puntos);
 
     // Hacer la solicitud fetch y redirigir después de completarse
     return fetch(url, {
@@ -75,7 +77,7 @@ function enviarPuntosActualizar(puntos) {
     })
     .then(response => response.json())
     .then(data => {
-        console.log('Puntos Recibidos:', data);
+        console.log(data);
     })
     .catch(function(error) {
         console.log('Error Papi:', error);

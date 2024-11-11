@@ -54,16 +54,16 @@ const pintarJugadores = (jugadores) => {
     }
 };
 
-btnActualizarPoints.addEventListener('click', () =>{
-    // Solicitar la nueva puntuación al jugador
-    const nuevaPuntuacion = prompt("Ingresa tu nueva puntuación:");
-    
-    if (nuevaPuntuacion && !isNaN(nuevaPuntuacion)) {
+// Función para actualizar la puntuación del jugador
+const actualizarPuntuacion = () => {
+    const nuevaPuntuacion = prompt("Ingresa la nueva puntuación:");
+
+    if (nuevaPuntuacion) {
         fetch(url, {
             method: 'POST',
-            body: new URLSearchParams({ 
-                'tipo_operacion': 'actualizar_puntuacion_jugador', 
-                'nueva_puntuacion': nuevaPuntuacion 
+            body: new URLSearchParams({
+                'tipo_operacion': 'actualizar_puntuacion_jugador',
+                'nueva_puntuacion': nuevaPuntuacion
             })
         })
         .then(response => response.json())
@@ -77,34 +77,30 @@ btnActualizarPoints.addEventListener('click', () =>{
             } else {
                 Swal.fire({
                     icon: 'success',
-                    title: 'Puntuación Actualizada',
-                    text: 'Tu puntuación ha sido actualizada correctamente'
+                    title: 'Puntuación actualizada',
+                    text: data.mensaje
                 });
-                listarJugadores();
+                listarJugadores(); // Refresca la tabla después de actualizar la puntuación
             }
         })
         .catch(error => {
-            console.log('Error al actualizar la puntuación:', error);
+            console.error('Error al actualizar la puntuación:', error);
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
                 text: 'No se pudo actualizar la puntuación. Inténtalo de nuevo.'
             });
         });
-    } else {
-        Swal.fire({
-            icon: 'error',
-            title: 'Entrada no válida',
-            text: 'Por favor, ingresa una puntuación válida.'
-        });
     }
-})
+};
 
-btnSalir.addEventListener('click', () =>{
-    // Solicitar los puntos actualizados del jugador
+
+
+// Función para cerrar la sesión, mostrar alerta y eliminar al jugador
+const cerrarSesion = () => {
     fetch(url, {
         method: 'POST',
-        body: new URLSearchParams({ 'tipo_operacion': 'obtener_puntos' })
+        body: new URLSearchParams({ 'tipo_operacion': 'obtener_informacion_jugador' })
     })
     .then(response => response.json())
     .then(data => {
@@ -115,81 +111,53 @@ btnSalir.addEventListener('click', () =>{
                 text: data.error
             });
         } else {
-            
-            const nombreJugador = jugadorSesion.nombre;
-            const puntosJugador = data.puntos;
+            const nombreJugador = data.nombre;
+            const puntosJugador = data.puntuacion;
 
             Swal.fire({
-                ...alertConfig, 
-                html:`<span>¿Deseas salir ${nombreJugador}? Puntos:${puntosJugador}</span>`,
+                title: 'Confirmar Cierre de Sesión',
+                html: `Jugador: <b>${nombreJugador}</b><br>Puntos: <b>${puntosJugador}</b>`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Cerrar Sesión',
+                cancelButtonText: 'Cancelar'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    eliminarJugadorYSalir();
-                }
-            });
-            
-        }
-    })
-    .catch(error => {
-        console.log('Error al obtener los puntos actualizados:', error);
-        Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: 'No se pudieron obtener los puntos actualizados. Inténtalo de nuevo.'
-        });
-    });
-
-
-})
-
-// Función para eliminar jugador y cerrar sesión
-const eliminarJugadorYSalir = () => {
-    fetch(url, {
-        method: 'POST',
-        body: new URLSearchParams({ 'tipo_operacion': 'eliminar_jugador' }) // Llamada para eliminar el jugador
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.error) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: data.error
-            });
-        } else {
-            // Proceder a cerrar sesión tras eliminar al jugador
-            fetch(urlCerrarSesion, {
-                method: 'POST'
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.status === 'success') {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Salida Exitosa',
-                        text: data.message,
-                        confirmButtonText: 'Aceptar'
-                    }).then(() => {
-                        window.location.href = 'Comienzo.html';
+                    fetch(urlCerrarSesion, {
+                        method: 'POST'
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data.status)
+                        if (data.status === 'success') {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Sesión cerrada',
+                                text: data.message,
+                                confirmButtonText: 'Aceptar'
+                            }).then(() => {
+                                window.location.href = 'Comienzo.html';
+                            });
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error al cerrar la sesión:', error);
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'No se pudo cerrar la sesión. Inténtalo de nuevo.'
+                        });
                     });
                 }
-            })
-            .catch(error => {
-                console.log('Error al cerrar la sesión:', error);
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Error',
-                    text: 'No se pudo cerrar la sesión. Inténtalo de nuevo.'
-                });
             });
         }
     })
     .catch(error => {
-        console.log('Error al eliminar el jugador:', error);
+        console.error('Error al obtener los puntos:', error);
         Swal.fire({
             icon: 'error',
             title: 'Error',
-            text: 'No se pudo eliminar el jugador. Inténtalo de nuevo.'
+            text: 'No se pudieron obtener los puntos. Inténtalo de nuevo.'
         });
     });
 };
@@ -198,6 +166,8 @@ const eliminarJugadorYSalir = () => {
 
 
 document.addEventListener('DOMContentLoaded', () =>{
+    btnActualizarPoints.addEventListener('click', actualizarPuntuacion);
+    btnSalir.addEventListener('click', cerrarSesion);
     setInterval(() => {
         listarJugadores()
     }, 3000);
