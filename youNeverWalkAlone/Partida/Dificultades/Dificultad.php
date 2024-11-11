@@ -83,7 +83,7 @@ $selectedLink = $selectedCategoryId ? ($links[$selectedCategoryId] ?? '#') : '#'
                     </div>
                     <div class="contenedor-tiempo p-1">
                         <h4 class="palabra texto-facil">TIEMPO MEMORIZACION</h4>
-                        <h4 class="numero">8s</h4>
+                        <h4 id="tiempoMemoFacil" class="numero"></h4>
                     </div>
                 </div>
             </div>

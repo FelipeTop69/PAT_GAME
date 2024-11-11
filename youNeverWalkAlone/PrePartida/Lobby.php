@@ -124,7 +124,6 @@
     <script src="../Bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../Bootstrap/js/bootstrap.js"></script>
     <script src="../assets/Libreria/SweetAlert2/js/sweetalert2.min.js"></script>
-    <script src="../Partida/assets/js/mainJugadores.js"></script>
     <script src="Registro/js/funcionesLobby.js"></script>
     <script src="assets/js/mainLobby.js"></script>
     <script src="../assets/js/main.js"></script>

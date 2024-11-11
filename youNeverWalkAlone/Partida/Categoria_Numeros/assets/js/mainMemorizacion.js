@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
 function iniciarBarraProgreso(selectorBarra, duracion, urlRedireccion) {
   const barraProgreso = document.querySelector(selectorBarra);
   const maxProgreso = parseFloat(barraProgreso.dataset.max);
-  let tiempoRestante = duracion / 1000; // Tiempo restante en segundos
+  let tiempoRestante = duracion; // Tiempo restante en segundos
 
   let progresoActual = 0;
   let tiempoInicial = null;
@@ -16,10 +16,10 @@ function iniciarBarraProgreso(selectorBarra, duracion, urlRedireccion) {
     const tiempoTranscurrido = timestamp - tiempoInicial; // Calcula cuánto tiempo ha pasado
 
     // Calcula el progreso basado en el tiempo transcurrido y la duración total
-    progresoActual = (tiempoTranscurrido / duracion) * maxProgreso;
+    progresoActual = (tiempoTranscurrido / (duracion * 1000)) * maxProgreso; // Multiplicamos por 1000 para hacer la conversión interna
 
     // Actualiza el tiempo restante
-    tiempoRestante = Math.max(0, ((duracion - tiempoTranscurrido) / 1000).toFixed(0));
+    tiempoRestante = Math.max(0, ((duracion * 1000 - tiempoTranscurrido) / 1000).toFixed(0)); // Usamos milisegundos en los cálculos
 
     // Asegúrate de que no pase del 100%
     if (progresoActual >= maxProgreso) {

@@ -1,10 +1,23 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Llamamos a la función que actualiza el HTML
     actualizarRondaHTML();
-    
-    const segundos = 25;
-    const url = "../../Partida/Ordenar_Validacion.html";
-    iniciarTemporizador(segundos,url);
+
+    const indicador = 'ordenarfacil';  // El valor del indicador
+
+    obtenerTiempos(indicador)
+        .then(tiempoAsignado => {
+            // Validación: Si tiempoAsignado es 0, null, o undefined, no llamar a iniciarBarraProgreso
+            if (tiempoAsignado > 0 && tiempoAsignado != null) {
+                const url = "../../Partida/Ordenar_Validacion.html";
+                iniciarTemporizador(tiempoAsignado,url);
+            } else {
+                console.log("El tiempo asignado es 0 o no está disponible, no se inicia la barra de progreso.");
+            }
+        })
+        .catch(error => {
+            console.error("Error al obtener el tiempo:", error);
+        });
+
 
     // Recupera los números memorizados de localStorage
     const numerosMemorizados = JSON.parse(localStorage.getItem('numerosMemorizados')) || [];
