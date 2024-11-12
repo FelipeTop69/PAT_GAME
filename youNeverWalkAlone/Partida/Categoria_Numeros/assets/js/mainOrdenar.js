@@ -89,6 +89,7 @@ function obtenerElementosAleatorios(cantidad) {
 // función para obtener números adicionales de manera aleatoria
 function obtenerNumerosAdicionales(numerosMemorizados, cantidad) {
     const numerosDisponibles = elementosNumeros.filter(num => !numerosMemorizados.includes(num)); // Filtra para evitar duplicados
+    const numerosDisponibles = elementosNumeros.filter(num => !numerosMemorizados.includes(num)); // Filtra para evitar duplicados
     const seleccionados = [];
 
     for (let i = 0; i < cantidad && numerosDisponibles.length > 0; i++) {

@@ -1,20 +1,21 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Configuracion Temporizador
     const segundos = 20;
-    const url = "../Ordenar_Validacion.html";
+    const url = "../../Partida/Ordenar_ValidacionFrutas.html";
     iniciarTemporizador(segundos, url)
 
-    const frutas = [
-        'assets/img/Recursos/Elementos Memorizar/Limon.png',
-        'assets/img/Recursos/Elementos Memorizar/Manzana.png',
-        'assets/img/Recursos/Elementos Memorizar/Mora.png',
-        'assets/img/Recursos/Elementos Memorizar/Melon.png',
-        'assets/img/Recursos/Elementos Memorizar/Sandia.png',
-        'assets/img/Recursos/Elementos Memorizar/Coco.png',
-    ]  // Frutas principales
+    // Llamamos a la función que actualiza el HTML
+    actualizarRondaHTML();
+
+    // Recupera los números memorizados de localStorage
+    const frutas = JSON.parse(localStorage.getItem('frutasMemorizadas')) || [];
+
+    // Genera frutas adicionales excluyendo los de `frutas`
     const frutasAdicionales = obtenerFrutasAdicionales(frutas, 3);
     inyectarElementos(frutas, contenedorDrag,  true);  // Inyectar los números principales
     inyectarElementos(frutasAdicionales, contenedorDrag);  // Inyectar los números adicionales
+
+    // Mezcla los elementos para hacer el ordenamiento menos predecible
     cambiarOrdenElementos(contenedorDrag);
     iniciarDragAndDrop(frutas) 
 })

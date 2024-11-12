@@ -1,0 +1,59 @@
+<!-- <!DOCTYPE html> -->
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Icono -->
+    <link rel="icon" href="../assets/img/Logos/Logo Principal.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/Logos/Logo Secundario.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/Logos/Logo Secundario.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/Logos/Logo Secundario.png">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../Bootstrap/css/bootstrap.min.css">
+    <!-- Librerias -->
+    <link rel="stylesheet" href="../assets/Libreria/SweetAlert2/css/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- Estilos -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/fondoContenido.css">
+    <link rel="stylesheet" href="assets/css/stylesOrdenValidacion.css">
+
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css">
+    <title>PAT GAME</title>
+</head>
+
+<body>
+
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="carta-dificultad p-3 ">
+            <div class="titulo-dificultad position-absolute top-0 start-50 translate-middle">
+                <div class="marco-titulo px-2 py-3 ">
+                    <h1>ORDEN</h1>
+                </div>
+            </div>
+            <div class="contenido-dificultad">
+                <div class="validacion">
+                    <div class="loader-validacion"></div>
+                    <div id="contenedorIconoCalificacion" class="icono animate__animated animate__bounceInUp animate__delay-5s">
+                        
+                    </div>
+                </div>
+                
+                <div id="contenedorPuntos" class="puntuacion animate__animated animate__bounceInUp animate__delay-5s">
+                    <h4 id="textoPuntos">PUNTOS</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../Bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../Bootstrap/js/bootstrap.js"></script>
+    <script src="../assets/Libreria/SweetAlert2/js/sweetalert2.min.js"></script>
+    <script src="assets/js/mainOrderValidacion.js"></script>
+    <script src="assets/js/rondasComputo.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

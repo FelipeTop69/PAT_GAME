@@ -1,15 +1,15 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // Llamamos a la función que actualiza el HTML
+    actualizarRondaHTML();
+    
     iniciarBarraProgreso('#barraProgresoDificil', 12000, 'Ordenar Dificil.html');
     const contenedorMemorizar = document.getElementById('contenedorMemorizarDificil')
-    const imagenes = [
-        'assets/img/Recursos/Elementos Memorizar/Piña.png',
-        'assets/img/Recursos/Elementos Memorizar/Pera.png',
-        'assets/img/Recursos/Elementos Memorizar/Kiwi.png',
-        'assets/img/Recursos/Elementos Memorizar/Guayaba.png',
-        'assets/img/Recursos/Elementos Memorizar/Granadilla.png',
-        'assets/img/Recursos/Elementos Memorizar/Uva.png',
-        'assets/img/Recursos/Elementos Memorizar/Frambuesa.png',
-        'assets/img/Recursos/Elementos Memorizar/Fresa.png',
-    ]
+    
+    // Genera elementos aleatoriamente
+    const imagenes = obtenerFrutasParaRonda(8);
+
+    // Guardar los elementos generados en el localStorage
+    localStorage.setItem('frutasMemorizadas', JSON.stringify(imagenes));
+
     inyectarElementosMemorizar(imagenes, contenedorMemorizar)
 })
