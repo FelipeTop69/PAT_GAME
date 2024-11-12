@@ -19,7 +19,9 @@
   <link href="css/styles.css" rel="stylesheet" />
   <link rel="stylesheet" href="../Bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="./assets/css/styles_new.css">
+  <link rel="stylesheet" href="../assets/Libreria/SweetAlert2/css/sweetalert2.min.css">
   <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body class="sb-nav-fixed">
@@ -171,7 +173,10 @@
 
         <!--BOTON DE TERMINAR PARTIDA -->
         <div class="d-grid gap-2 col-4 mx-auto btn btn-outline-danger mb-4">
-          <button class="btn btn-primary-danger" type="button">Terminar Partida</button>
+          <button id="btnKill" class="btn btn-primary-danger" type="button">Terminar Partida</button>
+          <audio id="auidoBD">
+            <source src="../assets/audio/admin/Audio-bd-PAT.mp3" type="audio/mp3">
+          </audio>
         </div>
         <!--FIN BOTON DE TERMINAR PARTIDA -->
 
@@ -188,6 +193,7 @@
   <script src="js/datatables-simple-demo.js"></script>
   <script src="../Bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="../Bootstrap/js/bootstrap.js"></script>
+  <script src="../assets/Libreria/SweetAlert2/js/sweetalert2.min.js"></script>
   <script src="Tabla Jugadores/seguimiento.js"></script>
 </body>
 

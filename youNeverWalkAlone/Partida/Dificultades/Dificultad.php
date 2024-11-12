@@ -18,15 +18,13 @@ if ($resultado) {
 
 // Define las URLs para cada categoría
 $links = [
-    1 => "../Categoria_Numeros/Memorizacion.html",
-    2 => "../Categoria_Frutas/Memorizacion.html",
-    3 => "../Categoria_computo/Memorizacion.html"
+    1 => "../Categoria_Numeros/",
+    2 => "../Categoria_Frutas/",
+    3 => "../Categoria_computo/"
 ];
 
-// Asigna la URL basada en la categoría seleccionada, o '#' si no existe
-$selectedLink = $selectedCategoryId ? ($links[$selectedCategoryId] ?? '#') : '#';
-
-// echo "<p>Enlace seleccionado: $selectedLink</p>"; // Mensaje de depuración
+// Asigna la URL basada en la categoría seleccionada, agregando el archivo "Memorizacion.html"
+$selectedLink = $selectedCategoryId ? ($links[$selectedCategoryId] . "Memorizacion.html") : '#';
 ?>
 
 

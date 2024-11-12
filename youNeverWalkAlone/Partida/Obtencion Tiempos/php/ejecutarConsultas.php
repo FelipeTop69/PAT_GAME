@@ -15,7 +15,14 @@ switch ($tipo_consulta) {
         if (isset($_SESSION['jugador'])) {
             $consulta = new ConsultasTiempo();
             $tiempos = $consulta->consultarTiempos();
-            echo json_encode($tiempos);
+            if(empty($tiempos)){
+                // Si no hay jugadores, destruir la sesión y enviar mensaje de error
+                session_unset();
+                session_destroy();
+                echo json_encode(['error' => 'No hay jugadores registrados. Sesión cerrada.']);
+            }else{
+                echo json_encode($tiempos);
+            }
         } else {
             echo json_encode(['error' => 'No tienes permiso para ver esta información. Inicia sesión.']);
         }

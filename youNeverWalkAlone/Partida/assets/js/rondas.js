@@ -58,10 +58,10 @@ function avanzarNivel() {
         localStorage.setItem('rondaActual', '1');
 
         if(nuevoNivel === 'medio'){
-            window.location.href = 'Dificultades/Dificultad Medio.html';
+            window.location.href = 'Dificultades/Dificultad Medio.php';
         }
         else if(nuevoNivel === 'dificil'){
-        window.location.href = 'Dificultades/Dificultad Dificil.html';
+        window.location.href = 'Dificultades/Dificultad Dificil.php';
     }
     }else {
         window.location.href = 'Podio.html';

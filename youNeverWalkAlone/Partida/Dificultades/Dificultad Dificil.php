@@ -1,3 +1,32 @@
+<?php
+include '../../Conexion/conexion.php';
+$conexion = new Conexion();
+
+// Consulta para obtener el primer ID de categoría entre los posibles valores (1, 2, 3)
+$sql = "SELECT idcategoria FROM configuracion WHERE idcategoria IN (1, 2, 3) LIMIT 1";
+$stmt = $conexion->ejecutar($sql);
+$resultado = $stmt->fetch(); // Obtenemos una sola fila
+
+// Verificamos si se encontró una categoría
+if ($resultado) {
+    $selectedCategoryId = $resultado['idcategoria'];
+    // echo "<p>Categoría seleccionada: $selectedCategoryId</p>"; // Mensaje de depuración
+} else {
+    $selectedCategoryId = null;
+    // echo "<p>No se encontró ninguna categoría en la base de datos.</p>"; // Mensaje de depuración
+}
+
+// Define las URLs para cada categoría
+$links = [
+    1 => "../Categoria_Numeros/",
+    2 => "../Categoria_Frutas/",
+    3 => "../Categoria_computo/"
+];
+
+// Asigna la URL basada en la categoría seleccionada, agregando el archivo "Memorizacion.html"
+$selectedLink = $selectedCategoryId ? ($links[$selectedCategoryId] . "Memorizacion Dificil.html") : '#';
+?>
+
 <!-- <!DOCTYPE html> -->
 <html lang="es">
 
@@ -30,31 +59,31 @@
         <div class="carta-dificultad p-3 animate__animated animate__fadeInUpBig">
             <div class="titulo-dificultad position-absolute top-0 start-50 translate-middle">
                 <div class="marco-titulo px-2 py-3 ">
-                    <h1>¡ATENTO!!</h1>
+                    <h1>¡ATENTO!!!</h1>
                 </div>
             </div>
             <div class="contenido-dificultad">
-                <div class="contenedor-titulo texto-medio p-2">
+                <div class="contenedor-titulo texto-dificil p-2">
                     <h4>DIFICULTAD</h4>
                 </div>
                 <div class="contenedor-dificultad p-2">
-                    <div class="marco-imagen-dificultad dificultad-media p-1">
-                        <img class="img-fluid" src="../../assets/img/Recursos/Dificultad Medio.png" alt="imagenDificultad">
+                    <div class="marco-imagen-dificultad dificultad-dificil p-1">
+                        <img class="img-fluid" src="../../assets/img/Recursos/Dificultad Dificil.png" alt="imagenDificultad">
                     </div>
                 </div>
                 <div class="contenedor-descripcion p-2">
                     <div class="contenedor-numero-elementos p-1">
-                        <h4 class="palabra texto-medio">ELEMENTOS</h4>
-                        <h4 class="numero">6</h4>
+                        <h4 class="palabra texto-dificil">ELEMENTOS</h4>
+                        <h4 class="numero">8</h4>
                     </div>
                     <div class="contenedor-tiempo p-1">
-                        <h4 class="palabra texto-medio">TIEMPO MEMORIZACION</h4>
-                        <h4 id="tiempoMemoMedio" class="numero"></h4>
+                        <h4 class="palabra texto-dificil">TIEMPO MEMORIZACION</h4>
+                        <h4 id="tiempoMemoDificil" class="numero"></h4>
                     </div>
                 </div>
             </div>
         </div>
-        <a href="../Categoria_Numeros/Memorizacion Medio.html">
+        <a href="<?php echo htmlspecialchars($selectedLink); ?>">
             <button  class="next position-absolute bottom-0 end-0">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-6 h-6">
@@ -68,6 +97,7 @@
     <script src="../../Bootstrap/js/bootstrap.js"></script>
     <script src="../../assets/Libreria/SweetAlert2/js/sweetalert2.min.js"></script>
     <script src="../assets/js/mainDificultad.js"></script>
+    <script src="../../Admin/assets/js/boton2.js"></script>
     <script src="../../assets/js/main.js"></script>
 </body>
 </html>

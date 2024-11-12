@@ -12,9 +12,22 @@ $tipo_consulta = $_POST['tipo_operacion'];
 switch ($tipo_consulta) {
 
     case 'listar':
-        $consultas = new ConsultasPuntuacion();
-        $puntos = $consultas->listarPuntos();
-        echo json_encode($puntos);
+        if (isset($_SESSION['jugador'])) {
+            $consultas = new ConsultasPuntuacion();
+            $puntos = $consultas->listarPuntos();
+            if(empty($puntos)){
+                // Si no hay jugadores, destruir la sesión y enviar mensaje de error
+                session_unset();
+                session_destroy();
+                echo json_encode(['error' => 'No hay jugadores registrados. Sesión cerrada.']);
+            }else{
+                echo json_encode($puntos);
+            }
+        }else{
+            echo json_encode(['error' => 'No tienes permiso para ver esta información. Inicia sesión.']);
+        }
+        
+        
         break;
     
     case 'actualizar_puntuacion_jugador':

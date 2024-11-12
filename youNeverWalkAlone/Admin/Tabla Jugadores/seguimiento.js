@@ -1,4 +1,7 @@
 const url = 'Tabla Jugadores/php/ejecutarConsultas.php';
+const urlCerrarSesion = '../PrePartida/Registro/php/cerrarSesion.php';
+const btnKill = document.getElementById('btnKill')
+const audioBd = document.getElementById('auidoBD')
 
 let jugadoresSeguimiento = [];
 
@@ -39,17 +42,63 @@ const pintarTablaJugadores = (data) => {
     const tablaJugadores = document.querySelector('#tablaSeguimiento');
     tablaJugadores.innerHTML = "";
 
-    data.forEach(jugador => {
-        tablaJugadores.innerHTML += `
+    if(data.length === 0){
+        tablaJugadores.innerHTML = `
             <tr>
-                <th scope="row">#${jugador.posicion}</th>
-                <td>${jugador.nombre}</td>
-                <td>${jugador.puntuacion}</td>
-                <td>${jugador.numerodocumento}</td>
+                <td colspan="4"><h6 class="text-center">No hay jugadores registrados</h6></td>
             </tr>
-        `;
-    });
+        `
+    }else{
+        data.forEach(jugador => {
+            tablaJugadores.innerHTML += `
+                <tr>
+                    <th scope="row">#${jugador.posicion}</th>
+                    <td>${jugador.nombre}</td>
+                    <td>${jugador.puntuacion}</td>
+                    <td>${jugador.numerodocumento}</td>
+                </tr>
+            `;
+        });
+    }
 };
+
+// --------------------------------------------------------------------------//
+
+btnKill.addEventListener('click', () => {
+
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: "Eliminar todos los Jugadores",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, eliminar todo',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            audioBd.play();
+            fetch(url,{
+                method: 'POST',
+                body: new URLSearchParams({
+                    'tipo_operacion' : 'eliminar_todo'
+                })
+            })
+            .then(response => response.json())
+            .then (data =>{
+                Swal.fire(
+                    'Eliminado',
+                    data.mensaje,
+                    'success'
+                );
+            })
+            .catch(function(error){
+                console.log('Error Papi:', error)
+            })
+        }
+    });
+
+})
 
 document.addEventListener('DOMContentLoaded', () =>{
     setInterval(() => {
