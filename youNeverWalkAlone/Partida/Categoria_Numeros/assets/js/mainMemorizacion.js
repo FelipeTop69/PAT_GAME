@@ -41,14 +41,10 @@ function iniciarBarraProgreso(selectorBarra, duracion, urlRedireccion) {
 
 // Inyectar elementos
 const idElementos = [];
-const elementosNivel = {
-  facil: [1, 2, 3, 4, 5, 6, 7, 8, 9],
-  medio: [1, 2, 3, 4, 5, 6, 7, 8, 9],
-  dificil: [1, 2, 3, 4, 5, 6, 7, 8, 9]
-};
+const elementosNumeros = [1,2,3,4,5,6,7,8,9,0];
 
-function obtenerElementosAleatorios(nivel, cantidad = 4) {
-  const elementosDisponibles = [...elementosNivel[nivel]];
+function obtenerElementosAleatorios(cantidad) {
+  const elementosDisponibles = [...elementosNumeros];
   const seleccionados = [];
 
   for (let i = 0; i < cantidad; i++) {

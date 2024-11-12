@@ -39,8 +39,52 @@ function iniciarBarraProgreso(selectorBarra, duracion, urlRedireccion) {
   requestAnimationFrame(actualizarProgreso);
 }
 
-// Inyectar elementos
+// Inyectar Elementos
+const baseFrutasAdicionales = [
+  'assets/img/Recursos/Elementos Memorizar/Banana.png',
+  'assets/img/Recursos/Elementos Memorizar/Cereza.png',
+  'assets/img/Recursos/Elementos Memorizar/Coco.png',
+  'assets/img/Recursos/Elementos Memorizar/Durazno.png',
+  'assets/img/Recursos/Elementos Memorizar/Frambuesa.png',
+  'assets/img/Recursos/Elementos Memorizar/Fresa.png',
+  'assets/img/Recursos/Elementos Memorizar/Granadilla.png',
+  'assets/img/Recursos/Elementos Memorizar/Guayaba.png',
+  'assets/img/Recursos/Elementos Memorizar/Kiwi.png',
+  'assets/img/Recursos/Elementos Memorizar/Limon.png',
+  'assets/img/Recursos/Elementos Memorizar/Mango.png',
+  'assets/img/Recursos/Elementos Memorizar/Manzana.png',
+  'assets/img/Recursos/Elementos Memorizar/Melon.png',
+  'assets/img/Recursos/Elementos Memorizar/Mora.png',
+  'assets/img/Recursos/Elementos Memorizar/Naranja.png',
+  'assets/img/Recursos/Elementos Memorizar/Pera.png',
+  'assets/img/Recursos/Elementos Memorizar/Piña.png',
+  'assets/img/Recursos/Elementos Memorizar/Sandia.png',
+  'assets/img/Recursos/Elementos Memorizar/Uva.png'
+];  // Base de frutas adicionales
 const idElementos = [];
+
+// Función para seleccionar frutas principales para la ronda
+function obtenerFrutasParaRonda(cantidad) {
+  const frutasDisponibles = [...baseFrutasAdicionales];
+  const seleccionadas = [];
+
+  for (let i = 0; i < cantidad; i++) {
+      const indiceAleatorio = Math.floor(Math.random() * frutasDisponibles.length);
+      seleccionadas.push(frutasDisponibles[indiceAleatorio]);
+      frutasDisponibles.splice(indiceAleatorio, 1);
+  }
+
+  return seleccionadas;
+}
+
+// Actualizar las rondas en el HTML
+function actualizarRondaHTML() {
+  const rondaActual = localStorage.getItem('rondaActual') || '1';
+  const rondaElemento = document.getElementById('ronda-numero');
+  if (rondaElemento) {
+      rondaElemento.textContent = `Ronda #${rondaActual}`;
+  }
+}
 
 function inyectarElementosMemorizar(pElementos, pContendor) {
     const elementosRecibidios = pElementos;

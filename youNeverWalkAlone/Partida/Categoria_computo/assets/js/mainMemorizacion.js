@@ -41,7 +41,46 @@ function iniciarBarraProgreso(selectorBarra, duracion, urlRedireccion) {
 
 // Inyectar elementos
 const idElementos = [];
+// Inyectar Elementos
+const baseComputoAdicionales = [
+  'assets/img/Recursos/Elementos Memorizar/Altavoces.png',
+  'assets/img/Recursos/Elementos Memorizar/CPU.png',
+  'assets/img/Recursos/Elementos Memorizar/Diademas.png',
+  'assets/img/Recursos/Elementos Memorizar/Disco Duro.png',
+  'assets/img/Recursos/Elementos Memorizar/Impresora.png',
+  'assets/img/Recursos/Elementos Memorizar/Microfono.png',
+  'assets/img/Recursos/Elementos Memorizar/Monitor.png',
+  'assets/img/Recursos/Elementos Memorizar/Mouse.png',
+  'assets/img/Recursos/Elementos Memorizar/Proyector.png',
+  'assets/img/Recursos/Elementos Memorizar/Router.png',
+  'assets/img/Recursos/Elementos Memorizar/Teclado.png',
+  'assets/img/Recursos/Elementos Memorizar/USB.png',
+];
 
+// Función para seleccionar frutas principales para la ronda
+function obtenerComputoParaRonda(cantidad) {
+  const ComputoDisponibles = [...baseComputoAdicionales];
+  const seleccionadas = [];
+
+  for (let i = 0; i < cantidad; i++) {
+      const indiceAleatorio = Math.floor(Math.random() * ComputoDisponibles.length);
+      seleccionadas.push(ComputoDisponibles[indiceAleatorio]);
+      ComputoDisponibles.splice(indiceAleatorio, 1);
+  }
+
+  return seleccionadas;
+}
+
+//actualizar las rondas en el HTML
+function actualizarRondaHTML() {
+  const rondaActual = localStorage.getItem('rondaActual') || '1';
+  const rondaElemento = document.getElementById('ronda-numero');
+  if (rondaElemento) {
+      rondaElemento.textContent = `Ronda #${rondaActual}`;
+  }
+}
+
+// Inyectar elementos
 function inyectarElementosMemorizar(pElementos, pContendor) {
     const elementosRecibidios = pElementos;
     const contenedor = pContendor;

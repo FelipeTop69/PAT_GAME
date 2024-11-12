@@ -2,7 +2,7 @@
 
 let intervaloTiempoActual = "bajo"; 
 
-function iniciarTemporizador(pTiempo, pDireccionUrl) {
+async function iniciarTemporizador(pTiempo, pDireccionUrl) {
     let circularProgress = document.querySelector(".temporizador"),
         progressValue = document.querySelector(".tiempo-restante");
 
@@ -12,7 +12,7 @@ function iniciarTemporizador(pTiempo, pDireccionUrl) {
     let startTime = null; // Variable para almacenar el tiempo de inicio
     let animationFrame; // Variable para almacenar el requestAnimationFrame
 
-    function updateTimer(timestamp) {
+    async function updateTimer(timestamp) {
         if (!startTime) startTime = timestamp; // Establecer el tiempo inicial la primera vez que se ejecuta
 
         let elapsedTime = (timestamp - startTime) / 1000; // Calcular el tiempo transcurrido en segundos
@@ -49,6 +49,7 @@ function iniciarTemporizador(pTiempo, pDireccionUrl) {
             if (ordenJugador.length === 0) {
                 localStorage.setItem('puntos', 0);  // Asignar 0 puntos si el jugador no ha hecho nada
                 localStorage.setItem('puntosRequeridos', computo.length * 100);
+                await enviarPuntosActualizar(0);
             }else{
                 // Si el tiempo se acaba, no asignar puntos extra
                 localStorage.setItem('puntosExtra', 0);
@@ -56,6 +57,7 @@ function iniciarTemporizador(pTiempo, pDireccionUrl) {
 
             // Redirigir a la página deseada
             window.location.href = url;
+
         } else {
             animationFrame = requestAnimationFrame(updateTimer); // Continuar la animación
         }
@@ -84,20 +86,32 @@ const baseComputoAdicionales = [
 ];  // Base de computo adicionales
 const idElementos = [];
 
-// Función para obtener computo adicionales
-function obtenerComputoAdicionales(computo, cantidad) {
-    // Filtrar los números adicionales
-    const computoDisponibles = baseComputoAdicionales.filter(elementoComputo => !computo.includes(elementoComputo));
+// Función para seleccionar frutas principales para la ronda
+function obtenerComputoParaRonda(cantidad) {
+    const ComputoDisponibles = [...baseComputoAdicionales];
+    const seleccionadas = [];
 
-    // Seleccionar aleatoriamente 'cantidad' de números
-    const seleccionados = [];
-    for (let i = 0; i < cantidad && computoDisponibles.length > 0; i++) {
-        const indiceAleatorio = Math.floor(Math.random() * computoDisponibles.length);
-        seleccionados.push(computoDisponibles[indiceAleatorio]);
-        computoDisponibles.splice(indiceAleatorio, 1);
+    for (let i = 0; i < cantidad; i++) {
+        const indiceAleatorio = Math.floor(Math.random() * ComputoDisponibles.length);
+        seleccionadas.push(ComputoDisponibles[indiceAleatorio]);
+        ComputoDisponibles.splice(indiceAleatorio, 1);
     }
 
-    return seleccionados;
+    return seleccionadas;
+}
+
+// Función para obtener frutas adicionales, excluyendo las ya seleccionadas
+function obtenerComputoAdicionales(computo, cantidad) {
+    const ComputoDisponibles = baseComputoAdicionales.filter(compu => !computo.includes(compu));
+    const seleccionadas = [];
+
+    for (let i = 0; i < cantidad && ComputoDisponibles.length > 0; i++) {
+        const indiceAleatorio = Math.floor(Math.random() * ComputoDisponibles.length);
+        seleccionadas.push(ComputoDisponibles[indiceAleatorio]);
+        ComputoDisponibles.splice(indiceAleatorio, 1);
+    }
+
+    return seleccionadas;
 }
 
 // Inyectar elementos
@@ -137,6 +151,15 @@ function inyectarElementos(pElementos, pContenedor, esPrincipal = false) {
         }
 
         ultimoId++;
+    }
+}
+
+// Actualizar las rondas en el HTML
+function actualizarRondaHTML() {
+    const rondaActual = localStorage.getItem('rondaActual') || '1';
+    const rondaElemento = document.getElementById('ronda-numero');
+    if (rondaElemento) {
+        rondaElemento.textContent = `Ronda #${rondaActual}`;
     }
 }
 
