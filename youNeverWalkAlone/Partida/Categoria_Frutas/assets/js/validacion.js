@@ -65,8 +65,8 @@ function enviarPuntosActualizar(puntos) {
 
     // Crear el objeto FormData con solo los puntos
     const formData = new FormData();
-    formData.append('tipo_operacion', 'actualizar_puntos');
-    formData.append('puntos', puntos);
+    formData.append('tipo_operacion', 'actualizar_puntuacion_jugador');
+    formData.append('puntos_obtenidos', puntos);
 
     // Hacer la solicitud fetch y redirigir después de completarse
     return fetch(url, {

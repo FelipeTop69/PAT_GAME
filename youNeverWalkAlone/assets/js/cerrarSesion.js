@@ -74,7 +74,7 @@ const btnSalir = document.querySelector('#botonVolver');
 
     // Función para cerrar la sesión, mostrar alerta y eliminar al jugador
 const cerrarSesion = () => {
-    fetch('Sistema Puntuacion/php/ejecutarConsultas.php', {
+    fetch('../Sistema Puntuacion/php/ejecutarConsultas.php', {
         method: 'POST',
         body: new URLSearchParams({ 'tipo_operacion': 'obtener_informacion_jugador' })
     })
