@@ -62,7 +62,7 @@ async function validarOrden() {
 
 // Función para enviar los puntos al servidor
 function enviarPuntosActualizar(puntos) {
-    const url = "Sistema Puntuacion/php/ejecutarConsultas.php"; // URL de la página donde se guardan los puntos
+    const url = "../Sistema Puntuacion/php/ejecutarConsultas.php"; // URL de la página donde se guardan los puntos
 
     // Crear el objeto FormData con solo los puntos
     const formData = new FormData();

@@ -3,27 +3,27 @@
     include '../Conexion/conexion.php';
     $conexion = new Conexion();
 
-    // Consulta para obtener el primer ID de categoría entre los posibles valores (1, 2, 3)
-    $sql = "SELECT idcategoria FROM configuracion WHERE idcategoria IN (1, 2, 3) LIMIT 1";
-    $stmt = $conexion->ejecutar($sql);
-    $resultado = $stmt->fetch(); // Obtenemos una sola fila
+    // // Consulta para obtener el primer ID de categoría entre los posibles valores (1, 2, 3)
+    // $sql = "SELECT idcategoria FROM configuracion WHERE idcategoria IN (1, 2, 3) LIMIT 1";
+    // $stmt = $conexion->ejecutar($sql);
+    // $resultado = $stmt->fetch(); // Obtenemos una sola fila
 
-    // Verificamos si se encontró una categoría
-    if ($resultado) {
-        $selectedCategoryId = $resultado['idcategoria'];
-    } else {
-        $selectedCategoryId = null;
-    }
+    // // Verificamos si se encontró una categoría
+    // if ($resultado) {
+    //     $selectedCategoryId = $resultado['idcategoria'];
+    // } else {
+    //     $selectedCategoryId = null;
+    // }
 
-    // Define las URLs para cada categoría
-    $links = [
-        1 => "../Partida/Categoria_Numeros/Detalles.html",
-        2 => "../Partida/Categoria_Frutas/Detalles.html",
-        3 => "../Partida/Categoria_Computo/Detalles.html"
-    ];
+    // // Define las URLs para cada categoría
+    // $links = [
+    //     1 => "../Partida/Categoria_Numeros/Detalles.html",
+    //     2 => "../Partida/Categoria_Frutas/Detalles.html",
+    //     3 => "../Partida/Categoria_Computo/Detalles.html"
+    // ];
 
-    // Asigna la URL basada en la categoría seleccionada, o '#' si no existe
-    $selectedLink = $selectedCategoryId ? ($links[$selectedCategoryId] ?? '#') : '#';
+    // // Asigna la URL basada en la categoría seleccionada, o '#' si no existe
+    // $selectedLink = $selectedCategoryId ? ($links[$selectedCategoryId] ?? '#') : '#';
 
     session_start();
 
@@ -110,13 +110,13 @@
     </div>
 
     <!-- Boton Redirigir -->
-    <button class="next position-absolute bottom-0 end-0"id="goToPageBtn" data-link="<?php echo $selectedLink; ?>">
+    <!-- <button class="next position-absolute bottom-0 end-0"id="goToPageBtn" data-link="<?php echo $selectedLink; ?>">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
             stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75">
             </path>
         </svg>
-    </button>
+    </button> -->
 
     <!-- Boton Actualizar -->
     <button id="botonActualizar" class="btn btn-warning position-absolute bottom-0 m-4">Actualizar Points</button>

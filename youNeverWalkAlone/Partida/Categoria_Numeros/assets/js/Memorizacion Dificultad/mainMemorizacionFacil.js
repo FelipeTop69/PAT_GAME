@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // iniciarBarraProgreso('#barraProgresoFacil', 8, 'Ordenar.html'); 
     const contenedorMemorizar = document.getElementById('contenedorMemorizarFacil');
     // genera elementos aleatoriamente
-    const numeros = obtenerElementosAleatorios('facil', 4);
+    const numeros = obtenerElementosAleatorios(4);
     const claseAdicional = ['el-facil'];
     // guardar los elementos generados en el localStorage
     localStorage.setItem('numerosMemorizados', JSON.stringify(numeros));

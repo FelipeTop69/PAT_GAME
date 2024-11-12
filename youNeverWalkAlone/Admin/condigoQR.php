@@ -42,6 +42,7 @@ $selectedLink = $selectedCategoryId ? ($links[$selectedCategoryId] ?? '#') : '#'
     <link rel="stylesheet" href="../Bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/qr.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="../assets/Libreria/SweetAlert2/css/sweetalert2.min.css">
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script defer src="assets/js/QR.js"></script>
@@ -149,7 +150,7 @@ $selectedLink = $selectedCategoryId ? ($links[$selectedCategoryId] ?? '#') : '#'
                             </div>
                         </div>
                         <div class="col-12 d-flex justify-content-center align-items-center">
-                            <button type="submit" class="boton-carta" onclick="avanzar()" id="goToPageBtn" data-link="condigoQR.php">
+                            <button id="btnIniciarPartida" type="button" class="boton-carta">
                                 <span class="texto-boton">INICIAR PARTIDA</span>
                             </button>
                         </div>
@@ -164,9 +165,12 @@ $selectedLink = $selectedCategoryId ? ($links[$selectedCategoryId] ?? '#') : '#'
             <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
             <script src="js/datatables-simple-demo.js"></script>
             <script src="../Bootstrap/js/bootstrap.bundle.min.js"></script>
+            <script src="../Bootstrap/js/bootstrap.bundle.min.js"></script>
             <script src="../Bootstrap/js/bootstrap.js"></script>
+            <script src="assets/js/estadoPartida.js"></script>
             <script src="../Admin/assets/js/boton2.js"></script>
             <script src="Tabla Jugadores/listarJugadores.js"></script>
+            <script src="../assets/Libreria/SweetAlert2/js/sweetalert2.min.js"></script>
 </body>
 
 </html>

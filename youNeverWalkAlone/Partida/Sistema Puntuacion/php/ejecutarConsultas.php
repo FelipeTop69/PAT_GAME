@@ -1,8 +1,8 @@
 <?php 
 
-require_once '../../../../Conexion/conexion.php';
+require_once '../../../Conexion/conexion.php';
 require_once './consultasControl.php';
-require_once '../../../../PrePartida/Registro/php/jugador.php';
+require_once '../../../PrePartida/Registro/php/jugador.php';
 
 session_start(); 
 // session_destroy();

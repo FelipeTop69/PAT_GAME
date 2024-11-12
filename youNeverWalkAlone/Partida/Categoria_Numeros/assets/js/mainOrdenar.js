@@ -68,19 +68,13 @@ async function iniciarTemporizador(pTiempo, pDireccionUrl) {
 }
 
 
-
-// Inyectar Elementos
-// Arreglo de los Números bases para cada ronda de nivel de dificlutad
-const elementosNivel = {
-    facil: [1, 2, 3, 4, 5, 6, 7, 8, 9],
-    medio: [1, 2, 3, 4, 5, 6, 7, 8, 9],
-    dificil: [1, 2, 3, 4, 5, 6, 7, 8, 9]
-};
 const idElementos = [];
 
-// Función para obtener números de manera aleatoria
-function obtenerElementosAleatorios(nivel, cantidad) {
-    const elementosDisponibles = [...elementosNivel[nivel]];
+// Inyectar Elementos
+const elementosNumeros = [1,2,3,4,5,6,7,8,9,0];
+
+function obtenerElementosAleatorios(cantidad) {
+    const elementosDisponibles = [...elementosNumeros];
     const seleccionados = [];
 
     for (let i = 0; i < cantidad; i++) {
@@ -94,8 +88,7 @@ function obtenerElementosAleatorios(nivel, cantidad) {
 
 // función para obtener números adicionales de manera aleatoria
 function obtenerNumerosAdicionales(numerosMemorizados, cantidad) {
-    const baseNumeros = [1, 2, 3, 4, 5, 6, 7, 8, 9]; // Rango de números
-    const numerosDisponibles = baseNumeros.filter(num => !numerosMemorizados.includes(num)); // Filtra para evitar duplicados
+    const numerosDisponibles = elementosNumeros.filter(num => !numerosMemorizados.includes(num)); // Filtra para evitar duplicados
     const seleccionados = [];
 
     for (let i = 0; i < cantidad && numerosDisponibles.length > 0; i++) {

@@ -1,7 +1,14 @@
 const url = 'Registro/php/ejecutarConsultas.php';
 const urlCerrarSesion = 'Registro/php/cerrarSesion.php';
+const urlBandera = '../Bandera/ejecutarConsultas.php'
 const btnSalir = document.getElementById('botonSalir');
 const btnActualizarPoints = document.getElementById('botonActualizar');
+
+const links = { 
+    1: "../Partida/Categoria_Numeros/Detalles.html", 
+    2: "../Partida/Categoria_Frutas/Detalles.html", 
+    3: "../Partida/Categoria_Computo/Detalles.html" 
+};
 
 const listarJugadores = () =>{
 
@@ -163,6 +170,55 @@ const cerrarSesion = () => {
 };
 
 
+const verificarEstadoPartida = () =>{
+
+    fetch(urlBandera, {
+        method: 'POST',
+        body: new URLSearchParams({
+            'tipo_operacion' : 'verificar_estado_partida'
+        })
+    })
+    .then(response => response.json())
+    .then(data =>{
+        if(data.mensaje === 'iniciar_partida'){
+            
+            fetch(urlBandera, {
+                method: 'POST',
+                body: new URLSearchParams({
+                    'tipo_operacion' : 'seleccionar_categoria'
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.idcategoria){
+                    console.log(data.idcategoria)
+                    const categoryId = data.idcategoria; // Redirigir al enlace correspondiente si existe un ID de categoría válido 
+                    if (categoryId && links[categoryId]) { 
+                        window.location.href = links[categoryId]; 
+                        // console.log(links[categoryId])
+                    } else { 
+                        console.error('ID de categoría no encontrado o no válido'); 
+                    }
+                }else{
+                    console.log(data.error)
+                }
+            })
+            .catch(function(error){
+                console.log('Error papi:', error)
+            })
+
+        }else if(data.mensaje === 'En espera...'){
+            console.log(data.mensaje)
+        }else{
+            console.log(data.mensaje)
+        }
+    })
+    .catch(function(error){
+        console.log('Error papi:', error)
+    })
+
+}
+
 
 
 document.addEventListener('DOMContentLoaded', () =>{
@@ -171,6 +227,8 @@ document.addEventListener('DOMContentLoaded', () =>{
     setInterval(() => {
         listarJugadores()
     }, 3000);
+    setInterval(verificarEstadoPartida, 2000)
+    // verificarEstadoPartida()
 })
 
 

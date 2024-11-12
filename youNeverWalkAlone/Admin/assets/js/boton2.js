@@ -18,6 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     } else {
-        console.warn('El botón goToPageBtn no se encontró en el DOM');
+        console.log('El botón goToPageBtn no se encontró en el DOM');
     }
 });
