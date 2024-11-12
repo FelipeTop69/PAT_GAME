@@ -1,5 +1,6 @@
 const formRegistro = document.getElementById('formularioRegistro');
 const url = 'Registro/php/ejecutarConsultas.php'
+const urlBandera = '../Bandera/ejecutarConsultas.php'
 
 formRegistro.addEventListener('submit', (focus) =>{
 
@@ -52,3 +53,41 @@ function soloNumeros(event) {
         campoNoDocumento.value = valor.replace(/[^0-9]/g, '');
     }
 }
+
+const verificarPartida = () =>{
+
+    fetch(urlBandera,{
+        method: 'POST',
+        body: new URLSearchParams({
+            'tipo_operacion' : 'verificar_existencia_partida'
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if(data === false){
+            Swal.fire({ 
+                icon: 'warning', 
+                title: 'Opss..', 
+                text: 'No se encontro ninguna paritda, solicita al ADMIN', 
+                customClass: {
+                    popup: 'animate__animated animate__bounceInDown' // Animación de entrada
+                },
+                confirmButtonText: 'OK', 
+                allowOutsideClick: false 
+            }).then((result) => { 
+                if (result.isConfirmed) { 
+                    window.location.href = 'Comienzo.html'
+                }
+            })
+            
+        }
+    })
+    .catch(function(error){
+        console.log('Error papi:',error)
+    })
+
+}
+
+document.addEventListener('DOMContentLoaded', () =>{
+    setInterval(verificarPartida, 6000)
+})

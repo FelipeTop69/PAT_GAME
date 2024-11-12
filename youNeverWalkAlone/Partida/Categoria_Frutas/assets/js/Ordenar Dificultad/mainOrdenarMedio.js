@@ -1,11 +1,22 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Configuracion Temporizador
-    const segundos = 20;
-    const url = "../../Partida/Ordenar_ValidacionFrutas.html";
-    iniciarTemporizador(segundos, url)
-
     // Llamamos a la función que actualiza el HTML
     actualizarRondaHTML();
+
+    const indicador = 'ordenarmedio';  // El valor del indicador
+
+    obtenerTiempos(indicador)
+        .then(tiempoAsignado => {
+            // Validación: Si tiempoAsignado es 0, null, o undefined, no llamar a iniciarBarraProgreso
+            if (tiempoAsignado > 0 && tiempoAsignado != null) {
+                const url = "../../Partida/Ordenar_ValidacionFrutas.html";
+                iniciarTemporizador(tiempoAsignado,url);
+            } else {
+                console.log("El tiempo asignado es 0 o no está disponible, no se inicia la barra de progreso.");
+            }
+        })
+        .catch(error => {
+            console.error("Error al obtener el tiempo:", error);
+        });
 
     // Recupera los números memorizados de localStorage
     const frutas = JSON.parse(localStorage.getItem('frutasMemorizadas')) || [];

@@ -19,7 +19,7 @@ function iniciarBarraProgreso(selectorBarra, duracion, urlRedireccion) {
     progresoActual = (tiempoTranscurrido / (duracion * 1000)) * maxProgreso; // Multiplicamos por 1000 para hacer la conversión interna
 
     // Actualiza el tiempo restante
-    tiempoRestante = Math.max(0, ((duracion * 1000 - tiempoTranscurrido) / 1000).toFixed(0)); // Usamos milisegundos en los cálculos
+    tiempoRestante = Math.max(0, ((duracion * 1000 - tiempoTranscurrido) / 1000).toFixed(0)); 
 
     // Asegúrate de que no pase del 100%
     if (progresoActual >= maxProgreso) {

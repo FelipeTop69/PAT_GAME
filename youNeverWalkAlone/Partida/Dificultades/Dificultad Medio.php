@@ -83,7 +83,7 @@ $selectedLink = $selectedCategoryId ? ($links[$selectedCategoryId] . "Memorizaci
                 </div>
             </div>
         </div>
-        <a href="<?php echo htmlspecialchars($selectedLink); ?>">
+        <!-- <a href="<?php echo htmlspecialchars($selectedLink); ?>">
             <button  class="next position-absolute bottom-0 end-0">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-6 h-6">
@@ -91,7 +91,7 @@ $selectedLink = $selectedCategoryId ? ($links[$selectedCategoryId] . "Memorizaci
                     </path>
                 </svg>
             </button>
-        </a>
+        </a> -->
     </div>
     <script src="../../Bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../../Bootstrap/js/bootstrap.js"></script>
@@ -99,5 +99,17 @@ $selectedLink = $selectedCategoryId ? ($links[$selectedCategoryId] . "Memorizaci
     <script src="../assets/js/mainDificultad.js"></script>
     <script src="../../Admin/assets/js/boton2.js"></script>
     <script src="../../assets/js/main.js"></script>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () =>{
+
+            setTimeout(() => {
+                window.location.href = "<?php echo htmlspecialchars($selectedLink); ?>";
+            }, 5000); 
+
+        })
+
+    </script>
 </body>
 </html>

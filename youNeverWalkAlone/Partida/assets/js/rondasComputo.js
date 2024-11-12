@@ -22,7 +22,7 @@ function avanzarRonda() {
     }
 
     // Si aún quedan rondas, incrementar rondaActual y recargar la página correspondiente
-    if (rondaActual < 3) {
+    if (rondaActual < 1) {
         localStorage.setItem('rondaActual', rondaActual + 1);
 
         // Redirigir a la página de memorización según el nivel actual
@@ -58,10 +58,10 @@ function avanzarNivel() {
         localStorage.setItem('rondaActual', '1');
 
         if(nuevoNivel === 'medio'){
-            window.location.href = 'Categoria_Computo/Memorizacion Medio.html'; //aca van los html que describen la dificultad para el aumento de nivel
+            window.location.href = 'Dificultades/Dificultad Medio.php'; //aca van los html que describen la dificultad para el aumento de nivel
         }
         else if(nuevoNivel === 'dificil'){
-        window.location.href = 'Categoria_Computo/Memorizacion Dificil.html'; //aca van los html que describen la dificultad para el aumento de nivel
+        window.location.href = 'Dificultades/Dificultad Dificil.php'; //aca van los html que describen la dificultad para el aumento de nivel
     }
     }else {
         window.location.href = 'Podio.html';

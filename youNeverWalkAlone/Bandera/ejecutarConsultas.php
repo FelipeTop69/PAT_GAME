@@ -7,6 +7,15 @@
 
     switch($tipoOperacion){
 
+        case 'verificar_existencia_partida':
+
+            $consulta = new ConsultasBandera();
+            $resultado = $consulta->verificarExistenciaPartida();
+
+            echo json_encode($resultado);
+
+            break;
+
         case 'actualizar_estado_partida':
 
             $consulta = new ConsultasBandera();
