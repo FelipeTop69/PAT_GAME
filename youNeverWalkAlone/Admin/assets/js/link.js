@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log(`Redirigiendo a: ${savedLink}`);
                 window.location.href = savedLink; // Redirigir a la URL guardada
             } else {
-                alert('No hay ninguna categoría seleccionada.');
+                // alert('No hay ninguna categoría seleccionada.');
                 console.warn('No se encontró ninguna URL en localStorage');
             }
         });

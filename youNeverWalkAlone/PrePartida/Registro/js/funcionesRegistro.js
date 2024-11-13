@@ -89,5 +89,6 @@ const verificarPartida = () =>{
 }
 
 document.addEventListener('DOMContentLoaded', () =>{
+    verificarPartida()
     setInterval(verificarPartida, 4000)
 })
