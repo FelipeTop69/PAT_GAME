@@ -119,7 +119,7 @@
     </button> -->
 
     <!-- Boton Actualizar -->
-    <button id="botonActualizar" class="btn btn-warning position-absolute bottom-0 m-4">Actualizar Points</button>
+    <button id="botonActualizar" class="btn btn-warning position-absolute bottom-0 m-4" hidden>Actualizar Points</button>
 
     <script src="../Bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../Bootstrap/js/bootstrap.js"></script>
