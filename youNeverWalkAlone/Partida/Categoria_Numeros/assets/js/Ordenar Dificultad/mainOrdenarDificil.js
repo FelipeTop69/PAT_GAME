@@ -10,4 +10,4 @@ document.addEventListener('DOMContentLoaded', function () {
     inyectarElementos(numerosAdicionales, contenedorDrag);  // Inyectar los números adicionales
     cambiarOrdenElementos(contenedorDrag);
     iniciarDragAndDrop(numeros) 
-})
+})  

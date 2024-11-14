@@ -304,13 +304,14 @@
     outline: 0;
 }
 p{
-    width: 17%;
+    
     box-shadow: 0 8px 16px rgba(0, 255, 13, 0.6);
    margin-left: 42%;
    margin-top: 10px;
-   border-radius: 100px;
+   border-radius: 0px;
     font-size: 33px;
     font-weight: bold;
+    border: 5px solid #119500 ;
     color: #119500;
 }
 .Cargando{

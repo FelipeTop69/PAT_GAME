@@ -303,16 +303,34 @@
 .boton-enviar:hover {
     outline: 0;
 }
-p{
+p {
     width: 17%;
-    box-shadow: 0 8px 16px rgba(0, 255, 13, 0.6);
-   margin-left: 42%;
-   margin-top: 10px;
-   border-radius: 100px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+    margin-left: 42%;
+    margin-top: 10px;
     font-size: 33px;
     font-weight: bold;
-    color: #119500;
+    color: #332e2e;
+    text-align: center;
+    padding: 10px; /* Espacio entre el texto y el borde */
+    
+    /* Borde transparente inicial */    
+    border-radius: 100px;
+    position: relative;
+
+    /* Inicialización de fondo para el borde */
+    background-image: linear-gradient(white, rgb(10, 97, 3)), linear-gradient(#065206, #116806);
+   
+    background-clip: content-box, border-box; /* El color del borde se recorre alrededor */
+ 
+    
+    animation: border-animation 2s infinite ease-in-out; /* Animación que recorre el borde */
 }
+
+
+
+
+
 .Cargando{
     display: inline-block;
     animation: brincos 0.8s ease-in-out infinite;
