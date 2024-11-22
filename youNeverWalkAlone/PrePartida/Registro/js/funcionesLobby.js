@@ -41,7 +41,7 @@ const listarJugadores = () =>{
 
 }
 
-// Función para pintar la tabla de jugadores
+
 const pintarJugadores = (jugadores) => {
     let contenedorJugadores = document.querySelector('#cartaJugadores');
     contenedorJugadores.innerHTML = "";
@@ -61,7 +61,7 @@ const pintarJugadores = (jugadores) => {
     }
 };
 
-// Función para actualizar la puntuación del jugador
+// El boton de esta fucncion se encuentra desabilidato (Boton de pruebas)
 const actualizarPuntuacion = () => {
     const nuevaPuntuacion = prompt("Ingresa la nueva puntuación:");
 
@@ -122,12 +122,15 @@ const cerrarSesion = () => {
             const puntosJugador = data.puntuacion;
 
             Swal.fire({
-                title: 'Confirmar Cierre de Sesión',
-                html: `Jugador: <b>${nombreJugador}</b><br>Puntos: <b>${puntosJugador}</b>`,
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonText: 'Cerrar Sesión',
-                cancelButtonText: 'Cancelar'
+                // La configuracion de la alerta se encuentra en el script main.js
+                ...alertConfigCerrar, 
+                html: `
+                    <div class="d-flex flex-column align-items-center g-2">
+                        <span class="nombre-player"><b>${nombreJugador}</b> ¿Deseas salir?</span>
+                        <span class="puntos-player"><b>Puntos:</b> ${puntosJugador}</span>
+                    </div>
+                `,
+                iconHtml: '<img src="../assets/img/Iconos/IconoAlertaCerrarSesion.png" alt="iconoAlerta" class="icono-alerta">',
             }).then((result) => {
                 if (result.isConfirmed) {
                     fetch(urlCerrarSesion, {
@@ -228,7 +231,7 @@ document.addEventListener('DOMContentLoaded', () =>{
         listarJugadores()
     }, 3000);
     setInterval(verificarEstadoPartida, 2000)
-    // verificarEstadoPartida()
+    verificarEstadoPartida()
 })
 
 

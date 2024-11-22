@@ -1,78 +1,6 @@
-// Implementacion de la alerta en el boton volver
-// Configuracion de la alerta
-const alertConfig = {
-    title: '¡ADVERTENCIA!',
-    // text: ,
-    icon: 'warning',
-    confirmButtonText: 'Si, Salir',
-    footer: '<span class="span-alerta">No podras volver a la partida</span>',
-    // width: 
-    // padding:
-    // background:
-    // grow:
-    backdrop: true,
-    timer: 6000,
-    timerProgressBar: true,
-    // toast:
-    // position:
-    allowOutsideClick: false,
-    allowEscapeKey: false,
-    allowEnterKey: false,
-    stopKeydownPropagation: true,
-    // input:
-    // inputPlaceholder:
-    // inputValue:
-    // inputOptions:
-    // Perzonalizar la clase segun mis clases
-    customClass: {
-        container: 'container-alerta',
-        popup: 'popup-alerta',
-        header: 'header-alerta',
-        title: 'title-alerta',
-        closeButton: 'closeButton-alerta',
-        icon: 'icon-alerta',
-        htmlContainer: 'htmlContainer-alerta',
-        actions: 'actions-alerta',
-        confirmButton: 'botones-alerta',
-        cancelButton: 'botones-alerta',
-        loader: 'loader-alerta',
-        footer: 'footer-alerta',
-        timerProgressBar: 'timerProgressBar-alerta',
-    },
-    // Animaciones para la clase
-    showClass: {
-        popup: `
-			animate__animated
-			animate__fadeInUpBig
-			animate__faster
-			`
-    },
-    hideClass: {
-        popup: `
-			animate__animated
-			animate__fadeOutDownBig
-			`
-    },
-    showConfirmButton: true,
-    confirmButtonColor: '#d33',
-    // confirmButtonAriaLabel:
-    showCancelButton: true,
-    cancelButtonText: 'No, Volver',
-    cancelButtonColor: '#3085d6'
-    // cancelButtonAriaLabel:
-    // buttonsStyling:
-    // showCloseButton:
-    // closeButtonAriaLabel:
-    // imageUrl:
-    // imageWidth:
-    // imageHeight:
-    // imageAlt:
-};
-
-// Medotdo para invocar alerta
 const btnSalir = document.querySelector('#botonVolver');
 
-    // Función para cerrar la sesión, mostrar alerta y eliminar al jugador
+// Función para cerrar la sesión, mostrar alerta y eliminar al jugador
 const cerrarSesion = () => {
     fetch('../Sistema Puntuacion/php/ejecutarConsultas.php', {
         method: 'POST',
@@ -93,13 +21,15 @@ const cerrarSesion = () => {
             // console.log(puntosJugador)
 
             Swal.fire({
-                ...alertConfig, 
+                // La configuracion de la alerta se encuentra en el script main.js
+                ...alertConfigCerrar, 
                 html: `
                     <div class="d-flex flex-column align-items-center g-2">
-                        <span>¿<b>${nombreJugador}</b> estás seguro de salir?</span>
-                        <span><b>Puntos:</b> ${puntosJugador}</span>
+                        <span class="nombre-player"><b>${nombreJugador}</b> ¿Deseas salir?</span>
+                        <span class="puntos-player"><b>Puntos:</b> ${puntosJugador}</span>
                     </div>
-                `
+                `,
+                iconHtml: '<img src="../../assets/img/Iconos/IconoAlertaCerrarSesion.png" alt="iconoAlerta" class="icono-alerta">',
             })
             .then((result) => {
                 if (result.isConfirmed) {

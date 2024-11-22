@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     obtenerTiempos(indicador)
         .then(tiempoAsignado => {
-            // Validación: Si tiempoAsignado es 0, null, o undefined, no llamar a iniciarBarraProgreso
             if (tiempoAsignado > 0 && tiempoAsignado != null) {
                 // Llamamos a la función solo si el tiempo es válido
                 iniciarBarraProgreso('#barraProgresoFacil', tiempoAsignado, 'Ordenar.html');

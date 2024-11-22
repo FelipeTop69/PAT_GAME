@@ -85,7 +85,6 @@
                 <h1 class="titulo-carta m-0">LOBBY</h1>
             </div>
             <div class="carta d-flex flex-column align-items-center">
-                <h5 class="text-bienvenida">Bienvenido <?php echo htmlspecialchars($_SESSION['jugador']['nombre']); ?>!</h1>
                     <div class="carta-texto-top  p-2">
                         <h3 class="carta-texto">En Espera</h3>
                         <div class="wrapper">
@@ -98,7 +97,7 @@
                         </div>
                     </div>
                     <div id="cartaJugadores" class="carta-jugadores">
-
+                        
                     </div>
             </div>
         </div>
@@ -117,8 +116,7 @@
             </path>
         </svg>
     </button> -->
-
-    <!-- Boton Actualizar -->
+    <!-- Boton Actualizar - Prueba -->
     <button id="botonActualizar" class="btn btn-warning position-absolute bottom-0 m-4" hidden>Actualizar Points</button>
 
     <script src="../Bootstrap/js/bootstrap.bundle.min.js"></script>

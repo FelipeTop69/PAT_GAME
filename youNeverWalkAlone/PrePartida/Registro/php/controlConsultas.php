@@ -32,7 +32,7 @@
             $nombre = $jugador-> getNombre();
             
             if ($this->verificarExitenciaJugador($numeroDocumento) > 0) {
-                return ['error' => 'El Número de Documento ya está Registrado'];
+                return ['error' => 'El N° de documento ya está registrado'];
             }
 
             $avatarID = $this->obtenerAvatarAleatorio();

@@ -1,3 +1,5 @@
+
+
 .contendor-carta {
     height: 100%;
 }
@@ -249,6 +251,10 @@ a {
 
 /* Pantalla celular pequeña*/
 @media screen and (max-width: 376px) {
+    .texto-alerta-validacion{
+        font-size: 16px !important;
+    }
+    
     .carta {
         width: auto;
         padding: 2.5rem 1.5rem;
@@ -263,6 +269,9 @@ a {
 
 /* Pantalla celular minion*/
 @media screen and (max-width: 320px) {
+    .texto-alerta-validacion{
+        font-size: 14px !important;
+    }
 
     .carta {
         width: auto;

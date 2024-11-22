@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
     // BOTON VOLVER
-    // Inyectar Iconos
     const iconoVolver =
         `
         <svg class="icono-volver" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 32" fill="none" >
@@ -20,3 +19,53 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log('Botón volver no econtrado');
     }
 })
+
+// Configuracion de la alerta
+// Los estilos de esta alerta estan en style.css linea 199
+const alertConfigCerrar = {
+    title: '¡ADVERTENCIA!',
+    footer: '¡No podras volver a la partida!',
+    backdrop: 'rgba(0, 0, 0, 0.8)',
+    timer: 6000,
+    timerProgressBar: true,
+    allowOutsideClick: false,
+    allowEscapeKey: false,
+    allowEnterKey: false,
+    stopKeydownPropagation: true,
+
+    customClass: {
+        container: 'container-alerta',
+        popup: 'popup-alerta',
+        header: 'header-alerta',
+        title: 'title-alerta',
+        icon: 'default-icono',
+        closeButton: 'closeButton-alerta',
+        htmlContainer: 'htmlContainer-alerta',
+        actions: 'actions-alerta',
+        confirmButton: 'boton-alerta-confirmar',
+        cancelButton: 'boton-alerta-cancelar',
+        loader: 'loader-alerta',
+        footer: 'footer-alerta',
+        timerProgressBar: 'timerProgressBar-alerta',
+    },
+
+    // Animaciones para la clase
+    showClass: {
+        popup: `
+			animate__animated
+			animate__fadeInUpBig
+			animate__faster
+			`
+    },
+    hideClass: {
+        popup: `
+			animate__animated
+			animate__fadeOutDownBig
+			`
+    },
+
+    showConfirmButton: true,
+    confirmButtonText: '<span>Si, salir</span> <svg class xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path class="icono-confirmar" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 12v.01M3 21h18M5 21V5a2 2 0 0 1 2-2h7.5M17 13.5V21M14 7h7m-3-3l3 3l-3 3"/></svg>',
+    showCancelButton: true,
+    cancelButtonText: '<span>No</span> <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 20 20"><path class="icono-cancelar" fill="#ffffff" d="m12.12 10l3.53 3.53l-2.12 2.12L10 12.12l-3.54 3.54l-2.12-2.12L7.88 10L4.34 6.46l2.12-2.12L10 7.88l3.54-3.53l2.12 2.12z"/></svg>',
+};

@@ -84,7 +84,6 @@ body {
     font-style: var(--font-style-dos);
     font-weight: var(--font-weight-extraBold);
     text-shadow: 1px 0 var(--azul-borde-claro), 2px 0 var(--verde-oscuro);
-    ;
     color: color-mix(in srgb, var(--color-blanco) 70%, transparent);
     letter-spacing: 3px;
 }
