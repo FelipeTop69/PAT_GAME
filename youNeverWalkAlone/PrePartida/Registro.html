@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html> -->
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -11,6 +11,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/Logos/Logo Secundario.png">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="../Bootstrap/css/bootstrap.min.css">
+    <!-- Librerias -->
+    <link rel="stylesheet" href="../assets/Libreria/SweetAlert2/css/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <!-- Estilos -->
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/fondoContenido.css">
@@ -24,18 +27,19 @@
 
     <div class="container">
         <div class="contenedor-up  position-absolute">
-            <button type="button" class="boton-volver" onclick="window.location.href='Comienzo.html'">
+            <button type="button" class="boton-volver">
                     
             </button>
         </div>
         <div class="contendor-carta  d-grid justify-content-center align-items-center">
-            <form action="" class="carta" onsubmit="return validarCampos()">
+            <form id="formularioRegistro" class="carta" >
+                <input type="text" name="tipo_operacion" value="registrar_jugador" hidden="true">
                 <img class="imagen-carta top-0 start-50 translate-middle position-absolute" src="../assets/img/Logos/Logo Secundario.png" alt="">
                 <h1 class="titulo-carta">REGISTRO</h1>
                 <div class="contenido-carta">
                     <div class="campo-carta">
-                        <input type="number" name="documentoIdentidad" id="txtDocumentoIdentidad" required>
-                        <label for="txtDocumentoIdentidad" >
+                        <input type="text" name="txtNumeroDocumento" id="txtNumeroDocumento" oninput="soloNumeros(event)" minlength="8" maxlength="10" required autocomplete="off">
+                        <label for="txtNumeroDocumento" >
                             <div class="contenido-label">
                                 <span class="texto-label-campo">N° identifiación</span>
                                 <div id="contenedorIconoIdentificacion" class="contenedor-icono d-flex justify-content-center align-items-center">
@@ -46,8 +50,8 @@
                     </div>
 
                     <div class="campo-carta">
-                        <input type="text" name="gamerTag"  id="txtGamerTag" required>
-                        <label for="txtGamerTag" >
+                        <input type="text" name="txtNombre"  id="txtNombre" minlength="3" maxlength="12" required autocomplete="off">
+                        <label for="txtNombre" >
                             <div class="contenido-label">
                                 <span class="texto-label-campo">Gamer Tag</span>
                                 <div id="contenedorIconoControl" class="contenedor-icono d-flex justify-content-center align-items-center">
@@ -66,6 +70,8 @@
 
     <script src="../Bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../Bootstrap/js/bootstrap.js"></script>
+    <script src="../assets/Libreria/SweetAlert2/js/sweetalert2.min.js"></script>
+    <script src="Registro/js/funcionesRegistro.js"></script>
     <script src="assets/js/mainRegistro.js"></script>
     <script src="../assets/js/main.js"></script>
 </body>

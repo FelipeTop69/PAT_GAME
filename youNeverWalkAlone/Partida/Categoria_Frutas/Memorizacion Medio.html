@@ -32,7 +32,7 @@
             <button id="botonVolver" type="button" class="boton-volver"></button>
 
             <div class="indicador-ronda p-2">
-                <h4>Ronda #1</h4>
+                <h4 id="ronda-numero"></h4>
             </div>
 
             <div class="indicador-dificultad indicador-dificultad-medio" >
@@ -48,30 +48,8 @@
             </div>
             <div class="contenedor-carta">
                 <div class="cuerpo-carta">
-                    <div class="contenedor-elementos-memorizar co-el-me-medio">
-                        <div class="elemento ">
-                            <img class="medida-elemento" src="assets/img/Recursos/Elementos Memorizar/Limon.png" alt="imagenCategoriaFrutas">
-                        </div>
-
-                        <div class="elemento ">
-                            <img class="medida-elemento" src="assets/img/Recursos/Elementos Memorizar/Manzana.png" alt="imagenCategoriaFrutas">
-                        </div>
-
-                        <div class="elemento ">
-                            <img class="medida-elemento" src="assets/img/Recursos/Elementos Memorizar/Mora.png" alt="imagenCategoriaFrutas">
-                        </div>
-
-                        <div class="elemento ">
-                            <img class="medida-elemento" src="assets/img/Recursos/Elementos Memorizar/Melon.png" alt="imagenCategoriaFrutas">
-                        </div>
-
-                        <div class="elemento ">
-                            <img class="medida-elemento" src="assets/img/Recursos/Elementos Memorizar/Sandia.png" alt="imagenCategoriaFrutas">
-                        </div>
-
-                        <div class="elemento ">
-                            <img class="medida-elemento" src="assets/img/Recursos/Elementos Memorizar/Coco.png" alt="imagenCategoriaFrutas">
-                        </div>
+                    <div id="contenedorMemorizarMedio" class="contenedor-elementos-memorizar co-el-me-medio">
+                        
                     </div>
                 </div>
             </div>
@@ -89,7 +67,9 @@
     <script src="../../assets/Libreria/SweetAlert2/js/sweetalert2.min.js"></script>
     <script src="assets/js/mainMemorizacion.js"></script>
     <script src="assets/js/Memorizacion Dificultad/mainMemorizacionMedio.js"></script>
+    <script src="../Obtencion Tiempos/tiempos.js"></script>
     <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/cerrarSesion.js"></script>
 </body>
 
 </html>

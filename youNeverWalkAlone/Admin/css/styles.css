@@ -1459,27 +1459,49 @@ progress {
     margin-top: 40px;
   }
 
-  .cartaQr{
-    position: relative;
-    top: 30px;
-    display: inline-block;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.4);
-    background-color: #3ab3db;
+  /* Estilos de la tarjeta del QR */
+.cartaQr {
+    padding: 36px;
+    border: 5px inset #0ccca2;
+    height: 72%;
+    width: 90%;
+    left: 10%;
+    margin-top: 30px;
+    border-radius: 10px; /* Esquinas redondeadas */
+    box-shadow: 0 10px 30px rgba(1, 221, 250, 0.4); /* Sombra ligera */
+    background-color: #ffffff; /* Fondo azul claro */
     animation: levitar 2s infinite ease-in-out;
-  }
-  @keyframes levitar{
-    0%, 100%{
-      transform: translateY(0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tex{
+  text-decoration: none;
+}
+.qr-text {
+    margin-top: 20px;
+    font-size: 40px;
+    left: 2%;
+    color: #ffffff; /* Color blanco para el texto */
+    font-weight: bold;
+    text-align: center;
+    animation: levitar 2s infinite ease-in-out;
+}
+
+/* Animación de levitación */
+@keyframes levitar {
+    0%, 100% {
+        transform: translateY(0);
     }
-    50%{
-      transform: translateY(-10px);
+    50% {
+        transform: translateY(-10px);
     }
-  }
+}
+
 
   .table-container{
     width: 100%;
+    margin-top: -8%;
     padding: 0%;
     display: flex;
     flex-direction: column;

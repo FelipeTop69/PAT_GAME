@@ -32,7 +32,7 @@
             <button id="botonVolver" type="button" class="boton-volver"></button>
 
             <div class="indicador-ronda p-2">
-                <h4>Ronda #1</h4>
+                <h4 id="ronda-numero"></h4>
             </div>
 
             <div class="indicador-dificultad indicador-dificultad-medio" >
@@ -48,16 +48,11 @@
             </div>
             <div class="contenedor-carta">
                 <div class="cuerpo-carta">
-                    <div class="contenedor-elementos-memorizar co-el-me-medio">
-                        <div class="elemento el-medio"> <img class="img-fluid medida-elemento" src="assets/img/Recursos/Elementos Memorizar/Disco Duro.png" alt="imagenCategoriaComputo"></div> 
-                        <div class="elemento el-medio"> <img class="img-fluid medida-elemento" src="assets/img/Recursos/Elementos Memorizar/Teclado.png" alt="imagenCategoriaComputo"></div>
-                        <div class="elemento el-medio"> <img class="img-fluid medida-elemento" src="assets/img/Recursos/Elementos Memorizar/Mouse.png" alt="imagenCategoriaComputo"></div>
-                        <div class="elemento el-medio"> <img class="img-fluid medida-elemento" src="assets/img/Recursos/Elementos Memorizar/Impresora.png" alt="imagenCategoriaComputo"></div>
-                        <div class="elemento el-medio"> <img class="img-fluid medida-elemento" src="assets/img/Recursos/Elementos Memorizar/Diademas.png" alt="imagenCategoriaComputo"></div>
-                        <div class="elemento el-medio"> <img class="img-fluid medida-elemento" src="assets/img/Recursos/Elementos Memorizar/CPU.png" alt="imagenCategoriaComputo"></div>
+                    <div id="contenedorMemorizarMedio" class="contenedor-elementos-memorizar co-el-me-medio">
+                        
                     </div>
                 </div>
-            </div>1
+            </div>
 
             <div class="contenedor-barra-progreso">
                 <div id="barraProgresoMedio" class="barra-progreso" data-label="#" data-max="100"></div>
@@ -72,7 +67,9 @@
     <script src="../../assets/Libreria/SweetAlert2/js/sweetalert2.min.js"></script>
     <script src="assets/js/mainMemorizacion.js"></script>
     <script src="assets/js/Memorizacion Dificultad/mainMemorizacionMedio.js"></script>
+    <script src="../Obtencion Tiempos/tiempos.js"></script>
     <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/cerrarSesion.js"></script>
 </body>
 
 </html>

@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
 function iniciarBarraProgreso(selectorBarra, duracion, urlRedireccion) {
   const barraProgreso = document.querySelector(selectorBarra);
   const maxProgreso = parseFloat(barraProgreso.dataset.max);
-  let tiempoRestante = duracion / 1000; // Tiempo restante en segundos
+  let tiempoRestante = duracion; // Tiempo restante en segundos
 
   let progresoActual = 0;
   let tiempoInicial = null;
@@ -16,10 +16,10 @@ function iniciarBarraProgreso(selectorBarra, duracion, urlRedireccion) {
     const tiempoTranscurrido = timestamp - tiempoInicial; // Calcula cuánto tiempo ha pasado
 
     // Calcula el progreso basado en el tiempo transcurrido y la duración total
-    progresoActual = (tiempoTranscurrido / duracion) * maxProgreso;
+    progresoActual = (tiempoTranscurrido / (duracion * 1000)) * maxProgreso; // Multiplicamos por 1000 para hacer la conversión interna
 
     // Actualiza el tiempo restante
-    tiempoRestante = Math.max(0, ((duracion - tiempoTranscurrido) / 1000).toFixed(0));
+    tiempoRestante = Math.max(0, ((duracion * 1000 - tiempoTranscurrido) / 1000).toFixed(0)); 
 
     // Asegúrate de que no pase del 100%
     if (progresoActual >= maxProgreso) {
@@ -41,6 +41,29 @@ function iniciarBarraProgreso(selectorBarra, duracion, urlRedireccion) {
 
 // Inyectar elementos
 const idElementos = [];
+const elementosNumeros = [1,2,3,4,5,6,7,8,9,0];
+
+function obtenerElementosAleatorios(cantidad) {
+    const elementosDisponibles = [...elementosNumeros];
+    const seleccionados = [];
+
+    for (let i = 0; i < cantidad; i++) {
+        const indiceAleatorio = Math.floor(Math.random() * elementosDisponibles.length);
+        seleccionados.push(elementosDisponibles[indiceAleatorio]);
+        elementosDisponibles.splice(indiceAleatorio, 1);
+    }
+    console.log(seleccionados);
+    return seleccionados;
+}
+
+// Actualizar las rondas en el HTML
+function actualizarRondaHTML() {
+  const rondaActual = localStorage.getItem('rondaActual') || '1';
+  const rondaElemento = document.getElementById('ronda-numero');
+  if (rondaElemento) {
+      rondaElemento.textContent = `Ronda #${rondaActual}`;
+  }
+}
 
 function inyectarElementosMemorizar(pElementos, pContenedor, clases = []) {
   const elementosRecibidos = pElementos;

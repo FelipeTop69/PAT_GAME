@@ -1,30 +1,36 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // Llamamos a la función que actualiza el HTML
+    actualizarRondaHTML();
+
+    const indicador = 'ordenarfacil';  // El valor del indicador
+
+    obtenerTiempos(indicador)
+        .then(tiempoAsignado => {
+            // Validación: Si tiempoAsignado es 0, null, o undefined, no llamar a iniciarBarraProgreso
+            if (tiempoAsignado > 0 && tiempoAsignado != null) {
+                const url = "../../Partida/Ordenar_Validacion.html";
+                iniciarTemporizador(tiempoAsignado,url);
+            } else {
+                console.log("El tiempo asignado es 0 o no está disponible, no se inicia la barra de progreso.");
+            }
+        })
+        .catch(error => {
+            console.error("Error al obtener el tiempo:", error);
+        });
+
+
+    // Recupera los números memorizados de localStorage
+    const numerosMemorizados = JSON.parse(localStorage.getItem('numerosMemorizados')) || [];
     
-    // Configuracion Temporizador
-    const segundos = 15;
-    const url = "../Ordenar_Validacion.html";
-    iniciarTemporizador(segundos, url);  // Iniciar temporizador
-    const numeros = [4, 5, 8, 9];  // Números principales
-    const numerosAdicionales = obtenerNumerosAdicionales(numeros, 4);
+    // Genera números adicionales excluyendo los de `numerosMemorizados`
+    const numerosAdicionales = obtenerNumerosAdicionales(numerosMemorizados, 4);
     const claseAdicional = ['nada'];
 
-    // Inyectar los números principales
-    inyectarElementos(numeros, contenedorDrag, claseAdicional, true);
-    // Inyectar los números adicionales
-    inyectarElementos(numerosAdicionales, contenedorDrag);
-    // Cambiar orden de los elementos
-    cambiarOrdenElementos(contenedorDrag);
-    // Iniciar drag and drop
-    iniciarDragAndDrop(numeros);
-    
-    const temporizadorInterval = setInterval(function() {
-        if (tiempoRestante <= 0) {
-            clearInterval(temporizadorInterval); // Detenemos el temporizador
-            window.location.href = url = "../Ordenar_Validacion.html";  // Redirigir a la página deseada
-        } else {
-            console.log("Tiempo restante: " + tiempoRestante + " segundos");
-            tiempoRestante--;  // Disminuir el tiempo restante
-        }
-    }, 1000);  // Se ejecuta cada segundo
-});
+    // Inyecta los elementos en el contenedor de ordenamiento
+    inyectarElementos(numerosMemorizados, contenedorDrag, claseAdicional, true); // Números memorizados
+    inyectarElementos(numerosAdicionales, contenedorDrag);                       // Números adicionales
 
+    // Mezcla los elementos para hacer el ordenamiento menos predecible
+    cambiarOrdenElementos(contenedorDrag);
+    iniciarDragAndDrop(numerosMemorizados);
+});

@@ -41,26 +41,32 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
+const btnVolver = document.querySelector('.boton-volver');
+
+btnVolver.addEventListener('click', () => {
+    window.location.href = 'Comienzo.html'
+})
+
 // Validacion de campos
-function camposCompletos() {
-    const camposRequeridos = document.querySelectorAll('input[required]');
+// function camposCompletos() {
+//     const camposRequeridos = document.querySelectorAll('input[required]');
 
-    // Iteracion de los campos en el doom
-    for (let campo of camposRequeridos) {
-        // Verifiacion para saber si el campo esta vacio
-        if (!campo.value.trim()) {
-            // Si el campo es vacio retorna false
-            return false;
-        }
-    }
+//     // Iteracion de los campos en el doom
+//     for (let campo of camposRequeridos) {
+//         // Verifiacion para saber si el campo esta vacio
+//         if (!campo.value.trim()) {
+//             // Si el campo es vacio retorna false
+//             return false;
+//         }
+//     }
 
-    return true;
-}
+//     return true;
+// }
 
-function validarCampos() {
-    if (camposCompletos()) {
-        window.location.href = 'Lobby.html';
-        return false;
-    }
-    return true;
-}
+// function validarCampos() {
+//     if (camposCompletos()) {
+//         window.location.href = 'Lobby.html';
+//         return false;
+//     }
+//     return true;
+// }

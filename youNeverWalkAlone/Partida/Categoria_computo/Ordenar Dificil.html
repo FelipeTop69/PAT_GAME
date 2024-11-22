@@ -32,7 +32,7 @@
             <button id="botonVolver" type="button" class="boton-volver"></button>
 
             <div class="indicador-ronda p-2">
-                <h4>Ronda #1</h4>
+                <h4 id="ronda-numero"</h4>
             </div>
 
             <div class="indicador-dificultad indicador-dificultad-dificil">
@@ -61,54 +61,8 @@
                                 <h5>ORDEN</h5>
                             </div>
                         </div>
-                        <div class="contenedor-elementos-puestos co-el-pu-dificil">
-                            <div class="caja-elemento">
-                                <div id="0" class="caja" ondrop="soltarElemento(event)"
-                                    ondragover="permitirSoltar(event)" ondragenter="entrarElemento(event)"
-                                    ondragleave="soltarArrastre(event)"></div>
-                            </div>
-
-                            <div class="caja-elemento">
-                                <div id="1" class="caja" ondrop="soltarElemento(event)"
-                                    ondragover="permitirSoltar(event)" ondragenter="entrarElemento(event)"
-                                    ondragleave="soltarArrastre(event)"></div>
-                            </div>
-
-                            <div class="caja-elemento">
-                                <div id="2" class="caja" ondrop="soltarElemento(event)"
-                                    ondragover="permitirSoltar(event)" ondragenter="entrarElemento(event)"
-                                    ondragleave="soltarArrastre(event)"></div>
-                            </div>
-
-                            <div class="caja-elemento">
-                                <div id="3" class="caja" ondrop="soltarElemento(event)"
-                                    ondragover="permitirSoltar(event)" ondragenter="entrarElemento(event)"
-                                    ondragleave="soltarArrastre(event)"></div>
-                            </div>
-
-                            <div class="caja-elemento">
-                                <div id="4" class="caja" ondrop="soltarElemento(event)"
-                                    ondragover="permitirSoltar(event)" ondragenter="entrarElemento(event)"
-                                    ondragleave="soltarArrastre(event)"></div>
-                            </div>
-
-                            <div class="caja-elemento">
-                                <div id="5" class="caja" ondrop="soltarElemento(event)"
-                                    ondragover="permitirSoltar(event)" ondragenter="entrarElemento(event)"
-                                    ondragleave="soltarArrastre(event)"></div>
-                            </div>
-
-                            <div class="caja-elemento">
-                                <div id="6" class="caja" ondrop="soltarElemento(event)"
-                                    ondragover="permitirSoltar(event)" ondragenter="entrarElemento(event)"
-                                    ondragleave="soltarArrastre(event)"></div>
-                            </div>
-
-                            <div class="caja-elemento">
-                                <div id="7" class="caja" ondrop="soltarElemento(event)"
-                                    ondragover="permitirSoltar(event)" ondragenter="entrarElemento(event)"
-                                    ondragleave="soltarArrastre(event)"></div>
-                            </div>
+                        <div id="contenedorDrop" class="contenedor-elementos-puestos co-el-pu-dificil">
+                            
                         </div>
                     </div>
                 </div>
@@ -119,42 +73,8 @@
                                 <h5>ELEMENTOS</h5>
                             </div>
                         </div>
-                        <div class="contenedor-elementos-arrastrar co-el-ar-dificil ">
-                            <div id="numeroUno" class="elemento arrastrable" draggable="true" ondragstart="arrastrar(event)" ondragend="finalizarArrastre(event)">
-                                <img class="medida-elemento" src="assets/img/Recursos/Elementos Memorizar/Disco Duro.png" alt="imagenCategoriaComputo"> 
-                            </div>
-
-                            <div id="numeroDos" class="elemento arrastrable" draggable="true" ondragstart="arrastrar(event)" ondragend="finalizarArrastre(event)">
-                                <img class="medida-elemento" src="assets/img/Recursos/Elementos Memorizar/Teclado.png" alt="imagenCategoriaComputo"> 
-                            </div>
-
-                            <div id="numeroTres" class="elemento arrastrable" draggable="true" ondragstart="arrastrar(event)" ondragend="finalizarArrastre(event)">
-                                <img class="medida-elemento" src="assets/img/Recursos/Elementos Memorizar/USB.png" alt="imagenCategoriaComputo"> 
-                            </div>
-
-                            <div id="numeroCuatro" class="elemento arrastrable" draggable="true" ondragstart="arrastrar(event)" ondragend="finalizarArrastre(event)">
-                                <img class="medida-elemento" src="assets/img/Recursos/Elementos Memorizar/Router.png" alt="imagenCategoriaComputo">
-                            </div>
-
-                            <div id="numeroCinco" class="elemento arrastrable" draggable="true" ondragstart="arrastrar(event)" ondragend="finalizarArrastre(event)">
-                                <img class="medida-elemento" src="assets/img/Recursos/Elementos Memorizar/Microfono.png" alt="imagenCategoriaComputo">
-                            </div>
-
-                            <div id="numeroSeis" class="elemento arrastrable" draggable="true" ondragstart="arrastrar(event)" ondragend="finalizarArrastre(event)">
-                                <img class="medida-elemento" src="assets/img/Recursos/Elementos Memorizar/Monitor.png" alt="imagenCategoriaComputo">
-                            </div>
-
-                            <div id="numeroSiete" class="elemento arrastrable" draggable="true" ondragstart="arrastrar(event)" ondragend="finalizarArrastre(event)">
-                                <img class="medida-elemento" src="assets/img/Recursos/Elementos Memorizar/Diademas.png" alt="imagenCategoriaComputo">
-                            </div>
-
-                            <div id="numeroOcho" class="elemento arrastrable" draggable="true" ondragstart="arrastrar(event)" ondragend="finalizarArrastre(event)">
-                                <img class="medida-elemento" src="assets/img/Recursos/Elementos Memorizar/Proyector.png" alt="imagenCategoriaComputo">
-                            </div>
-
-                            <div id="numeroNueve" class="elemento arrastrable" draggable="true" ondragstart="arrastrar(event)" ondragend="finalizarArrastre(event)">
-                                <img class="medida-elemento" src="assets/img/Recursos/Elementos Memorizar/CPU.png" alt="imagenCategoriaComputo"> 
-                            </div>
+                        <div id="contenedorDrag" class="contenedor-elementos-arrastrar co-el-ar-dificil ">
+                            
                         </div>
                     </div>
                 </div>
@@ -171,9 +91,13 @@
     <script src="../../Bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../../Bootstrap/js/bootstrap.js"></script>
     <script src="../../assets/Libreria/SweetAlert2/js/sweetalert2.min.js"></script>
+    <script src="../../assets/Libreria/Sortable/Sortable.min.js"></script>
+    <script src="assets/js/validacion.js"></script>
     <script src="assets/js/mainOrdenar.js"></script>
     <script src="assets/js/Ordenar Dificultad/mainOrdenarDificil.js"></script>
+    <script src="../Obtencion Tiempos/tiempos.js"></script>
     <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/cerrarSesion.js"></script>
 </body>
 
 </html>

@@ -16,7 +16,7 @@ setTimeout(function() {
 
         // Después de la transición, eliminar el elemento del DOM (opcional)
         setTimeout(function() {
-            loader.style.display = 'none'();
+            // loader.style.display = 'none';
         }, 1000); // Esperar el tiempo de la transición (1s) antes de eliminarlo
     }
 }, 6000);
