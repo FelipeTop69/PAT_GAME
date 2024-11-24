@@ -80,6 +80,22 @@ switch($tipo_consulta){
         }
         break;
 
+    case 'perfil_jugador':
+        $tipo = $tipo_consulta;
+
+        if (isset($_SESSION['jugador'])) {
+            $jugador = new Jugador(
+                $_SESSION['jugador']['numerodocumento'],
+                $_SESSION['jugador']['nombre']
+            );
+            $consulta = new ConsultasRegistro();
+            $perfil = $consulta->obtenerPerfilJugador($jugador);
+            echo json_encode($perfil);
+        } else {
+            echo json_encode(['error' => 'Sesión no activa.']);
+        }
+        break;
+
     default:
     echo json_encode(['error' => 'Operación no reconocida']);
     break;

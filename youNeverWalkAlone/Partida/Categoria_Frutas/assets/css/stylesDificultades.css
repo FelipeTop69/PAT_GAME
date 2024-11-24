@@ -20,7 +20,7 @@
 
 /* Dificultad Dificil */
 .co-el-me-dificil {
-    width: 99%;
+    width: 100%;
 }
 
 .el-dificil {
@@ -135,7 +135,6 @@
     }
 
     .co-el-me-dificil {
-        gap: 5px;
         width: 100%;
     }
 
@@ -212,7 +211,6 @@
     }
 
     .co-el-me-dificil {
-        gap: 5px;
         width: 100%;
     }
 

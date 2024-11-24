@@ -85,6 +85,22 @@
             return $stmt->fetch();
         }
 
+        public function obtenerPerfilJugador($jugador) {
+            $numeroDocumento = $jugador->getNumeroDocumento();
+            $sql = "
+                SELECT rj.nombre, av.imagenurl
+                FROM jugador_partida AS jp
+                INNER JOIN registro_jugador AS rj 
+                ON jp.jugadorid = rj.jugadorid
+                INNER JOIN avatares as av
+                ON rj.avatarid = av.avatarid
+                WHERE rj.numerodocumento = :numerodocumento
+                LIMIT 1
+            ";
+            $stmt = $this->ejecutar($sql, [':numerodocumento' => $numeroDocumento]);
+            return $stmt->fetch();
+        }
+
         public function eliminarJugador($jugador) {
 
             $numeroDocumento = $jugador->getNumeroDocumento();

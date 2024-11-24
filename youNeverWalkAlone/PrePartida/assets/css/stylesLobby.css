@@ -3,6 +3,69 @@ body {
     transition: opacity 0.5s ease-in-out;
 }
 
+/* Alerta bienvenida jugador */
+
+.popup-alerta-bienvenida {
+    background: linear-gradient(102deg, color-mix(in srgb, var(--azul-oscuro) 45%, transparent) 21.7%, color-mix(in srgb, var(--verde-opaco) 45%, transparent) 79.94%);
+    backdrop-filter: blur(80px);
+    border: 6px inset color-mix(in srgb, var(--verde-oscuro) 70%, transparent);
+    border-top-left-radius: 40px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 40px;
+    border-bottom-left-radius: 0;
+    padding: 1.5rem;
+}
+
+.animacion-elementos {
+    opacity: 0;
+}
+
+.imagen-alerta-bienvenida {
+    border: 5px solid var(--azul-oscuro);
+    border-radius: 50%;
+    background-color: color-mix(in srgb, var(--color-negro) 85%, transparent);
+    box-shadow: inset 20px 20px 100px color-mix(in srgb, var(--verde-oscuro) 20%, transparent),
+        inset -20px -20px 100px color-mix(in srgb, var(--verde-oscuro) 20%, transparent);
+}
+
+.title-alerta-bienvenida {
+    font-family: var(--body-font);
+    font-style: var(--font-style-dos);
+    font-weight: var(--font-weight-black);
+    text-shadow: 1px 0 var(--azul-oscuro), 2px 0 var(--verde-oscuro);
+    color: color-mix(in srgb, var(--color-blanco) 70%, transparent);
+    letter-spacing: 3px;
+    font-size: 35px;
+}
+
+.texto-alerta-jugador h6 {
+    font-family: var(--body-font);
+    font-style: var(--font-style-uno);
+}
+
+.texto-alerta-jugador h6:nth-child(1) {
+    font-weight: var(--font-weight-extraBold);
+    color: color-mix(in srgb, var(--color-blanco) 80%, transparent);
+    letter-spacing: 2px;
+    font-size: 20px;
+}
+
+.texto-alerta-jugador h6:nth-child(2) {
+    font-weight: var(--font-weight-bold);
+    color: color-mix(in srgb, var(--color-blanco) 80%, transparent);
+    font-size: 18px;
+}
+
+.timerProgressBar-alerta-bienvenida {
+    height: 15px;
+    background: linear-gradient(102deg, color-mix(in srgb, var(--verde-oscuro) 50%, transparent) 21.7%, color-mix(in srgb, var(--azul-oscuro) 60%, transparent) 79.94%);
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+/* Fin bienvenida jugador */
+
 /* Boton Informacion */
 .boton-informacion {
     all: unset;
@@ -56,6 +119,7 @@ body {
         transform: rotate(-45deg) translateY(-5px);
     }
 }
+
 /*Fin Boton Informacion */
 
 /* Modal Informacion */
@@ -169,6 +233,7 @@ body {
     justify-content: center;
     border-top: 3px outset color-mix(in srgb, var(--azul-oscuro) 50%, transparent);
 }
+
 /*Fin Modal Informacion */
 
 /* Carta Jugadores Lobby */
@@ -186,14 +251,14 @@ body {
     font-weight: var(--font-weight-bold);
     color: var(--color-blanco);
     letter-spacing: 10px;
-    text-shadow: 0px 4px 4px color-mix(in srgb, var(--color-negro) 25%, transparent), 
-                0px 0px 25px var(--verde-borde), 
-                0px 4px 4px color-mix(in srgb, var(--color-negro) 25%, transparent);
+    text-shadow: 0px 4px 4px color-mix(in srgb, var(--color-negro) 25%, transparent),
+        0px 0px 25px var(--verde-borde),
+        0px 4px 4px color-mix(in srgb, var(--color-negro) 25%, transparent);
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: var(--verde-borde);
 }
 
-.text-bienvenida{
+.text-bienvenida {
     font-family: var(--body-font);
     font-style: var(--font-style-uno);
     font-weight: var(--font-weight-regular);
@@ -211,9 +276,9 @@ body {
     margin: 0;
     margin-right: 2px;
     text-align: center;
-    text-shadow: 0px 4px 4px color-mix(in srgb, var(--color-negro) 25%, transparent), 
-                0px 0px 25px var(--verde-borde), 
-                0px 4px 4px color-mix(in srgb, var(--color-negro) 25%, transparent);
+    text-shadow: 0px 4px 4px color-mix(in srgb, var(--color-negro) 25%, transparent),
+        0px 0px 25px var(--verde-borde),
+        0px 4px 4px color-mix(in srgb, var(--color-negro) 25%, transparent);
     font-family: var(--body-font);
     font-style: var(--font-style-uno);
     font-weight: var(--font-weight-regular);
@@ -373,12 +438,40 @@ body {
     font-style: var(--font-style-uno);
     font-weight: var(--font-weight-bold);
 }
+
 /*Fin Carta Jugadores Lobby */
 
 /*=============== BREAKPOINTS ===============*/
 
 /* Pantalla celular grande*/
 @media screen and (max-width: 576px) {
+
+    /* Alerta bienvenida jugador */
+
+    .popup-alerta-bienvenida {
+        padding: .5rem;
+    }
+
+
+    .imagen-alerta-bienvenida {
+        width: 100px !important;
+        height: 100px !important;
+    }
+
+    .title-alerta-bienvenida {
+        font-size: 30px;
+    }
+
+
+    .texto-alerta-jugador h6:nth-child(1) {
+        font-size: 18px;
+    }
+
+    .texto-alerta-jugador h6:nth-child(2) {
+        font-size: 16px;
+    }
+    /* Fin bienvenida jugador */
+
     /* Boton Informacion */
     .boton-informacion {
         width: 48px;
@@ -391,7 +484,7 @@ body {
         height: 36px;
     }
 
-    /* Carta Jugadores Lobby */ 
+    /* Carta Jugadores Lobby */
     .marco-titulo-carta {
         margin: 8px 8px 40px 8px;
     }
@@ -423,6 +516,23 @@ body {
 
 /* Pantalla celular mediana */
 @media screen and (max-width: 476px) {
+
+    /* Alerta bienvenida jugador */
+    .popup-alerta-bienvenida {
+        padding: 0;
+        padding-top: 18px;
+        padding-bottom: 18px;
+    }
+
+    .texto-alerta-jugador h6:nth-child(1) {
+        font-size: 18px;
+    }
+
+    .texto-alerta-jugador h6:nth-child(2) {
+        font-size: 16px;
+    }
+    /* Fin bienvenida jugador */
+
     /* Boton Informacion */
     .boton-informacion {
         width: 48px;
@@ -442,9 +552,9 @@ body {
 
     .titulo-carta {
         font-size: 40px;
-        text-shadow: 0px 4px 4px color-mix(in srgb, var(--color-negro) 25%, transparent), 
-                0px 0px 25px var(--verde-borde), 
-                0px 4px 4px color-mix(in srgb, var(--color-negro) 25%, transparent);
+        text-shadow: 0px 4px 4px color-mix(in srgb, var(--color-negro) 25%, transparent),
+            0px 0px 25px var(--verde-borde),
+            0px 4px 4px color-mix(in srgb, var(--color-negro) 25%, transparent);
         -webkit-text-stroke-width: 1.5px;
         -webkit-text-stroke-color: var(--verde-borde);
     }
@@ -470,6 +580,21 @@ body {
 
 /* Pantalla celular pequeña*/
 @media screen and (max-width: 376px) {
+
+    /* Alerta bienvenida jugador */
+    .title-alerta-bienvenida {
+        font-size: 25px;
+    }
+
+    .texto-alerta-jugador h6:nth-child(1) {
+        font-size: 16px;
+    }
+
+    .texto-alerta-jugador h6:nth-child(2) {
+        font-size: 14px;
+    }
+    /* Fin bienvenida jugador */
+
     /* Boton Informacion */
     .boton-informacion {
         width: 38px;
@@ -502,6 +627,20 @@ body {
 
 /* Pantalla celular minion*/
 @media screen and (max-width: 320px) {
+
+    /* Alerta bienvenida jugador */
+    .title-alerta-bienvenida {
+        font-size: 23px;
+    }
+
+    .texto-alerta-jugador h6:nth-child(1) {
+        font-size: 12px;
+    }
+
+    .texto-alerta-jugador h6:nth-child(2) {
+        font-size: 12px;
+    }
+    /* Fin bienvenida jugador */
 
     /* Carta Jugadores Lobby */
     .carta-texto {

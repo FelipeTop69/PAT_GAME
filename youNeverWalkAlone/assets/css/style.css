@@ -357,13 +357,16 @@ body {
     border: 2px solid rgb(143, 98, 98) !important;
 } */
 
+.swal2-timer-progress-bar-container {
+    width: 90%; 
+    margin: 0 auto; 
+    display: block;
+}
+
 .timerProgressBar-alerta {
     height: 15px;
     background: linear-gradient(102deg, color-mix(in srgb, var(--verde-claro) 50%, transparent) 21.7%, color-mix(in srgb, var(--color-gold) 60%, transparent) 79.94%);
-    border-top-left-radius: 10px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 0;
+    border-radius: 10px;
 }
 
 /* Fin  Alerta del boton cerrar sesion */

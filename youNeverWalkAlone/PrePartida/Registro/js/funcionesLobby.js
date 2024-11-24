@@ -10,6 +10,112 @@ const links = {
     3: "../Partida/Categoria_Computo/Detalles.html" 
 };
 
+const alertJugador = {
+    backdrop: 'rgba(0, 0, 0, 0.7)',
+    html: `
+        <div class="texto-alerta-jugador d-flex flex-column justify-content-between align-items-center p-2">
+                <h6>PIENSA, AGILIZA Y TRIUNFA</h6>
+                <h6>¿Ready para demostrar tu poder mental?</h6>
+        </div>
+        `,
+    showConfirmButton: false,
+    timer: 6500,
+    timerProgressBar: false,
+    allowOutsideClick: false,
+    allowEscapeKey: false,
+    stopKeydownPropagation: true,
+
+    imageWidth: 120, // Ajusta el ancho de la imagen
+    imageHeight: 120, // Ajusta la altura de la imagen
+    imageAlt: 'Descripción de la imagen', // Texto alternativo
+
+    customClass: {
+        container: 'container-alerta-bienvenida',
+        popup: 'popup-alerta-bienvenida',
+        header: 'header-alerta-bienvenida',
+        image: 'imagen-alerta-bienvenida',
+        title: 'title-alerta-bienvenida',
+        htmlContainer: 'htmlContainer-alerta-bienvenida',
+        loader: 'loader-alerta-bienvenida',
+        timerProgressBar: 'timerProgressBar-alerta-bienvenida',
+        commonClass: 'animacion-elementos', 
+    },
+
+    // Animaciones para la clase
+    showClass: {
+        popup: `
+			animate__animated
+			animate__bounceInDown
+            animate__slow
+			`
+    },
+    hideClass: {
+        popup: `
+			animate__animated
+			animate__bounceOutDown
+            animate__slow
+			`
+    },
+};
+
+function animarElementos() {
+    const elementos = document.querySelectorAll('.animacion-elementos'); // Selecciona todos los elementos
+    const animaciones = ['animate__jackInTheBox', 'animate__flipInX', 'animate__bounceIn']; // Animaciones para cada elemento
+
+    let indexActual = 0;
+
+    function animarSiguiente() {
+        if (indexActual < elementos.length) {
+            const elemento = elementos[indexActual];
+            elemento.classList.add('animate__animated', animaciones[indexActual]); 
+            elemento.style.opacity = 1; 
+
+            // Cuando termine la animación actual, pasa al siguiente
+            elemento.addEventListener('animationend', function handler() {
+                elemento.removeEventListener('animationend', handler); 
+                indexActual++;
+                animarSiguiente(); // Llama a la animación del siguiente elemento
+            });
+        }
+    }
+
+    animarSiguiente(); // Inicia la primera animación
+}
+
+const mostrarJugador = () => {
+
+    fetch(url,{
+        method: 'POST',
+        body: new URLSearchParams({'tipo_operacion' : 'perfil_jugador'})
+    })
+    .then(response => response.json())
+    .then(data => {
+        if(!data.error){
+            console.log(data)
+            Swal.fire({
+                ...alertJugador,
+                title: `¡Hola, ${data.nombre}!`,
+                imageUrl: `${data.imagenurl}`,
+                didOpen: () => {
+                    // Agregar la clase común a los elementos específicos
+                    document.querySelector('.swal2-image').classList.add(alertJugador.customClass.commonClass, 'animate__slow');
+                    document.querySelector('.swal2-title').classList.add(alertJugador.customClass.commonClass);
+                    document.querySelector('.swal2-html-container').classList.add(alertJugador.customClass.commonClass);
+                    setTimeout(() => {
+                        animarElementos(); 
+                    }, 300); 
+                },
+            });
+        }else{
+            console.log(data.error)
+        }
+    })
+    .catch(function(error){
+        console.log('Error papi:', error)
+    })
+
+}
+
 const listarJugadores = () =>{
 
     const accion = new FormData();
@@ -211,7 +317,7 @@ const verificarEstadoPartida = () =>{
             })
 
         }else if(data.mensaje === 'En espera...'){
-            console.log(data.mensaje)
+            // console.log(data.mensaje)
         }else{
             console.log(data.mensaje)
         }
@@ -225,7 +331,11 @@ const verificarEstadoPartida = () =>{
 
 
 document.addEventListener('DOMContentLoaded', () =>{
-    btnActualizarPoints.addEventListener('click', actualizarPuntuacion);
+    // Esta funcion se encuentra desabilitada por ahora
+    // btnActualizarPoints.addEventListener('click', actualizarPuntuacion);
+
+    mostrarJugador();
+
     btnSalir.addEventListener('click', cerrarSesion);
     setInterval(() => {
         listarJugadores()

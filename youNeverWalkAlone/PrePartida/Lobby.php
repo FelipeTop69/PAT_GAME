@@ -43,7 +43,7 @@
 
 ?>
 
-<!-- <!DOCTYPE html> -->
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -77,7 +77,6 @@
             </button>
             <button id="botonInformacion" type="button" class="boton-informacion" data-bs-toggle="modal"
                 data-bs-target="#modalInformacion">
-
             </button>
         </div>
         <div class="d-flex flex-grow-1 flex-column align-items-center p-2">

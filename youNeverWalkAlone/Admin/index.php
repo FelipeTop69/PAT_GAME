@@ -40,7 +40,7 @@ $resultado = $stmt->fetchAll();
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark d-flex">
         <!-- TITULO DE PAT EN LA BARRA SUPERIOR-->
-        <a class="navbar-brand ps-3" href="index.html">PAT</a>
+        <a class="navbar-brand ps-3" href="index.php">PAT</a>
         <!-- BOTON DE LA BARRA DESPLEGABLE -->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
 
