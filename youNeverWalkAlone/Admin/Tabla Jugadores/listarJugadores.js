@@ -1,4 +1,5 @@
 const url = 'Tabla Jugadores/php/ejecutarConsultas.php';
+const urlContador = '../PrePartida/Registro/php/ejecutarConsultas.php';
 
 const  listarJugadores = () => {
 
@@ -51,8 +52,28 @@ const pintarTablaJugadores = (data) => {
     
 };
 
+const actualizarContadorJugadores = () => {
+    fetch(urlContador, {
+        method: 'POST',
+        body: new URLSearchParams({ 'tipo_operacion': 'contador_jugadores' })
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                console.error('Error al obtener información de jugadores:', data.error);
+            } else {
+                const campoContador = document.getElementById('textContador');
+                campoContador.textContent = `${data.jugadoresRegistrados} de ${data.limiteJugadores}`;
+            }
+        })
+        .catch(error => console.error('Error al actualizar la información de jugadores:', error));
+};
+
 document.addEventListener('DOMContentLoaded', () =>{
+    actualizarContadorJugadores();
+    listarJugadores();
     setInterval(() => {
+        actualizarContadorJugadores();
         listarJugadores();
     }, 3000)
 })

@@ -1,5 +1,6 @@
 const url = 'Tabla Jugadores/php/ejecutarConsultas.php';
 const urlCerrarSesion = '../PrePartida/Registro/php/cerrarSesion.php';
+const urlContador = '../PrePartida/Registro/php/ejecutarConsultas.php';
 const btnKill = document.getElementById('btnKill')
 const audioBd = document.getElementById('auidoBD')
 
@@ -36,6 +37,27 @@ const asignarPosiciones = () => {
         jugador.posicion = index + 1;
     });
 };
+
+const actualizarContadorJugadores = () =>{
+
+    fetch(urlContador, {
+        method: 'POST',
+        body: new URLSearchParams({'tipo_operacion' : 'contador_jugadores'})
+    })
+    .then(response => response.json())
+    .then(data =>{
+        if(data.jugadoresRegistrados.error){
+            console.log(data.jugadoresRegistrados.error)
+        }else{
+            const campoContador = document.getElementById('contadorJugadores');
+            campoContador.textContent = `${data.jugadoresRegistrados} de ${data.limiteJugadores}`
+        }
+    })
+    .catch(function(error){
+        console.log('Error papi:',error)
+    })
+
+}
 
 // Función para mostrar los jugadores en la tabla HTML
 const pintarTablaJugadores = (data) => {
@@ -101,7 +123,10 @@ btnKill.addEventListener('click', () => {
 })
 
 document.addEventListener('DOMContentLoaded', () =>{
+    actualizarContadorJugadores();
+    listarJugadores();
     setInterval(() => {
+        actualizarContadorJugadores();
         listarJugadores();
     }, 3000)
 })

@@ -18,6 +18,12 @@ switch($tipo_consulta){
 
         $jugador = new Jugador($numeroDocumento, $nombre);
         $consulta = new ConsultasRegistro;
+
+        if (!$consulta->sePermiteRegistro()) {
+            echo json_encode(['limite' => 'No se permiten más registros. Límite alcanzado.']);
+            exit;
+        }
+
         $respuesta = $consulta->registrarJugador($jugador);
 
         if (isset($respuesta['error'])) {
@@ -47,6 +53,17 @@ switch($tipo_consulta){
         } else {
             echo json_encode(['error' => 'No tienes permiso para ver esta información. Inicia sesión.']);
         }
+        break;
+
+    case 'contador_jugadores':
+        $consulta = new ConsultasRegistro();
+        $jugadoresRegistrados = $consulta->contarJugadores();
+        $limiteJugadores = ConsultasRegistro::obtenerLimiteJugadores();
+    
+        echo json_encode([
+            'jugadoresRegistrados' => $jugadoresRegistrados,
+            'limiteJugadores' => $limiteJugadores
+        ]);
         break;
 
     case 'actualizar_puntuacion_jugador':

@@ -155,6 +155,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Detectar cambios en el tamaño de la pantalla
     window.addEventListener('resize', actualizarTexto);
     actualizarTexto();
+    listarJugadores();
     setInterval(() => {
         listarJugadores();
     }, 3000); 

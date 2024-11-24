@@ -26,6 +26,32 @@
             return $stmt->fetchAll();
         }
 
+        private const LIMITE_JUGADORES = 2; 
+
+        public static function obtenerLimiteJugadores() {
+            return self::LIMITE_JUGADORES;
+        }
+    
+        public function contarJugadores() {
+            try {
+                $sql = "SELECT COUNT(*) FROM registro_jugador";
+                $stmt = $this->ejecutar($sql);
+                
+                if ($stmt) {
+                    return $stmt->fetchColumn();
+                } else {
+                    return ['error' => 'No se pudo ejecutar la consulta'];
+                }
+            } catch (Exception $e) { 
+                return ['error' => 'Ocurrió un error: ' . $e->getMessage()];
+            }
+        }
+    
+        public function sePermiteRegistro() {
+            $totalJugadores = $this->contarJugadores();
+            return $totalJugadores < self::LIMITE_JUGADORES; // Retorna true si no se ha alcanzado el límite
+        }
+
         public function registrarJugador($jugador) {
 
             $numeroDocumento = $jugador->getNumeroDocumento();
@@ -111,9 +137,9 @@
     
             if ($jugadorid) {
                 $sqlEliminarJugadorPartida = "DELETE FROM jugador_partida WHERE jugadorid = :jugadorid";
-                $sqlEliminarRegistroJugador = "DELETE FROM registro_jugador WHERE jugadorid = :jugadorid";
+                // $sqlEliminarRegistroJugador = "DELETE FROM registro_jugador WHERE jugadorid = :jugadorid";
                 $this->ejecutar($sqlEliminarJugadorPartida, [':jugadorid' => $jugadorid]);
-                $this->ejecutar($sqlEliminarRegistroJugador, [':jugadorid' => $jugadorid]);
+                // $this->ejecutar($sqlEliminarRegistroJugador, [':jugadorid' => $jugadorid]);
                 return ['mensaje' => 'Jugador eliminado correctamente'];
             }
             return ['error' => 'No se encontró el jugador especificado'];

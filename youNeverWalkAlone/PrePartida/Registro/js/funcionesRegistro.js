@@ -56,7 +56,13 @@ formRegistro.addEventListener('submit', (focus) => {
                     ...alertConfigRegistro,
                     html: data.error,
                 });
-            } else {
+            }else if(data.limite){
+                Swal.fire({
+                    icon: "info",
+                    title: "Registro no permitido",
+                    text: data.limite
+                });
+            }else {
                 console.log(data)
                 window.location.href = 'Lobby.php'
                 formRegistro.reset();

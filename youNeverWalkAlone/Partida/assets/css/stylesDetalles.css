@@ -184,7 +184,13 @@
 /*=============== BREAKPOINTS ===============*/
 
 /* Pantalla celular grande*/
-@media screen and (max-width: 576px) {}
+@media screen and (max-width: 576px) {
+    .carta-categoria {
+        background: linear-gradient(102deg, color-mix(in srgb, var(--azul-oscuro) 80%, transparent) 21.7%, 
+                    color-mix(in srgb, var(--verde-opaco) 70%, transparent) 79.94%);
+        backdrop-filter: blur(20px);
+    }
+}
 
 /* Pantalla celular mediana */
 @media screen and (max-width: 476px) {

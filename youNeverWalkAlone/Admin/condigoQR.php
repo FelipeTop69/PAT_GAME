@@ -108,7 +108,7 @@ $selectedLink = $selectedCategoryId ? ($links[$selectedCategoryId] ?? '#') : '#'
         <!--Ingreso a la partida con codigo QR y control de ingreso-->
         <div id="layoutSidenav_content">
             <main>
-                <div class="container-fluid p-4">
+                <div class="container-fluid px-4 py-2">
                     <!--Mostrar codigo QR-->
                     <div class="row min-vh-100">
                         <!-- Sección izquierda: Título y código QR -->
@@ -130,6 +130,13 @@ $selectedLink = $selectedCategoryId ? ($links[$selectedCategoryId] ?? '#') : '#'
                         <!-- Sección derecha: Tabla de usuarios con título -->
                         <div class="col-md-6 d-flex flex-column align-items-center justify-content-center">
                             <h1 class="textQR">Jugadores en Lobby</h1>
+                            <div id="cantidadJugadores" class="d-flex justify-content-center align-items-center mt-2 mb-2 p-1">
+                                <div class="contador-container">
+                                    <span id="textContador" class="texto-contador">
+                                        0 de 0
+                                    </span>
+                                </div>
+                            </div>
                             <div class="table-container">
                                 <table class="table">
                                     <thead>
@@ -149,7 +156,7 @@ $selectedLink = $selectedCategoryId ? ($links[$selectedCategoryId] ?? '#') : '#'
                                 </table>
                             </div>
                         </div>
-                        <div class="col-12 d-flex justify-content-center align-items-center">
+                        <div class="col-12 d-flex justify-content-center align-items-center mt-4">
                             <button id="btnIniciarPartida" type="button" class="boton-carta">
                                 <span class="texto-boton">INICIAR PARTIDA</span>
                             </button>
