@@ -1,7 +1,12 @@
 document.addEventListener('DOMContentLoaded', function(){
-    const puntos = localStorage.getItem('puntos');  // Recupera los puntos
-    const puntosRequeridos = localStorage.getItem('puntosRequeridos');  // Recupera el icono asignado
+    let puntos = localStorage.getItem('puntos');  
+    let puntosRequeridos = localStorage.getItem('puntosRequeridos');  
+
+    puntos = puntos ? parseInt(puntos, 10) : 0;
+
     asignarValores(puntos, puntosRequeridos)
+
+    localStorage.removeItem('puntos');
     
 })
 
@@ -12,9 +17,8 @@ setTimeout(function() {
 
     // Iniciar la transición de desvanecimiento
     if (loader) {
-        loader.style.opacity = '0'; // Cambiar opacidad a 0 para comenzar el fade out
+        loader.style.opacity = '0'; 
 
-        // Después de la transición, eliminar el elemento del DOM (opcional)
         setTimeout(function() {
             // loader.style.display = 'none';
         }, 1000); // Esperar el tiempo de la transición (1s) antes de eliminarlo

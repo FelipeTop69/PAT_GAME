@@ -57,7 +57,18 @@ async function validarOrden() {
 
     await enviarPuntosActualizar(puntosTotales);
 
-    window.location.href = "../Ordenar_Validacion.html";
+    Swal.fire({
+        title: 'Procesando...',
+        text: 'Validando Respuesta',
+        icon: 'info',
+        allowOutsideClick: false,  // Deshabilita clic fuera del modal
+        allowEscapeKey: false,    // Deshabilita la tecla ESC
+        allowEnterKey: false,     // Deshabilita la tecla ENTER
+        showConfirmButton: false, // Oculta el botón de confirmación
+        didOpen: () => {
+          Swal.showLoading(); // Opcional: Muestra un indicador de carga
+        }
+    });
 }
 
 // Función para enviar los puntos al servidor
