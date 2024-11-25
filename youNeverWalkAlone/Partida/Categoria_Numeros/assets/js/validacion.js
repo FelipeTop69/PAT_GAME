@@ -61,12 +61,12 @@ async function validarOrden() {
         title: 'Procesando...',
         text: 'Validando Respuesta',
         icon: 'info',
-        allowOutsideClick: false,  // Deshabilita clic fuera del modal
-        allowEscapeKey: false,    // Deshabilita la tecla ESC
-        allowEnterKey: false,     // Deshabilita la tecla ENTER
-        showConfirmButton: false, // Oculta el botón de confirmación
+        allowOutsideClick: false,  
+        allowEscapeKey: false,    
+        allowEnterKey: false,     
+        showConfirmButton: false, 
         didOpen: () => {
-          Swal.showLoading(); // Opcional: Muestra un indicador de carga
+            Swal.showLoading(); 
         }
     });
 }

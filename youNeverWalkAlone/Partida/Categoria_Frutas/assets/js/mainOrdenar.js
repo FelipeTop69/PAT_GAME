@@ -42,18 +42,11 @@ async function iniciarTemporizador(pTiempo, pDireccionUrl) {
             progressValue.textContent = `0s`; // Mostrar 0 cuando termine
             cancelAnimationFrame(animationFrame); // Detener la animación
 
-            // Se comento la Linea de abajo por que se declaro ordenJugador como variable global en la linea 135
-            // let ordenJugador = JSON.parse(localStorage.getItem('ordenJugador')) || [];
+            if (Swal.isVisible()) {
+                Swal.close(); 
+            } 
 
-            // Comprobar si el ordenJugador está vacío y asignar 0 puntos si es necesario
-            if (ordenJugador.length === 0) {
-                localStorage.setItem('puntos', 0);  // Asignar 0 puntos si el jugador no ha hecho nada
-                localStorage.setItem('puntosRequeridos', frutas.length * 100);
-                await enviarPuntosActualizar(0);
-            }else{
-                // Si el tiempo se acaba, no asignar puntos extra
-                localStorage.setItem('puntosExtra', 0);
-            }
+            localStorage.setItem('puntosRequeridos', frutas.length * 100);
 
             // Redirigir a la página deseada
             window.location.href = url;

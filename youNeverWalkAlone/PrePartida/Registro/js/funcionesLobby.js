@@ -46,7 +46,6 @@ const alertJugador = {
         popup: `
 			animate__animated
 			animate__bounceInDown
-            animate__slow
 			`
     },
     hideClass: {

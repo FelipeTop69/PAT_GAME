@@ -56,7 +56,18 @@ async function validarOrden() {
 
     await enviarPuntosActualizar(puntosTotales);
 
-    window.location.href = "../Ordenar_ValidacionFrutas.html";
+    Swal.fire({
+        title: 'Procesando...',
+        text: 'Validando Respuesta',
+        icon: 'info',
+        allowOutsideClick: false,  
+        allowEscapeKey: false,    
+        allowEnterKey: false,     
+        showConfirmButton: false, 
+        didOpen: () => {
+            Swal.showLoading(); 
+        }
+    });
 }
 
 // Función para enviar los puntos al servidor
