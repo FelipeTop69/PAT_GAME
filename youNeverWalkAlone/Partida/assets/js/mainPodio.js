@@ -72,7 +72,7 @@ const listarJugadores = () => {
                 title: "Error",
                 text: data.error
             }).then(() => {
-                window.location.href = "../PrePartida/Registro.html";
+                window.location.href = "../PrePartida/Comienzo.html";
             });
         } else {
             jugadores = data;

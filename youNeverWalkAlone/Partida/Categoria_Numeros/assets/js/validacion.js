@@ -57,18 +57,53 @@ async function validarOrden() {
 
     await enviarPuntosActualizar(puntosTotales);
 
-    Swal.fire({
-        title: 'Procesando...',
-        text: 'Validando Respuesta',
-        icon: 'info',
-        allowOutsideClick: false,  
-        allowEscapeKey: false,    
-        allowEnterKey: false,     
-        showConfirmButton: false, 
-        didOpen: () => {
-            Swal.showLoading(); 
-        }
-    });
+    // Swal.fire({
+    //     title: 'Procesando...',
+    //     text: 'Validando Respuesta',
+    //     icon: 'info',
+    //     allowOutsideClick: false,  
+    //     allowEscapeKey: false,    
+    //     allowEnterKey: false,     
+    //     showConfirmButton: false, 
+    //     didOpen: () => {
+    //         Swal.showLoading(); 
+    //     }
+    // });
+
+    // Crear el overlay
+    const overlay = document.createElement('div');
+    overlay.className = 'overlay animate__animated animate__fadeIn animate__fast';
+
+    // Mostrar el overlay
+    overlay.classList.add('show');
+
+    // Crear el contenedor del loader
+    const contenedorLoader = document.createElement('div');
+    contenedorLoader.className = 'contenedor-loader animate__animated animate__bounceInUp animate__fast';
+
+    // Crear el elemento loader
+    const loader = document.createElement('div');
+    loader.className = 'loader-envio';
+
+    // Crear el span dentro del loader
+    const span = document.createElement('span');
+    loader.appendChild(span);
+
+    // Crear el texto debajo del loader
+    const loaderText = document.createElement('div'); 
+    loaderText.className = 'glitch'; 
+    loaderText.setAttribute('data-text', 'Esperando Jugadores...'); 
+    loaderText.textContent = 'Esperando Jugadores...';
+
+    // Agregar el loader y el texto al contenedor
+    contenedorLoader.appendChild(loader);
+    contenedorLoader.appendChild(loaderText);
+
+    // Agregar el contenedor al overlay
+    overlay.appendChild(contenedorLoader);
+
+    // Agregar el overlay al body
+    document.body.appendChild(overlay);
 }
 
 // Función para enviar los puntos al servidor

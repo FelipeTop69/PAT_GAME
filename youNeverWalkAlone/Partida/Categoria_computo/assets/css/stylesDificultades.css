@@ -173,6 +173,12 @@
         padding: 1rem 0.2rem;
     }
 
+    .co-el-ar-facil {
+        width: 100%;
+        height: 100%;
+        padding: 8px;
+    }
+
     .cu-ca-el-dificil {
         height: 220px;
         width: 95%;

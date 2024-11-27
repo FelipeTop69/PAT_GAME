@@ -42,8 +42,12 @@ async function iniciarTemporizador(pTiempo, pDireccionUrl) {
             progressValue.textContent = `0s`; // Mostrar 0 cuando termine
             cancelAnimationFrame(animationFrame); // Detener la animación
 
-            if (Swal.isVisible()) {
-                Swal.close(); 
+            const overlay = document.querySelector('.overlay')
+
+            if(overlay){
+                document.body.removeChild(overlay);
+            }else{
+                console.log('No se dio click')
             } 
 
             localStorage.setItem('puntosRequeridos', computo.length * 100);

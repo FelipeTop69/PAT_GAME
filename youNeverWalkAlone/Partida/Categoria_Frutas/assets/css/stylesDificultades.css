@@ -163,6 +163,7 @@
 
     .co-el-ar-facil {
         width: 95%;
+        padding: 2px;
     }
 
     /* Dificultad Medio */
@@ -189,6 +190,10 @@
         height: 220px;
         width: 95%;
         padding: 0;
+    }
+
+    .co-el-pu-dificil {
+        width: 85%;
     }
 }
 

@@ -16,7 +16,7 @@ const obtenerTiempos = (pIndicador) => {
                     title: "Error",
                     text: data.error
                 }).then(() => {
-                    window.location.href = "../../PrePartida/Registro.html";
+                    window.location.href = "../../PrePartida/Comienzo.html";
                 });
                 reject('Error al obtener tiempos');
             } else {
