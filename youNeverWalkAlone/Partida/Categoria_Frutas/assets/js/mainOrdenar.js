@@ -158,14 +158,14 @@ function inyectarElementos(pElementos, pContenedor, esPrincipal = false) {
     }
 }
 
-// Actualizar las rondas en el HTML
-function actualizarRondaHTML() {
-    const rondaActual = localStorage.getItem('rondaActual') || '1';
-    const rondaElemento = document.getElementById('ronda-numero');
-    if (rondaElemento) {
-        rondaElemento.textContent = `Ronda #${rondaActual}`;
-    }
-}
+// // Actualizar las rondas en el HTML
+// function actualizarRondaHTML() {
+//     const rondaActual = localStorage.getItem('rondaActual') || '1';
+//     const rondaElemento = document.getElementById('ronda-numero');
+//     if (rondaElemento) {
+//         rondaElemento.textContent = `Ronda #${rondaActual}`;
+//     }
+// }
 
 // DRAG AND DROP
 const cartaElementos = document.getElementById('cartaElementos')
