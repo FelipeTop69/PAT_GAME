@@ -124,7 +124,7 @@ body::before {
     border-radius: 100px;
     /* border: 12px solid rgb(25, 217, 44, 0.8); */
     /* border: 12px outset rgb(25, 217, 44, 0.8); */
-    border: 12px ridge rgb(25, 217, 44, 0.8);
+    border: 12px ridge color-mix(in srgb, var(--verde-oscuro) 80%, transparent);
     /* border: 12px groove rgb(25, 217, 44, 0.8); */
     /* border: 12px double rgb(25, 217, 44, 0.8); */
     /* border: 12px dotted rgb(25, 217, 44, 0.8); */
@@ -165,7 +165,7 @@ body::before {
 @keyframes dot {
     0% {
         opacity: 0;
-        border-color: rgba(57, 182, 184, 0.8);
+        border-color: color-mix(in srgb, var(--azul-oscuro) 80%, transparent);
         transform: rotateX(60deg) rotateY(45deg) translateZ(-100px) scale(0.1);
     }
 
@@ -217,22 +217,22 @@ body::before {
 
 .texto-puntos-bien{
     -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: rgba(25, 217, 44, 0.50);
+    -webkit-text-stroke-color: color-mix(in srgb, var(--verde-oscuro) 50%, transparent);
 }
 
 .texto-puntos-mal{
     -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: rgba(190, 8, 19, 0.71);
+    -webkit-text-stroke-color: color-mix(in srgb, var(--color-dificultad-dificil) 70%, transparent);
 }
 
 .texto-bien{
     -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: rgba(25, 217, 44, 0.50);
+    -webkit-text-stroke-color: color-mix(in srgb, var(--verde-oscuro) 50%, transparent);
 }
 
 .texto-mal{
     -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: rgba(190, 8, 19, 0.71);
+    -webkit-text-stroke-color: color-mix(in srgb, var(--color-dificultad-dificil) 70%, transparent);
 }
 
 
