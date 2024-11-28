@@ -71,15 +71,6 @@ function obtenerComputoParaRonda(cantidad) {
   return seleccionadas;
 }
 
-//actualizar las rondas en el HTML
-function actualizarRondaHTML() {
-  const rondaActual = localStorage.getItem('rondaActual') || '1';
-  const rondaElemento = document.getElementById('ronda-numero');
-  if (rondaElemento) {
-      rondaElemento.textContent = `Ronda #${rondaActual}`;
-  }
-}
-
 // Inyectar elementos
 function inyectarElementosMemorizar(pElementos, pContendor) {
     const elementosRecibidios = pElementos;

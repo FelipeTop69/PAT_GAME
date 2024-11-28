@@ -99,15 +99,6 @@ function obtenerNumerosAdicionales(numerosMemorizados, cantidad) {
     return seleccionados;
 }
 
-// Actualizar las rondas en el HTML
-function actualizarRondaHTML() {
-    const rondaActual = localStorage.getItem('rondaActual') || '1';
-    const rondaElemento = document.getElementById('ronda-numero');
-    if (rondaElemento) {
-        rondaElemento.textContent = `Ronda #${rondaActual}`;
-    }
-}
-
 // Inyectar elementos
 function inyectarElementos(pElementos, pContenedor, clases = [], esPrincipal = false) {
     const elementosRecibidos = pElementos;
