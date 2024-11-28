@@ -37,6 +37,8 @@ body::before {
 
 
 .contenido-dificultad {
+    width: 100%;
+    height: 100%;
     /* height: 80%; */
     display: flex;
     flex-direction: column;
@@ -80,53 +82,117 @@ body::before {
     border: none;
 }
 
-.loader-validacion {
-    /* position: fixed; para que esté siempre visible en la pantalla */
-    top: 0;
-    left: 0;
-    width: 120px;
-    height: 120px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #33333300;
-    opacity: 1;
-    /* La opacidad inicial */
-    transition: opacity 1s ease;
-    /* Transición suave de opacidad */
-}
-
-.loader-validacion::after {
-    content: '';
-    width: 120px;
-    height: 120px;
-    border: 18px solid rgb(255, 255, 255);
-    border-top-color: #009578;
-    border-radius: 50%;
-    animation: loading 0.90s ease infinite;
-}
-
-@keyframes loading {
-    from {
-        transform: rotate(0turn);
-    }
-
-    to {
-        transform: rotate(1turn);
-    }
-}
 
 .validacion {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 10;
+}
+
+.loader-validacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 120px;
+    opacity: 1;
+}
+
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    margin-top: -100px;
+    margin-left: -100px;
+    perspective: 600px;
+    transform-style: perserve-3d;
+}
+
+/* The dot */
+.dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    margin-top: -50px;
+    margin-left: -50px;
+    border-radius: 100px;
+    /* border: 12px solid rgb(25, 217, 44, 0.8); */
+    /* border: 12px outset rgb(25, 217, 44, 0.8); */
+    border: 12px ridge rgb(25, 217, 44, 0.8);
+    /* border: 12px groove rgb(25, 217, 44, 0.8); */
+    /* border: 12px double rgb(25, 217, 44, 0.8); */
+    /* border: 12px dotted rgb(25, 217, 44, 0.8); */
+    /* border: 12px dashed rgb(25, 217, 44, 0.8); */
+    transform-style: perserve-3d;
+    transform: scale(0) rotateX(60deg);
+    animation: dot 3s cubic-bezier(.67, .08, .46, 1.5) infinite;
+}
+
+.dot:nth-child(2) {
+    animation-delay: 200ms;
+}
+
+.dot:nth-child(3) {
+    animation-delay: 400ms;
+}
+
+.dot:nth-child(4) {
+    animation-delay: 600ms;
+}
+
+.dot:nth-child(5) {
+    animation-delay: 800ms;
+}
+
+.dot:nth-child(6) {
+    animation-delay: 1000ms;
+}
+
+.dot:nth-child(7) {
+    animation-delay: 1200ms;
+}
+
+.dot:nth-child(8) {
+    animation-delay: 1400ms;
+}
+
+@keyframes dot {
+    0% {
+        opacity: 0;
+        border-color: rgba(57, 182, 184, 0.8);
+        transform: rotateX(60deg) rotateY(45deg) translateZ(-100px) scale(0.1);
+    }
+
+    40% {
+        opacity: 1;
+        transform: rotateX(0deg) rotateY(20deg) translateZ(0) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: rotateX(60deg) rotateY(-45deg) translateZ(-100px) scale(0.1);
+    }
 }
 
 .icono {
-    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 120px;
     height: 120px;
+}
+
+.icono-insertado {
+    /* width: 60px;
+    height: 60px;
+    border: 2px solid red; */
+    opacity: 0;
 }
 
 .puntuacion {
@@ -134,17 +200,17 @@ body::before {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    opacity: 0;
 }
 
 .puntuacion h4 {
     margin: 0;
     color: #FFF;
     text-align: center;
-    
-    font-family: Nunito;
+    font-family: var(--body-font);
     font-size: 30px;
-    font-style: italic;
-    font-weight: 900;
+    /* font-style: italic; */
+    font-weight: var(--font-weight-black);
     line-height: normal;
     letter-spacing: 1px;
 }
@@ -192,31 +258,6 @@ body::before {
 
 /* Pantalla celular pequeña*/
 @media screen and (max-width: 376px) {
-    .loader-validacion {
-        /* position: fixed; para que esté siempre visible en la pantalla */
-        top: 0;
-        left: 0;
-        width: 90px;
-        height: 90px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #33333300;
-        opacity: 1;
-        /* La opacidad inicial */
-        transition: opacity 1s ease;
-        /* Transición suave de opacidad */
-    }
-
-    .loader-validacion::after {
-        content: '';
-        width: 90px;
-        height: 90px;
-        border: 18px solid rgb(255, 255, 255);
-        border-top-color: #009578;
-        border-radius: 50%;
-        animation: loading 0.90s ease infinite;
-    }
 
     .carta-dificultad {
         position: relative;

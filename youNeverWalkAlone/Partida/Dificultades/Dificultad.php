@@ -59,10 +59,10 @@ $selectedLink = $selectedCategoryId ? ($links[$selectedCategoryId] . "Memorizaci
 <body>
 
     <div class="container d-flex justify-content-center align-items-center vh-100">
-        <div class="carta-dificultad p-3 animate__animated animate__fadeInUpBig">
+        <div class="carta-dificultad p-3 animate__animated animate__zoomInUp">
             <div class="titulo-dificultad position-absolute top-0 start-50 translate-middle">
                 <div class="marco-titulo px-2 py-3 ">
-                    <h1>¡ATENTO!</h1>
+                    <h1 class="shake">¡ATENTO!</h1>
                 </div>
             </div>
             <div class="contenido-dificultad">

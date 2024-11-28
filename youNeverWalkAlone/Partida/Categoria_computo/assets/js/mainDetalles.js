@@ -1,8 +1,18 @@
 document.addEventListener('DOMContentLoaded', function () {
-    setTimeout(() => {
-        window.location.href = "../Dificultades/Dificultad.php"; 
-    }, 6000); 
+    setTimeout(startFadeOut, timePreRedireccion);
 })
+
+const timePreRedireccion = 5000; 
+const redirrecion = '../Contador.html';
+
+function startFadeOut() {
+    const overlay = document.getElementById('fadee-overlay');
+    overlay.style.opacity = 1;
+
+    setTimeout(() => {
+        window.location.href = redirrecion;
+    }, 3000); 
+}
 
 
 

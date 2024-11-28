@@ -4,7 +4,7 @@ window.onload = () => {
     // Después de mostrar la puntuación, redirige de nuevo a Memorizacion.html
     setTimeout(() => {
         avanzarRonda();
-    }, 8000); // Cambia el tiempo según sea necesario
+    }, 8000); 
 };
 
 function avanzarRonda() {

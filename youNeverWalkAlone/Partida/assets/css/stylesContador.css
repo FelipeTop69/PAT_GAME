@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+#cuerpoContador {
+    background-color: var(--color-negro);
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    width: 100vw;
+    height: 100vh; 
+    text-align: center;
+    overflow: hidden;
+}
+
+#numerosEntrada {
+    font-size: 24vw;
+    color: var(--color-blanco);
+    font-family: "Quicksand", sans-serif;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    text-transform: uppercase;
+    
+}
+
+#numerosEntrada div {
+    position: absolute; 
+    opacity: 0;
+    width: 100%; 
+    text-shadow: 12px 12px 0px var(--azul-oscuro);
+    animation: switch 7s linear 1;
+}
+
+#numerosEntrada div:nth-child(1){
+    animation-delay: 0.5s;
+    text-shadow: 8px 8px 0px var(--verde-oscuro-x2);
+    font-size: 10vw;
+
+}
+
+#numerosEntrada div:nth-child(2){
+    animation-delay: 2s; 
+}
+
+#numerosEntrada div:nth-child(3){
+    animation-delay: 3s;
+}
+
+#numerosEntrada div:nth-child(4){
+    animation-delay: 4s;
+}
+
+#numerosEntrada div:nth-child(5){
+    animation-delay: 5s;
+    text-shadow: 10px 10px 0px var(--verde-oscuro);
+}
+
+
+
+@keyframes switch {
+    0%{
+        opacity: 0;
+        filter: blur(20px);
+        transform: scale(4);
+    }
+
+    3%{
+        opacity: 1;
+        filter: blur(0);
+        transform: scale(1);
+    }
+
+    10%{
+        opacity: 1;
+        filter: blur(0);
+        transform: scale(0.9);
+    }
+
+    13%{
+        opacity: 0;
+        filter: blur(10px);
+        transform: scale(0.1);
+    }
+
+    80%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 0;
+    }
+
+}
+
+/*=============== BREAKPOINTS ===============*/
+
+/* Pantalla celular grande*/
+@media screen and (max-width: 576px) {
+    #numerosEntrada {
+        font-size: 55vw;
+        
+    }
+    
+    #numerosEntrada div {
+        text-shadow: 10px 10px 0px var(--azul-oscuro);
+    }
+
+    #numerosEntrada div:nth-child(1) {
+        font-size: 20vw;
+        text-shadow: 6px 6px 0px var(--verde-oscuro-x2);
+    }
+}
+
+/* Pantalla celular mediana */
+@media screen and (max-width: 476px) {}
+
+/* Pantalla celular pequeña*/
+@media screen and (max-width: 376px) {}
+
+/* Pantalla celular minion*/
+@media screen and (max-width: 320px) {
+
+}
