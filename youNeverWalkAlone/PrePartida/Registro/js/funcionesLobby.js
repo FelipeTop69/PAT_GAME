@@ -339,8 +339,8 @@ document.addEventListener('DOMContentLoaded', () =>{
     setInterval(() => {
         listarJugadores()
     }, 3000);
-    setInterval(verificarEstadoPartida, 2000)
     verificarEstadoPartida()
+    setInterval(verificarEstadoPartida, 1000)
 })
 
 

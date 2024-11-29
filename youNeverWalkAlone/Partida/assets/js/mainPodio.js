@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', function () {
     listarJugadores();
     setInterval(() => {
         listarJugadores();
-    }, 3000); 
+    }, 2000); 
 })
 
 
