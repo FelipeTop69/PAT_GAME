@@ -21,7 +21,7 @@ body::before {
 }
 
 .carta-dificultad {
-    position: relative;
+    /* position: relative; */
     width: 40%;
     height: 70%;
     display: flex;
@@ -235,6 +235,18 @@ body::before {
     -webkit-text-stroke-color: color-mix(in srgb, var(--color-dificultad-dificil) 70%, transparent);
 }
 
+#fadee-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0;
+    transition: opacity 3s ease;
+    /* Duración del desvanecimiento */
+    pointer-events: none;
+}
 
 
 

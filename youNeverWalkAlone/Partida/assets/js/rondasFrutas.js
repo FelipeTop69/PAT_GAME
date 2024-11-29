@@ -33,7 +33,22 @@ function avanzarRonda() {
                 console.log(`Actualización de progreso realizada correctamente. ronda: ${ronda} nivel: ${nivel}`);
                 if (nivel === 'completado') {
                     console.log('Nivel completado, redirigiendo a Podio.html');
-                    window.location.href = 'Podio.html';
+                    const timePreRedireccion = 100; 
+                    const redirrecion = 'Podio.html';
+                    function startFadeOut() {
+                        const overlay = document.getElementById('fadee-overlay');
+                        const carta = document.getElementById('containerCarta');
+                        if(overlay && carta){
+                            carta.style.zIndex = '0'
+                            overlay.style.opacity = 1;
+                            setTimeout(() => {
+                                window.location.href = redirrecion;
+                            }, 3000);
+                        }else{
+                            console.log('No encontradoooo')
+                        }
+                    }
+                    setTimeout(startFadeOut, timePreRedireccion);
                 } else if (nivel === 'medio') {
                     console.log('Nivel medio, redirigiendo al detalle de la dificultad');
                     window.location.href = 'Dificultades/Dificultad Medio.php';

@@ -105,7 +105,7 @@ $selectedLink = $selectedCategoryId ? ($links[$selectedCategoryId] . "Memorizaci
 
             setTimeout(() => {
                 window.location.href = "<?php echo htmlspecialchars($selectedLink); ?>";
-            }, 5000); 
+            }, 4000); 
 
         })
 
