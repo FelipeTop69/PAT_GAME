@@ -151,6 +151,14 @@ body::before {
     animation-iteration-count: infinite;
 }
 
+.avatar-jugador-img:not([src]) {
+    display: none !important;
+}
+
+.avatar-jugador-img[src=""] {
+    display: none !important;
+}
+
 @keyframes bounce {
     0% {
         transform: translateY(0) translateX(-50%);
@@ -166,17 +174,23 @@ body::before {
 }
 
 .av-ju-segundo {
-    background-image: url(https://i.ibb.co/DR2c4SJ/fondo-Co-Ganador.png);
+    background-image: url('../img/Recursos/Podio/Top 3/Estrellas-Dos.png');
+    background-size: cover;
+    background-position: center ;
     box-shadow: inset 0 0 0 4px var(--segundo-lugar), 0 0 10px var(--segundo-lugar);
 }
 
 .av-ju-primero {
-    background-image: url(https://i.ibb.co/Fhs8Y98/fondo-Ganador.png);
+    background-image: url('../img/Recursos/Podio/Top 3/Estrellas-Uno.png');
+    background-size: cover;
+    background-position: center ;
     box-shadow: inset 0 0 0 4px var(--primer-lugar), 0 0 10px var(--primer-lugar);
 }
 
 .av-ju-tercero {
-    background-image: url(https://i.ibb.co/DR2c4SJ/fondo-Co-Ganador.png);
+    background-image: url('../img/Recursos/Podio/Top 3/Estrellas-Dos.png');
+    background-size: cover;
+    background-position: center ;
     box-shadow: inset 0 0 0 4px var(--tercer-lugar), 0 0 10px var(--tercer-lugar);
 }
 

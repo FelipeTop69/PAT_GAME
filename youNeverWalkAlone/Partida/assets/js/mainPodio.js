@@ -53,9 +53,9 @@ const url = './Jugadores/ejecutarConsultas.php';
 let jugadores = [];
 
 const imagenesExtra = [
-    "https://i.ibb.co/8dvrph8/Medalla-Oro.png",
-    "https://i.ibb.co/BPhsXfd/Medalla-Plata.png",
-    "https://i.ibb.co/wwHP9CD/Medalla-Bronce.png"
+    "assets/img/Recursos/Podio/Medalllas/Medalla-Oro.png",
+    "assets/img/Recursos/Podio/Medalllas/Medalla-Plata.png",
+    "assets/img/Recursos/Podio/Medalllas/Medalla-Bronce.png"
 ];
 
 
@@ -136,11 +136,12 @@ const mostrarJugadoresEnTabla = () => {
 // Función para agregar medallas e imagen de avatar
 const agregarMedallas = (jugador, imagenesExtra, index) => {
     return `
-        <img src="${jugador.imagenurl}" alt="avatar">
+        <img src="${jugador.imagenurl}" alt="avatar" >
         <h5>${jugador.nombre}</h5>
         ${jugador.posicion <= 3 ? `<img class="medalla-jugador pulse" src="${imagenesExtra[index]}" alt="imagen extra">` : ''}
     `;
 };
+
 
 // Cargar jugadores al cargar la página
 document.addEventListener('DOMContentLoaded', function () {
