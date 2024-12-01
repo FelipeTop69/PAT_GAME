@@ -12,6 +12,8 @@ async function iniciarTemporizador(pTiempo, pDireccionUrl) {
     let startTime = null; // Variable para almacenar el tiempo de inicio
     let animationFrame; // Variable para almacenar el requestAnimationFrame
 
+    audioTemporizador(true)
+
     async function updateTimer(timestamp) {
         if (!startTime) startTime = timestamp; // Establecer el tiempo inicial la primera vez que se ejecuta
 
@@ -39,6 +41,7 @@ async function iniciarTemporizador(pTiempo, pDireccionUrl) {
         circularProgress.style.background = `conic-gradient(${color} ${degrees}deg, color-mix(in srgb, var(--color-negro) 30%, transparent) 0deg)`;
 
         if (elapsedTime >= seconds) { // Si el tiempo se ha agotado
+            audioTemporizador(false)
             progressValue.textContent = `0s`; // Mostrar 0 cuando termine
             cancelAnimationFrame(animationFrame); // Detener la animación
 
@@ -64,7 +67,42 @@ async function iniciarTemporizador(pTiempo, pDireccionUrl) {
     animationFrame = requestAnimationFrame(updateTimer);
 }
 
+let audio = null; 
+function audioTemporizador(pActivacion, pVelocidad = 1) {
+    if (!audio) {
+        audio = new Audio('../../assets/multimedia/audio/Temporizador Orden.mp3');
+        audio.loop = true;
+        audio.volume = 0;
+        audio.currentTime = 0;
+    }
 
+    audio.playbackRate = pVelocidad;
+
+    if (pActivacion) {
+        audio.play().then(() => {
+            let volume = 0;
+            const maxVolume = 0.7;
+            const fadeDuration = 2000; // Duración en ms
+            const interval = 200; // Intervalo entre pasos
+            const steps = fadeDuration / interval;
+            const step = 1 / steps;
+
+            const fadeIn = setInterval(() => {
+                if (volume < maxVolume) {
+                    volume = Math.min(volume + step, maxVolume);
+                    audio.volume = volume;
+                }   else {
+                    clearInterval(fadeIn);
+                }
+            }, interval);
+        }).catch((error) => {
+            console.error('Error al reproducir el audio:', error);
+        });
+    } else {
+        audio.pause();
+        audio.currentTime = 0;
+    }
+}
 
 // Inyectar Elementos
 const baseComputoAdicionales = [

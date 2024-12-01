@@ -11,6 +11,8 @@ function iniciarBarraProgreso(selectorBarra, duracion, urlRedireccion) {
   let progresoActual = 0;
   let tiempoInicial = null;
 
+  audioTemporizador(true)
+
   function actualizarProgreso(timestamp) {
     if (!tiempoInicial) tiempoInicial = timestamp; // Captura el tiempo inicial de la animación
     const tiempoTranscurrido = timestamp - tiempoInicial; // Calcula cuánto tiempo ha pasado
@@ -23,6 +25,7 @@ function iniciarBarraProgreso(selectorBarra, duracion, urlRedireccion) {
 
     // Asegúrate de que no pase del 100%
     if (progresoActual >= maxProgreso) {
+      audioTemporizador(false)
       progresoActual = maxProgreso;
       tiempoRestante = 0; // Cuando llegue al máximo, el tiempo restante es 0
       window.location.href = urlRedireccion; // Redirige a la URL especificada
@@ -37,6 +40,24 @@ function iniciarBarraProgreso(selectorBarra, duracion, urlRedireccion) {
 
   // Inicia la animación
   requestAnimationFrame(actualizarProgreso);
+}
+
+let audio = null; 
+function audioTemporizador(pActivacion) {
+  if (!audio) {
+    audio = new Audio('../../assets/multimedia/audio/Temporizador Memo.mp3');
+    audio.loop = true;
+    audio.volume = 0;
+    audio.currentTime = 0;
+  }
+
+  if (pActivacion) {
+    audio.volume = 0.5
+    audio.play();
+  } else {
+    audio.pause();
+    audio.currentTime = 0;
+  }
 }
 
 // Inyectar Elementos
