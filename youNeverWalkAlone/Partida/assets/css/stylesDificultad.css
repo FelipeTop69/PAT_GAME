@@ -186,14 +186,14 @@ body::before {
     box-shadow: 0px 4px 20px 0px rgba(255, 255, 255, 0.20) inset,
         0px -4px 4px 0px color-mix(in srgb, var(--color-negro) 25%, transparent) inset;
     transform: rotate(45deg);
-    /* Rotación inicial */
-    animation: pulse 0.6s infinite;
-    /* Agregamos la animación directamente */
 }
 
+.dificultad-facil {
+    border: 3px outset var(--color-dificultad-facil);
+    animation: pulseFacil 0.6s infinite;
+}
 
-
-@keyframes pulse {
+@keyframes pulseFacil {
     0% {
         transform: rotate(45deg) scale(0.9);
     }
@@ -207,18 +207,42 @@ body::before {
     }
 }
 
-
-
-.dificultad-facil {
-    border: 3px outset var(--color-dificultad-facil);
-}
-
 .dificultad-media {
     border: 3px outset var(--color-dificultad-media);
+    animation: pulseMedio 0.4s infinite;
+}
+
+@keyframes pulseMedio {
+    0% {
+        transform: rotate(45deg) scale(0.9);
+    }
+
+    50% {
+        transform: rotate(45deg) scale(1);
+    }
+
+    100% {
+        transform: rotate(45deg) scale(0.9);
+    }
 }
 
 .dificultad-dificil {
     border: 3px outset var(--color-dificultad-dificil);
+    animation: pulseDificil 0.3s infinite;
+}
+
+@keyframes pulseDificil {
+    0% {
+        transform: rotate(45deg) scale(0.9);
+    }
+
+    50% {
+        transform: rotate(45deg) scale(1);
+    }
+
+    100% {
+        transform: rotate(45deg) scale(0.9);
+    }
 }
 
 .marco-imagen-dificultad img {

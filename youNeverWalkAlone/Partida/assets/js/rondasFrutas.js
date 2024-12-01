@@ -34,7 +34,7 @@ function avanzarRonda() {
                 if (nivel === 'completado') {
                     console.log('Nivel completado, redirigiendo a Podio.html');
                     const timePreRedireccion = 100; 
-                    const redirrecion = 'Podio.html';
+                    const redirrecion = 'PrePodio.html';
                     function startFadeOut() {
                         const overlay = document.getElementById('fadee-overlay');
                         const carta = document.getElementById('containerCarta');
@@ -43,7 +43,7 @@ function avanzarRonda() {
                             overlay.style.opacity = 1;
                             setTimeout(() => {
                                 window.location.href = redirrecion;
-                            }, 3000);
+                            }, 2000);
                         }else{
                             console.log('No encontradoooo')
                         }

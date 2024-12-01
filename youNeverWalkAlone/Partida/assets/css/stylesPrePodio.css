@@ -1,0 +1,292 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-negro);
+}
+
+.cortina {
+    top: -10px;
+    /* La mitad del valor extra para centrar verticalmente */
+    left: -10px;
+    /* La mitad del valor extra para centrar horizontalmente */
+    width: calc(100% + 80px);
+    height: calc(100% + 70px);
+    box-sizing: border-box;
+    background-color: var(--color-negro);
+    z-index: 9;
+}
+
+
+.incognita {
+    padding: 1rem;
+    position: relative;
+    width: 80%;
+    height: 85%;
+    background: var(--color-negro);
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.brillo::before,
+.brillo::after {
+    content: '';
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    background: linear-gradient(45deg,
+            var(--verde),
+            var(--azul-borde-oscuro),
+            var(--verde-claro),
+            var(--azul-claro),
+            var(--verde-oscuro),
+            var(--azul-oscuro),
+            var(--azul-oscuro-x2),
+            var(--verde-oscuro-x2));
+    background-size: 400%;
+    width: calc(100% + 5px);
+    height: calc(100% + 5px);
+    z-index: -1;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    transition: opacity 0.5s ease-in;
+    animation: sombra 40s linear infinite;
+}
+
+.brillo::after {
+    filter: blur(14px);
+}
+
+@keyframes sombra {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+.title-incognita {
+    padding: 0.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-incognita h1 {
+    position: relative;
+    color: var(--color-blanco);
+    font-family: var(--body-font);
+    font-weight: var(--font-weight-black);
+    font-style: var(--font-style-dos);
+    font-size: 3.5rem;
+    text-shadow:
+        0 0 8px #03bcf4,
+        0 0 18px #03bcf4,
+        0 0 38px #03bcf4,
+        0 0 78px #03bcf4,
+        0 0 158px #03bcf4;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    width: 100%;
+    margin: 0;
+    animation: bounce 1.5s infinite;
+}
+
+.opacidad{
+    opacity: 0;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.contenedor-eyes{
+    /* width: 100%; */
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.eye{
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    clip-path: circle(50% at center);
+    position: relative;
+}
+
+.iris{
+    width: 40%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    background-color: #000000;
+    border-radius: 50%;
+    animation: movement 6s ease-in-out infinite;
+}
+
+.pupil{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: white;
+    margin-top: 15px;
+    margin-left: 22px;
+}
+
+.upper-pupil,
+.lower-pupil{
+    width: 100%;
+    height: 250px;
+    background-color: 
+    #000000; 
+    /* #f6c6c6; */
+    position: absolute;
+    animation: blink 6s ease-in-out infinite;
+    z-index: 1;
+}
+
+.upper-pupil{
+    top: 0;
+}
+
+.lower-pupil{
+    bottom: 0;
+}
+
+@keyframes movement {
+    0%, 10% {
+        transform: translateX(0);
+    }
+    20%{
+        transform: translateX(-80% );
+    }
+    30%, 80%{
+        transform: translateX(0);
+    }
+    90%{
+        transform: translateX(80%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+
+@keyframes blink {
+    0%, 30%{
+        height: 0%;
+    }
+    32%{
+        height: 40%;
+
+    }
+    34%{
+        height: 20%;
+
+    }
+    36%{
+        height: 40%;
+
+    }
+    38%, 50%{
+        height: 20%;
+
+    }  
+    60%, 70%{
+        height: 45%;
+
+    }   
+    80%, 90%{
+        height: 20%;
+
+    }
+    100%{
+        height: 0%;
+    }   
+}
+
+/*=============== BREAKPOINTS ===============*/
+
+/* Pantalla celular grande*/
+@media screen and (max-height: 576px) {
+}
+
+/* Pantalla celular mediana */
+@media screen and (max-width: 476px) {
+    .incognita {
+        width: 90%;
+        height: 45%;
+    }
+    
+    .title-incognita h1 {
+        font-size: 1.7rem;
+    }
+
+    .eye{
+        width: 120px;
+        height: 120px;
+    }
+    
+    .pupil{
+        width: 10px;
+        height: 10px;
+        margin-top: 8px;
+        margin-left: 10px;
+    }   
+}
+
+/* Pantalla celular pequeña*/
+@media screen and (max-width: 376px) {
+
+    .title-incognita h1 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Pantalla celular minion*/
+@media screen and (max-width: 320px) {
+    .incognita {
+        width: 90%;
+        height: 50%;
+    }
+    
+    .title-incognita h1 {
+        font-size: 1rem;
+    }
+
+    .eye{
+        width: 90px;
+        height: 90px;
+    }
+    
+    .pupil{
+        width: 8px;
+        height: 8px;
+        margin-top: 8px;
+        margin-left: 10px;
+    }  
+}
