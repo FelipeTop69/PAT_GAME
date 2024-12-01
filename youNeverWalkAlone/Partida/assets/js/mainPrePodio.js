@@ -8,14 +8,14 @@ document.addEventListener('DOMContentLoaded', () => {
         audio.muted = true; 
         audio.volume = 0; 
         audio.currentTime = 1;
-        audio.play();
+        // audio.play();
 
         audio.play().then(() => {
             audio.muted = false; 
             let volume = 0; 
             const maxVolume = 1; 
-            const fadeDuration = 5000; // Duración en ms
-            const interval = 100; // Intervalo entre pasos
+            const fadeDuration = 8000; // Duración en ms
+            const interval = 200; // Intervalo entre pasos
             const steps = fadeDuration / interval; 
             const step = 1 / steps; 
 

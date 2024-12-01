@@ -26,7 +26,45 @@
 </head>
 
 <body>
+    <div id="overlay">
+        <div class="contenedor-ganadores position-relative">
+            <canvas class="confetti-canvas position-absolute"></canvas>
+            <div class="title-ganadores opacidad animate__animated">
+                <h1>¡felicidades!</h1>
+            </div>
+            <div class="top-3-ganadores">
+                <div class="jugador primer-lugar-ganador opacidad animate__animated">
+                    <div class="avatar-jugador-ganador av-ju-primero-ganador p-1 position-relative ">
+                        <div class="corona-ganador position-absolute "></div>
+                        <div class="corona-dos bounce position-absolute"></div>
+                        <img class="avatar-jugador-img" src="" alt="avatar">
+                    </div>
+                    <div class="nombre-jugador no-ju-primero">
 
+                    </div>
+                </div>
+
+                <div class="jugador segundo-lugar-ganador opacidad animate__animated">
+                    <div  class="avatar-jugador-ganador av-ju-segundo-ganador p-1">
+                        <img class="avatar-jugador-img" src="" alt="avatar">
+                    </div>
+                    <div class="nombre-jugador no-ju-segundo">
+
+                    </div>
+                </div>
+
+
+                <div class="jugador tercer-lugar-ganador opacidad animate__animated">
+                    <div class="avatar-jugador-ganador av-ju-tercero-ganador p-1">
+                        <img class="avatar-jugador-img" src="" alt="avatar">
+                    </div>
+                    <div class="nombre-jugador no-ju-tercero">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container d-flex justify-content-center align-items-center vh-100">
         <div class="contenedor-podio ">
             <div class="contenedor-titulo ">
@@ -94,7 +132,7 @@
     <script src="../Bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../Bootstrap/js/bootstrap.js"></script>
     <script src="../assets/Libreria/SweetAlert2/js/sweetalert2.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script src="assets/js/Confetti/confetti.js"></script>
     <script src="assets/js/mainPodio.js"></script>
     <script src="../assets/js/main.js"></script>
 </body>

@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -6,7 +6,6 @@
 
 body {
     position: relative;
-
 }
 
 body::before {
@@ -18,6 +17,282 @@ body::before {
     height: 100%;
     background-color: color-mix(in srgb, var(--color-negro) 45%, transparent);
 }
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: color-mix(in srgb, var(--color-negro) 80%, transparent);
+    ;
+    backdrop-filter: blur(10px);
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 2s ease-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.opacidad {
+    opacity: 0;
+}
+
+.contenedor-ganadores {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.confetti-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    /* No interfiere con clics en el contenido */
+}
+
+.title-ganadores {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.2rem;
+    border: 3px outset color-mix(in srgb, var(--color-blanco) 80%, transparent);
+    border-radius: 45px;
+    background: color-mix(in srgb, var(--color-negro) 20%, transparent);
+    box-shadow: 0px 0px 25px 5px var(--azul-oscuro);
+}
+
+
+
+.title-ganadores h1 {
+    margin: 0;
+    font-family: var(--body-font);
+    font-style: var(--font-style-dos);
+    font-weight: var(--font-weight-black);
+    font-size: 2.5rem;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    background: linear-gradient(45deg,
+            var(--verde-oscuro),
+            var(--azul-claro),
+            var(--azul-oscuro),
+            var(--verde));
+    background-size: 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: colores 4s ease-in-out infinite;
+}
+
+@keyframes colores {
+    0% {
+        background-position: 0 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+
+
+.esperandoPrimerLugar {
+    animation-name: flash;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes flash {
+    0% {
+        opacity: 1;
+    }
+
+    25% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    75% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+.malViajado {
+    animation-name: vibracion;
+    -webkit-animation-name: vibracion;
+    -moz-animation-name: vibracion;
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+}
+
+@keyframes vibracion {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+    }
+
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
+}
+
+
+
+.top-3-ganadores {
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 65%;
+    width: 60%;
+}
+
+.primer-lugar-ganador {
+    order: 2;
+    align-self: flex-start;
+    /* animation: pulse-ganador 1s infinite; */
+}
+
+@keyframes pulse-ganador {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+.segundo-lugar-ganador {
+    order: 1;
+    align-self: flex-end;
+
+}
+
+.tercer-lugar-ganador {
+    order: 3;
+    align-self: flex-end;
+}
+
+.avatar-jugador-ganador {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 140px;
+    height: 140px;
+}
+
+.avatar-jugador-ganador img {
+    width: 130px;
+    height: 130px;
+    margin-bottom: 2px;
+}
+
+.corona-ganador {
+    /* display: none; */
+    width: 60px;
+    height: 42px;
+    background-image: url(https://i.ibb.co/Kh9Vwqb/Corona.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    top: -17px;
+    right: -17px;
+    transform: rotate(38deg);
+}
+
+
+
+.av-ju-segundo-ganador {
+    background-image: url('../img/Recursos/Podio/Top 3/Estrellas-Dos.png');
+    background-size: cover;
+    background-position: center;
+    box-shadow: inset 0 0 0 6px var(--segundo-lugar), 0 0 10px var(--segundo-lugar);
+}
+
+.av-ju-primero-ganador {
+    background-image: url('../img/Recursos/Podio/Top 3/Estrellas-Uno.png');
+    background-size: cover;
+    background-position: center;
+    box-shadow: inset 0 0 0 8px var(--primer-lugar), 0 0 10px var(--primer-lugar);
+}
+
+.av-ju-tercero-ganador {
+    background-image: url('../img/Recursos/Podio/Top 3/Estrellas-Dos.png');
+    background-size: cover;
+    background-position: center;
+    box-shadow: inset 0 0 0 4px var(--tercer-lugar), 0 0 10px var(--tercer-lugar);
+}
+
+/* ----------------------------------------------- */
 
 .container {
     position: relative;
@@ -176,21 +451,21 @@ body::before {
 .av-ju-segundo {
     background-image: url('../img/Recursos/Podio/Top 3/Estrellas-Dos.png');
     background-size: cover;
-    background-position: center ;
+    background-position: center;
     box-shadow: inset 0 0 0 4px var(--segundo-lugar), 0 0 10px var(--segundo-lugar);
 }
 
 .av-ju-primero {
     background-image: url('../img/Recursos/Podio/Top 3/Estrellas-Uno.png');
     background-size: cover;
-    background-position: center ;
+    background-position: center;
     box-shadow: inset 0 0 0 4px var(--primer-lugar), 0 0 10px var(--primer-lugar);
 }
 
 .av-ju-tercero {
     background-image: url('../img/Recursos/Podio/Top 3/Estrellas-Dos.png');
     background-size: cover;
-    background-position: center ;
+    background-position: center;
     box-shadow: inset 0 0 0 4px var(--tercer-lugar), 0 0 10px var(--tercer-lugar);
 }
 
@@ -259,7 +534,7 @@ main.table {
     box-shadow: 0 .4rem .8rem color-mix(in srgb, var(--color-negro) 50%, transparent);
 }
 
-.borde-tabla{
+.borde-tabla {
     border: 8px solid color-mix(in srgb, var(--verde-oscuro) 70%, transparent);
 
 }
@@ -289,9 +564,9 @@ tr th {
     font-style: var(--font-style-dos);
     font-weight: var(--font-weight-black);
     font-size: 20px;
-    text-shadow: 0px 4px 4px color-mix(in srgb, var(--color-negro) 25%, transparent), 
-                0px 0px 25px var(--verde-borde), 
-                0px 4px 4px color-mix(in srgb, var(--color-negro) 25%, transparent);
+    text-shadow: 0px 4px 4px color-mix(in srgb, var(--color-negro) 25%, transparent),
+        0px 0px 25px var(--verde-borde),
+        0px 4px 4px color-mix(in srgb, var(--color-negro) 25%, transparent);
     -webkit-text-stroke-width: 0.8px;
     -webkit-text-stroke-color: var(--azul-borde-oscuro);
     letter-spacing: 5px;
@@ -325,15 +600,15 @@ td {
     letter-spacing: 1px;
 }
 
-.fondo-top-3:nth-child(1){
+.fondo-top-3:nth-child(1) {
     background-color: color-mix(in srgb, var(--primer-lugar) 55%, transparent);
 }
 
-.fondo-top-3:nth-child(2){
+.fondo-top-3:nth-child(2) {
     background-color: color-mix(in srgb, var(--segundo-lugar) 55%, transparent);
 }
 
-.fondo-top-3:nth-child(3){
+.fondo-top-3:nth-child(3) {
     background-color: color-mix(in srgb, var(--tercer-lugar) 55%, transparent);
 }
 
@@ -404,7 +679,56 @@ tbody tr:nth-child(-n+3) td:nth-child(2) h5 {
 
 /* Pantalla celular mediana */
 @media screen and (max-width: 476px) {
-    .marco-titulo h1{
+    #overlay {
+        padding: 0rem;
+    }
+
+    .contenedor-ganadores {
+        justify-content: start;
+        gap: 15%;
+    }
+
+    .title-ganadores {
+        padding: 1rem;
+        margin-top: 25%;
+    }
+
+
+
+    .title-ganadores h1 {
+        font-size: 1.8rem;
+        letter-spacing: 5px;
+    }
+
+    .top-3-ganadores {
+        padding: 0.5rem;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 35%;
+        width: 100%;
+    }
+
+    .avatar-jugador-ganador {
+        width: 110px;
+        height: 110px;
+    }
+
+    .avatar-jugador-ganador img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .corona-ganador {
+        width: 58px;
+        height: 40px;
+        top: -20px;
+        right: -20px;
+    }
+
+    /* -------------------------------------------------- */
+
+    .marco-titulo h1 {
         font-size: 40px;
         letter-spacing: 5px;
     }
@@ -413,17 +737,17 @@ tbody tr:nth-child(-n+3) td:nth-child(2) h5 {
         height: 25%;
     }
 
-    .segundo-lugar{
+    .segundo-lugar {
         align-self: center;
         margin-top: 5rem;
     }
 
-    .tercer-lugar{
+    .tercer-lugar {
         align-self: center;
         margin-top: 5rem;
     }
 
-    .nomnbre-jugador{
+    .nomnbre-jugador {
         width: 100px;
     }
 
@@ -434,7 +758,7 @@ tbody tr:nth-child(-n+3) td:nth-child(2) h5 {
         display: flex;
     }
 
-    .borde-tabla{
+    .borde-tabla {
         border: 3px solid color-mix(in srgb, var(--verde-oscuro) 70%, transparent);
 
     }
@@ -444,7 +768,8 @@ tbody tr:nth-child(-n+3) td:nth-child(2) h5 {
         letter-spacing: 2px;
     }
 
-    tbody tr td:nth-child(1), td:nth-child(3){
+    tbody tr td:nth-child(1),
+    td:nth-child(3) {
         font-size: 16px;
     }
 
@@ -452,25 +777,56 @@ tbody tr:nth-child(-n+3) td:nth-child(2) h5 {
         font-size: 16px;
         letter-spacing: 0px;
     }
-    
-    
+
+
     td img {
         width: 35px;
         height: 35px;
         border-radius: 50%;
         float: left;
     }
-    
+
     .medalla-jugador {
         width: 40px;
         height: 40px;
     }
-    
+
 }
 
 /* Pantalla celular pequeña*/
 @media screen and (max-width: 376px) {
-    .marco-titulo h1{
+    .title-ganadores h1 {
+        font-size: 1.6rem;
+        letter-spacing: 5px;
+    }
+
+    .top-3-ganadores {
+        justify-content: space-evenly;
+        height: 40%;
+        width: 100%;
+    }
+
+    .avatar-jugador-ganador {
+        width: 100px;
+        height: 100px;
+    }
+
+    .avatar-jugador-ganador img {
+        width: 90px;
+        height: 90px;
+    }
+
+    .corona-ganador {
+        /* display: none; */
+        width: 56px;
+        height: 38px;
+        top: -18px;
+        right: -18px;
+    }
+
+    /* -------------------------------------------------- */
+
+    .marco-titulo h1 {
         font-size: 30px;
         letter-spacing: 5px;
     }
@@ -483,19 +839,19 @@ tbody tr:nth-child(-n+3) td:nth-child(2) h5 {
         width: 65px;
         height: 65px;
     }
-    
+
     .avatar-jugador img {
         width: 55px;
         height: 55px;
         margin-bottom: 2px;
     }
 
-    .segundo-lugar{
+    .segundo-lugar {
         align-self: center;
         margin-top: 3rem;
     }
 
-    .tercer-lugar{
+    .tercer-lugar {
         align-self: center;
         margin-top: 3rem;
     }
@@ -503,18 +859,18 @@ tbody tr:nth-child(-n+3) td:nth-child(2) h5 {
     .corona {
         /* display: none; */
         width: 40px;
-        height: 22px;        
+        height: 22px;
         top: -12px;
         right: -12px;
     }
-    
+
     .corona-dos {
         width: 40px;
         height: 17px;
         top: -20px;
         left: 50%;
     }
-    
+
     .nombre-jugador {
         width: 104px;
         padding: 0 5px 5px 5px;
@@ -525,22 +881,23 @@ tbody tr:nth-child(-n+3) td:nth-child(2) h5 {
         font-size: 16px;
     }
 
-    tbody tr td:nth-child(1), td:nth-child(3){
+    tbody tr td:nth-child(1),
+    td:nth-child(3) {
         font-size: 14px;
     }
 
     td h5 {
         font-size: 14px;
     }
-    
-    
+
+
     td img {
         width: 30px;
         height: 30px;
         border-radius: 50%;
         float: left;
     }
-    
+
     .medalla-jugador {
         width: 35px;
         height: 35px;
@@ -549,7 +906,31 @@ tbody tr:nth-child(-n+3) td:nth-child(2) h5 {
 
 /* Pantalla celular minion*/
 @media screen and (max-width: 320px) {
-    .marco-titulo h1{
+    .title-ganadores h1 {
+        font-size: 1.3rem;
+    }
+
+    .avatar-jugador-ganador {
+        width: 90px;
+        height: 90px;
+    }
+
+    .avatar-jugador-ganador img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .corona-ganador {
+        /* display: none; */
+        width: 52px;
+        height: 34px;
+        top: -18px;
+        right: -18px;
+    }
+
+    /* -------------------------------------------------- */
+
+    .marco-titulo h1 {
         font-size: 25px;
         letter-spacing: 5px;
     }
@@ -562,19 +943,19 @@ tbody tr:nth-child(-n+3) td:nth-child(2) h5 {
         width: 60px;
         height: 60px;
     }
-    
+
     .avatar-jugador img {
         width: 45px;
         height: 45px;
         margin-bottom: 2px;
     }
 
-    .segundo-lugar{
+    .segundo-lugar {
         align-self: center;
         margin-top: 2rem;
     }
 
-    .tercer-lugar{
+    .tercer-lugar {
         align-self: center;
         margin-top: 2rem;
     }
@@ -582,18 +963,18 @@ tbody tr:nth-child(-n+3) td:nth-child(2) h5 {
     .corona {
         /* display: none; */
         width: 35px;
-        height: 19px;        
+        height: 19px;
         top: -10px;
         right: -10px;
     }
-    
+
     .corona-dos {
         width: 40px;
         height: 17px;
         top: -20px;
         left: 50%;
     }
-    
+
     .nombre-jugador {
         width: 100px;
         padding: 0 5px 5px 5px;
@@ -604,22 +985,23 @@ tbody tr:nth-child(-n+3) td:nth-child(2) h5 {
         font-size: 14px;
     }
 
-    tbody tr td:nth-child(1), td:nth-child(3){
+    tbody tr td:nth-child(1),
+    td:nth-child(3) {
         font-size: 12px;
     }
 
     td h5 {
         font-size: 13px;
     }
-    
-    
+
+
     td img {
         width: 25px;
         height: 25px;
         border-radius: 50%;
         float: left;
     }
-    
+
     .medalla-jugador {
         width: 30px;
         height: 30px;
