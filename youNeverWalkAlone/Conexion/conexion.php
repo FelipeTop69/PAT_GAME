@@ -10,7 +10,7 @@ class Conexion {
         $this->server = 'localhost';
         $this->usuario = 'postgres';
         $this->baseDatos = 'bd_pat';
-        $this->password = 'felipeBit69*';
+        $this->password = '123456';
     }
 
     public function conectar() {

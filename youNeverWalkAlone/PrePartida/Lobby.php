@@ -66,16 +66,19 @@
 
     <!-- Iconos -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css">
+    <link rel="stylesheet" href="../assets/css/sonido.css">
     <title>PAT GAME</title>
 </head>
 
 <body>
+    
     <div class="container d-flex flex-column vh-100">
+        <img class="sonid-Lobby" id="sonido" src="../assets/img/sonido/sonido.png" onclick="alternarSonido()" alt="Sonido">
         <div class="contenedor-up  d-flex justify-content-between align-items-center">
             <button id="botonSalir" type="button" class="boton-volver">
-
-            </button>
-            <button id="botonInformacion" type="button" class="boton-informacion" data-bs-toggle="modal"
+                
+                </button>
+                <button id="botonInformacion" type="button" class="boton-informacion" data-bs-toggle="modal"
                 data-bs-target="#modalInformacion">
             </button>
         </div>
@@ -125,6 +128,9 @@
     <script src="assets/js/mainLobby.js"></script>
     <script src="../assets/js/main.js"></script>
     <script src="../Admin/assets/js/boton2.js"></script>
+    <script src="../assets/js/musicaLobby.js"></script>
+    <!-- <script src="../assets/js/musicaRegistro.js"></script> -->
+    <script src="../assets/js/musicaPat.js"></script>
 
     <script>
         // Pasar el array a JSON

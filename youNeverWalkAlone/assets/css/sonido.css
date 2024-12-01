@@ -1,0 +1,78 @@
+.sonid{
+    margin-top: -100vh;
+    width: 3%;
+    height: 5%;
+    margin-left: 10px; 
+
+}
+.sonid-re{
+    position: absolute;
+    margin-top: -99vh;
+    width: 3%;
+    height: 5%;
+    margin-left: -129px; 
+
+}
+.sonid-Lobby{
+    position: absolute;
+    margin-top: -4vh;
+    width: 3%;
+    height: 5%;
+    margin-left: -129px; 
+
+}
+/* Pantalla celular grande*/
+@media screen and (max-height: 576px) {
+    .sonid{
+        width: 9%;
+        height: 6%;
+        margin-left: 5px; 
+    }
+    .sonid-re{
+        width: 9%;
+        height: 6%;
+        margin-left: 2px; 
+    }
+}
+
+/* Pantalla celular mediana */
+@media screen and (max-width: 476px) {
+    .sonid{
+        width: 9%;
+        height: 6%;
+        margin-left: 5px; 
+    }
+    .sonid-re{
+        width: 9%;
+        height: 6%;
+        margin-left: 2px; 
+    }
+}
+
+/* Pantalla celular pequeña*/
+@media screen and (max-width: 376px) {
+    .sonid{
+        width: 8%;
+        height: 5%;
+        margin-left: 5px; 
+    }
+    .sonid-re{
+        width: 8%;
+        height: 5%;
+        margin-left: -20px; 
+    }
+}
+
+/* Pantalla celular minion*/
+@media screen and (max-width: 320px) {
+    .sonid{
+        width: 10%;
+        height: 10%;
+        margin-left: 5px; 
+    }
+    .sonid-re{
+        width: 10%;
+        height: 10%;
+        margin-left: 5px; 
+    }
+}

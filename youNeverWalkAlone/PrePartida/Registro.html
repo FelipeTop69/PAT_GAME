@@ -20,18 +20,23 @@
     <link rel="stylesheet" href="assets/css/stylesRegistro.css">
     <!-- Iconos -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css">
+    <link rel="stylesheet" href="../assets/css/sonido.css">
     <title>PAT GAME</title>
 </head>
 
 <body>
 
     <div class="container">
+        
         <div class="contenedor-up  position-absolute">
             <button type="button" class="boton-volver">
-                    
+                
             </button>
         </div>
+        
         <div class="contendor-carta  d-grid justify-content-center align-items-center">
+            <img class="sonid-re" id="sonido" src="../assets/img/sonido/sonido.png" onclick="alternarSonido()" alt="Sonido">
+
             <form id="formularioRegistro" class="carta" >
                 <input type="text" name="tipo_operacion" value="registrar_jugador" hidden="true">
                 <img class="imagen-carta top-0 start-50 translate-middle position-absolute" src="../assets/img/Logos/Logo Secundario.png" alt="">
@@ -48,7 +53,8 @@
                             </div>
                         </label>
                     </div>
-
+                    
+       
                     <div class="campo-carta">
                         <input type="text" name="txtNombre"  id="txtNombre" minlength="3" maxlength="12" required autocomplete="off">
                         <label for="txtNombre" >
@@ -62,11 +68,12 @@
                         </label>
                     </div>
                 </div>
-
-                <button type="submit" class="boton-carta position-absolute top-100 start-50 translate-middle"><span class="texto-boton">INGRESAR</span></button>
+                <audio id="boton" src="../assets/multimedia/audio/admin/Registro.mp3"></audio>
+                <button  onclick="boton()" type="submit" class="boton-carta position-absolute top-100 start-50 translate-middle"><span class="texto-boton">INGRESAR</span></button>
             </form>
         </div>
     </div>
+
 
     <script src="../Bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../Bootstrap/js/bootstrap.js"></script>
@@ -74,5 +81,8 @@
     <script src="Registro/js/funcionesRegistro.js"></script>
     <script src="assets/js/mainRegistro.js"></script>
     <script src="../assets/js/main.js"></script>
+    <!-- <script src="../assets/js/musicaRegistro.js"></script> -->
+    <script src="../assets/js/musicaPat.js"></script>
+    <script src="../assets/js/botonRegistro.js"></script>
 </body>
 </html>

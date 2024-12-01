@@ -14,19 +14,29 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/fondoComienzo.css">
     <link rel="stylesheet" href="assets/css/stylesComienzo.css">
+    <link rel="stylesheet" href="..//assets/css/sonido.css">
     <title>PAT GAME</title>
 </head>
 <body>
-
+    
     <div class="container d-flex flex-column justify-content-end ">
         <!-- <h1 class="titulo mt-5 mb-5">Bienvenido</h1> -->
         <div class="w-100 h-75 d-flex flex-column justify-content-center align-items-center position-relative">
             <img class="titulo img-fluid" src="assets/img/Recursos/Titulo Bienvenido.png" alt="Titulo Bienvenido">
-            <button id="botonComienzo" type="button"></button>
+            <button  id="botonComienzo" type="button"></button>
         </div>
     </div>
-
+    <img class="sonid" id="sonido" src="../assets/img/sonido/sonido.png" onclick="alternarSonido()" alt="Sonido">
+    
+    
+ <!-- <audio autoplay loop>
+        <source src="../assets/multimedia/audio/admin/Comienzo.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio> -->
+    
+    
     <script src="../Bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/mainComienzo.js"></script>
+    <script src="../assets/js/musicaPat.js"></script>
 </body>
 </html>

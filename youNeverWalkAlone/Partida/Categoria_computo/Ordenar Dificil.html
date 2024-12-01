@@ -26,13 +26,15 @@
 </head>
 
 <body>
-
+    <audio id="musica" src="../../assets/multimedia/audio/admin/Juego.mp3"  autoplay loop></audio>
+    <img id="sonido" src="../../assets/img/sonido/sonido.png" onclick="alternarSonido()" alt="Sonido">
+    
     <div class="container d-flex flex-column">
         <div class="contenedor-up  d-flex justify-content-between align-items-center">
             <button id="botonVolver" type="button" class="boton-volver"></button>
 
             <div class="indicador-ronda p-2">
-                <h4 id="ronda-numero"</h4>
+                <h4 id="ronda-numero"></h4>
             </div>
 
             <div class="indicador-dificultad indicador-dificultad-dificil">
@@ -99,6 +101,8 @@
     <script src="../Obtencion Tiempos/tiempos.js"></script>
     <script src="../../assets/js/main.js"></script>
     <script src="../../assets/js/cerrarSesion.js"></script>
+    <!-- <script src="../../assets/js/musicaJuego.js"></script> -->
+    <script src="../../assets/js/musicaPat.js"></script>
 </body>
 
 </html>
