@@ -51,7 +51,7 @@ const contenidoModal =
             </div>
             <div class="modal-body">
                 <video id="contenedorVideo" class="contenedor-video" width="100%" height="auto" controls >
-                    <source src="../assets/multimedia/videos/Tutorial PAT GAME.mp4" type="video/mp4">
+                    <source src="../assets/Multimedia/Videos/Tutorial PAT GAME.mp4" type="video/mp4">
                     Tu navegador no soporta el elemento de video.
                 </video>
             </div>

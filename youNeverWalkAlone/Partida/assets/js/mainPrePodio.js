@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const eyes = document.querySelector('.contenedor-eyes')
 
     setTimeout(() => {
-        const audio = new Audio('../assets/multimedia/audio/Podio/Suspenso.mp3')
+        const audio = new Audio('../assets/Multimedia/Audio/Podio/Suspenso.mp3')
         audio.muted = true; 
         audio.volume = 0; 
         audio.currentTime = 1;

@@ -45,7 +45,7 @@ function iniciarBarraProgreso(selectorBarra, duracion, urlRedireccion) {
 let audio = null; 
 function audioTemporizador(pActivacion) {
   if (!audio) {
-    audio = new Audio('../../assets/multimedia/audio/Temporizador Memo.mp3');
+    audio = new Audio('../../assets/Multimedia/Audio/Juego/Temporizador Memo.mp3');
     audio.loop = true;
     audio.volume = 0;
     audio.currentTime = 0;

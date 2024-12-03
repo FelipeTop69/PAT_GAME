@@ -48,8 +48,8 @@ function anuncioGanadores() {
 }
 
 function configAudioTop3() {
-    const audio1 = new Audio('../assets/multimedia/audio/Podio/Top-3.mp3');
-    const audio2 = new Audio('../assets/multimedia/audio/Podio/Ganador.mp3');
+    const audio1 = new Audio('../assets/Multimedia/Audio/Podio/Top-3.mp3');
+    const audio2 = new Audio('../assets/Multimedia/Audio/Podio/Ganador.mp3');
     const title = document.querySelector('.title-ganadores')
 
     function ejecutarDuranteIntervalo() {

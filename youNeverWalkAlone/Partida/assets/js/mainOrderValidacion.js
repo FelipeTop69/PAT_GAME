@@ -22,11 +22,13 @@ function asignarValores(pPuntos, pPuntosRequeridos){
     if(puntos >= puntosRequeridos){
         iconoAsignado = iconoBien;
         textoPuntos.className = ('texto-puntos-bien')
-        puntosTitulo.className = 'texto-bien'
+        puntosTitulo.className = 'texto-bien';
+        audio = '../assets/Multimedia/Audio/Juego/Correcto.mp3'
     }else{
         iconoAsignado = iconoMal;
         textoPuntos.className = ('texto-puntos-mal')
         puntosTitulo.className = 'texto-mal'
+        audio = '../assets/Multimedia/Audio/Juego/Incorrecto.mp3'
     }
     iconoInsertadoDiv.innerHTML = iconoAsignado;
     textoPuntos.textContent = puntos;
@@ -84,6 +86,22 @@ puntuacionDiv.appendChild(textoPuntos);
 contenedor.appendChild(validacionDiv);
 contenedor.appendChild(puntuacionDiv);
 
+var audio = ''
+
+function audioValidacion(pAudio){
+    const audio = new Audio(pAudio)
+    audio.muted = true; 
+    audio.volume = 1; 
+    // audio.play();
+
+    audio.play().then(() => {
+        audio.muted = false; 
+        
+    }).catch((error) => {
+        console.error('Error al reproducir el audio:', error);
+    });
+}
+
 // Configurar la animación de loaderDiv
 setTimeout(() => {
     loaderDiv.classList.add('animate__animated', 'animate__fadeOut');
@@ -97,6 +115,7 @@ setTimeout(() => {
     puntuacionDiv.style.opacity = '1';
     iconoInsertadoDiv.style.opacity = '1';
 
+    audioValidacion(audio)
     iconoInsertadoDiv.classList.add('animate__animated', 'animate__fadeIn');
     puntuacionDiv.classList.add('animate__animated', 'animate__bounceInUp');
 }, 5300); 

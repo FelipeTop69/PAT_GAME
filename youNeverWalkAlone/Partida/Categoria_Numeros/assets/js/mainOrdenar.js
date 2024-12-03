@@ -69,7 +69,7 @@ async function iniciarTemporizador(pTiempo, pDireccionUrl) {
 let audio = null; 
 function audioTemporizador(pActivacion, pVelocidad = 1) {
     if (!audio) {
-        audio = new Audio('../../assets/multimedia/audio/Temporizador Orden.mp3');
+        audio = new Audio('../../assets/Multimedia/Audio/Juego/Temporizador Orden.mp3');
         audio.loop = true;
         audio.volume = 0;
         audio.currentTime = 0;
@@ -189,7 +189,10 @@ function cambiarOrdenElementos(pContenedor) {
     elementos.forEach(elemento => contenedor.appendChild(elemento));
 }
 
-botonEnviar.addEventListener('click', validarOrden);
+botonEnviar.addEventListener('click', () =>{
+    validarOrden();
+    audioTemporizador(false)
+});
 
 let ordenJugador = [];
 function iniciarDragAndDrop(pNumeros){
