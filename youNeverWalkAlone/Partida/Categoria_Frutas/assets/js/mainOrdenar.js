@@ -226,9 +226,12 @@ function cambiarOrdenElementos(pContenedor) {
     elementos.forEach(elemento => contenedor.appendChild(elemento));
 }
 
-botonEnviar.addEventListener('click', () =>{
+botonEnviar.addEventListener('click', function handleClick() {
     validarOrden();
     audioTemporizador(false);
+
+    // Eliminar el event listener después del primer clic
+    botonEnviar.removeEventListener('click', handleClick);
 });
 
 let ordenJugador = [];
