@@ -39,6 +39,21 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('.fondo-boton-modal').innerHTML = contenidoBotonModal;
 
     // listarJugadores()
+
+    // Animacion Icono chat
+    const icono = document.getElementById('iconoChat');
+
+    function iniciarAnimacion() {
+        icono.classList.add('wobble');
+        setTimeout(detenerAnimacion, 1000); // Duración de la animación
+    }
+
+    function detenerAnimacion() {
+        icono.classList.remove('wobble');
+        setTimeout(iniciarAnimacion, 3000); // Intervalo entre animaciones
+    }
+
+    iniciarAnimacion(); 
 })
 
 // Inyectar contenido del modal
@@ -81,6 +96,40 @@ modal.addEventListener('hidden.bs.modal', function () {
     video.pause();
     video.currentTime = 0;
 });
+
+
+// Modal Chat
+// Selección de elementos
+const btn = document.getElementById('btnChat');
+const modalChat = document.getElementById('modalChat');
+const modalContent = document.querySelector('.modal-content-chat');
+
+// Abrir modal
+function openModal() {
+    modalChat.classList.add('show'); // Mostrar modal
+    modalContent.classList.add('animate__fadeInDown', 'animate__faster'); // Aplicar animación de entrada
+}
+
+// Cerrar modal
+function closeModal() {
+    modalContent.classList.remove('animate__fadeInDown', 'animate__faster'); // Eliminar clase de entrada
+
+    // Escuchar el final de la animación de cierre
+
+    modalChat.classList.remove('show'); // Ocultar modal después de la animación
+    modalContent.removeEventListener('animationend', onAnimationEnd); // Evitar múltiples eventos
+
+}
+
+// Eventos
+btn.onclick = openModal;
+
+window.onclick = function(event) {
+    if (event.target === modalChat) {
+        closeModal();
+    }
+};
+
 
 
 

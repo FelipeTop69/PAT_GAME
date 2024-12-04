@@ -71,7 +71,10 @@
 </head>
 
 <body>
-    <div class="container d-flex flex-column vh-100">
+    <div class="container d-flex flex-column vh-100 position-relative">
+        <div id="btnChat" class="btn-chat position-absolute">
+            <img id="iconoChat" src="assets/img/Recursos/Icono-Chat.png" alt="">
+        </div>
         <div class="contenedor-up  d-flex justify-content-between align-items-center">
             <button id="botonSalir" type="button" class="boton-volver">
 
@@ -103,9 +106,16 @@
         </div>
     </div>
 
-    <!-- Modal -->
+    <!-- Modal Tutorial-->
     <div class="modal fade" id="modalInformacion" data-bs-backdrop="static" tabindex="-1" aria-labelledby="modalInformacionLabel" aria-hidden="true">
 
+    </div>
+
+    <!-- Modal Chat -->
+    <div id="modalChat" class="modal-chat">
+        <div class="modal-content-chat animate__animated">
+        
+        </div>
     </div>
 
     <!-- Boton Redirigir -->

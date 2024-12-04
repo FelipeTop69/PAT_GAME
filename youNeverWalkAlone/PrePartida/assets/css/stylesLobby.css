@@ -26,9 +26,7 @@ body {
     align-items: center;
     border: 5px solid var(--azul-oscuro);
     border-radius: 50%;
-    background-color: color-mix(in srgb, var(--color-negro) 85%, transparent);
-    box-shadow: inset 20px 20px 100px color-mix(in srgb, var(--verde-oscuro) 20%, transparent),
-        inset -20px -20px 100px color-mix(in srgb, var(--verde-oscuro) 20%, transparent);
+    background-color: color-mix(in srgb, var(--azul-oscuro-x2) 50%, transparent);
     pointer-events: none;
 }
 
@@ -446,8 +444,87 @@ body {
     font-style: var(--font-style-uno);
     font-weight: var(--font-weight-bold);
 }
-
 /*Fin Carta Jugadores Lobby */
+
+/* CHAT */
+.btn-chat{
+    all: unset;
+    /* Elimina todos los estilos predeterminados */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 58px;
+    height: 58px;
+    bottom: 20px;
+    right: 32px;
+    border: 3px outset var(--azul-oscuro);
+    border-radius: 15px;
+    background: linear-gradient(to right,
+            color-mix(in srgb, var(--azul-oscuro) 60%, transparent) 20%,
+            color-mix(in srgb, var(--verde-oscuro-x2) 70%, transparent) 75%);
+    box-shadow: inset 8px 8px 8px 0 color-mix(in srgb, var(--color-negro) 20%, transparent),
+        inset 8px 8px 8px 0 color-mix(in srgb, var(--color-negro) 20%, transparent),
+        inset 0 4px 4px 0 color-mix(in srgb, var(--color-negro) 20%, transparent),
+        inset 20px 5px 100px 0 color-mix(in srgb, var(--color-negro) 20%, transparent);
+    transform: rotate(45deg);
+    cursor: pointer;
+}
+
+.btn-chat img {
+    transform: rotate(-45deg);
+    width: 42px;
+    height: 42px;
+}
+
+.wobble { 
+    animation-name: wobble; 
+    animation-duration: 1s; 
+    animation-iteration-count: infinite; 
+}
+
+@keyframes wobble {
+    0% {transform: translateX(0) rotate(-45deg);}
+    15% {transform: translateX(-10px) rotate(-45deg);}
+    30% {transform: translateX(5px) rotate(-45deg);}
+    45% {transform: translateX(-5px) rotate(-45deg);}
+    60% {transform: translateX(7px) rotate(-45deg);}
+    75% {transform: translateX(-4px) rotate(-45deg);}
+    100% {transform: translateX(0) rotate(-45deg);}
+}
+
+/* Cuerpo Chat */
+.modal-chat {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden; 
+    opacity: 0; 
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: color-mix(in srgb, var(--color-negro) 60%, transparent);
+    backdrop-filter: blur(2px);
+    transition: visibility 0.3s, opacity 0.3s ease-in-out; /* Transición suave */
+}
+
+.modal-chat.show {
+    visibility: visible; /* Visible */
+    opacity: 1; /* Opaco */
+}
+
+.modal-content-chat {
+    background-color: #fff;
+    padding: 20px;
+    width: 40%;
+    height: 60%;
+}
+
+
+/* Fin CHAT */
 
 /*=============== BREAKPOINTS ===============*/
 
@@ -584,6 +661,28 @@ body {
         width: 82px;
         font-size: 14px;
     }
+
+    .btn-chat{
+        width: 52px;
+        height: 52px;
+        top: 30px;  
+        left: 50%;  
+        transform: translateX(-50%) rotate(45deg);
+
+    }
+
+    .btn-chat img{
+        transform: rotate(-45deg);
+        width: 40px;
+        height: 40px;
+    }
+
+    .modal-content-chat {
+        width: 90%;
+        height: 50%;
+    }
+    
+
 }
 
 /* Pantalla celular pequeña*/
@@ -631,6 +730,26 @@ body {
     .carta-jugadores {
         height: 370px;
     }
+
+    .btn-chat{
+        width: 45px;
+        height: 45px;
+        top: 30px; /* Equivalente a top-0 */ 
+        left: 50%; /* Equivalente a start-50 */ 
+        transform: translateX(-50%) rotate(45deg);
+
+    }
+
+    .btn-chat img{
+        transform: rotate(-45deg);
+        width: 34px;
+        height: 34px;
+    }
+
+    .modal-content-chat {
+        height: 60%;
+    }
+
 }
 
 /* Pantalla celular minion*/
@@ -671,5 +790,20 @@ body {
     .nombre-jugador {
         width: 75px;
         font-size: 14px;
+    }
+
+    .btn-chat{
+        width: 42px;
+        height: 42px;
+        top: 30px; /* Equivalente a top-0 */ 
+        left: 50%; /* Equivalente a start-50 */ 
+        transform: translateX(-50%) rotate(45deg);
+
+    }
+
+    .btn-chat img{
+        transform: rotate(-45deg);
+        width: 32px;
+        height: 32px;
     }
 }
