@@ -101,6 +101,7 @@ modal.addEventListener('hidden.bs.modal', function () {
 // Modal Chat
 // Selección de elementos
 const btn = document.getElementById('btnChat');
+const btnCerrar = document.getElementById('btnCerrarChat');
 const modalChat = document.getElementById('modalChat');
 const modalContent = document.querySelector('.modal-content-chat');
 
@@ -117,12 +118,11 @@ function closeModal() {
     // Escuchar el final de la animación de cierre
 
     modalChat.classList.remove('show'); // Ocultar modal después de la animación
-    modalContent.removeEventListener('animationend', onAnimationEnd); // Evitar múltiples eventos
-
 }
 
 // Eventos
 btn.onclick = openModal;
+btnCerrar.onclick = closeModal;
 
 window.onclick = function(event) {
     if (event.target === modalChat) {

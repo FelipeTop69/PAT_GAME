@@ -17,8 +17,10 @@ switch ($tipo_consulta) {
                 $_SESSION['jugador']['nombre']
             );
 
-            $resultado = $jugador->getNombre();
-            echo json_encode($resultado);
+            $consulta = new ConsultasChat;
+            $informacion = $consulta->obtenerInformacionJugador($jugador);
+
+            echo json_encode($informacion);
         } else {
             echo json_encode(['error' => 'Sesión no activa.']);
         }

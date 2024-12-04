@@ -117,14 +117,14 @@
         <div class="modal-content-chat animate__animated">
             <div class="encabezado-chat">
                 <div class="icono-pat-chat">
-
+                    <img src="../assets/img/Logos/Logo Secundario.png" alt="icono-pat" class="img-fluid">
                 </div>
 
                 <div class="title-chat">
                     pat game
                 </div>
 
-                <div class="icono-cerrar-chat">
+                <div id="btnCerrarChat" class="icono-cerrar-chat">
                     
                 </div>
             </div>
@@ -133,23 +133,27 @@
                 <!-- <div class="cont-mensaje-jugador-enviado">
                     <div class="jugador-envia">
                         <div class="tu-chat">Tu</div>
-                        <div class="avatar-chat"></div>
+                        <div class="avatar-chat">
+                            <img src="../assets/img/Avatares/Avatar_01.png" alt="">
+                        </div>
                     </div>
-                    <div class="mensaje-jugador-enviado">Hola buenas tardes otra vez ando probando otra vex por zqui el chat asasd asdasd asdas</div>
+                    <div class="mensaje-jugador-enviado">Hola </div>
                 </div> -->
 
                 <!-- <div class="cont-mensaje-recibido">
                     <div class="jugador-recibido">
-                        <div class="nombre-jugador-recibe">Felipe</div>
-                        <div class="avatar-chat-recibe"></div>
+                        <div class="nombre-jugador-recibe">Tu</div>
+                        <div class="avatar-chat-recibe">
+                            <img src="../assets/img/Avatares/Avatar_01.png" alt="">
+                        </div>
                     </div>
-                    <div class="mensaje-jugador-recibido">Hola buenas tardes otra vez ando sadsad asdasd asasfasf sadsad asdasd asdasdas asfsa</div>
+                    <div class="mensaje-jugador-recibido">Hola </div>
                 </div> -->
             </div>
 
             <div class="contenedor-barra-envio">
                 <input type="text" class="mensaje-enviar" id="mensajeEnviar">
-                <button class="btn-enviar" type="button" id="btnEnviar">
+                <button class="btn-enviar-chat" type="button" id="btnEnviar">
                     
                 </button>
             </div>
