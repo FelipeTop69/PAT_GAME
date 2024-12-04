@@ -5,10 +5,6 @@
 -- Dumped from database version 17.0
 -- Dumped by pg_dump version 17.0
 
--- ====================================
---RECUERDEN CAMBIAR LA CONTRASEÑA     |
--- ====================================
-
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET idle_in_transaction_session_timeout = 0;
@@ -288,12 +284,17 @@ ALTER TABLE ONLY public.registro_jugador ALTER COLUMN jugadorid SET DEFAULT next
 --
 
 COPY public.avatares (avatarid, imagenurl, descripcion) FROM stdin;
-1	https://i.ibb.co/j6QNFxP/Avatar-01.png	Avatar01
-2	https://i.ibb.co/Yczpsvm/Avatar-02.png	Avatar02
-3	https://i.ibb.co/m6dNW4c/Avatar-03.png	Avatar03
-4	https://i.ibb.co/jJ7pr1d/Avatar-04.png	Avatar04
-5	https://i.ibb.co/56fJ34f/Avatar-05.png	Avatar05
-6	https://i.ibb.co/8xM1XDn/Avatar-06.png	Avatar06
+1	../assets/img/Avatares/Avatar_01.png	Avatar01
+2	../assets/img/Avatares/Avatar_02.png	Avatar02
+3	../assets/img/Avatares/Avatar_03.png	Avatar03
+4	../assets/img/Avatares/Avatar_04.png	Avatar04
+5	../assets/img/Avatares/Avatar_05.png	Avatar05
+6	../assets/img/Avatares/Avatar_06.png	Avatar06
+7	../assets/img/Avatares/Avatar_07.png	Avatar07
+8	../assets/img/Avatares/Avatar_08.png	Avatar08
+9	../assets/img/Avatares/Avatar_09.png	Avatar09
+10	../assets/img/Avatares/Avatar_10.png	Avatar10
+11	../assets/img/Avatares/Avatar_11.png	Avatar11
 \.
 
 
@@ -345,7 +346,7 @@ COPY public.registro_jugador (jugadorid, numerodocumento, nombre, avatarid) FROM
 -- Name: avatares_avatarid_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.avatares_avatarid_seq', 6, true);
+SELECT pg_catalog.setval('public.avatares_avatarid_seq', 11, true);
 
 
 --

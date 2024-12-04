@@ -63,6 +63,8 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/fondoContenido.css">
     <link rel="stylesheet" href="assets/css/stylesLobby.css">
+    <link rel="stylesheet" href="../Partida/Categoria_Numeros/assets/css/Chat.css">
+ 
 
     <!-- Iconos -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css">
@@ -77,13 +79,16 @@
             </button>
             <button id="botonInformacion" type="button" class="boton-informacion" data-bs-toggle="modal"
                 data-bs-target="#modalInformacion">
-
             </button>
+
         </div>
         <div class="d-flex flex-grow-1 flex-column align-items-center p-2">
             <div class="marco-titulo-carta p-2">
                 <h1 class="titulo-carta m-0">LOBBY</h1>
             </div>
+            <button id="enviarBtn" class="boton-Chat" data-bs-target="#exampleModal">
+             <img class="messaje" src="../assets/img/Recursos/Mensaje.jpeg" alt="" margin-left:20px>
+            </button>
             <div class="carta d-flex flex-column align-items-center">
                 <h5 class="text-bienvenida">Bienvenido <?php echo htmlspecialchars($_SESSION['jugador']['nombre']); ?>!</h1>
                     <div class="carta-texto-top  p-2">
@@ -102,12 +107,52 @@
                     </div>
             </div>
         </div>
+       
+               
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="modalInformacion" data-bs-backdrop="static" tabindex="-1" aria-labelledby="modalInformacionLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="modalInformacion" data-bs-backdrop="static" tabindex="-1" aria-labelledby="modalInformacionLabel" aria-hidden="true">
+        
 
+    </div> -->
+   
+          
+
+            <div id="modal" class="modal">
+           
+                <span id="closeChat" class="close">Cerrar Chat</span>
+                <div class="col-md-10 d-flex justify-content-center">
+                    <div class="chat-container mb-2">
+                        
+                        <h1 class="Chat animate__animated animate__fadeInDown">Chat</h1>
+                        <div id="chat-box" class="chat-box"></div>
+                        <div class="chat-input mt-3">
+                            <input type="text" id="chat-input" placeholder="Escribe un mensaje...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+       
+           
+
+            <script>
+            
+                document.getElementById("enviarBtn").addEventListener("click", function() {
+                    this.style.display = "none"; // Ocultar "ABRIR CHAT"
+                    document.getElementById("modal").style.display = "block"; // Mostrar el modal del chat
+                });
+
+                
+                document.getElementById("closeChat").addEventListener("click", function() {
+                    document.getElementById("enviarBtn").style.display = "inline-block"; // Mostrar "ABRIR CHAT"
+                    document.getElementById("modal").style.display = "none"; // Ocultar el modal del chat
+                });
+            </script>
+        </div>
     </div>
+   
 
     <!-- Boton Redirigir -->
     <!-- <button class="next position-absolute bottom-0 end-0"id="goToPageBtn" data-link="<?php echo $selectedLink; ?>">
@@ -128,6 +173,8 @@
     <script src="assets/js/mainLobby.js"></script>
     <script src="../assets/js/main.js"></script>
     <script src="../Admin/assets/js/boton2.js"></script>
+    <script src="../Partida/Categoria_Numeros/assets/js/modal.js"></script>
+    <script src="../Partida/assets/js/Chat.js"></script>
 
     <script>
         // Pasar el array a JSON

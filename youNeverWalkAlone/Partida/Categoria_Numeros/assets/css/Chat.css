@@ -1,33 +1,17 @@
-/* Estilo general del body */
-body {
-    margin: 0;
-    padding: 0;
-    background-image: url(../../../../assets/img/Fondos/FPComienzo.png);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-color: #000;
-    height: 100vh;
-    overflow: hidden;
-}
-
-.container-fluid {
-    padding: 20px;
-}
-
-
-
+/* Botón Enviar */
 .boton-enviar {
     font-weight: bold;
-    margin-left: 30vh;
-    margin-top: 89vh;
+    margin: 20px auto;
     padding: 10px 20px;
     font-size: 1rem;
     background-color: #0d37f3;
-    color: #000000;
+    color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    display: block;
+    text-align: center;
+    max-width: 200px;
 }
 
 /* Modal */
@@ -43,57 +27,70 @@ body {
     z-index: 1000;
 }
 
-
+/* Botón Cerrar */
 .close {
-    font-size: 1.2em;
+    font-size: 1rem;
     font-weight: bold;
-    color: #000000;
-    width: 80px;
-    padding-left: 10px;
+    color: #fff;
     background-color: #006eff;
-    height: 60px;
+    height: 50px;
+    width: 100px;
     border-radius: 20px;
-    border: 0px solid #000;
+    border: none;
     cursor: pointer;
-    margin-top:580px;
-    display: inline-block;
-}   
+    margin: 20px auto;
+    display: block;
+    text-align: center;
+}
 
+/* Contenedor del Chat */
+/* Contenedor del Chat */
 .chat-container {
-    margin-top: 100px;
+    margin: 20px auto;
     background: rgba(0, 255, 255, 0.5);
     border-radius: 10px;
-    margin-right: 80px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
 }
 
-.chat-box {
-    height: 200px;
-    overflow-y: auto;
-    border: 1px solid #000;
-    padding: 10px;
-    background-color: #00000031;
-    border-radius: 5px;
-    color: #ccc;
+/* Estilos Responsivos */
+@media screen and (max-width: 768px) {
+    .chat-container {
+        padding: 15px;
+        max-width: 90%;
+        margin-left: 30px; /* Desplazar a la derecha en pantallas medianas */
+    }
+
+    .chat-box {
+        height: 150px;
+    }
+
+    .close, .boton-enviar {
+        width: 80px;
+        height: 40px;
+        font-size: 0.9rem;
+    }
 }
 
-.chat-input input {
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 4px solid #00f7ff;
-    background-image: url(../../../../assets/img/Fondos/FPContenido.png);
-    background-position: center;
-    color: #fff;
-}
-.Chat{
-    font-weight: bold;
-    text-shadow: 0px 0px 36px rgba(0, 0, 0, 0.8);
-}
+@media screen and (max-width: 480px) {
+    .chat-container {
+        margin-top: 20px;
+        padding: 10px;
+        margin-left: 20px; /* Desplazar a la derecha en pantallas pequeñas */
+    }
 
+    .chat-box {
+        height: 120px;
+    }
 
-p{
-    margin-left: 90%;
-    color: #000;
+    .close, .boton-enviar {
+        width: 70px;
+        height: 35px;
+        font-size: 0.8rem;
+    }
+
+    .chat-input input {
+        padding: 8px;
+    }
 }

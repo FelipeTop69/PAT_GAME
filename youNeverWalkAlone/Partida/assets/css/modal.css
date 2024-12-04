@@ -1,0 +1,120 @@
+.modal {
+  overflow: hidden;
+  display: none; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width: 90%; /* Ajuste responsivo */
+  max-width: 400px; /* Límite de tamaño */
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.loader {
+  content: '';
+  width: 100px; 
+  height: 100px;
+  margin: auto;
+  border: 12px solid rgb(255, 255, 255);
+  border-top-color: #119500;
+  border-radius: 50%;
+  animation: loading 0.90s ease infinite;
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+p {
+  width: 80%; /* Ajuste responsivo */
+  margin: 10px auto; /* Centrado automático */
+  font-size: 18px; /* Tamaño ajustado */
+  font-weight: bold;
+  color: #332e2e;
+  text-align: center;
+  padding: 10px;
+  border-radius: 100px;
+  position: relative;
+  background-image: linear-gradient(white, rgb(10, 97, 3)), linear-gradient(#065206, #116806);
+  background-clip: content-box, border-box;
+  animation: border-animation 2s infinite ease-in-out;
+}
+
+.boton-enviar:hover span {
+  background-color: color-mix(in srgb, var(--azul-oscuro-x2) 30%, transparent);
+}
+
+button:active {
+  transform: scale(0.9);
+}
+
+.Cargando {
+  display: inline-block;
+  animation: brincos 0.8s ease-in-out infinite;
+}
+
+@keyframes brincos {
+  0%, 50% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Media Queries para dispositivos */
+@media (min-width: 768px) {
+  /* Tablet */
+  .modal-content {
+    width: 70%;
+    max-width: 600px;
+  }
+  .loader {
+    width: 120px;
+    height: 120px;
+  }
+  p {
+    font-size: 20px;
+    width: 60%;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  .modal-content {
+    width: 50%;
+    max-width: 800px;
+  }
+  .loader {
+    width: 150px;
+    height: 150px;
+  }
+  p {
+    font-size: 24px;
+    width: 50%;
+  }
+}
