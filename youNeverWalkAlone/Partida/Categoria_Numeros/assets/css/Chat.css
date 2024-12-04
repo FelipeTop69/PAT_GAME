@@ -13,6 +13,20 @@
     text-align: center;
     max-width: 200px;
 }
+/* Caja para los mensajes */
+.chat-box {
+    height: 300px; /* Puedes ajustar la altura según tus necesidades */
+    overflow-y: auto; /* Habilita el scroll solo en el eje Y */
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.3); /* Fondo blanco semitransparente */
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    scroll-behavior: smooth; /* Suaviza el desplazamiento */
+}
+.Chat{
+    font-weight: bold;
+}
+
 
 /* Modal */
 .modal {
@@ -26,6 +40,19 @@
     align-items: center;
     z-index: 1000;
 }
+#chat-input {
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #000000a9;
+    color: #ccc;
+}
+
+#chat-input:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(121, 121, 121, 0.5);
+}   
 
 /* Botón Cerrar */
 .close {
