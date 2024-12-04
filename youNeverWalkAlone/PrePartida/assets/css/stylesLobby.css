@@ -492,40 +492,6 @@ body {
     100% {transform: translateX(0) rotate(-45deg);}
 }
 
-/* Cuerpo Chat */
-.modal-chat {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    visibility: hidden; 
-    opacity: 0; 
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: color-mix(in srgb, var(--color-negro) 60%, transparent);
-    backdrop-filter: blur(2px);
-    transition: visibility 0.3s, opacity 0.3s ease-in-out; /* Transición suave */
-}
-
-.modal-chat.show {
-    visibility: visible; /* Visible */
-    opacity: 1; /* Opaco */
-}
-
-.modal-content-chat {
-    background-color: #fff;
-    padding: 20px;
-    width: 40%;
-    height: 60%;
-}
-
-
-/* Fin CHAT */
-
 /*=============== BREAKPOINTS ===============*/
 
 /* Pantalla celular grande*/

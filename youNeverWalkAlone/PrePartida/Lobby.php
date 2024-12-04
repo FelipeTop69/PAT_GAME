@@ -64,6 +64,7 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/fondoContenido.css">
     <link rel="stylesheet" href="assets/css/stylesLobby.css">
+    <link rel="stylesheet" href="../CHAT/css/stylesChat.css">
 
     <!-- Iconos -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css">
@@ -114,7 +115,44 @@
     <!-- Modal Chat -->
     <div id="modalChat" class="modal-chat">
         <div class="modal-content-chat animate__animated">
-        
+            <div class="encabezado-chat">
+                <div class="icono-pat-chat">
+
+                </div>
+
+                <div class="title-chat">
+                    pat game
+                </div>
+
+                <div class="icono-cerrar-chat">
+                    
+                </div>
+            </div>
+
+            <div class="contenedor-mensajes" id="contenedorMensajes">
+                <!-- <div class="cont-mensaje-jugador-enviado">
+                    <div class="jugador-envia">
+                        <div class="tu-chat">Tu</div>
+                        <div class="avatar-chat"></div>
+                    </div>
+                    <div class="mensaje-jugador-enviado">Hola buenas tardes otra vez ando probando otra vex por zqui el chat asasd asdasd asdas</div>
+                </div> -->
+
+                <!-- <div class="cont-mensaje-recibido">
+                    <div class="jugador-recibido">
+                        <div class="nombre-jugador-recibe">Felipe</div>
+                        <div class="avatar-chat-recibe"></div>
+                    </div>
+                    <div class="mensaje-jugador-recibido">Hola buenas tardes otra vez ando sadsad asdasd asasfasf sadsad asdasd asdasdas asfsa</div>
+                </div> -->
+            </div>
+
+            <div class="contenedor-barra-envio">
+                <input type="text" class="mensaje-enviar" id="mensajeEnviar">
+                <button class="btn-enviar" type="button" id="btnEnviar">
+                    
+                </button>
+            </div>
         </div>
     </div>
 
@@ -128,9 +166,9 @@
     </button> -->
     <!-- Boton Actualizar - Prueba -->
     <button id="botonActualizar" class="btn btn-warning position-absolute bottom-0 m-4" hidden>Actualizar Points</button>
-
     <script src="../Bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../Bootstrap/js/bootstrap.js"></script>
+    <script src="../CHAT/js/mainChat.js"></script>
     <script src="../assets/Libreria/SweetAlert2/js/sweetalert2.min.js"></script>
     <script src="Registro/js/funcionesLobby.js"></script>
     <script src="assets/js/mainLobby.js"></script>
