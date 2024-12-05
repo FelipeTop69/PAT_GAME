@@ -4,7 +4,7 @@ class ConsultasAdmin extends Conexion {
 
     public function consultarJugadores() {
         $sql = "
-            SELECT jp.jugadorpartidaid, rj.numerodocumento, a.imagenurl, rj.nombre, jp.puntuacion 
+            SELECT jp.jugadorpartidaid, rj.numerodocumento, a.imagenurl, rj.nombre, jp.puntuacion, jp.nivel, jp.ronda
             FROM jugador_partida jp
             JOIN registro_jugador rj ON jp.jugadorid = rj.jugadorid
             JOIN avatares a ON rj.avatarid = a.avatarid

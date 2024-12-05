@@ -1,0 +1,456 @@
+/* Cuerpo Chat */
+.modal-chat {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden; 
+    opacity: 0; 
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: color-mix(in srgb, var(--color-negro) 75%, transparent);
+    backdrop-filter: blur(2px);
+    transition: visibility 0.3s, opacity 0.3s ease-in-out;
+    /* Transición suave */
+}
+
+.modal-chat.show {
+    visibility: visible;
+    /* Visible */
+    opacity: 1;
+    /* Opaco */
+}
+
+.modal-content-chat {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    width: 40%;
+    height: 75%;
+    font-family: var(--body-font);
+}
+
+/* Encabezado */
+.encabezado-chat {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    background: linear-gradient(to right,
+            color-mix(in srgb, var(--verde-opaco) 60%, transparent) 35%,
+            color-mix(in srgb, var(--azul-oscuro) 60%, transparent) 65%);
+    box-shadow: inset 8px 8px 8px 0 color-mix(in srgb, var(--color-negro) 20%, transparent),
+        inset 8px 8px 8px 0 color-mix(in srgb, var(--color-negro) 20%, transparent),
+        inset 0 4px 4px 0 color-mix(in srgb, var(--color-negro) 20%, transparent),
+        inset 20px 5px 100px 0 color-mix(in srgb, var(--color-negro) 20%, transparent);
+    backdrop-filter: blur(10px);
+    border: 4px solid color-mix(in srgb, var(--verde-oscuro-x3) 70%, transparent);
+    border-top-left-radius: 25px;
+}
+
+.icono-pat-chat {
+    width: 3.1rem;
+    height: 3.1rem;
+}
+
+.title-chat {
+    padding: 0.5rem;
+    font-weight: var(--font-weight-black);
+    font-style: var(--font-style-dos);
+    font-size: 1.6rem;
+    text-align: center;
+    color: rgb(216, 216, 216);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: 0px 4px 4px color-mix(in srgb, var(--color-negro) 25%, transparent),
+        0px 0px 25px var(--verde-borde),
+        0px 4px 4px color-mix(in srgb, var(--color-negro) 25%, transparent);
+}
+
+.icono-cerrar-chat {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.2rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    /* Transición suave de transformación */
+}
+
+.icono-cerrar-chat:hover {
+    transform: scale(1.3);
+    /* Efecto de escala */
+}
+
+.icono-cerrar-chat svg {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+/* Cuerpo Mensajes chat */
+.contenedor-mensajes {
+    width: 100%;
+    /* height: 65%; */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background-color: color-mix(in srgb, var(--color-negro) 45%, transparent);
+    border-right: 4px solid color-mix(in srgb, var(--verde-oscuro-x3) 70%, transparent);
+    border-left: 4px solid color-mix(in srgb, var(--verde-oscuro-x3) 70%, transparent);
+    border-bottom: 4px solid color-mix(in srgb, var(--verde-oscuro-x3) 70%, transparent);
+    border-bottom-right-radius: 25px;
+    overflow-y: scroll;
+    backdrop-filter: blur(5px);
+}
+
+/* MENSAJE ENVIADO */
+.cont-mensaje-jugador-enviado {
+    width: auto;
+    max-width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    align-self: end;
+    font-size: 1rem;
+    padding: 8px;
+}
+
+.jugador-envia {
+    width: auto;
+    max-width: 80%;
+    min-width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.2em 1rem;
+    background-color: color-mix(in srgb, var(--verde-oscuro-x2) 70%, transparent);
+    border-top: 3px solid color-mix(in srgb, var(--azul-claro) 70%, transparent);
+    border-right: 3px solid color-mix(in srgb, var(--azul-claro) 70%, transparent);
+    border-bottom: 0 solid transparent;
+    border-left: 3px solid color-mix(in srgb, var(--azul-claro) 70%, transparent);
+    border-top-left-radius: 10px;
+}
+
+.tu-chat {
+    font-weight: var(--font-weight-bold);
+    font-style: var(--font-style-dos);
+    font-size: 1.1rem;
+    color: var(--color-blanco);
+}
+
+.avatar-chat {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar-chat img {
+    width: 35px;
+    height: 35px;
+}
+
+.mensaje-jugador-enviado {
+    min-width: 100px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    text-align: justify;
+    padding: 0.2rem 0.4rem;
+    color: var(--color-blanco);
+    font-weight: var(--font-weight-medium);
+    border: 3px solid color-mix(in srgb, var(--azul-claro) 70%, transparent);
+    background-color: color-mix(in srgb, var(--verde-oscuro-x2) 70%, transparent);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+/* FIN MENSAJE ENVIADO */
+
+/* MENSAJE REIBIDO */
+.cont-mensaje-recibido {
+    width: auto;
+    max-width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    align-self: start;
+    font-size: 1rem;
+    padding: 8px;
+}
+
+.jugador-recibido {
+    width: auto;
+    max-width: 80%;
+    min-width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.2rem 1rem;
+    background-color: color-mix(in srgb, var(--azul-oscuro) 70%, transparent);
+    border-top: 3px solid color-mix(in srgb, var(--verde-oscuro) 70%, transparent);
+    border-right: 3px solid color-mix(in srgb, var(--verde-oscuro) 70%, transparent);
+    border-bottom: 0 solid transparent;
+    border-left: 3px solid color-mix(in srgb, var(--verde-oscuro) 70%, transparent);
+    border-top-left-radius: 10px;
+}
+
+.nombre-jugador-recibe {
+    font-weight: var(--font-weight-bold);
+    font-style: var(--font-style-dos);
+    font-size: 1.1rem;
+    color: var(--color-blanco);
+}
+
+.avatar-chat-recibe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar-chat-recibe img {
+    width: 35px;
+    height: 35px;
+}
+
+.mensaje-jugador-recibido {
+    min-width: 100px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 0.2rem 0.4rem;
+    color: var(--color-blanco);
+    font-weight: var(--font-weight-medium);
+    border: 3px solid color-mix(in srgb, var(--verde-oscuro) 70%, transparent);
+    background-color: color-mix(in srgb, var(--azul-oscuro) 70%, transparent);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+/* FIN MENSAJE REIBIDO */
+
+/* Barra Envio */
+.contenedor-barra-envio {
+    width: 100%;
+    /* height: 12%; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+.mensaje-enviar {
+    width: 90%;
+    height: 100%;
+    border-radius: 50px;
+    border: 0;
+    border: 3px outset var(--verde-oscuro);
+    background-color: color-mix(in srgb, var(--azul-oscuro-x2) 70%, transparent);
+    color: var(--color-blanco);
+    font-size: 18px;
+    padding-left: 1rem;
+}
+
+.btn-enviar-chat {
+    all: unset;
+    /* Quita todos los estilos predeterminados */
+    /* padding: 0.2rem; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+    /* Transición suave */
+}
+
+.btn-enviar-chat:hover {
+    transform: scale(1.2);
+    /* Efecto de escala */
+}
+
+.btn-enviar-chat svg {
+    width: 30px;
+    height: 30px;
+}
+
+.cuerpo-alerta {
+    font-family: var(--body-font);
+    border-radius: 50px;
+    /* Bordes redondeados */
+    padding: 0.5rem;
+    /* Espaciado interno */
+    color: rgb(223, 223, 223);
+    background: linear-gradient(102deg, color-mix(in srgb, var(--azul-oscuro) 55%, transparent) 21.7%, color-mix(in srgb, var(--verde-oscuro-x2) 60%, transparent) 79.94%);
+    backdrop-filter: blur(15px);
+    border: 5px outset rgb(0, 83, 151);
+}
+
+
+.icono-alerta {
+    width: 120px;
+    height: 120px;
+    border: none !important;
+}
+
+.titulo-alerta {
+    font-style: var(--font-style-dos);
+    font-weight: var(--font-weight-extraBold);
+}
+
+.mensaje-alerta {
+    font-weight: var(--font-weight-bold);
+    font-size: 18px;
+}
+
+.boton-alerta {
+    font-family: var(--body-font);
+    font-style: var(--font-style-dos);
+    font-weight: var(--font-weight-black);
+    width: 100px;
+    height: 50px;
+    border-radius: 8px;
+    background-color: var(--azul-borde-oscuro);
+    border: 3px outset var(--verde-oscuro);
+}
+
+/* Fin CHAT */
+
+/*=============== BREAKPOINTS ===============*/
+
+/* Pantalla celular grande*/
+@media screen and (max-width: 576px) {}
+
+/* Pantalla celular mediana */
+@media screen and (max-width: 476px) {
+
+    .modal-content-chat {
+        width: 95%;
+        height: 65%;
+    }
+
+    .tu-chat {
+        font-size: 1rem;
+    }
+
+    .avatar-chat img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .nombre-jugador-recibe {
+        font-size: 1rem;
+    }
+
+    .avatar-chat-recibe img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .mensaje-enviar {
+        width: 85%;
+    }
+}
+
+/* Pantalla celular pequeña*/
+@media screen and (max-width: 376px) {
+    .modal-content-chat {
+        width: 100%;
+        height: 70%;
+    }
+
+    .icono-pat-chat {
+        width: 3.2rem;
+        height: 3.2rem;
+    }
+
+    .title-chat {
+        font-size: 1.5rem;
+    }
+
+    .icono-cerrar-chat svg {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .tu-chat {
+        font-size: 1rem;
+    }
+
+    .avatar-chat img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .nombre-jugador-recibe {
+        font-size: 1rem;
+    }
+
+    .avatar-chat-recibe img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .mensaje-enviar {
+        width: 85%;
+    }
+}
+
+/* Pantalla celular minion*/
+@media screen and (max-width: 320px) {
+    .modal-content-chat {
+        width: 100%;
+        height: 80%;
+    }
+
+    .icono-pat-chat {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .title-chat {
+        font-size: 1.3rem;
+    }
+
+    .icono-cerrar-chat svg {
+        width: 2.3rem;
+        height: 2.3rem;
+    }
+
+    .tu-chat {
+        font-size: 1rem;
+    }
+
+    .avatar-chat img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .cont-mensaje-jugador-enviado {
+        font-size: 0.8rem;
+    }
+
+    .nombre-jugador-recibe {
+        font-size: 1rem;
+    }
+
+    .avatar-chat-recibe img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .cont-mensaje-recibido {
+
+        font-size: 0.8rem;
+    }
+}

@@ -7,7 +7,7 @@ function actualizarRondaHTML() {
             let {ronda} = progreso;
             const rondaElemento = document.getElementById('ronda-numero');
             if (rondaElemento) {
-                rondaElemento.textContent = `Ronda ${ronda}`;
+                rondaElemento.textContent = `Ronda #${ronda}`;
             } else {
                 console.error('No se pudo encontrar el elemento de la ronda en el HTML.');
             }

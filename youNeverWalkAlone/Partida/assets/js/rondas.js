@@ -1,10 +1,9 @@
 //RONDAS POR NIVELES
-
 window.onload = () => {
     // Después de mostrar la puntuación, redirige de nuevo a Memorizacion.html
     setTimeout(() => {
         avanzarRonda();
-    }, 8000); 
+    }, 8000); // Cambia el tiempo según sea necesario
 };
 
 function avanzarRonda() {
@@ -33,7 +32,22 @@ function avanzarRonda() {
                 console.log(`Actualización de progreso realizada correctamente. ronda: ${ronda} nivel: ${nivel}`);
                 if (nivel === 'completado') {
                     console.log('Nivel completado, redirigiendo a Podio.html');
-                    window.location.href = 'Podio.html';
+                    const timePreRedireccion = 100; 
+                    const redirrecion = 'PrePodio.html';
+                    function startFadeOut() {
+                        const overlay = document.getElementById('fadee-overlay');
+                        const carta = document.getElementById('containerCarta');
+                        if(overlay && carta){
+                            carta.style.zIndex = '0'
+                            overlay.style.opacity = 1;
+                            setTimeout(() => {
+                                window.location.href = redirrecion;
+                            }, 2000);
+                        }else{
+                            console.log('No encontradoooo')
+                        }
+                    }
+                    setTimeout(startFadeOut, timePreRedireccion);
                 } else if (nivel === 'medio') {
                     console.log('Nivel medio, redirigiendo al detalle de la dificultad');
                     window.location.href = 'Dificultades/Dificultad Medio.php';
@@ -53,6 +67,28 @@ function avanzarRonda() {
     });
 }
 
+
+
+// function redirrecionPodio(){
+//     const timePreRedireccion = 7000; 
+//     const redirrecion = 'Podio.html';
+
+//     function startFadeOut() {
+//         const overlay = document.getElementById('fadee-overlay');
+//         const carta = document.getElementById('containerCarta');
+//         if(overlay && carta){
+//             carta.style.zIndex = '0'
+//             overlay.style.opacity = 1;
+//             setTimeout(() => {
+//                 window.location.href = redirrecion;
+//             }, 3000);
+//         }else{
+//             console.log('No encontradoooo')
+//         }
+//     }
+//     setTimeout(startFadeOut, timePreRedireccion);
+// }
+
 function obtenerNuevoNivel(nivelActual) {
     if (nivelActual === 'facil') return 'medio';
     if (nivelActual === 'medio') return 'dificil';
@@ -64,9 +100,9 @@ function redirigirSegunNivel(nivel) {
     if (nivel === 'facil') {
         window.location.href = 'Categoria_Numeros/Memorizacion.html';
     } else if (nivel === 'medio') {
-        window.location.href = 'Categoria_Numeros/Memorizacion Medio.html';
+        window.location.href = 'Categoria_Numeros/Memorizacion Medio.html'; 
     } else if (nivel === 'dificil') {
-        window.location.href = 'Categoria_Numeros/Memorizacion Dificil.html';
+        window.location.href = 'Categoria_Numeros/Memorizacion Dificil.html'; 
     }
 }
 

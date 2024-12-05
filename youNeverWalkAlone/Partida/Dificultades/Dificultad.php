@@ -45,7 +45,8 @@ $selectedLink = $selectedCategoryId ? ($links[$selectedCategoryId] . "Memorizaci
     <link rel="stylesheet" href="../../Bootstrap/css/bootstrap.min.css">
     <!-- Librerias -->
     <link rel="stylesheet" href="../../assets/Libreria/SweetAlert2/css/sweetalert2.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="../../assets/Libreria/AnimateCSS/animate.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" /> -->
     <!-- Estilos -->
     <link rel="stylesheet" href="../../assets/css/style.css">
     <link rel="stylesheet" href="../../assets/css/fondoContenido.css">
@@ -108,7 +109,7 @@ $selectedLink = $selectedCategoryId ? ($links[$selectedCategoryId] . "Memorizaci
 
             setTimeout(() => {
                 window.location.href = "<?php echo htmlspecialchars($selectedLink); ?>";
-            }, 5000); 
+            }, 4000); 
 
         })
 

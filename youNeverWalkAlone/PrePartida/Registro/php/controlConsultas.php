@@ -26,7 +26,7 @@
             return $stmt->fetchAll();
         }
 
-        private const LIMITE_JUGADORES = 2; 
+        private const LIMITE_JUGADORES = 5; 
 
         public static function obtenerLimiteJugadores() {
             return self::LIMITE_JUGADORES;

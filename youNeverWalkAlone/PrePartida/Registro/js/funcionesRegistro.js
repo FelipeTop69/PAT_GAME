@@ -66,7 +66,7 @@ formRegistro.addEventListener('submit', (focus) => {
                 console.log(data);
             
                 // Reproducir el sonido
-                const music = new Audio('../assets/multimedia/audio/admin/Registro.mp3');
+                const music = new Audio('../assets/Multimedia/Audio/PrePartida/Registro.mp3');
                 music.play();
             
                 // Esperar 1 segundo antes de redirigir

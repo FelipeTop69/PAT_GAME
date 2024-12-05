@@ -39,6 +39,21 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('.fondo-boton-modal').innerHTML = contenidoBotonModal;
 
     // listarJugadores()
+
+    // Animacion Icono chat
+    const icono = document.getElementById('iconoChat');
+
+    function iniciarAnimacion() {
+        icono.classList.add('wobble');
+        setTimeout(detenerAnimacion, 1000); // Duración de la animación
+    }
+
+    function detenerAnimacion() {
+        icono.classList.remove('wobble');
+        setTimeout(iniciarAnimacion, 3000); // Intervalo entre animaciones
+    }
+
+    iniciarAnimacion(); 
 })
 
 // Inyectar contenido del modal
@@ -51,7 +66,7 @@ const contenidoModal =
             </div>
             <div class="modal-body">
                 <video id="contenedorVideo" class="contenedor-video" width="100%" height="auto" controls >
-                    <source src="../assets/multimedia/videos/Tutorial PAT GAME.mp4" type="video/mp4">
+                    <source src="../assets/Multimedia/Videos/Tutorial PAT GAME.mp4" type="video/mp4">
                     Tu navegador no soporta el elemento de video.
                 </video>
             </div>
@@ -73,14 +88,97 @@ const video = document.getElementById('contenedorVideo');
 
 // Detectar cuando se abre el modal
 modal.addEventListener('shown.bs.modal', function () {
-    // video.play(); 
+    // video.play();
+    reducirVolumen(); // Disminuir el volumen del audio
 });
 
 // Detectar cuando se cierra el modal
 modal.addEventListener('hidden.bs.modal', function () {
     video.pause();
     video.currentTime = 0;
+    restaurarVolumen(); // Restaurar el volumen del audio
 });
+
+
+// Modal Chat
+// Selección de elementos
+const btn = document.getElementById('btnChat');
+const btnCerrar = document.getElementById('btnCerrarChat');
+const modalChat = document.getElementById('modalChat');
+const modalContent = document.querySelector('.modal-content-chat');
+
+// Abrir modal
+function openModal() {
+    modalChat.classList.add('show'); // Mostrar modal
+    modalContent.classList.add('animate__fadeInDown', 'animate__faster'); // Aplicar animación de entrada
+}
+
+// Cerrar modal
+function closeModal() {
+    modalContent.classList.remove('animate__fadeInDown', 'animate__faster'); // Eliminar clase de entrada
+
+    // Escuchar el final de la animación de cierre
+
+    modalChat.classList.remove('show'); // Ocultar modal después de la animación
+}
+
+// Eventos
+btn.onclick = openModal;
+btnCerrar.onclick = closeModal;
+
+window.onclick = function(event) {
+    if (event.target === modalChat) {
+        closeModal();
+    }
+};
+
+
+// Boton Silenciar
+const music = new Audio('../assets/Multimedia/Audio/PrePartida/Lobby.mp3');
+music.volume = 0.2; // Configuramos el volumen
+music.loop = true; // Repetir automáticamente
+music.autoplay = true; // Habilitamos el autoplay
+
+
+function alternarSonido() {
+    // Obtener el elemento
+    var elemento = document.getElementById('sonido') || document.getElementById('pausa');
+
+    // Verificar el ID actual y alternar
+    if (elemento.id === 'sonido') {
+        elemento.id = 'pausa'; // Cambia el ID a 'pausa'
+        elemento.src = "assets/img/Recursos/Sonido/sin sonido.png"; // Cambia la imagen
+        console.log("Sonido apagado. ID cambiado a 'pausa'");
+        reducirVolumen(); // Detener música
+    } else if (elemento.id === 'pausa') {
+        elemento.id = 'sonido'; // Cambia el ID a 'sonido'
+        elemento.src = "assets/img/Recursos/Sonido/sonido.png"; // Cambia la imagen
+        console.log("Sonido activado. ID cambiado a 'sonido'");
+        restaurarVolumen(); // Reproducir música
+    }
+}
+
+function reducirVolumen() {
+    const interval = setInterval(() => {
+        if (music.volume > 0) {
+            music.volume = Math.max(0, music.volume - 0.05); // Reducir gradualmente el volumen
+        } else {
+            clearInterval(interval); // Detener el ajuste si el volumen llega a 0.1
+        }
+    }, 100); // Reducir cada 100 ms
+}
+
+function restaurarVolumen() {
+    const interval = setInterval(() => {
+        if (music.volume < 0.2) {
+            music.volume = Math.min(0.2, music.volume + 0.05); // Aumentar gradualmente el volumen
+        } else {
+            clearInterval(interval); // Detener el ajuste si el volumen llega al valor deseado
+        }
+    }, 100); // Aumentar cada 100 ms
+}
+
+
 
 
 

@@ -12,6 +12,8 @@ async function iniciarTemporizador(pTiempo, pDireccionUrl) {
     let startTime = null; // Variable para almacenar el tiempo de inicio
     let animationFrame; // Variable para almacenar el requestAnimationFrame
 
+    audioTemporizador(true, 1.25)
+
     async function updateTimer(timestamp) {
         if (!startTime) startTime = timestamp; // Establecer el tiempo inicial la primera vez que se ejecuta
 
@@ -35,10 +37,15 @@ async function iniciarTemporizador(pTiempo, pDireccionUrl) {
             intervaloActual = 'dificil'; // Menos del 30% del tiempo restante
         }
 
+        if (remainingTime <= 2 && remainingTime > 0) { // Si quedan 5 segundos
+            reducirVolumenAudio(window.music, 20000); // Reducir volumen en 5 segundos
+        }
+
         // Actualizar el color y el progreso del círculo
         circularProgress.style.background = `conic-gradient(${color} ${degrees}deg, color-mix(in srgb, var(--color-negro) 30%, transparent) 0deg)`;
 
         if (elapsedTime >= seconds) { // Si el tiempo se ha agotado
+            audioTemporizador(true)
             progressValue.textContent = `0s`; // Mostrar 0 cuando termine
             cancelAnimationFrame(animationFrame); // Detener la animación
 
@@ -63,6 +70,60 @@ async function iniciarTemporizador(pTiempo, pDireccionUrl) {
     animationFrame = requestAnimationFrame(updateTimer);
 }
 
+function reducirVolumenAudio(audio, duracion) {
+    const pasos = 20; // Cantidad de pasos para reducir el volumen
+    const intervalo = duracion / pasos; // Tiempo entre cada reducción
+    const decremento = audio.volume / pasos; // Cantidad a reducir en cada paso
+
+    let contador = 0;
+
+    const intervaloReducir = setInterval(() => {
+      if (contador >= pasos || audio.volume <= 0) {
+        audio.volume = 0; // Asegurarse de que el volumen sea exactamente 0
+        clearInterval(intervaloReducir); // Detener el intervalo
+      } else {
+        audio.volume = Math.max(0, audio.volume - decremento); // Reducir el volumen gradualmente
+        contador++;
+      }
+    }, intervalo);
+}
+
+let audio = null; 
+function audioTemporizador(pActivacion, pVelocidad = 1) {
+    if (!audio) {
+        audio = new Audio('../../assets/Multimedia/Audio/Juego/Temporizador Orden.mp3');
+        audio.loop = true;
+        audio.volume = 0;
+        audio.currentTime = 0;
+    }
+
+    audio.playbackRate = pVelocidad;
+
+    if (pActivacion) {
+        audio.play().then(() => {
+            let volume = 0;
+            const maxVolume = 0.7;
+            const fadeDuration = 2000; // Duración en ms
+            const interval = 200; // Intervalo entre pasos
+            const steps = fadeDuration / interval;
+            const step = 1 / steps;
+
+            const fadeIn = setInterval(() => {
+                if (volume < maxVolume) {
+                    volume = Math.min(volume + step, maxVolume);
+                    audio.volume = volume;
+                }   else {
+                    clearInterval(fadeIn);
+                }
+            }, interval);
+        }).catch((error) => {
+            console.error('Error al reproducir el audio:', error);
+        });
+    } else {
+        audio.pause();
+        audio.currentTime = 0;
+    }
+}
 
 const idElementos = [];
 
@@ -150,10 +211,13 @@ function cambiarOrdenElementos(pContenedor) {
     elementos.forEach(elemento => contenedor.appendChild(elemento));
 }
 
-botonEnviar.addEventListener('click', () => {
-    const clickSound = new Audio('../../assets/multimedia/audio/admin/Sonido Envio.mp3');
-    clickSound.play();
+botonEnviar.addEventListener('click', function handleClick() {
     validarOrden();
+    audioTemporizador(false);
+    const clickSound = new Audio('../../assets/Multimedia/Audio/Juego/Envio.mp3');
+    clickSound.play();
+    // Eliminar el event listener después del primer clic
+    botonEnviar.removeEventListener('click', handleClick);
 });
 
 let ordenJugador = [];
