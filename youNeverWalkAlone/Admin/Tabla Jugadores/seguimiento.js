@@ -63,20 +63,35 @@ const actualizarContadorJugadores = () =>{
 const pintarTablaJugadores = (data) => {
     const tablaJugadores = document.querySelector('#tablaSeguimiento');
     tablaJugadores.innerHTML = "";
+    console.log(data)
+
+    
 
     if(data.length === 0){
         tablaJugadores.innerHTML = `
             <tr>
-                <td colspan="4"><h6 class="text-center">No hay jugadores registrados</h6></td>
+                <td colspan="6"><h6 class="text-center">No hay jugadores registrados</h6></td>
             </tr>
         `
     }else{
         data.forEach(jugador => {
+            let nivel = jugador.nivel;
+            let ronda = jugador.ronda;
+
+            if(jugador.nivel === null || jugador.ronda === null){
+                nivel = 'facil';
+                ronda = '1';
+            }else{
+                nivel = jugador.nivel;
+                ronda = jugador.ronda;
+            }
             tablaJugadores.innerHTML += `
                 <tr>
                     <th scope="row">#${jugador.posicion}</th>
                     <td>${jugador.nombre}</td>
                     <td>${jugador.puntuacion}</td>
+                    <td>${nivel}</td>
+                    <td>${ronda}</td>
                     <td>${jugador.numerodocumento}</td>
                 </tr>
             `;
