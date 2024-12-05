@@ -63,8 +63,18 @@ formRegistro.addEventListener('submit', (focus) => {
                     text: data.limite
                 });
             }else {
-                console.log(data)
-                window.location.href = 'Lobby.php'
+                console.log(data);
+            
+                // Reproducir el sonido
+                const music = new Audio('../assets/Multimedia/Audio/PrePartida/Registro.mp3');
+                music.play();
+            
+                // Esperar 1 segundo antes de redirigir
+                setTimeout(() => {
+                    window.location.href = 'Lobby.php';
+                }, 2000);
+
+                // Reiniciar el formulario
                 formRegistro.reset();
             }
 

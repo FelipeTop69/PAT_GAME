@@ -1,6 +1,6 @@
 // Temporizador Circular
 
-let intervaloTiempoActual = "bajo"; 
+let intervaloTiempoActual = "bajo";
 
 async function iniciarTemporizador(pTiempo, pDireccionUrl) {
     let circularProgress = document.querySelector(".temporizador"),
@@ -37,6 +37,10 @@ async function iniciarTemporizador(pTiempo, pDireccionUrl) {
             intervaloActual = 'dificil'; // Menos del 30% del tiempo restante
         }
 
+        if (remainingTime <= 2 && remainingTime > 0) { // Si quedan 5 segundos
+            reducirVolumenAudio(window.music, 20000); // Reducir volumen en 5 segundos
+        }
+
         // Actualizar el color y el progreso del círculo
         circularProgress.style.background = `conic-gradient(${color} ${degrees}deg, color-mix(in srgb, var(--color-negro) 30%, transparent) 0deg)`;
 
@@ -47,9 +51,9 @@ async function iniciarTemporizador(pTiempo, pDireccionUrl) {
 
             const overlay = document.querySelector('.overlay')
 
-            if(overlay){
+            if (overlay) {
                 document.body.removeChild(overlay);
-            }else{
+            } else {
                 console.log('No se dio click')
             }
 
@@ -67,7 +71,25 @@ async function iniciarTemporizador(pTiempo, pDireccionUrl) {
     animationFrame = requestAnimationFrame(updateTimer);
 }
 
-let audio = null; 
+function reducirVolumenAudio(audio, duracion) {
+    const pasos = 20; // Cantidad de pasos para reducir el volumen
+    const intervalo = duracion / pasos; // Tiempo entre cada reducción
+    const decremento = audio.volume / pasos; // Cantidad a reducir en cada paso
+
+    let contador = 0;
+
+    const intervaloReducir = setInterval(() => {
+        if (contador >= pasos || audio.volume <= 0) {
+            audio.volume = 0; // Asegurarse de que el volumen sea exactamente 0
+            clearInterval(intervaloReducir); // Detener el intervalo
+        } else {
+            audio.volume = Math.max(0, audio.volume - decremento); // Reducir el volumen gradualmente
+            contador++;
+        }
+    }, intervalo);
+}
+
+let audio = null;
 function audioTemporizador(pActivacion, pVelocidad = 1) {
     if (!audio) {
         audio = new Audio('../../assets/Multimedia/Audio/Juego/Temporizador Orden.mp3');
@@ -91,7 +113,7 @@ function audioTemporizador(pActivacion, pVelocidad = 1) {
                 if (volume < maxVolume) {
                     volume = Math.min(volume + step, maxVolume);
                     audio.volume = volume;
-                }   else {
+                } else {
                     clearInterval(fadeIn);
                 }
             }, interval);
@@ -229,13 +251,14 @@ function cambiarOrdenElementos(pContenedor) {
 botonEnviar.addEventListener('click', function handleClick() {
     validarOrden();
     audioTemporizador(false);
-
+    const clickSound = new Audio('../../assets/Multimedia/Audio/Juego/Envio.mp3');
+    clickSound.play();
     // Eliminar el event listener después del primer clic
     botonEnviar.removeEventListener('click', handleClick);
 });
 
 let ordenJugador = [];
-function iniciarDragAndDrop(pFrutas){
+function iniciarDragAndDrop(pFrutas) {
     frutas = pFrutas
     Sortable.create(contenedorDrag, {
         group: {
@@ -246,12 +269,12 @@ function iniciarDragAndDrop(pFrutas){
         animation: 500,
         easing: 'cubic-bezier(0.25, 1, 0.5, 1)', //easeOutQuart de https://easings.net/#
     });
-    
+
     Sortable.create(contenedorDrop, {
         group: {
             name: 'ordenar',
             pull: false,
-            put: function(evt) {
+            put: function (evt) {
                 // Bloquear si el número de elementos en contenedorDrop es igual al límite
                 return contenedorDrop.children.length < frutas.length;
             }
@@ -262,16 +285,16 @@ function iniciarDragAndDrop(pFrutas){
         draggable: ".elemento-ordenar",
         handle: ".elemento-ordenar",
 
-        onStart: function(){
+        onStart: function () {
             cartaElementos.classList.remove('drag-activo');
         },
 
-        onEnd: function(){
+        onEnd: function () {
             cartaElementos.classList.add('drag-activo');
         },
-        
+
         // Cuando se reordenen los elementos en contenedorDrop
-        onSort: function(evt) {
+        onSort: function (evt) {
             const ordenJugador = Array.from(contenedorDrop.querySelectorAll('.elemento-ordenar'))
                 .map(elemento => elemento.getAttribute('data-id'));
 

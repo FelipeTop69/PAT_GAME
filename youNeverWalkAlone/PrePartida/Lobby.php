@@ -73,6 +73,7 @@
 
 <body>
     <div class="container d-flex flex-column vh-100 position-relative">
+    <img class="sonid-Lobby" id="sonido" src="assets/img/Recursos/Sonido/sonido.png" onclick="alternarSonido()" alt="Sonido">
         <div id="btnChat" class="btn-chat position-absolute">
             <img id="iconoChat" src="assets/img/Recursos/Icono-Chat.png" alt="">
         </div>

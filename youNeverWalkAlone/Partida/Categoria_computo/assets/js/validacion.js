@@ -91,8 +91,8 @@ async function validarOrden() {
     // Crear el texto debajo del loader
     const loaderText = document.createElement('div'); 
     loaderText.className = 'glitch'; 
-    loaderText.setAttribute('data-text', 'Esperando Jugadores...'); 
-    loaderText.textContent = 'Esperando Jugadores...';
+    loaderText.setAttribute('data-text', 'Loading...'); 
+    loaderText.textContent = 'Loading...';
 
     // Agregar el loader y el texto al contenedor
     contenedorLoader.appendChild(loader);

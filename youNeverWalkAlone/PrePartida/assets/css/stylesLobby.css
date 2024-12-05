@@ -492,6 +492,14 @@ body {
     100% {transform: translateX(0) rotate(-45deg);}
 }
 
+.sonid-Lobby{
+    position: absolute;
+    margin-top: -4vh;
+    width: 3%;
+    height: 5%;
+    margin-left: -129px; 
+}
+
 /*=============== BREAKPOINTS ===============*/
 
 /* Pantalla celular grande*/

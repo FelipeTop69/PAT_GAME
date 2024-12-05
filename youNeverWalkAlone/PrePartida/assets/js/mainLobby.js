@@ -88,13 +88,15 @@ const video = document.getElementById('contenedorVideo');
 
 // Detectar cuando se abre el modal
 modal.addEventListener('shown.bs.modal', function () {
-    // video.play(); 
+    // video.play();
+    reducirVolumen(); // Disminuir el volumen del audio
 });
 
 // Detectar cuando se cierra el modal
 modal.addEventListener('hidden.bs.modal', function () {
     video.pause();
     video.currentTime = 0;
+    restaurarVolumen(); // Restaurar el volumen del audio
 });
 
 
@@ -129,6 +131,53 @@ window.onclick = function(event) {
         closeModal();
     }
 };
+
+
+// Boton Silenciar
+const music = new Audio('../assets/Multimedia/Audio/PrePartida/Lobby.mp3');
+music.volume = 0.2; // Configuramos el volumen
+music.loop = true; // Repetir automáticamente
+music.autoplay = true; // Habilitamos el autoplay
+
+
+function alternarSonido() {
+    // Obtener el elemento
+    var elemento = document.getElementById('sonido') || document.getElementById('pausa');
+
+    // Verificar el ID actual y alternar
+    if (elemento.id === 'sonido') {
+        elemento.id = 'pausa'; // Cambia el ID a 'pausa'
+        elemento.src = "assets/img/Recursos/Sonido/sin sonido.png"; // Cambia la imagen
+        console.log("Sonido apagado. ID cambiado a 'pausa'");
+        reducirVolumen(); // Detener música
+    } else if (elemento.id === 'pausa') {
+        elemento.id = 'sonido'; // Cambia el ID a 'sonido'
+        elemento.src = "assets/img/Recursos/Sonido/sonido.png"; // Cambia la imagen
+        console.log("Sonido activado. ID cambiado a 'sonido'");
+        restaurarVolumen(); // Reproducir música
+    }
+}
+
+function reducirVolumen() {
+    const interval = setInterval(() => {
+        if (music.volume > 0) {
+            music.volume = Math.max(0, music.volume - 0.05); // Reducir gradualmente el volumen
+        } else {
+            clearInterval(interval); // Detener el ajuste si el volumen llega a 0.1
+        }
+    }, 100); // Reducir cada 100 ms
+}
+
+function restaurarVolumen() {
+    const interval = setInterval(() => {
+        if (music.volume < 0.2) {
+            music.volume = Math.min(0.2, music.volume + 0.05); // Aumentar gradualmente el volumen
+        } else {
+            clearInterval(interval); // Detener el ajuste si el volumen llega al valor deseado
+        }
+    }, 100); // Aumentar cada 100 ms
+}
+
 
 
 

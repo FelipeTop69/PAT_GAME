@@ -23,6 +23,10 @@ function iniciarBarraProgreso(selectorBarra, duracion, urlRedireccion) {
     // Actualiza el tiempo restante
     tiempoRestante = Math.max(0, ((duracion * 1000 - tiempoTranscurrido) / 1000).toFixed(0));
 
+    if (tiempoRestante <= 2 && tiempoRestante > 0) { // Si quedan 5 segundos
+      reducirVolumenAudio(window.music, 20000); // Reducir volumen en 5 segundos
+    }
+
     // Asegúrate de que no pase del 100%
     if (progresoActual >= maxProgreso) {
       audioTemporizador(false)
@@ -40,6 +44,24 @@ function iniciarBarraProgreso(selectorBarra, duracion, urlRedireccion) {
 
   // Inicia la animación
   requestAnimationFrame(actualizarProgreso);
+}
+
+function reducirVolumenAudio(audio, duracion) {
+  const pasos = 20; // Cantidad de pasos para reducir el volumen
+  const intervalo = duracion / pasos; // Tiempo entre cada reducción
+  const decremento = audio.volume / pasos; // Cantidad a reducir en cada paso
+
+  let contador = 0;
+
+  const intervaloReducir = setInterval(() => {
+    if (contador >= pasos || audio.volume <= 0) {
+      audio.volume = 0; // Asegurarse de que el volumen sea exactamente 0
+      clearInterval(intervaloReducir); // Detener el intervalo
+    } else {
+      audio.volume = Math.max(0, audio.volume - decremento); // Reducir el volumen gradualmente
+      contador++;
+    }
+  }, intervalo);
 }
 
 let audio = null; 

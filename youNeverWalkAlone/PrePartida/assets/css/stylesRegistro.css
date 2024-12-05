@@ -208,6 +208,23 @@ a {
     text-shadow: 5px 5px 5px var(--color-negro);
 }
 
+.sonid{
+    margin-top: -100vh;
+    width: 3%;
+    height: 5%;
+    margin-left: 10px; 
+
+}
+.sonid-re{
+    position: absolute;
+    margin-top: -99vh;
+    width: 3%;
+    height: 5%;
+    margin-left: -129px; 
+
+}
+
+
 /* Animacion para que el label suba */
 /* .input-carta:focus+.label-carta {
     top: -12px;
@@ -233,6 +250,18 @@ a {
         margin-top: 2rem;
         font-size: 2.25rem;
     }
+
+    .sonid{
+        width: 9%;
+        height: 6%;
+        margin-left: 5px; 
+    }
+    .sonid-re{
+        width: 9%;
+        height: 6%;
+        margin-left: 2px; 
+    }
+
 }
 
 /* Pantalla celular mediana */
@@ -247,6 +276,17 @@ a {
         font-size: 2.25rem;
     }
     
+    .sonid{
+        width: 9%;
+        height: 6%;
+        margin-left: 5px; 
+    }
+    .sonid-re{
+        width: 9%;
+        height: 6%;
+        margin-left: 2px; 
+    }
+
 }
 
 /* Pantalla celular pequeña*/
@@ -264,6 +304,18 @@ a {
     .titulo-carta {
         font-size: 2rem;
     }
+
+    .sonid{
+        width: 8%;
+        height: 5%;
+        margin-left: 5px; 
+    }
+    .sonid-re{
+        width: 8%;
+        height: 5%;
+        margin-left: -20px; 
+    }
+
     
 }
 
@@ -300,5 +352,19 @@ a {
         align-items: center;
         justify-content: center;
     }
+
+    .sonid{
+        width: 10%;
+        height: 10%;
+        margin-left: 5px; 
+    }
+
+    .sonid-re{
+        width: 10%;
+        height: 10%;
+        margin-left: 5px;
+    }
+
+
     
 }

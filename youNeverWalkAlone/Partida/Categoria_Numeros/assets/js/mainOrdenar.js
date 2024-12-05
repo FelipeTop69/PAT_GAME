@@ -37,6 +37,10 @@ async function iniciarTemporizador(pTiempo, pDireccionUrl) {
             intervaloActual = 'dificil'; // Menos del 30% del tiempo restante
         }
 
+        if (remainingTime <= 2 && remainingTime > 0) { // Si quedan 5 segundos
+            reducirVolumenAudio(window.music, 20000); // Reducir volumen en 5 segundos
+        }
+
         // Actualizar el color y el progreso del círculo
         circularProgress.style.background = `conic-gradient(${color} ${degrees}deg, color-mix(in srgb, var(--color-negro) 30%, transparent) 0deg)`;
 
@@ -64,6 +68,24 @@ async function iniciarTemporizador(pTiempo, pDireccionUrl) {
 
     // Iniciar la animación con requestAnimationFrame
     animationFrame = requestAnimationFrame(updateTimer);
+}
+
+function reducirVolumenAudio(audio, duracion) {
+    const pasos = 20; // Cantidad de pasos para reducir el volumen
+    const intervalo = duracion / pasos; // Tiempo entre cada reducción
+    const decremento = audio.volume / pasos; // Cantidad a reducir en cada paso
+
+    let contador = 0;
+
+    const intervaloReducir = setInterval(() => {
+      if (contador >= pasos || audio.volume <= 0) {
+        audio.volume = 0; // Asegurarse de que el volumen sea exactamente 0
+        clearInterval(intervaloReducir); // Detener el intervalo
+      } else {
+        audio.volume = Math.max(0, audio.volume - decremento); // Reducir el volumen gradualmente
+        contador++;
+      }
+    }, intervalo);
 }
 
 let audio = null; 
@@ -192,7 +214,8 @@ function cambiarOrdenElementos(pContenedor) {
 botonEnviar.addEventListener('click', function handleClick() {
     validarOrden();
     audioTemporizador(false);
-
+    const clickSound = new Audio('../../assets/Multimedia/Audio/Juego/Envio.mp3');
+    clickSound.play();
     // Eliminar el event listener después del primer clic
     botonEnviar.removeEventListener('click', handleClick);
 });

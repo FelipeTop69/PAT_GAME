@@ -47,6 +47,39 @@ btnVolver.addEventListener('click', () => {
     window.location.href = 'Comienzo.html'
 })
 
+const music = new Audio('../assets/Multimedia/Audio/PrePartida/Comienzo.mp3');
+music.volume = 0.6; // Configuramos el volumen
+music.loop = true; // Repetir automáticamente
+music.autoplay = true; // Habilitamos el autoplay
+
+
+function alternarSonido() {
+    // Obtener el elemento
+    var elemento = document.getElementById('sonido') || document.getElementById('pausa');
+
+    // Verificar el ID actual y alternar
+    if (elemento.id === 'sonido') {
+        elemento.id = 'pausa'; // Cambia el ID a 'pausa'
+        elemento.src = "assets/img/Recursos/Sonido/sin sonido.png"; // Cambia la imagen
+        console.log("Sonido apagado. ID cambiado a 'pausa'");
+        detenerMusica(); // Detener música
+    } else if (elemento.id === 'pausa') {
+        elemento.id = 'sonido'; // Cambia el ID a 'sonido'
+        elemento.src = "assets/img/Recursos/Sonido/sonido.png"; // Cambia la imagen
+        console.log("Sonido activado. ID cambiado a 'sonido'");
+        reproducirMusica(); // Reproducir música
+    }
+}
+
+function reproducirMusica() {
+    music.play();
+}
+
+function detenerMusica() {
+    music.pause();
+    music.currentTime = 0; // Resetea la canción al inicio
+}
+
 // Validacion de campos
 // function camposCompletos() {
 //     const camposRequeridos = document.querySelectorAll('input[required]');
