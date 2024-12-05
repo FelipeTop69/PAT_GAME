@@ -7,3 +7,6 @@ function boton() {
 }
 
 // var sonido = new audio("../multimedia/audio/admin/Registro.mp3");
+
+const music = new Audio('../assets/multimedia/audio/admin/Registro');
+music.play();

@@ -167,12 +167,16 @@ function cambiarOrdenElementos(pContenedor) {
     // Ordenar aleatoriamente
     elementos.sort(() => Math.random() - 0.5);
 
-    // Limpiar el contenedor y reordenar los elementos
+    // Limpiar el contenedor y reordenar los elementoss 
     contenedor.innerHTML = '';
     elementos.forEach(elemento => contenedor.appendChild(elemento));
 }
 
-botonEnviar.addEventListener('click', validarOrden);
+botonEnviar.addEventListener('click', () => {
+    const clickSound = new Audio('../../assets/multimedia/audio/admin/Sonido Envio.mp3');
+    clickSound.play();
+    validarOrden();
+});
 
 let ordenJugador = [];
 function iniciarDragAndDrop(pComputo){

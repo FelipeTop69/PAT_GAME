@@ -188,7 +188,11 @@ function cambiarOrdenElementos(pContenedor) {
     elementos.forEach(elemento => contenedor.appendChild(elemento));
 }
 
-botonEnviar.addEventListener('click', validarOrden);
+botonEnviar.addEventListener('click', () => {
+    const clickSound = new Audio('../../assets/multimedia/audio/admin/Sonido Envio.mp3');
+    clickSound.play();
+    validarOrden();
+});
 
 let ordenJugador = [];
 function iniciarDragAndDrop(pFrutas){
