@@ -333,13 +333,13 @@ document.addEventListener('DOMContentLoaded', () =>{
     // Esta funcion se encuentra desabilitada por ahora
     // btnActualizarPoints.addEventListener('click', actualizarPuntuacion);
 
-    mostrarJugador();
+    // mostrarJugador();
 
     btnSalir.addEventListener('click', cerrarSesion);
     setInterval(() => {
         listarJugadores()
     }, 3000);
-    verificarEstadoPartida()
+    verificarEstadoPartida();
     setInterval(verificarEstadoPartida, 800)
 })
 
