@@ -121,7 +121,7 @@
                 </div>
 
                 <div class="title-chat">
-                    pat game
+                    chat
                 </div>
 
                 <div id="btnCerrarChat" class="icono-cerrar-chat">
