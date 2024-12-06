@@ -14,7 +14,7 @@ function avanzarRonda() {
             let { nivel, ronda, numerodocumento } = progreso;
 
             // Determinar el nuevo nivel si la ronda es la última
-            if (ronda < 3) {
+            if (ronda < 2) {
                 ronda++;
                 console.log('ronda actual:', ronda);
                 console.log('nivel actual:', nivel);
