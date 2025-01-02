@@ -40,14 +40,14 @@
                     ':idcategoria' => $idcategoria,
                 ]);
 
-                echo "<script language='JavaScript'>location.assign('../../condigoQR.php')</script>";
+                echo "<script language='JavaScript'>location.assign('../../Union_Jugadores.php')</script>";
 
 
             } else {
-                echo "<script language='JavaScript'>alert('¡Por favor selecciona una categoría!');location.assign('../../index.php')</script>";
+                echo "<script language='JavaScript'>alert('¡Por favor selecciona una categoría!');location.assign('../../Configuracion_Partida.php')</script>";
             }
         }else{
-            echo "<script language='JavaScript'>alert('Hay campos sin completar');location.assign('../../index.php')</script>";
+            echo "<script language='JavaScript'>alert('Hay campos sin completar');location.assign('../../Configuracion_Partida.php')</script>";
         }
     }
 ?>

@@ -27,5 +27,5 @@ window.addEventListener('DOMContentLoaded', event => {
 
 /**Funcion del boton "Iniciar partida" */
 function avanzar(){
-    window.location.href= 'seguir_partida.html';
+    window.location.href= 'Seguimiento_Partida.html';
 }

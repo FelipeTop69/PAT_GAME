@@ -13,7 +13,7 @@ btnIniciar.addEventListener('click', () => {
     .then(data => {
         console.log(data)
         if(data.correcto){
-            window.location.href = 'seguir_partida.html'
+            window.location.href = 'Seguimiento_Partida.html'
         }else{
             Swal.fire({ 
                 icon: 'warning', 
@@ -25,7 +25,7 @@ btnIniciar.addEventListener('click', () => {
             })
             .then((result) => { 
                 if (result.isConfirmed) { 
-                    window.location.href = 'index.php'
+                    window.location.href = 'Configuracion_Partida.php'
                 }else if (result.dismiss === Swal.DismissReason.cancel) { 
                     console.log('Bueno, señor')
                 }
