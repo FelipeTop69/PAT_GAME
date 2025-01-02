@@ -20,7 +20,7 @@ if ($resultado) {
 $links = [
     1 => "../Categoria_Numeros/",
     2 => "../Categoria_Frutas/",
-    3 => "../Categoria_computo/"
+    3 => "../Categoria_Computo/"
 ];
 
 // Asigna la URL basada en la categoría seleccionada, agregando el archivo "Memorizacion.html"
@@ -100,7 +100,6 @@ $selectedLink = $selectedCategoryId ? ($links[$selectedCategoryId] . "Memorizaci
     <script src="../../Bootstrap/js/bootstrap.js"></script>
     <script src="../../assets/Libreria/SweetAlert2/js/sweetalert2.min.js"></script>
     <script src="../assets/js/mainDificultad.js"></script>
-    <script src="../../Admin/assets/js/boton2.js"></script>
     <script src="../../assets/js/main.js"></script>
 
     <script>

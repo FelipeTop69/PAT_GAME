@@ -20,7 +20,7 @@ if ($resultado) {
 $links = [
     1 => "../Categoria_Numeros/",
     2 => "../Categoria_Frutas/",
-    3 => "../Categoria_computo/"
+    3 => "../Categoria_Computo/"
 ];
 
 // Asigna la URL basada en la categoría seleccionada, agregando el archivo "Memorizacion.html"
@@ -84,21 +84,11 @@ $selectedLink = $selectedCategoryId ? ($links[$selectedCategoryId] . "Memorizaci
                 </div>
             </div>
         </div>
-        <!-- <a href="<?php echo htmlspecialchars($selectedLink); ?>">
-            <button  class="next position-absolute bottom-0 end-0">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75">
-                    </path>
-                </svg>
-            </button>
-        </a> -->
     </div>
     <script src="../../Bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../../Bootstrap/js/bootstrap.js"></script>
     <script src="../../assets/Libreria/SweetAlert2/js/sweetalert2.min.js"></script>
     <script src="../assets/js/mainDificultad.js"></script>
-    <script src="../../Admin/assets/js/boton2.js"></script>
     <script src="../../assets/js/main.js"></script>
     <script>
 
