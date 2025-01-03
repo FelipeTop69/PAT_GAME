@@ -1,3 +1,14 @@
+/* VARIABLES CSS */
+:root {
+
+    /* Texto Dificultades */
+    --color-dificultad-facil: rgb(60, 184, 57);
+    --color-dificultad-media: rgb(184, 171, 57);
+    --color-dificultad-dificil: rgb(190, 8, 19);
+
+}
+
+
 .switch {
     position: relative;
     display: inline-block;
@@ -49,3 +60,16 @@ input:checked + .slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
+
+.contenedor-texto-nivel > div:nth-child(1) .texto-nivel {
+    color: var(--color-dificultad-facil);
+}
+
+.contenedor-texto-nivel > div:nth-child(2) .texto-nivel {
+    color: var(--color-dificultad-media);
+}
+
+.contenedor-texto-nivel > div:nth-child(3) .texto-nivel {
+    color: var(--color-dificultad-dificil);
+}
+

@@ -26,10 +26,14 @@ class Conexion {
     }
 
     public function ejecutar($sql, $valores = []) {
-        $pdo = $this->conectar();
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute($valores);
-        return $stmt; 
+        try {
+            $pdo = $this->conectar();
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute($valores);
+            return $stmt;
+        } catch (PDOException $e) {
+            throw new PDOException($e->getMessage());
+        }
     }
 
 }

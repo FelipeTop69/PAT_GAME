@@ -1,4 +1,4 @@
-const url = 'Tabla Jugadores/php/ejecutarConsultas.php';
+const url = 'Procesos Admin/php/ejecutarConsultas.php';
 const urlContador = '../PrePartida/Registro/php/ejecutarConsultas.php';
 
 const  listarJugadores = () => {

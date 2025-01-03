@@ -25,7 +25,7 @@ btnIniciar.addEventListener('click', () => {
             })
             .then((result) => { 
                 if (result.isConfirmed) { 
-                    window.location.href = 'Configuracion_Partida.php'
+                    window.location.href = 'Configuracion_Partida.html'
                 }else if (result.dismiss === Swal.DismissReason.cancel) { 
                     console.log('Bueno, señor')
                 }
