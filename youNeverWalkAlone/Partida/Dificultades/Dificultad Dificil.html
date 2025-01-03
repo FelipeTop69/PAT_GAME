@@ -1,33 +1,4 @@
-<?php
-include '../../Conexion/conexion.php';
-$conexion = new Conexion();
-
-// Consulta para obtener el primer ID de categoría entre los posibles valores (1, 2, 3)
-$sql = "SELECT idcategoria FROM configuracion WHERE idcategoria IN (1, 2, 3) LIMIT 1";
-$stmt = $conexion->ejecutar($sql);
-$resultado = $stmt->fetch(); // Obtenemos una sola fila
-
-// Verificamos si se encontró una categoría
-if ($resultado) {
-    $selectedCategoryId = $resultado['idcategoria'];
-    // echo "<p>Categoría seleccionada: $selectedCategoryId</p>"; // Mensaje de depuración
-} else {
-    $selectedCategoryId = null;
-    // echo "<p>No se encontró ninguna categoría en la base de datos.</p>"; // Mensaje de depuración
-}
-
-// Define las URLs para cada categoría
-$links = [
-    1 => "../Categoria_Numeros/",
-    2 => "../Categoria_Frutas/",
-    3 => "../Categoria_Computo/"
-];
-
-// Asigna la URL basada en la categoría seleccionada, agregando el archivo "Memorizacion.html"
-$selectedLink = $selectedCategoryId ? ($links[$selectedCategoryId] . "Memorizacion Dificil.html") : '#';
-?>
-
-<!-- <!DOCTYPE html> -->
+<!DOCTYPE html>
 <html lang="es">
 
 <head>

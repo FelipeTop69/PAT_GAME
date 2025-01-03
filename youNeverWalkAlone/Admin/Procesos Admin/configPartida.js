@@ -135,26 +135,16 @@ formularioConfig.addEventListener('submit', (event) => {
                 window.location.href = "Union_Jugadores.html";
             })
             .catch(error => {
-                console.error('Error al configurar partida:', error);
-                Swal.fire({
-                    title: "Error",
-                    text: "No se pudo configurar la partida. Inténtalo de nuevo.",
-                    icon: "error",
-                });
+                console.error('Error papi:', error);
             });
         }
     })
     .catch(error => {
-        console.error('Error al verificar partida:', error);
-        Swal.fire({
-            title: "Error",
-            text: "No se pudo verificar la existencia de partidas. Inténtalo de nuevo.",
-            icon: "error",
-        });
+        console.error('Error papi:', error);
     });
 });
 
 
-addEventListener('DOMContentLoaded', () =>{
+document.addEventListener('DOMContentLoaded', () =>{
     obtenerCategorias();
 })

@@ -14,6 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     setTimeout(() => {
-        window.location.href = 'Dificultades/Dificultad.php';
+        window.location.href = 'Dificultades/Dificultad.html';
     }, 6000); 
 });
