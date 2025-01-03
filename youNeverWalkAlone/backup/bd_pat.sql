@@ -139,7 +139,9 @@ ALTER SEQUENCE public.configuracion_id_configuracion_seq OWNED BY public.configu
 CREATE TABLE public.jugador_partida (
     jugadorpartidaid integer NOT NULL,
     puntuacion integer NOT NULL,
-    jugadorid integer
+    jugadorid integer,
+    ronda integer,
+    nivel character varying(10)
 );
 
 
@@ -292,9 +294,6 @@ COPY public.avatares (avatarid, imagenurl, descripcion) FROM stdin;
 6	../assets/img/Avatares/Avatar_06.png	Avatar06
 7	../assets/img/Avatares/Avatar_07.png	Avatar07
 8	../assets/img/Avatares/Avatar_08.png	Avatar08
-9	../assets/img/Avatares/Avatar_09.png	Avatar09
-10	../assets/img/Avatares/Avatar_10.png	Avatar10
-11	../assets/img/Avatares/Avatar_11.png	Avatar11
 \.
 
 
@@ -303,9 +302,9 @@ COPY public.avatares (avatarid, imagenurl, descripcion) FROM stdin;
 --
 
 COPY public.categoria (idcategoria, nombre, activo) FROM stdin;
-1	Numeros	1
 2	Frutas	1
-3	Computo	1
+1	Números	1
+3	Cómputo	1
 \.
 
 
@@ -321,7 +320,7 @@ COPY public.configuracion (id_configuracion, memorizarfacil, ordenarfacil, memor
 -- Data for Name: jugador_partida; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.jugador_partida (jugadorpartidaid, puntuacion, jugadorid) FROM stdin;
+COPY public.jugador_partida (jugadorpartidaid, puntuacion, jugadorid, ronda, nivel) FROM stdin;
 \.
 
 
@@ -330,7 +329,7 @@ COPY public.jugador_partida (jugadorpartidaid, puntuacion, jugadorid) FROM stdin
 --
 
 COPY public.puntos (id_puntos, puntos_obtenidos) FROM stdin;
-1	0
+1	\N
 \.
 
 
@@ -346,7 +345,7 @@ COPY public.registro_jugador (jugadorid, numerodocumento, nombre, avatarid) FROM
 -- Name: avatares_avatarid_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.avatares_avatarid_seq', 11, true);
+SELECT pg_catalog.setval('public.avatares_avatarid_seq', 8, true);
 
 
 --
