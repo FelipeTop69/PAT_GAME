@@ -71,7 +71,7 @@ formRegistro.addEventListener('submit', (focus) => {
             
                 // Esperar 1 segundo antes de redirigir
                 setTimeout(() => {
-                    window.location.href = 'Lobby.php';
+                    window.location.href = 'Lobby.html';
                 }, 2000);
 
                 // Reiniciar el formulario

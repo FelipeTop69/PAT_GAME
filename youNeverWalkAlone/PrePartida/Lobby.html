@@ -1,25 +1,3 @@
-<?php
-
-    include '../Conexion/conexion.php';
-    $conexion = new Conexion();
-
-    session_start();
-
-    // Verificar si la sesión del jugador está activa
-    if (!isset($_SESSION['jugador'])) {
-        header("Location: Registro.html");
-        exit;
-    }
-
-    $jugadorSesion = [
-        'id' => $_SESSION['jugador']['numerodocumento'],
-        'nombre' => $_SESSION['jugador']['nombre']
-    ];
-
-    // session_destroy();
-
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -149,10 +127,6 @@
     <script src="assets/js/mainLobby.js"></script>
     <script src="../assets/js/main.js"></script>
 
-    <script>
-        // Pasar el array a JSON
-        const jugadorSesion = <?php echo json_encode($jugadorSesion); ?>;
-    </script>
 </body>
 
 </html>
