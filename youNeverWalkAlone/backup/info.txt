@@ -1,0 +1,1 @@
+Version de pgAdmin compatible : 16 en adeleante

@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(tiempoAsignado => {
             // Validación: Si tiempoAsignado es 0, null, o undefined, no llamar a iniciarBarraProgreso
             if (tiempoAsignado > 0 && tiempoAsignado != null) {
-                const url = "../../Partida/Ordenar_validacionComputo.html";
+                const url = "../../Partida/Ordenar_ValidacionComputo.html";
                 iniciarTemporizador(tiempoAsignado,url);
             } else {
                 console.log("El tiempo asignado es 0 o no está disponible, no se inicia la barra de progreso.");
