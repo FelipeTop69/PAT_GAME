@@ -50,10 +50,10 @@ function avanzarRonda() {
                     setTimeout(startFadeOut, timePreRedireccion);
                 } else if (nivel === 'medio') {
                     console.log('Nivel medio, redirigiendo al detalle de la dificultad');
-                    window.location.href = 'Dificultades/Dificultad Medio.php';
+                    window.location.href = 'Dificultades/Dificultad Medio.html';
                 } else if (nivel === 'dificil') {
                     console.log('Nivel dificil, redirigiendo al detalle de la dificultad');
-                    window.location.href = 'Dificultades/Dificultad Dificil.php';
+                    window.location.href = 'Dificultades/Dificultad Dificil.html';
                 }
             })
             .catch(error => {

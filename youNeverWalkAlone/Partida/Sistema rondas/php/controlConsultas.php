@@ -1,6 +1,23 @@
 <?php 
 
 class ConsultasNiveles extends Conexion {
+    // Obtener categoría
+    public function obtenerCategoria() {
+        try {
+            $sqlObtenerCategoria = "
+                SELECT idcategoria
+                FROM configuracion
+                WHERE idcategoria IN (1, 2, 3)
+                LIMIT 1
+            ";
+            $stmt = $this->ejecutar($sqlObtenerCategoria);
+            $resultado = $stmt->fetch();
+            return $resultado;
+        } catch (PDOException $e) {
+            return ['error' => $e->getMessage()];
+        }
+    }
+
     // Obtener progreso del jugador
     public function obtenerProgresoJugador($jugador) {
         try {

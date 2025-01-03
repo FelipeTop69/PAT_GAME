@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html> -->
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="../../Bootstrap/css/bootstrap.min.css">
     <!-- Librerias -->
     <link rel="stylesheet" href="../../assets/Libreria/SweetAlert2/css/sweetalert2.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="../../assets/Libreria/AnimateCSS/animate.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" /> -->
     <!-- Estilos -->
     <link rel="stylesheet" href="../../assets/css/style.css">
     <link rel="stylesheet" href="../../assets/css/fondoContenido.css">
@@ -27,10 +28,10 @@
 <body>
 
     <div class="container d-flex justify-content-center align-items-center vh-100">
-        <div class="carta-dificultad p-3 animate__animated animate__fadeInUpBig">
+        <div class="carta-dificultad p-3 animate__animated animate__zoomInUp">
             <div class="titulo-dificultad position-absolute top-0 start-50 translate-middle">
                 <div class="marco-titulo px-2 py-3 ">
-                    <h1>¡ATENTO!!</h1>
+                    <h1 class="shake">¡ATENTO!!</h1>
                 </div>
             </div>
             <div class="contenido-dificultad">
@@ -45,24 +46,15 @@
                 <div class="contenedor-descripcion p-2">
                     <div class="contenedor-numero-elementos p-1">
                         <h4 class="palabra texto-medio">ELEMENTOS</h4>
-                        <h4 class="numero">4</h4>
+                        <h4 class="numero">6</h4>
                     </div>
                     <div class="contenedor-tiempo p-1">
                         <h4 class="palabra texto-medio">TIEMPO MEMORIZACION</h4>
-                        <h4 class="numero">8s</h4>
+                        <h4 id="tiempoMemoMedio" class="numero"></h4>
                     </div>
                 </div>
             </div>
         </div>
-        <a href="../Categoria_Numeros/Memorizacion Medio.html">
-            <button  class="next position-absolute bottom-0 end-0">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75">
-                    </path>
-                </svg>
-            </button>
-        </a>
     </div>
     <script src="../../Bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../../Bootstrap/js/bootstrap.js"></script>

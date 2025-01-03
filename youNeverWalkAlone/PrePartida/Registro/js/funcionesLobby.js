@@ -334,11 +334,12 @@ document.addEventListener('DOMContentLoaded', () =>{
     // btnActualizarPoints.addEventListener('click', actualizarPuntuacion);
 
     mostrarJugador();
+    listarJugadores()
 
     btnSalir.addEventListener('click', cerrarSesion);
     setInterval(() => {
         listarJugadores()
-    }, 3000);
+    }, 2000);
     verificarEstadoPartida();
     setInterval(verificarEstadoPartida, 800)
 })

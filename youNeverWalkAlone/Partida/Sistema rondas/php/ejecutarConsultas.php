@@ -11,6 +11,16 @@ $tipo_consulta = $_POST['tipo_operacion'];
 
 switch ($tipo_consulta) {
 
+    case 'obtener_categoria':
+        $consulta = new ConsultasNiveles();
+        $resultado = $consulta->obtenerCategoria();
+        if(isset($resultado['error'])){
+            echo json_encode(['error' => 'Error al obtener la categoría', 'details' => $resultado['error']]);
+        }else{
+            echo json_encode($resultado);
+        };
+        break;
+
     case 'obtener_progreso':
         if (isset($_SESSION['jugador'])) {
             $jugador = new Jugador(
