@@ -1,4 +1,4 @@
-const socket = new WebSocket("ws://192.168.10.10:8080");
+const socket = new WebSocket("ws://192.168.10.20:8080");
 const iconoAlerta = `
     <svg xmlns="http://www.w3.org/2000/svg" class="icono-alerta" viewBox="0 0 24 24">
     <g fill="#eab308" fill-opacity="0" stroke="#eab308" stroke-linecap="round" 
@@ -244,6 +244,10 @@ socket.onmessage = (event) => {
     const contenedorMensajes = document.getElementById('contenedorMensajes');
     contenedorMensajes.appendChild(contMensajeRecibido);
 };
+
+document.addEventListener('DOMContentLoaded', () =>{
+    console.log('Recuerda cambiar la dirección ip del WebSocket');
+})
 
 
 
